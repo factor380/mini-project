@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace be_MiniPOrject
 {
-    //bd ha gever
     class Contract
     {
         static int ContractNum;
