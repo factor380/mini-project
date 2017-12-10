@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace be_MiniPOrject
 {
-    class Mother
+    public class Mother
     {
         private int id;
         private string lastName;
