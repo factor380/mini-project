@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace be_MiniPOrject
 {
     
-    class Contract
+    public class Contract
     {
         static int ContractNum;
         private int Contract_Num;
