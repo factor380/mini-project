@@ -8,12 +8,19 @@ namespace be_MiniPOrject
 {
     class Child
     {
-        int id;
-        int MotherId;
-        string name;
-        DateTime DateBirth;
-        bool SpecialNeeds;
-        string WhatHeNeed;
+        private int id;
+        private int motherId;
+        private string name;
+        private DateTime dateBirth;
+        private bool specialNeeds;
+        private string whatHeNeed;
+
+        public int Id { get => id; set => id = value; }
+        public int MotherId { get => motherId; set => motherId = value; }
+        public string Name { get => name; set => name = value; }
+        public DateTime DateBirth { get => dateBirth; set => dateBirth = value; }
+        public bool SpecialNeeds { get => specialNeeds; set => specialNeeds = value; }
+        public string WhatHeNeed { get => whatHeNeed; set => whatHeNeed = value; }
 
         public override string ToString()
         {
