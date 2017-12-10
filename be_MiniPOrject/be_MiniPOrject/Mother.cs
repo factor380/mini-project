@@ -18,6 +18,7 @@ namespace be_MiniPOrject
         private float[,] whenNeededWeek = new float[6, 2];
         private string remarks;
 
+
         public int Id { get => id; set => id = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Name { get => name; set => name = value; }
