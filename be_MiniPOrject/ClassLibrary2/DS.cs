@@ -10,6 +10,7 @@ namespace DS
     {
         static List<Mother> mothers;
         static List<Nanny> nannys;
-
+        static List<Child> kids;
+        static List<Contract> contracts;
     }
 }

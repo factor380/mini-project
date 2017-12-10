@@ -4,32 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using be_MiniPOrject;
-
-namespace dal
+namespace DAL
 {
-    public interface idal
+    public interface IDAL
     {
         void AddNanny();
         void DelNanny();
-        void updatingNanny();
-
+        void UpdatingNanny();
         void AddMother();
         void DelMother();
-        void updatingMother();
+        void UpdatingMother();
         void AddChild();
         void DelChild();
-        void updatingChild();
+        void UpdatingChild();
         void AddContract();
         void DelContract();
-        void updatingContract();
+        void UpdatingContract();
         List<Nanny> AcceptanceNanny();
         List<Mother> AcceptanceMother();
         List<Child> AcceptanceChild();
         List<Contract> AcceptanceContract();
-
-
-
-
     }
 }
 

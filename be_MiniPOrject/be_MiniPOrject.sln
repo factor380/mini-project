@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "be_MiniPOrject", "be_MiniPOrject\be_MiniPOrject.csproj", "{6DE29B59-4961-4C48-836C-CC15F0CD7EF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dal", "dal\dal.csproj", "{777A7D88-8BF4-44AE-87C6-D657AD9C10B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "dal\DAL.csproj", "{777A7D88-8BF4-44AE-87C6-D657AD9C10B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "ClassLibrary1\BL.csproj", "{5A205666-0922-49F6-83CB-BB324DE4D709}"
 EndProject

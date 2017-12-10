@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -48,9 +48,9 @@
       <Project>{6de29b59-4961-4c48-836c-cc15f0cd7ef4}</Project>
       <Name>be_MiniPOrject</Name>
     </ProjectReference>
-    <ProjectReference Include="..\dal\dal.csproj">
+    <ProjectReference Include="..\dal\DAL.csproj">
       <Project>{777a7d88-8bf4-44ae-87c6-d657ad9c10b4}</Project>
-      <Name>dal</Name>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
