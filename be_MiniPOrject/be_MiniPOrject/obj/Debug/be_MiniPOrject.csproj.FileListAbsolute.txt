@@ -1,0 +1,5 @@
+Z:\be_MiniPOrject\be_MiniPOrject\bin\Debug\be_MiniPOrject.dll
+Z:\be_MiniPOrject\be_MiniPOrject\bin\Debug\be_MiniPOrject.pdb
+Z:\be_MiniPOrject\be_MiniPOrject\obj\Debug\be_MiniPOrject.csprojResolveAssemblyReference.cache
+Z:\be_MiniPOrject\be_MiniPOrject\obj\Debug\be_MiniPOrject.dll
+Z:\be_MiniPOrject\be_MiniPOrject\obj\Debug\be_MiniPOrject.pdb
