@@ -10,6 +10,7 @@ namespace be_MiniPOrject
     class Contract
     {
         static int ContractNum;
+        private int Contract_Num;
         private int nannyId;
         private int childId;
         private bool met;
@@ -30,6 +31,7 @@ namespace be_MiniPOrject
         public bool HorM { get => horM; set => horM = value; }
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime EndDate { get => endDate; set => endDate = value; }
+        public int Contract_Num1 { get => Contract_Num; set => Contract_Num = value; }
 
         public override string ToString()
         {
