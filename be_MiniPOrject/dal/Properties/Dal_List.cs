@@ -1,13 +1,14 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using be_MiniPOrject;
-
-
+using DS;
 namespace DAL
 {
     internal class Dal_List : IDAL
     {
-       
         /*
         public Dal_List()
         {
@@ -29,17 +30,18 @@ namespace DAL
         //}
 
         #region Child Function
+            
         public void AddChild(Child c )
         {
             Child chi = GetChild(Child.Id);
             if (stud != null)
-                throw new Exception("Student with the same id already exists...");
-            studentList.Add(student);
+                throw new Exception("child with the same id already exists...");
+            kids.Add(c);
         }
 
-        public bool RemoveStudent(int id)
+        public bool RemoveCHhild(int id)
         {
-            Student stud = GetStudent(id);
+            Child chi = GetChild(id);
             if (stud == null)
                 throw new Exception("Student with the same id not found...");
 
