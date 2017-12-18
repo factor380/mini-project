@@ -7,16 +7,14 @@ namespace DAL
 {
     internal class Dal_List : IDAL
     {
-        private List<Child> ChildList;
-        private List<Contract> ContractList;
-        private List<Nanny> NannyList;
-
+       
+        /*
         public Dal_List()
         {
             studentList = new List<Student>();
             courseList = new List<Course>();
             studentCourseList = new List<StudentCourseAdapter>();
-        }
+        }*///somthing that we need to chang i dont sure how
 
 
         //private static List<Student> studentList;
@@ -30,10 +28,10 @@ namespace DAL
         //    studentCourseList = new List<StudentCourseAdapter>();
         //}
 
-        #region Student Function
-        public void AddStudent(Student student)
+        #region Child Function
+        public void AddChild(Child c )
         {
-            Student stud = GetStudent(student.StudentId);
+            Child chi = GetChild(Child.Id);
             if (stud != null)
                 throw new Exception("Student with the same id already exists...");
             studentList.Add(student);
@@ -59,9 +57,9 @@ namespace DAL
             studentList[index] = student;
         }
 
-        public Student GetStudent(int id)
+        public c GetChild(int id)
         {
-            return studentList.FirstOrDefault(s => s.StudentId == id);
+            return ChildList.FirstOrDefault(c => c.ChildtId == id);
         }
 
         public IEnumerable<Student> GetAllStudents(Func<Student, bool> predicat = null)
