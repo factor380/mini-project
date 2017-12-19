@@ -41,12 +41,7 @@ namespace dal
 
         public Child GetChild(int id)
         {
-            foreach (Child c in kids)
-            {
-                if (c.Id == id)
-                    return c;
-            }
-            return null;
+            return kids.FirstOrDefault(c => c.id == id);
         }
 
         public void RemoveChild(int id)
@@ -93,12 +88,7 @@ namespace dal
         }
         public Nanny GetNanny(int id)
         {
-            foreach (Nanny n in nunnys)
-            {
-                if (n.Id == id)
-                    return n;
-            }
-            return null;
+            return nannys.FirstOrDefault(n => n.Id == id);
         }
         #endregion
 
@@ -114,12 +104,7 @@ namespace dal
 
         public Mother GetMother(int id)
         {
-                foreach (Mother m in mothers)
-                {
-                    if (m.Id == id)
-                        return m;
-                }
-                return null;
+            return mothers.FirstOrDefault(m => m.Id == id);
         }
 
         public void RemoveMother(int id)
@@ -151,12 +136,7 @@ namespace dal
 
         public Contract GetContract(int contract_Num)
         {
-            foreach (Contract c in contracts)
-            {
-                if (c.Contract_Num1 == contract_Num)
-                    return c;
-            }
-            return null;
+            return contracts.FirstOrDefault(c => c.ContractNum1 == contract_Num);
         }
 
         public void RemoveContract(int contract_Num)
