@@ -41,13 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_IMP.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\be_MiniPOrject\be_MiniPOrject.csproj">
+    <ProjectReference Include="..\be_MiniPOrject\BE.csproj">
       <Project>{6de29b59-4961-4c48-836c-cc15f0cd7ef4}</Project>
-      <Name>be_MiniPOrject</Name>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DS\DS.csproj">
+      <Project>{4dc8e6f3-e72d-4db7-a669-a2f0aef85a56}</Project>
+      <Name>DS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

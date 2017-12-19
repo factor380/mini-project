@@ -36,7 +36,17 @@ namespace dal
             Child chi = GetChild(c.Id);
             if (chi != null)
                 throw new Exception("child with the same id already exists...");
+            kids.add(c);
+        }
 
+        public Child GetChild(int id)
+        {
+            foreach (Child c in kids)
+            {
+                if (c.Id == id)
+                    return c;
+            }
+            return null;
         }
 
         public void RemoveChild(int id)
@@ -81,6 +91,15 @@ namespace dal
                 throw new Exception("nanny with the same id already exists...");
             nan = n;
         }
+        public Nanny GetNanny(int id)
+        {
+            foreach (Nanny n in nunnys)
+            {
+                if (n.Id == id)
+                    return n;
+            }
+            return null;
+        }
         #endregion
 
 
@@ -91,6 +110,16 @@ namespace dal
             if (mom != null)
                 throw new Exception("Mother with the same id already exists...");
             mothers.Add(m);
+        }
+
+        public Mother GetMother(int id)
+        {
+                foreach (Mother m in mothers)
+                {
+                    if (m.Id == id)
+                        return m;
+                }
+                return null;
         }
 
         public void RemoveMother(int id)
@@ -114,23 +143,33 @@ namespace dal
         #region Contract Function
         public void AddContract(Contract c)
         {
-            Contract Con = GetContract(c.Contract_Num);
+            Contract Con = GetContract(c.ContractNum1);//אמור ליהות המספר שמשתנה לא יודע למה לא קורא
             if (Con != null)
                 throw new Exception("Contract with the same id already exists...");
-            Contracts.Add(c);
+            contracts.Add(c);
         }
 
-        public void RemoveContract(int Contract_Num)
+        public Contract GetContract(int contract_Num)
         {
-            Contract Con = GetContract(Contract_Num);
+            foreach (Contract c in contracts)
+            {
+                if (c.Contract_Num1 == contract_Num)
+                    return c;
+            }
+            return null;
+        }
+
+        public void RemoveContract(int contract_Num)
+        {
+            Contract Con = GetContract(contract_Num);
             if (Con == null)
                 throw new Exception("Contract with the same id not found...");
-            Contracts.Remove(Con);
+            contracts.Remove(Con);
         }
 
         public void UpdateContract(Contract c)
         {
-            Contract con = GetContract(c.Contract_Num);
+            Contract con = GetContract(c.ContractNum1);
             if (con == null)
                 throw new Exception("Contract with the same id not found...");
             con = c;
@@ -138,19 +177,10 @@ namespace dal
         #endregion
 
         #region Get List
-        public List<Nanny> AcceptanceNanny() => nannys;
-        public List<Mother> AcceptanceMother()
-        {
-            return mothers;
-        }
-        public List<Child> AcceptanceChild()
-        {
-            return kids;
-        }
-        public List<Contract> AcceptanceContract()
-        {
-            return contracts;
-        }
+        public List<Nanny> AcceptanceNanny() => nunnys;
+        public List<Mother> AcceptanceMother() => mothers;
+        public List<Child> AcceptanceChild() => kids;
+        public List<Contract> AcceptanceContract() => contracts;
         #endregion
     }
 }

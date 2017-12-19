@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 namespace DS
 {
-    public class DataSource
+    class DataSource
     {
         static List<Child> kids;
         static List<Mother> mothers;
-        static List<Nanny> Nannys;
+        static List<Nanny> nannys;
         static List<Contract> contracts;
     }
 }
