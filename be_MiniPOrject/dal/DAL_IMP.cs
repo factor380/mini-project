@@ -10,7 +10,6 @@ namespace dal
     class Dal_IMP
     {
         #region Child Function
-
         public void AddChild(Child c)
         {
             Child chi = GetChild(c.Id);
@@ -109,9 +108,12 @@ namespace dal
         #region Contract Function
         public void AddContract(Contract c)
         {
-            Contract Con = GetContract(c.Contract_Num1);//אמור ליהות המספר שמשתנה לא יודע למה לא קורא
-            if (Con != null)
-                throw new Exception("Contract with the same id already exists...");
+            Nanny nan = GetNanny(c.NannyId);
+            if (nan == null)
+                throw new Exception("there is no nanny with this id");
+            Mother mom = GetMother(c.MotherId);
+            if (mom == null)
+                throw new Exception("there is no mother with this id");
             DataSource.contracts.Add(c);
             Contract.ContractNum1++;
         }

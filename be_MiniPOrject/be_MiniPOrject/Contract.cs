@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace be_MiniPOrject
+namespace BE
 {
-    
+
     public class Contract
     {
         static int ContractNum;
         private int Contract_Num;
         private int nannyId;
+        private int motherId;
         private int childId;
         private bool met;
         private bool activeContract;
@@ -32,6 +33,7 @@ namespace be_MiniPOrject
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime EndDate { get => endDate; set => endDate = value; }
         public int Contract_Num1 { get => Contract_Num; set => Contract_Num = value; }
+        public int MotherId { get => motherId; set => motherId = value; }
 
         public override string ToString()
         {
