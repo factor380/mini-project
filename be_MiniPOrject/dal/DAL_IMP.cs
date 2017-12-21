@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using be_MiniPOrject;
+using BE;
 using DS;
+using System.Xml.Linq;
+
 namespace dal
 {
     class Dal_IMP
@@ -15,8 +17,10 @@ namespace dal
             Child chi = GetChild(c.Id);
             if (chi != null)
                 throw new Exception("child with the same id already exists...");
+            Mother mom = GetMother(c.MotherId);
+            if (mom == null)
+                throw new Exception("not faound mother to this child");
             DataSource.kids.Add(c);
-
         }
 
         public Child GetChild(int id)
@@ -37,7 +41,12 @@ namespace dal
             Child chi = GetChild(c.Id);
             if (chi == null)
                 throw new Exception("child with the same id not found...");
-            chi = c;
+            for (int i = 0; i < DataSource.kids.Capacity; i++)
+            {
+                if (c == chi)
+                    DataSource.kids[i] = c;
+            }
+
         }
         #endregion
 
@@ -64,7 +73,11 @@ namespace dal
             Nanny nan = GetNanny(n.Id);
             if (nan != null)
                 throw new Exception("nanny with the same id already exists...");
-            nan = n;
+            for (int i = 0; i < DataSource.nannys.Capacity; i++)
+            {
+                if (n == nan)
+                    DataSource.nannys[i] = n;
+            }
         }
         public Nanny GetNanny(int id)
         {
@@ -100,7 +113,11 @@ namespace dal
             Mother mom = GetMother(m.Id);
             if (mom == null)
                 throw new Exception("Mother with the same id not found...");
-            mom = m;
+            for (int i = 0; i < DataSource.mothers.Capacity; i++)
+            {
+                if (mom == m)
+                    DataSource.mothers[i] = m;
+            }
         }
         #endregion
 
@@ -108,6 +125,9 @@ namespace dal
         #region Contract Function
         public void AddContract(Contract c)
         {
+            Child chi = GetChild(c.ChildId);
+            if (chi == null)
+                throw new Exception("there is no child with this id");
             Nanny nan = GetNanny(c.NannyId);
             if (nan == null)
                 throw new Exception("there is no nanny with this id");
@@ -136,12 +156,16 @@ namespace dal
             Contract con = GetContract(c.Contract_Num1);
             if (con == null)
                 throw new Exception("Contract with the same id not found...");
-            con = c;
+            for (int i = 0; i < DataSource.contracts.Capacity; i++)
+            {
+                if (con == c)
+                    DataSource.contracts[i] = c;
+            }
         }
         #endregion
 
         #region Get List
-        public List<Nanny> AcceptanceNanny() => DataSource.nannys;
+
         public List<Mother> AcceptanceMother() => DataSource.mothers;
         public List<Child> AcceptanceChild() => DataSource.kids;
         public List<Contract> AcceptanceContract() => DataSource.contracts;

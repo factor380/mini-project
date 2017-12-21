@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using be_MiniPOrject;
+using BE;
 namespace DAL
 {
     public interface IDAL

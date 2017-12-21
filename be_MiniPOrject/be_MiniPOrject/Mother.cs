@@ -8,17 +8,33 @@ namespace BE
 {
     public class Mother
     {
-        private int id;
+        private readonly int id;
         private string lastName;
         private string name;
         private string phoneNum;
         private string address;
         private string addressAround;
         private bool[] dayInWeek = new bool[6];
-        private float[,] whenNeededWeek = new float[6, 2];//למה הגדרת את זה כלא שלם זה צריך ליהות ימים על זמן
+        private float[,] whenNeededWeek = new float[2, 6];//למה הגדרת את זה כלא שלם זה צריך ליהות ימים על זמן
         private string remarks;
 
-        public int Id { get => id; set => id = value; }
+        public Mother(int id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, float[,] whenNeededWeek, string remarks)
+        {
+            if (id >= 100000000 && id <= 999999999)
+                this.id = id;
+            else
+                throw new Exception("this input not make sense");
+            this.lastName = lastName;
+            this.name = name;
+            this.phoneNum = phoneNum;
+            this.address = address;
+            this.addressAround = addressAround;
+            this.dayInWeek = dayInWeek;
+            this.whenNeededWeek = whenNeededWeek;
+            this.remarks = remarks;
+        }
+
+        public int Id { get => id; }
         public string LastName
         {
             get => lastName;
@@ -79,18 +95,17 @@ namespace BE
             }
         }
         public bool[] DayInWeek { get => dayInWeek; set => dayInWeek = value; }
-        public float[,] WhenNeededWeek { get => whenNeededWeek; set => whenNeededWeek = value; }//לבדוק שגיאות
-        public string Remarks
+        public float[,] WhenNeededWeek
         {
-            get => remarks;
+            get => whenNeededWeek;
             set
             {
-                for (int i = 0; i < remarks.Length; i++)
-                    if ((remarks[i] > 'z' || remarks[i] < 'a'))
-                        throw new Exception("this input is not make sense");
-                remarks = value;
+                if (whenNeededWeek.GetLength(0) != 6)
+                    throw new Exception("the number of days not correct");
+                whenNeededWeek = value;
             }
         }
+        public string Remarks { get => remarks; set => remarks = value; }
         public override string ToString()
         {
             return name + ' ' + LastName + " id" + id + " phone number " + PhoneNum + " address " + Address;

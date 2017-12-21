@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace BE
 {
     public class Nanny
     {
-        private int id;
+        private readonly int id;
         private string lastName;
         private string name;
-        private DateTime dateBirth;
+        private readonly DateTime dateBirth;
         private string phoneNum;
         private string address;
         private bool elevator;
@@ -23,11 +24,40 @@ namespace BE
         private float payHour;
         private int payMonth;
         private bool[] dayInWeek = new bool[6];
-        private float[,] workHours = new float[6, 2];
+        private float[,] workHours = new float[2, 6];
         private bool daysOOf;
         private string recommendations;
 
-        public int Id { get => id; set => id = value; }
+        public Nanny(int id, string lastName, string name, DateTime dateBirth, string phoneNum, string address, bool elevator, int floorInBulding, int exp, int maxChildren, int minAgeMonth, int maxAgeMonth, bool yorN_HourlyRate, float payHour, int payMonth, bool[] dayInWeek, float[,] workHours, bool daysOOf, string recommendations)
+        {
+            if (id >= 100000000 && id <= 999999999)
+                this.id = id;
+            else
+                throw new Exception("this input not make sense");
+            this.lastName = lastName;
+            this.name = name;
+            if (dateBirth < DateTime.Now)
+                this.dateBirth = dateBirth;
+            else
+                throw new Exception("this time is not in the past");
+            this.phoneNum = phoneNum;
+            this.address = address;
+            this.elevator = elevator;
+            this.floorInBulding = floorInBulding;
+            this.exp = exp;
+            this.maxChildren = maxChildren;
+            this.minAgeMonth = minAgeMonth;
+            this.maxAgeMonth = maxAgeMonth;
+            this.yorN_HourlyRate = yorN_HourlyRate;
+            this.payHour = payHour;
+            this.payMonth = payMonth;
+            this.dayInWeek = dayInWeek;
+            this.workHours = workHours;
+            this.daysOOf = daysOOf;
+            this.recommendations = recommendations;
+        }
+
+        public int Id { get => id; }
         public string LastName
         {
             get => lastName;
@@ -54,7 +84,7 @@ namespace BE
                 name = value;
             }
         }
-        public DateTime DateBirth { get => dateBirth; set => dateBirth = value; }
+        public DateTime DateBirth { get => dateBirth; }
         public string PhoneNum
         {
             get => phoneNum;
@@ -78,22 +108,13 @@ namespace BE
             }
         }
         public bool Elevator { get => elevator; set => elevator = value; }
-        public int FloorInBulding
-        {
-            get => floorInBulding;
-            set
-            {
-                if (floorInBulding < 0)
-                    throw new Exception("this input is not make sense");
-                floorInBulding = value;
-            }
-        }
+        public int FloorInBulding { get => floorInBulding; set => floorInBulding = value; }
         public int Exp
         {
             get => exp;
             set
             {
-                if (exp < 0)
+                if (exp > (DateTime.Now.Year - dateBirth.Year - 18))
                     throw new Exception("this input is not make sense");
                 exp = value;
             }
@@ -103,7 +124,7 @@ namespace BE
             get => maxChildren;
             set
             {
-                if (maxChildren < 0)
+                if (maxChildren < 1)
                     throw new Exception("this input is not make sense");
                 maxChildren = value;
             }
@@ -114,7 +135,7 @@ namespace BE
             set
             {
 
-                if (minAgeMonth < 0)
+                if (minAgeMonth < 3)
                     throw new Exception("this input is not make sense");
                 minAgeMonth = value;
             }
@@ -124,28 +145,36 @@ namespace BE
             get => maxAgeMonth;
             set
             {
-                if (maxAgeMonth < 0 || maxAgeMonth < minAgeMonth)
+                if (maxAgeMonth < minAgeMonth)
                     throw new Exception("this input is not make sense");
                 maxAgeMonth = value;
             }
         }
         public bool YorN_HourlyRate { get => yorN_HourlyRate; set => yorN_HourlyRate = value; }
         public float PayHour { get => payHour; set => payHour = value; }
-        public int PayMonth { get => payMonth; set => payMonth = value; }
-        public bool[] DayInWeek { get => dayInWeek; set => dayInWeek = value; }
-        public float[,] WorkHours { get => workHours; set => workHours = value; }
-        public bool DaysOOf { get => daysOOf; set => daysOOf = value; }
-        public string Recommendations
+        public int PayMonth
         {
-            get => recommendations;
+            get => payMonth;
             set
             {
-                for (int i = 1; i < recommendations.Length; i++)
-                    if (recommendations[i] > 'z' || recommendations[i] < 'a' && recommendations[i] != ' ')
-                        throw new Exception("this input is not make sense");
-                recommendations = value;
+                if (PayMonth < 0)
+                    throw new Exception("the input not make sense");
+                payMonth = value;
             }
         }
+        public bool[] DayInWeek { get => dayInWeek; set => dayInWeek = value; }
+        public float[,] WorkHours
+        {
+            get => workHours;
+            set
+            {
+                if (workHours.GetLength(0) != 6)
+                    throw new Exception("the number of days not correct");
+                workHours = value;
+            }
+        }
+        public bool DaysOOf { get => daysOOf; set => daysOOf = value; }
+        public string Recommendations { get => recommendations; set => recommendations = value; }
 
         public override string ToString()
         {
