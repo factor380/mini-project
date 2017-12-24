@@ -27,6 +27,7 @@ namespace BE
         private float[,] workHours = new float[2, 6];
         private bool daysOOf;
         private string recommendations;
+        public List<int> ListIdContract;//List that save all the Contract ID that the nanny hava
 
         public Nanny(int id, string lastName, string name, DateTime dateBirth, string phoneNum, string address, bool elevator, int floorInBulding, int exp, int maxChildren, int minAgeMonth, int maxAgeMonth, bool yorN_HourlyRate, float payHour, int payMonth, bool[] dayInWeek, float[,] workHours, bool daysOOf, string recommendations)
         {
