@@ -4,29 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
+
 namespace DAL
 {
     public interface IDAL
     {
-        void AddNanny();
-        void DelNanny();
-        void UpdatingNanny();
-        Nanny GetNanny();
+        void AddNanny(Nanny n);
+        void RemoveNanny(int id);
+        void UpdateNanny(Nanny n);
+        Nanny GetNanny(int id);
 
-        void AddMother();
-        void DelMother();
-        void UpdatingMother();
-        Mother GetMother();
+        void AddMother(Mother m);
+        void RemoveMother(int id);
+        void UpdateMother(Mother m);
+        Mother GetMother(int id);
 
-        void AddChild();
-        void DelChild();
-        void UpdatingChild();
-        Child GetChild();
+        void AddChild(Child c);
+        void RemoveChild(int id);
+        void UpdateChild(Child c);
+        Child GetChild(int id);
 
-        void AddContract();
-        void DelContract();
-        void UpdatingContract();
-        Contract GetContract();
+        void AddContract(Contract c);
+        void RemoveContract(int contract_Num);
+        void UpdateContract(Contract c);
+        Contract GetContract(int contract_Num);
 
         List<Nanny> AcceptanceNanny();
         List<Mother> AcceptanceMother();

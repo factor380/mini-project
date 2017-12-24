@@ -7,9 +7,9 @@ using BE;
 using DS;
 using System.Xml.Linq;
 
-namespace dal
+namespace DAL
 {
-    class Dal_IMP
+    class Dal_IMP : IDAL
     {
         #region Child Function
         public void AddChild(Child c)
@@ -165,7 +165,7 @@ namespace dal
         #endregion
 
         #region Get List
-
+        public List<Nanny> AcceptanceNanny() => DataSource.nannys;
         public List<Mother> AcceptanceMother() => DataSource.mothers;
         public List<Child> AcceptanceChild() => DataSource.kids;
         public List<Contract> AcceptanceContract() => DataSource.contracts;
