@@ -29,7 +29,7 @@ namespace BL
                 if (c.EndDate > DateTime.Now)
                     throw new Exception("Nanny have contract that she dont finish");
             }
-            dal.RemoveNanny(n);
+            dal.RemoveNanny(n.Id);
         }
 
         void UpdatingNanny(Nanny n)

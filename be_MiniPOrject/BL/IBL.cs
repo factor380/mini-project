@@ -15,20 +15,20 @@ namespace BL
         void UpdatingNanny(Nanny n);
         Nanny GetNanny(int id);
 
-        void AddMother();
-        void DelMother();
-        void UpdatingMother();
-        Mother GetMother();
+        void AddMother(Mother m);
+        void DelMother(Mother m);
+        void UpdatingMother(Mother m);
+        Mother GetMother(int id);
 
         void AddChild(Child c);
         void DelChild(Child c);
         void UpdatingChild(Child c);
         Child GetChild(int id);
 
-        void AddContract();
-        void DelContract();
-        void UpdatingContract();
-        Contract GetContract();
+        void AddContract(Contract c);
+        void DelContract(Contract c);
+        void UpdatingContract(Contract c);
+        Contract GetContract(int Contract_number);
 
         List<Nanny> AcceptanceNanny();
         List<Mother> AcceptanceMother();
