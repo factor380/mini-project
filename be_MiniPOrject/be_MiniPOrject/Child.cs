@@ -14,6 +14,7 @@ namespace BE
         private readonly DateTime dateBirth;
         private bool specialNeeds;
         private string whatHeNeed;
+        public List<int> ListIdContract;
 
         public Child(int id, int motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {

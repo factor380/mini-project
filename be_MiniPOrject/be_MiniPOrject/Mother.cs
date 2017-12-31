@@ -17,6 +17,7 @@ namespace BE
         private bool[] dayInWeek = new bool[6];
         private float[,] whenNeededWeek = new float[2, 6];//למה הגדרת את זה כלא שלם זה צריך ליהות ימים על זמן
         private string remarks;
+        public List<int> ListIdChild;
 
         public Mother(int id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, float[,] whenNeededWeek, string remarks)
         {
