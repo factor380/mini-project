@@ -46,5 +46,11 @@
     <Compile Include="Mother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\BE.Child.datasource" />
+    <None Include="Properties\DataSources\BE.Contract.datasource" />
+    <None Include="Properties\DataSources\BE.Mother.datasource" />
+    <None Include="Properties\DataSources\BE.Nanny.datasource" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

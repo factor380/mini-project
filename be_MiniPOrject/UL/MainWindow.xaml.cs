@@ -28,25 +28,25 @@ namespace UL
             InitializeComponent();
         }
 
-        private void addNunnyButton_Click(object sender, RoutedEventArgs e)
+        private void NunnyButton_Click(object sender, RoutedEventArgs e)
         {
             Window addNunnyWindow = new AddNunnyWindow();
             addNunnyWindow.Show();
         }
 
-        private void addMotherButton_Click(object sender, RoutedEventArgs e)
+        private void MotherButton_Click(object sender, RoutedEventArgs e)
         {
             Window addMotherWindow = new AddMotherWindow();
             addMotherWindow.Show();
         }
 
-        private void addChildButton_Click(object sender, RoutedEventArgs e)
+        private void ChildButton_Click(object sender, RoutedEventArgs e)
         {
             Window addChildWindow = new AddChildWindow();
             addChildWindow.Show();
         }
 
-        private void addContractButton_Click(object sender, RoutedEventArgs e)
+        private void ContractButton_Click(object sender, RoutedEventArgs e)
         {
             Window addContractWindow = new AddContractWindow();
             addContractWindow.Show();

@@ -13,9 +13,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="addChildButton" Content="ADD CHILD" FontSize="40" Grid.Row="0" Click="addChildButton_Click" />
-        <Button x:Name="addMotherButton" Content="ADD MOTHER" FontSize="40" Grid.Row="1" Click="addMotherButton_Click" />
-        <Button x:Name="addNunnyButton" Content="ADD NUNNY" FontSize="40" Grid.Row="2" Click="addNunnyButton_Click" />
-        <Button x:Name="addContractButton" Content="ADD CONTRACT" FontSize="40" Grid.Row="3" Click="addContractButton_Click" />
+        <Button x:Name="AddChildButton" Content="ADD CHILD" FontSize="40" Grid.Row="0" Click="AddChildButton_Click" />
+        <Button x:Name="AddMotherButton" Content="ADD MOTHER" FontSize="40" Grid.Row="1" Click="AddMotherButton_Click" />
+        <Button x:Name="AddNunnyButton" Content="ADD NUNNY" FontSize="40" Grid.Row="2" Click="AddNunnyButton_Click" />
+        <Button x:Name="AddContractButton" Content="ADD CONTRACT" FontSize="40" Grid.Row="3" Click="AddContractButton_Click" />
     </Grid>
 </Window>

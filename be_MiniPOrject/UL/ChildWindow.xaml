@@ -1,0 +1,47 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UL"
+        xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.AddChildWindow"
+        mc:Ignorable="d"
+        Title="AddChildWindow" Height="500" Width="500" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="childViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Child}, CreateList=True}"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Label Content="ADD CHILD" FontSize="40" Grid.Row="0"/>
+        <Grid x:Name="grid1" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="347" Width="493">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Date Birth:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Center" FontSize="30" Width="242"/>
+            <DatePicker x:Name="dateBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding DateBirth, Mode=OneWay}" VerticalAlignment="Center" FontSize="30"/>
+            <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" FontSize="30" Width="242"/>
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="58" Grid.Row="1" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="242" FontSize="30"/>
+            <Label Content="Mother Id:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" FontSize="30" Width="242"/>
+            <TextBox x:Name="motherIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="58" Margin="3" Grid.Row="2" Text="{Binding MotherId, Mode=OneWay}" VerticalAlignment="Center" Width="242" FontSize="30"/>
+            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" FontSize="30" Width="242"/>
+            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="58" Margin="3" Grid.Row="3" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="242" FontSize="30"/>
+            <Label Content="Special Needs:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" FontSize="30" Width="242"/>
+            <CheckBox x:Name="specialNeedsCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding SpecialNeeds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <Label Content="What He Need:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" FontSize="30" Width="242"/>
+            <TextBox x:Name="whatHeNeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding WhatHeNeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="242" Height="58" FontSize="30"/>
+        </Grid>
+    </Grid>
+</Window>

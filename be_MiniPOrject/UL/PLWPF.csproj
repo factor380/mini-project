@@ -54,19 +54,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AddChildWindow.xaml">
+    <Page Include="ChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddContractWindow.xaml.xaml">
+    <Page Include="ContractWindow.xaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddMotherWindow.xaml.xaml">
+    <Page Include="MotherWindow.xaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddNunnyWindow.xaml.xaml">
+    <Page Include="NunnyWindow.xaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -74,17 +74,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddChildWindow.xaml.cs">
-      <DependentUpon>AddChildWindow.xaml</DependentUpon>
+    <Compile Include="ChildWindow.xaml.cs">
+      <DependentUpon>ChildWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddContractWindow.xaml.xaml.cs">
-      <DependentUpon>AddContractWindow.xaml.xaml</DependentUpon>
+    <Compile Include="ContractWindow.xaml.xaml.cs">
+      <DependentUpon>ContractWindow.xaml.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddMotherWindow.xaml.xaml.cs">
-      <DependentUpon>AddMotherWindow.xaml.xaml</DependentUpon>
+    <Compile Include="MotherWindow.xaml.xaml.cs">
+      <DependentUpon>MotherWindow.xaml.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddNunnyWindow.xaml.xaml.cs">
-      <DependentUpon>AddNunnyWindow.xaml.xaml</DependentUpon>
+    <Compile Include="NunnyWindow.xaml.xaml.cs">
+      <DependentUpon>NunnyWindow.xaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -113,6 +113,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\BE.Child.datasource" />
+    <None Include="Properties\DataSources\BE.Contract.datasource" />
+    <None Include="Properties\DataSources\BE.Mother.datasource" />
+    <None Include="Properties\DataSources\BE.Nanny.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

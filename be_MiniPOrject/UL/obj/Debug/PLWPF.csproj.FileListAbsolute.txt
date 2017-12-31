@@ -7,3 +7,7 @@ C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\MainWindow.g.cs
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\App.g.cs
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\UL_MarkupCompile.cache
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\UL_MarkupCompile.lref
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\ChildWindow.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\ContractWindow.xaml.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\MotherWindow.xaml.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\NunnyWindow.xaml.g.cs
