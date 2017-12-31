@@ -20,7 +20,7 @@ namespace BL
             dal.AddNanny(n);
         }
 
-        void DelNanny(Nanny n)
+        void RemoveNanny(Nanny n)
         {
             Contract c;
             foreach (int IdCo in n.ListIdContract)
@@ -32,10 +32,10 @@ namespace BL
             dal.RemoveNanny(n.Id);
         }
 
-        void UpdatingNanny(Nanny n)
+        void UpdateNanny(Nanny n)
         {
             Nanny nan = GetNanny(n.Id);
-            if (n.ListIdContract1.Count() > nan.MaxChildren)
+            if (n.ListIdContract.Count() > nan.MaxChildren)
                 throw new Exception("Nanny cant have more children");
             dal.UpdateNanny(n);
         }
@@ -52,11 +52,35 @@ namespace BL
         {
             dal.AddChild(c);
         }
-        void DelChild(Child c)
+        void DelChild(int id)
         {
 
         }
-        void UpdatingChild();
-        Child GetChild();
+        void UpdatingChild(Child c)
+        {
+            dal.UpdateChild(c);
+        }
+        Child GetChild(int id)
+        {
+            return dal.GetChild(id);
+        }
+        #endregion
+        #region mother func
+        void AddMother(Mother m)
+        {
+            dal.AddMother(m);
+        }
+        void RemoveMother(int id)
+        {
+
+        }
+        void UpdateMother(Mother m)
+        {
+            dal.UpdateMother(m);
+        }
+        Mother GetMother(int id)
+        {
+            return dal.GetMother(id);
+        }
     }
 }
