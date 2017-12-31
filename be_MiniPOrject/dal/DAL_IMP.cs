@@ -100,6 +100,15 @@ namespace DAL
             return DataSource.mothers.FirstOrDefault(m => m.Id == id);
         }
 
+        public Mother GetMotherWithChildId(int id)
+        {
+            Child chi=GetChild(id);
+            if (chi==null)
+                throw new Exception("thare no child with that id");
+            
+            return DataSource.mothers.FirstOrDefault(chi => chi.chi.MotherId == id);
+        }
+
         public void RemoveMother(int id)
         {
             Mother mom = GetMother(id);
@@ -135,6 +144,8 @@ namespace DAL
             if (mom == null)
                 throw new Exception("there is no mother with this id");
             DataSource.contracts.Add(c);
+            chi.ListIdContract.Add(c.id);
+            nan.ListIdContract.Add(c.id);
             Contract.ContractNum1++;
         }
 
@@ -172,6 +183,3 @@ namespace DAL
         #endregion
     }
 }
-
-
-
