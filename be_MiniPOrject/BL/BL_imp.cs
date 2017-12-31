@@ -107,6 +107,33 @@ namespace BL
         #region Contract func
         void AddContract(Contract c)
         {
+            Child chi =GetChild(c.ChildId);
+            Nanny nan =GetNanny(c.NannyId);
+            Mother mom=GetMother(c.MotherId);
+            int temp=0;//if the nanny have more children from the mother they are rebate 
+            if(DateTime.now-chi.DateBirth<nan.MinAgeMonth)
+                { 
+                throw new Exception("the nanny can't get the age of the child");
+                }
+
+             if(DateTime.now-chi.DateBirth>nan.MaxAgeMonth)
+                { 
+                throw new Exception("the nanny can't get the age of the child");
+                }
+
+             if(nan.ListIdContract.Contains==nan.MaxChildren)
+                {
+                throw new Exception("the nanny take care of max child that she can");
+                }
+             
+             foreach(int idc in nan.ListIdContract)
+                {
+                 Contract con=GetContract(idc);
+                if(con.MotherId==mom.id)
+                    tamp++;
+                }
+             //לסיים את חישוב השכר
+
 
         }
 
