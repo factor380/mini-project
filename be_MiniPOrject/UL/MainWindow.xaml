@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="addChildButton" Content="ADD CHILD" FontSize="40" Grid.Row="0" Click="addChildButton_Click" />
+        <Button x:Name="addMotherButton" Content="ADD MOTHER" FontSize="40" Grid.Row="1" Click="addMotherButton_Click" />
+        <Button x:Name="addNunnyButton" Content="ADD NUNNY" FontSize="40" Grid.Row="2" Click="addNunnyButton_Click" />
+        <Button x:Name="addContractButton" Content="ADD CONTRACT" FontSize="40" Grid.Row="3" Click="addContractButton_Click" />
     </Grid>
 </Window>

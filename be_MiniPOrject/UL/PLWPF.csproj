@@ -54,10 +54,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddContractWindow.xaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddMotherWindow.xaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddNunnyWindow.xaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddChildWindow.xaml.cs">
+      <DependentUpon>AddChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddContractWindow.xaml.xaml.cs">
+      <DependentUpon>AddContractWindow.xaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddMotherWindow.xaml.xaml.cs">
+      <DependentUpon>AddMotherWindow.xaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddNunnyWindow.xaml.xaml.cs">
+      <DependentUpon>AddNunnyWindow.xaml.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -97,6 +125,10 @@
     <ProjectReference Include="..\be_MiniPOrject\BE.csproj">
       <Project>{6de29b59-4961-4c48-836c-cc15f0cd7ef4}</Project>
       <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{511b08d9-921d-4b07-8a55-7af118851b8b}</Project>
+      <Name>BL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

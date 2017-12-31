@@ -1,0 +1,9 @@
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\PLWPF.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\AddChildWindow.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\AddContractWindow.xaml.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\AddMotherWindow.xaml.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\AddNunnyWindow.xaml.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\App.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\UL_MarkupCompile.cache
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\UL_MarkupCompile.lref

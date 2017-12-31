@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BL;
+using BE;
 
 namespace UL
 {
@@ -20,9 +22,34 @@ namespace UL
     /// </summary>
     public partial class MainWindow : Window
     {
+        IBL bl;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void addNunnyButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window addNunnyWindow = new AddNunnyWindow();
+            addNunnyWindow.Show();
+        }
+
+        private void addMotherButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window addMotherWindow = new AddMotherWindow();
+            addMotherWindow.Show();
+        }
+
+        private void addChildButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window addChildWindow = new AddChildWindow();
+            addChildWindow.Show();
+        }
+
+        private void addContractButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window addContractWindow = new AddContractWindow();
+            addContractWindow.Show();
         }
     }
 }

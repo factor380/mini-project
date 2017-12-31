@@ -1,0 +1,2 @@
+C:\Users\User\Desktop\mini project\be_MiniPOrject\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\mini project\be_MiniPOrject\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
