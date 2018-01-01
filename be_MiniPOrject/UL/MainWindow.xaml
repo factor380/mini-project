@@ -7,15 +7,45 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Button x:Name="AddChildButton" Content="ADD CHILD" FontSize="40" Grid.Row="0" Click="AddChildButton_Click" />
-        <Button x:Name="AddMotherButton" Content="ADD MOTHER" FontSize="40" Grid.Row="1" Click="AddMotherButton_Click" />
-        <Button x:Name="AddNunnyButton" Content="ADD NUNNY" FontSize="40" Grid.Row="2" Click="AddNunnyButton_Click" />
-        <Button x:Name="AddContractButton" Content="ADD CONTRACT" FontSize="40" Grid.Row="3" Click="AddContractButton_Click" />
+        <TabControl Grid.ColumnSpan="4" Margin="0,0,-0.333,-0.333">
+            <TabControl.Items>
+                <TabItem Header="Child" Grid.Column="0" FontSize="20">
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Button Content="ADD Child" Click="Button_Click_AddChild" />
+                            <Button Content="REMOVE child" />
+                            <Button Content="UPDATE child" />
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="MOTHER" FontSize="20">
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Button Content="ADD mother" Click="Button_Click_AddMother" />
+                            <Button Content="REMOVE mother" />
+                            <Button Content="UPDATE mother" />
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="NUNNY" FontSize="20">
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Button Content="ADD nunny" Click="Button_Click_AddNunny" />
+                            <Button Content="REMOVE nunny" />
+                            <Button Content="UPDATE nunny" />
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="CONTRACT" FontSize="20">
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Button Content="ADD contract" Click="Button_Click" />
+                            <Button Content="REMOVE contract" />
+                            <Button Content="UPDATE contract" />
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
     </Grid>
 </Window>

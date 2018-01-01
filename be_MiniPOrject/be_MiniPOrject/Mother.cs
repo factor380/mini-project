@@ -35,6 +35,10 @@ namespace BE
             this.remarks = remarks;
         }
 
+        public Mother()
+        {
+        }
+
         public int Id { get => id; }
         public string LastName
         {

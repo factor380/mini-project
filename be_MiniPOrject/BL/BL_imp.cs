@@ -55,8 +55,8 @@ namespace BL
         void DelChild(int id)//אני חושב שיש דברים שצריך לשפר פה א
         {
             Contract c;
-            Child chi=GetChild(id);
-            Mother m =GetMotherWithChildId(id);
+            Child chi = GetChild(id);
+            Mother m = GetMotherWithChildId(id);
             foreach (int IdCo in chi.ListIdContract)
             {
                 c = dal.GetContract(IdCo);
@@ -64,7 +64,7 @@ namespace BL
                     throw new Exception("Child have contract that he dont finish");
             }
             //the thing to the 2% שכר
-            
+
         }
         void UpdatingChild(Child c)
         {
@@ -83,10 +83,10 @@ namespace BL
         }
         void RemoveMother(int id)
         {
-            m=getmother(id);
+            m = getmother(id);
             foreach (int Idc in m.ListIdChild)
             {
-                 DelChild(idc);
+                DelChild(idc);
             }
             dal.RemoveMother(id);
         }
@@ -99,91 +99,91 @@ namespace BL
             return dal.GetMother(id);
         }
         Mother GetMotherWithChildId(int id)
-        { 
+        {
             return dal.GetMotherWithChildId(id);
         }
         #endregion
-         
+
         #region Contract func
         void AddContract(Contract c)
         {
-            Child chi =GetChild(c.ChildId);
-            Nanny nan =GetNanny(c.NannyId);
-            Mother mom=GetMother(c.MotherId);
-            int temp=0;//if the nanny have more children from the mother they are rebate 
-            if(DateTime.now-chi.DateBirth<nan.MinAgeMonth)
-                { 
+            Child chi = GetChild(c.ChildId);
+            Nanny nan = GetNanny(c.NannyId);
+            Mother mom = GetMother(c.MotherId);
+            int temp = 0;//if the nanny have more children from the mother they are rebate 
+            if (DateTime.Today.Year - chi.DateBirth.Year < nan.MinAgeMonth)
+            {
                 throw new Exception("the nanny can't get the age of the child");
-                }
+            }
 
-             if(DateTime.now-chi.DateBirth>nan.MaxAgeMonth)
-                { 
+            if (DateTime.now - chi.DateBirth > nan.MaxAgeMonth)
+            {
                 throw new Exception("the nanny can't get the age of the child");
-                }
+            }
 
-             if(nan.ListIdContract.Contains==nan.MaxChildren)
-                {
+            if (nan.ListIdContract.Contains == nan.MaxChildren)
+            {
                 throw new Exception("the nanny take care of max child that she can");
-                }
-             
-             foreach(int idc in nan.ListIdContract)
-                {
-                 Contract con=GetContract(idc);
-                if(con.MotherId==mom.id)
+            }
+
+            foreach (int idc in nan.ListIdContract)
+            {
+                Contract con = GetContract(idc);
+                if (con.MotherId == mom.id)
                     tamp++;
-                }
-             if(c.HorM1==false)//hour
-                {
-                if(nan.YorN_HourlyRate=fulse)
+            }
+            if (c.HorM1 == false)//hour
+            {
+                if (nan.YorN_HourlyRate = fulse)
                     throw new Exception("the nanny dont agree to get a hour rate");
-                c.PayHours=nan.PayHour-((nan.PayHour*temp*2)/100);
-                c.PayMonth=c.PayHours*4*nan.HowMuchHourNanWork1;
-                }
-             else//month
-                {
-                c.PayMonth=nan.PayMonth-((nan.PayMonth*temp*2)/100);
-                c.PayHours=nan.PayHour-((nan.PayHour*temp*2)/100);
-                }
+                c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
+                c.PayMonth = c.PayHours * 4 * nan.HowMuchHourNanWork1;
+            }
+            else//month
+            {
+                c.PayMonth = nan.PayMonth - ((nan.PayMonth * temp * 2) / 100);
+                c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
+            }
             dal.AddContract(c);
         }
         void RemoveContract(int contract_Num)
         {
-            Contract c=GetContract(contract_Num);
-            if(DateTime.Now>c.EndDate)
+            Contract c = GetContract(contract_Num);
+            if (DateTime.Now > c.EndDate)
                 throw new Exception("this contract dont finish");
-            Nanny nan=GetNanny(c.NannyId);
+            Nanny nan = GetNanny(c.NannyId);
             nan.ListIdContract.Remove(contract_Num);
-            UpdetRateOfContract(c.NannyId,c.MotherId);
+            UpdetRateOfContract(c.NannyId, c.MotherId);
             dal.RemoveContract(contract_Num);
         }
 
         Contract GetContract(int contract_Num)
         {
-            dal.GetContract(contract_Num);
+            return dal.GetContract(contract_Num);
         }
-        void UpdetRateOfContract(int NanId,int MomId)
+        void UpdetRateOfContract(int NanId, int MomId)
+        {
+            Nanny nan = GetNanny(NanId);
+            int temp = 0;
+            foreach (int idc in nan.ListIdContract)
             {
-            Nanny nan=GetNanny(NanId);
-            int temp=0;
-             foreach(int idc in nan.ListIdContract)
+                Contract c = GetContract(idc);
+                if (c.MotherId == MomId)
                 {
-                Contract c=GetContract(idc);
-                if(c.MotherId==MomId)
+                    if (c.HorM1 == false)//hour
                     {
-                     if(c.HorM1==false)//hour
-                        {
-                        c.PayHours=nan.PayHour-((nan.PayHour*temp*2)/100);
-                        c.PayMonth=c.PayHours*4*nan.HowMuchHourNanWork1;
-                        }
-                        else//month
-                        {
-                        c.PayMonth=nan.PayMonth-((nan.PayMonth*temp*2)/100);
-                        c.PayHours=nan.PayHour-((nan.PayHour*temp*2)/100);
-                        }
-                       tamp++;
+                        c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
+                        c.PayMonth = (c.PayHours * 4 * (nan.HowMuchHourNanWork1));
                     }
+                    else//month
+                    {
+                        c.PayMonth = nan.PayMonth - ((nan.PayMonth * temp * 2) / 100);
+                        c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
+                    }
+                    tamp++;
                 }
             }
+        }
 
     }
 }

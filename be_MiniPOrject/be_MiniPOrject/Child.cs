@@ -16,6 +16,8 @@ namespace BE
         private string whatHeNeed;
         public List<int> ListIdContract;
 
+        public Child()
+        { }
         public Child(int id, int motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {
             if (id >= 100000000 && id <= 999999999)

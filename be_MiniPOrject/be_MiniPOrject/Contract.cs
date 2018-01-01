@@ -20,7 +20,9 @@ namespace BE
         private bool HorM;//the Pay per month or hour 
         private DateTime startDate;
         private DateTime endDate;
-
+        public  Contract()
+        {
+        }
         public Contract(int contract_Num, int nannyId, int motherId, int childId, bool met, bool activeContract, float payHours, int payMonth, bool horM, DateTime startDate, DateTime endDate)
         {
             Contract_Num = contract_Num;
