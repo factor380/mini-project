@@ -7,4 +7,22 @@
 -->
 <GenericObjectDataSource DisplayName="Contract" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
    <TypeInfo>BE.Contract, be_MiniPOrject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeUISetting>
+      <PropertyUISettings>
+         <PropertyUISetting Name="PayMonth">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="PayHours">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+      </PropertyUISettings>
+   </TypeUISetting>
 </GenericObjectDataSource>

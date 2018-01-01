@@ -17,7 +17,7 @@
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <Label Content="ADD CHILD" FontSize="40" Grid.Row="0"/>
-        <Grid x:Name="grid1" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="347" Width="493">
+        <Grid x:Name="grid1" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="377" Width="493" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -30,18 +30,18 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Content="Date Birth:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Center" FontSize="30" Width="242"/>
-            <DatePicker x:Name="dateBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding DateBirth, Mode=OneWay}" VerticalAlignment="Center" FontSize="30"/>
-            <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" FontSize="30" Width="242"/>
-            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="58" Grid.Row="1" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="242" FontSize="30"/>
-            <Label Content="Mother Id:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" FontSize="30" Width="242"/>
-            <TextBox x:Name="motherIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="58" Margin="3" Grid.Row="2" Text="{Binding MotherId, Mode=OneWay}" VerticalAlignment="Center" Width="242" FontSize="30"/>
-            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" FontSize="30" Width="242"/>
-            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="58" Margin="3" Grid.Row="3" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="242" FontSize="30"/>
-            <Label Content="Special Needs:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" FontSize="30" Width="242"/>
+            <Label Content="Date Birth:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="30"/>
+            <DatePicker x:Name="dateBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding DateBirth, Mode=OneWay}" VerticalAlignment="Center"/>
+            <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="30"/>
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Mother Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="30"/>
+            <TextBox x:Name="motherIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding MotherId, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="30"/>
+            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Special Needs:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="30"/>
             <CheckBox x:Name="specialNeedsCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding SpecialNeeds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <Label Content="What He Need:" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" FontSize="30" Width="242"/>
-            <TextBox x:Name="whatHeNeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding WhatHeNeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="242" Height="58" FontSize="30"/>
+            <Label Content="What He Need:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="30"/>
+            <TextBox x:Name="whatHeNeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding WhatHeNeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
     </Grid>
 </Window>
