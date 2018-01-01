@@ -20,7 +20,7 @@ namespace BE
         private int maxChildren;
         private int minAgeMonth;
         private int maxAgeMonth;
-        private bool yorN_HourlyRate;
+        private bool yorN_HourlyRate;//if he Agrees to hour rate
         private float payHour;
         private int payMonth;
         private bool[] dayInWeek = new bool[6];

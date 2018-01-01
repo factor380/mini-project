@@ -13,7 +13,7 @@ namespace BE
         private readonly int nannyId;
         private readonly int motherId;
         private readonly int childId;
-        private readonly bool met;
+        private readonly bool met;//if the nanny and the children met
         private bool activeContract;
         private float payHours;
         private int payMonth;
