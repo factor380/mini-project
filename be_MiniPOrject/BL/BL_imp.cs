@@ -52,7 +52,7 @@ namespace BL
         {
             dal.AddChild(c);
         }
-        void DelChild(int id)
+        void DelChild(int id)//אני חושב שיש דברים שצריך לשפר פה א
         {
             Contract c;
             Child chi=GetChild(id);
@@ -132,12 +132,58 @@ namespace BL
                 if(con.MotherId==mom.id)
                     tamp++;
                 }
-             //לסיים את חישוב השכר
-
-
+             if(c.HorM1==false)//hour
+                {
+                if(nan.YorN_HourlyRate=fulse)
+                    throw new Exception("the nanny dont agree to get a hour rate");
+                c.PayHours=nan.PayHour-((nan.PayHour*temp*2)/100);
+                c.PayMonth=c.PayHours*4*nan.HowMuchHourNanWork1;
+                }
+             else//month
+                {
+                c.PayMonth=nan.PayMonth-((nan.PayMonth*temp*2)/100);
+                c.PayHours=nan.PayHour-((nan.PayHour*temp*2)/100);
+                }
+            dal.AddContract(c);
+        }
+        void RemoveContract(int contract_Num)
+        {
+            Contract c=GetContract(contract_Num);
+            if(DateTime.Now>c.EndDate)
+                throw new Exception("this contract dont finish");
+            Nanny nan=GetNanny(c.NannyId);
+            nan.ListIdContract.Remove(contract_Num);
+            UpdetRateOfContract(c.NannyId,c.MotherId);
+            dal.RemoveContract(contract_Num);
         }
 
-         
+        Contract GetContract(int contract_Num)
+        {
+            dal.GetContract(contract_Num);
+        }
+        void UpdetRateOfContract(int NanId,int MomId)
+            {
+            Nanny nan=GetNanny(NanId);
+            int temp=0;
+             foreach(int idc in nan.ListIdContract)
+                {
+                Contract c=GetContract(idc);
+                if(c.MotherId==MomId)
+                    {
+                     if(c.HorM1==false)//hour
+                        {
+                        c.PayHours=nan.PayHour-((nan.PayHour*temp*2)/100);
+                        c.PayMonth=c.PayHours*4*nan.HowMuchHourNanWork1;
+                        }
+                        else//month
+                        {
+                        c.PayMonth=nan.PayMonth-((nan.PayMonth*temp*2)/100);
+                        c.PayHours=nan.PayHour-((nan.PayHour*temp*2)/100);
+                        }
+                       tamp++;
+                    }
+                }
+            }
 
     }
 }

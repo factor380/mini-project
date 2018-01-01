@@ -27,6 +27,7 @@ namespace BE
         private float[,] workHours = new float[2, 6];
         private bool daysOOf;
         private string recommendations;
+        private float HowMuchHourNanWork;
         public List<int> ListIdContract;//List that save all the Contract ID that the nanny hava
 
         public Nanny(int id, string lastName, string name, DateTime dateBirth, string phoneNum, string address, bool elevator, int floorInBulding, int exp, int maxChildren, int minAgeMonth, int maxAgeMonth, bool yorN_HourlyRate, float payHour, int payMonth, bool[] dayInWeek, float[,] workHours, bool daysOOf, string recommendations)
@@ -56,6 +57,9 @@ namespace BE
             this.workHours = workHours;
             this.daysOOf = daysOOf;
             this.recommendations = recommendations;
+            HowMuchHourNanWork=0;
+            for(int i=0;i>6;++i)
+                HowMuchHourNanWork+=WorkHours[2][i]-WorkHours[1][i];
         }
 
         public int Id { get => id; }
@@ -176,7 +180,7 @@ namespace BE
         }
         public bool DaysOOf { get => daysOOf; set => daysOOf = value; }
         public string Recommendations { get => recommendations; set => recommendations = value; }
-
+        public float HowMuchHourNanWork1{ get => HowMuchHourNanWork1; set => HowMuchHourNanWork1 = value; };
         public override string ToString()
         {
             return name + ' ' + LastName + " id" + id + " phone number " + PhoneNum + " address " + Address;

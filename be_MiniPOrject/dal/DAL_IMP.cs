@@ -147,6 +147,7 @@ namespace DAL
             chi.ListIdContract.Add(c.id);
             nan.ListIdContract.Add(c.id);
             Contract.ContractNum1++;
+            
         }
 
         public Contract GetContract(int contract_Num)

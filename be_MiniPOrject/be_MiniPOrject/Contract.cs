@@ -17,7 +17,7 @@ namespace BE
         private bool activeContract;
         private float payHours;
         private int payMonth;
-        private bool horM;//the Pay per month or hour 
+        private bool HorM;//the Pay per month or hour 
         private DateTime startDate;
         private DateTime endDate;
 
@@ -52,7 +52,7 @@ namespace BE
         public bool ActiveContract { get => activeContract; set => activeContract = value; }
         public float PayHours { get => payHours; set => payHours = value; }
         public int PayMonth { get => payMonth; set => payMonth = value; }
-        public bool HorM { get => horM; set => horM = value; }
+        public bool HorM1 { get => horM; set => horM = value; }
         public DateTime StartDate
         {
             get => startDate;

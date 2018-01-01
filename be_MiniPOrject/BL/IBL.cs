@@ -31,6 +31,7 @@ namespace BL
         void RemoveContract(int contract_Num);
         void UpdateContract(Contract c);
         Contract GetContract(int contract_Num);
+        void UpdetRateOfContract(int NanId,int MomId);//Update salary after discount
 
         List<Nanny> AcceptanceNanny();
         List<Mother> AcceptanceMother();
