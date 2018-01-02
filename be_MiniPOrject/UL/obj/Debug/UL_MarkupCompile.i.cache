@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\
 UL
 none
 false
 DEBUG;TRACE
-C:\Users\factor\Desktop\m\be_MiniPOrject\UL\App.xaml
-5422315417
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\App.xaml
+9-1354014216
 
-13-804725043
-15-1003911097
-ChildWindow.xaml;ContractWindow.xaml.xaml;MotherWindow.xaml.xaml;NunnyWindow.xaml.xaml;MainWindow.xaml;
+17987257080
+15-871723397
+ChildWindow.xaml;ContractWindow.xaml.xaml;MotherWindow.xaml.xaml;NunnyWindow.xaml.xaml;MainWindow.xaml;RemoveChild.xaml;RemoveContract.xaml;RemoveMother.xaml;RemoveNanny.xaml;
 
-True
+False
 

@@ -1,0 +1,33 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UL"
+        xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.RemoveMother"
+        mc:Ignorable="d"
+        Title="RemoveMother" Height="300" Width="300" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="motherViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Mother}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="REMOVE MOTHER" FontSize="30"/>
+        <Button Content="REMOVE" FontSize="30" Grid.Row="2"/>
+        <Grid x:Name="grid1" DataContext="{StaticResource motherViewSource}" HorizontalAlignment="Left" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="293">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,-0.333" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Height="40"/>
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="3.333,10,-50.333,-0.333" Grid.Row="0" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="177" FontSize="20"/>
+        </Grid>
+    </Grid>
+</Window>

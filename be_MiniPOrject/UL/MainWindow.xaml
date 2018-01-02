@@ -9,40 +9,77 @@
     <Grid>
         <TabControl Grid.ColumnSpan="4" Margin="0,0,-0.333,-0.333">
             <TabControl.Items>
-                <TabItem Header="Child" Grid.Column="0" FontSize="20">
+                <TabItem Header="Child" Grid.Column="0" FontSize="20" FontWeight="Bold">
                     <TabItem.Content>
-                        <StackPanel>
-                            <Button Content="ADD Child" Click="Button_Click_AddChild" />
-                            <Button Content="REMOVE child" />
-                            <Button Content="UPDATE child" />
-                        </StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="ADD Child" Height="80" Width="200" Grid.Column="0" Grid.Row="0" Click="Button_Click_AddChild" />
+                            <Button Content="REMOVE Child" Height="80" Width="200" Grid.Column="1" Grid.Row="0" Click="Button_Click_RemoveChild" />
+                            <Button Content="UPDATE Child" Height="80" Width="200" Grid.Column="1" Grid.Row="1" />
+                            <Button Content="GET Child" Height="80" Width="200" Grid.Column="0" Grid.Row="1"/>
+                        </Grid>
                     </TabItem.Content>
                 </TabItem>
-                <TabItem Header="MOTHER" FontSize="20">
+                <TabItem Header="MOTHER" FontSize="20" FontWeight="Bold">
                     <TabItem.Content>
-                        <StackPanel>
-                            <Button Content="ADD mother" Click="Button_Click_AddMother" />
-                            <Button Content="REMOVE mother" />
-                            <Button Content="UPDATE mother" />
-                        </StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="ADD Mother" Height="80" Width="200" Grid.Column="0" Grid.Row="0" Click="Button_Click_AddMother" />
+                            <Button Content="REMOVE Mother" Height="80" Width="200" Grid.Column="1" Grid.Row="0" Click="Button_Click_RemoveMother" />
+                            <Button Content="UPDATE Mother" Height="80" Width="200" Grid.Column="1" Grid.Row="1" />
+                            <Button Content="GET Mother" Height="80" Width="200" Grid.Column="0" Grid.Row="1"/>
+                        </Grid>
                     </TabItem.Content>
                 </TabItem>
-                <TabItem Header="NUNNY" FontSize="20">
+                <TabItem Header="NANNY" FontSize="20" FontWeight="Bold">
                     <TabItem.Content>
-                        <StackPanel>
-                            <Button Content="ADD nunny" Click="Button_Click_AddNunny" />
-                            <Button Content="REMOVE nunny" />
-                            <Button Content="UPDATE nunny" />
-                        </StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="256*"/>
+                                <ColumnDefinition Width="51*"/>
+                                <ColumnDefinition Width="206*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="ADD Nanny" Height="80" Width="200" Grid.Column="0" Grid.Row="0" Click="Button_Click_AddNunny" Margin="0,29,0,28.333" />
+                            <Button Content="REMOVE Nanny" Height="80" Width="200" Grid.Column="1" Grid.Row="0" Click="Button_Click_RemoveNanny" Grid.ColumnSpan="2" Margin="0,29,-0.333,28.333" />
+                            <Button Content="UPDATE Nanny" Height="80" Width="200" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,28.667,-0.333,28" />
+                            <Button Content="GET Nanny" Height="80" Width="200" Grid.Column="0" Grid.Row="1" Margin="0,28.667,0,28"/>
+                        </Grid>
                     </TabItem.Content>
                 </TabItem>
-                <TabItem Header="CONTRACT" FontSize="20">
+                <TabItem Header="CONTRACT" FontSize="20" FontWeight="Bold">
                     <TabItem.Content>
-                        <StackPanel>
-                            <Button Content="ADD contract" Click="Button_Click" />
-                            <Button Content="REMOVE contract" />
-                            <Button Content="UPDATE contract" />
-                        </StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="ADD Contract" Height="80" Width="200" Grid.Column="0" Grid.Row="0" Click="Button_Click_AddContract" />
+                            <Button Content="REMOVE Contract" Height="80" Width="200" Grid.Column="1" Grid.Row="0" Click="Button_Click_RemoveContract" />
+                            <Button Content="UPDATE Contract" Height="80" Width="200" Grid.Column="1" Grid.Row="1" />
+                            <Button Content="GET Contract" Height="80" Width="200" Grid.Column="0" Grid.Row="1"/>
+                        </Grid>
                     </TabItem.Content>
                 </TabItem>
             </TabControl.Items>

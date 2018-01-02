@@ -51,5 +51,27 @@ namespace UL
             Window addContractWindow = new AddContractWindow();
             addContractWindow.Show();
         }
+
+        private void Button_Click_RemoveChild(object sender, RoutedEventArgs e)
+        {
+            Window removeChildWindow = new RemoveChild();
+            removeChildWindow.Show();
+        }
+
+        private void Button_Click_RemoveMother(object sender, RoutedEventArgs e)
+        {
+            Window removeMotherWindow = new RemoveMother();
+            removeMotherWindow.Show();
+        }
+        private void Button_Click_RemoveNanny(object sender, RoutedEventArgs e)
+        {
+            Window removeNannyWindow = new RemoveNanny();
+            removeNannyWindow.Show();
+        }
+        private void Button_Click_RemoveContract(object sender, RoutedEventArgs e)
+        {
+            Window removeContractWindow = new RemoveContract();
+            removeContractWindow.Show();
+        }
     }
 }
