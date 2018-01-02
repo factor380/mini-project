@@ -48,7 +48,7 @@ namespace DAL
             }
 
         }
-        List<Child> getChildList() => DataSource.kids;
+        public List<Child> getChildList() => DataSource.kids;
         #endregion
 
 
