@@ -16,26 +16,27 @@ namespace BL
         DAL.IDAL dal;
         #region Nanny func
 
-         void AddNanny(Nanny n)
+         public void AddNanny(Nanny n)
         {
             if (DateTime.Now.Year - n.DateBirth.Year < 18)
                 throw new Exception("this Nanny is under 18");
             dal.AddNanny(n);
         }
 
-        void RemoveNanny(Nanny n)
+        public void RemoveNanny(int id)
         {
             Contract c;
+            Nanny n = GetNanny(id);
             foreach (int IdCo in n.ListIdContract)
             {
                 c = dal.GetContract(IdCo);
                 if (c.EndDate > DateTime.Now)
                     throw new Exception("Nanny have contract that she dont finish");
             }
-            dal.RemoveNanny(n.Id);
+            dal.RemoveNanny(id);
         }
 
-        void UpdateNanny(Nanny n)
+        public void UpdateNanny(Nanny n)
         {
             Nanny nan = GetNanny(n.Id);
             if (n.ListIdContract.Count() > nan.MaxChildren)
@@ -43,19 +44,20 @@ namespace BL
             dal.UpdateNanny(n);
         }
 
-        Nanny GetNanny(int id)
+        public Nanny GetNanny(int id)
         {
             return dal.GetNanny(id);
         }
+        public List<Nanny> getNannyList() => dal.getNannyList();
         #endregion
 
         #region Child func
 
-        void AddChild(Child c)
+        public void AddChild(Child c)
         {
             dal.AddChild(c);
         }
-        void DelChild(int id)//אני חושב שיש דברים שצריך לשפר פה א
+        public void RemoveChild(int id)//אני חושב שיש דברים שצריך לשפר פה א
         {
             Contract c;
             Child chi = GetChild(id);
@@ -69,22 +71,23 @@ namespace BL
             //the thing to the 2% שכר
 
         }
-        void UpdatingChild(Child c)
+        public void UpdateChild(Child c)
         {
             dal.UpdateChild(c);
         }
-        Child GetChild(int id)
+        public Child GetChild(int id)
         {
             return dal.GetChild(id);
         }
+        public List<Child> getChildList() => dal.getChildList();
         #endregion
 
         #region mother func
-        void AddMother(Mother m)
+        public void AddMother(Mother m)
         {
             dal.AddMother(m);
         }
-        void RemoveMother(int id)
+        public void RemoveMother(int id)
         {
             Mother m = GetMother(id);
             foreach (int Idc in m.ListIdChild)
@@ -93,33 +96,34 @@ namespace BL
             }
             dal.RemoveMother(id);
         }
-        void UpdateMother(Mother m)
+        public void UpdateMother(Mother m)
         {
             dal.UpdateMother(m);
         }
-        Mother GetMother(int id)
+        public Mother GetMother(int id)
         {
             return dal.GetMother(id);
         }
-        Mother GetMotherWithChildId(int id)
+        public Mother GetMotherWithChildId(int id)
         {
             return dal.GetMotherWithChildId(id);
         }
+        public List<Mother> getMotherList() => dal.getMotherList();
         #endregion
 
         #region Contract func
-        void AddContract(Contract c)
+        public void AddContract(Contract c)
         {
             Child chi = GetChild(c.ChildId);
             Nanny nan = GetNanny(c.NannyId);
             Mother mom = GetMother(c.MotherId);
             int temp = 0;//if the nanny have more children from the mother they are rebate 
-            if (DateTime.Today.Year - chi.DateBirth.Year < nan.MinAgeMonth)//תגיד אם אתה בטוח
+            if (DateTime.Today.Month - chi.DateBirth.Month < nan.MinAgeMonth)//תוקן
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)//תקן
+            if (DateTime.Now.Month - chi.DateBirth.Month > nan.MaxAgeMonth)
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
@@ -149,7 +153,7 @@ namespace BL
             }
             dal.AddContract(c);
         }
-        void RemoveContract(int contract_Num)
+        public void RemoveContract(int contract_Num)
         {
             Contract c = GetContract(contract_Num);
             if (DateTime.Now > c.EndDate)
@@ -159,18 +163,18 @@ namespace BL
             UpdetRateOfContract(c.NannyId, c.MotherId);
             dal.RemoveContract(contract_Num);
         }
-        void UpdateContract(Contract c)
+        public void UpdateContract(Contract c)
         {
             Child chi = GetChild(c.ChildId);
             Nanny nan = GetNanny(c.NannyId);
             Mother mom = GetMother(c.MotherId);
             int temp = 0;//if the nanny have more children from the mother they are  rebate
-            if (DateTime.Today.Year - chi.DateBirth.Year < nan.MinAgeMonth)//לא יודע אם אתה צודק
+            if (DateTime.Today.Month - chi.DateBirth.Month < nan.MinAgeMonth)//תוקן
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)//תקן
+            if (DateTime.Now.Month - chi.DateBirth.Month > nan.MaxAgeMonth)
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
@@ -196,11 +200,11 @@ namespace BL
             dal.UpdateContract(c);
         }
 
-        Contract GetContract(int contract_Num)
+        public Contract GetContract(int contract_Num)
         {
             return dal.GetContract(contract_Num);
         }
-        void UpdetRateOfContract(int NanId, int MomId)
+        public void UpdetRateOfContract(int NanId, int MomId)
         {
             Nanny nan = GetNanny(NanId);
             int temp = 0;
@@ -223,13 +227,11 @@ namespace BL
                 }
             }
         }
+        public List<Contract> getContractList() => dal.getContractList();
         #endregion
 
         #region getlist 
-        List<Nanny> AcceptanceNanny() { return (dal.getNannyList()); }
-        List<Mother> AcceptanceMother() => dal.getMotherList() ;
-        List<Child> AcceptanceChild() => dal.getChildList();
-        List<Contract> AcceptanceContract() => dal.getContractList();
+
         #endregion
 
         //the func to Distance between points 
