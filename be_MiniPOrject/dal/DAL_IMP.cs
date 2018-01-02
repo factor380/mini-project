@@ -144,8 +144,8 @@ namespace DAL
             if (mom == null)
                 throw new Exception("there is no mother with this id");
             DataSource.contracts.Add(c);
-            chi.ListIdContract.Add(c.id);
-            nan.ListIdContract.Add(c.id);
+            chi.ListIdContract.Add(c.Contract_Num1);
+            nan.ListIdContract.Add(c.Contract_Num1);
             Contract.ContractNum1++;
             
         }
