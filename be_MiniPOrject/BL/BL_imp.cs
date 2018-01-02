@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using DAL;
+using GoogleMapsApi.Entities.Directions.Response;
+using GoogleMapsApi.Entities.Directions.Request;
+using GoogleMapsApi;
 
 namespace BL
 {
@@ -13,7 +16,7 @@ namespace BL
         DAL.IDAL dal;
         #region Nanny func
 
-        public void AddNanny(Nanny n)
+         void AddNanny(Nanny n)
         {
             if (DateTime.Now.Year - n.DateBirth.Year < 18)
                 throw new Exception("this Nanny is under 18");
@@ -83,10 +86,10 @@ namespace BL
         }
         void RemoveMother(int id)
         {
-            m = getmother(id);
+            Mother m = GetMother(id);
             foreach (int Idc in m.ListIdChild)
             {
-                DelChild(idc);
+                DelChild(Idc);
             }
             dal.RemoveMother(id);
         }
@@ -111,12 +114,12 @@ namespace BL
             Nanny nan = GetNanny(c.NannyId);
             Mother mom = GetMother(c.MotherId);
             int temp = 0;//if the nanny have more children from the mother they are rebate 
-            if (DateTime.Today.Year - chi.DateBirth.Year < nan.MinAgeMonth)
+            if (DateTime.Today.Year - chi.DateBirth.Year < nan.MinAgeMonth)//תגיד אם אתה בטוח
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)
+            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)//תקן
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
@@ -162,12 +165,12 @@ namespace BL
             Nanny nan = GetNanny(c.NannyId);
             Mother mom = GetMother(c.MotherId);
             int temp = 0;//if the nanny have more children from the mother they are  rebate
-            if (DateTime.Today.Year - chi.DateBirth.Year < nan.MinAgeMonth)
+            if (DateTime.Today.Year - chi.DateBirth.Year < nan.MinAgeMonth)//לא יודע אם אתה צודק
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)
+            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)//תקן
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
@@ -223,12 +226,25 @@ namespace BL
         #endregion
 
         #region getlist 
-        List<Nanny> AcceptanceNanny() { return (dal.AcceptanceNanny()); }
-        List<Mother> AcceptanceMother() => dal.AcceptanceMother() ;
-        List<Child> AcceptanceChild() => dal.AcceptanceChild();
-        List<Contract> AcceptanceContract() => dal.AcceptanceContract();
+        List<Nanny> AcceptanceNanny() { return (dal.getNannyList()); }
+        List<Mother> AcceptanceMother() => dal.getMotherList() ;
+        List<Child> AcceptanceChild() => dal.getChildList();
+        List<Contract> AcceptanceContract() => dal.getContractList();
         #endregion
 
-
+        //the func to Distance between points 
+        public static int CalculateDistance(string PointA, string PointB)
+        {
+            var drivingDirectionRequest = new DirectionsRequest
+            {
+                TravelMode = TravelMode.Walking,
+                Origin = PointA,
+                Destination = PointB,
+            };
+            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+            Route route = drivingDirections.Routes.First();
+            Leg leg = route.Legs.First();
+            return leg.Distance.Value;
+        }
     }
 }
