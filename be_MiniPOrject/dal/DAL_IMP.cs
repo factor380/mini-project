@@ -48,6 +48,7 @@ namespace DAL
             }
 
         }
+        List<Child> getChildList() => DataSource.kids;
         #endregion
 
 
@@ -83,6 +84,7 @@ namespace DAL
         {
             return DataSource.nannys.FirstOrDefault(n => n.Id == id);
         }
+        public List<Nanny> getNannyList() => DataSource.nannys;
         #endregion
 
 
@@ -106,7 +108,7 @@ namespace DAL
             if (chi==null)
                 throw new Exception("thare no child with that id");
             
-            return DataSource.mothers.FirstOrDefault(chi => chi.chi.MotherId == id);
+            return DataSource.mothers.FirstOrDefault(m => m.ListIdChild.FirstOrDefault() == id);
         }
 
         public void RemoveMother(int id)
@@ -128,6 +130,7 @@ namespace DAL
                     DataSource.mothers[i] = m;
             }
         }
+        public List<Mother> getMotherList() => DataSource.mothers;
         #endregion
 
 
@@ -144,8 +147,8 @@ namespace DAL
             if (mom == null)
                 throw new Exception("there is no mother with this id");
             DataSource.contracts.Add(c);
-            chi.ListIdContract.Add(c.id);
-            nan.ListIdContract.Add(c.id);
+            chi.ListIdContract.Add(c.ChildId);
+            nan.ListIdContract.Add(c.ChildId);
             Contract.ContractNum1++;
             
         }
@@ -174,13 +177,17 @@ namespace DAL
                     DataSource.contracts[i] = c;
             }
         }
+        public List<Contract> getContractList() => DataSource.contracts;
         #endregion
 
         #region Get List
-        public List<Nanny> AcceptanceNanny() => DataSource.nannys;
-        public List<Mother> AcceptanceMother() => DataSource.mothers;
-        public List<Child> AcceptanceChild() => DataSource.kids;
-        public List<Contract> AcceptanceContract() => DataSource.contracts;
+        public IEnumerable<IGrouping<int, Child>> List_Child_ByMother()
+        {
+            
+            var ChildByMother = from kid in getChildList()
+                                group kid by kid.MotherId;
+            return ChildByMother;
+        }
         #endregion
     }
 }
