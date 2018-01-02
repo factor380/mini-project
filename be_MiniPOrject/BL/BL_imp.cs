@@ -116,12 +116,12 @@ namespace BL
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)//אני לא יודע איך לעשות את זה לדבר אם משיהו
+            if (DateTime.now - chi.DateBirth > nan.MaxAgeMonth)
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (nan.ListIdContract.Count == nan.MaxChildren)
+            if (nan.ListIdContract.Contains == nan.MaxChildren)
             {
                 throw new Exception("the nanny take care of max child that she can");
             }
@@ -129,19 +129,19 @@ namespace BL
             foreach (int idc in nan.ListIdContract)
             {
                 Contract con = GetContract(idc);
-                if (con.MotherId == mom.Id)
-                    temp++;
+                if (con.MotherId == mom.id)
+                    tamp++;
             }
             if (c.HorM1 == false)//hour
             {
-                if (nan.YorN_HourlyRate == false)
+                if (nan.YorN_HourlyRate = fulse)
                     throw new Exception("the nanny dont agree to get a hour rate");
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-                c.PayMonth =(c.PayHours *4* nan.HowMuchHourNanWork1);
+                c.PayMonth = c.PayHours * 4 * nan.HowMuchHourNanWork1;
             }
             else//month
             {
-                c.PayMonth = (nan.PayMonth -((nan.PayMonth * temp * 2) / 100));
+                c.PayMonth = nan.PayMonth - ((nan.PayMonth * temp * 2) / 100);
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
             }
             dal.AddContract(c);
@@ -155,50 +155,6 @@ namespace BL
             nan.ListIdContract.Remove(contract_Num);
             UpdetRateOfContract(c.NannyId, c.MotherId);
             dal.RemoveContract(contract_Num);
-        }
-        void UpdateContract(Contract c)
-        {
-            Child chi = GetChild(c.ChildId);
-            Nanny nan = GetNanny(c.NannyId);
-            Mother mom = GetMother(c.MotherId);
-            int temp = 0;
-            if (DateTime.Today.Year - chi.DateBirth.Year < nan.MinAgeMonth)
-            {
-                throw new Exception("the nanny can't get the age of the child");
-            }
-
-            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)//אני לא יודע איך לעשות את זה לדבר אם משיהו
-            {
-                throw new Exception("the nanny can't get the age of the child");
-            }
-
-            if (nan.ListIdContract.Count == nan.MaxChildren)
-            {
-                throw new Exception("the nanny take care of max child that she can");
-            }
-
-            foreach (int idc in nan.ListIdContract)
-            {
-                Contract con = GetContract(idc);
-                if (con.MotherId == mom.Id)
-                    temp++;
-            }
-            if (c.HorM1 == false)//hour
-            {
-                if (nan.YorN_HourlyRate == false)
-                    throw new Exception("the nanny dont agree to get a hour rate");
-                c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-                c.PayMonth = (c.PayHours * 4 * nan.HowMuchHourNanWork1);
-            }
-            else//month
-            {
-                c.PayMonth = (nan.PayMonth - ((nan.PayMonth * temp * 2) / 100));
-                c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-            }
-
-            dal.UpdateContract(c);
-
-
         }
 
         Contract GetContract(int contract_Num)
@@ -224,17 +180,10 @@ namespace BL
                         c.PayMonth = nan.PayMonth - ((nan.PayMonth * temp * 2) / 100);
                         c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
                     }
-                    temp++;
+                    tamp++;
                 }
             }
         }
-        #endregion
 
-        #region Get List
-        public List<Nanny> AcceptanceNanny() => dal.AcceptanceNanny();
-        public List<Mother> AcceptanceMother() => dal.AcceptanceMother();
-        public List<Child> AcceptanceChild() => dal.AcceptanceChild();
-        public List<Contract> AcceptanceContract() => dal.AcceptanceContract();
-        #endregion
     }
 }
