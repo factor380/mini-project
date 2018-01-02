@@ -16,7 +16,7 @@ namespace BE
         private readonly bool met;//if the nanny and the children met
         private bool activeContract;
         private float payHours;
-        private int payMonth;
+        private float payMonth;
         private bool HorM;//the Pay per month or hour 
         private DateTime startDate;
         private DateTime endDate;
@@ -53,8 +53,8 @@ namespace BE
         public bool Met { get => met; }
         public bool ActiveContract { get => activeContract; set => activeContract = value; }
         public float PayHours { get => payHours; set => payHours = value; }
-        public int PayMonth { get => payMonth; set => payMonth = value; }
-        public bool HorM1 { get => horM; set => horM = value; }
+        public float PayMonth { get => payMonth; set => payMonth = value; }
+        public bool HorM1 { get => HorM; set => HorM = value; }
         public DateTime StartDate
         {
             get => startDate;
