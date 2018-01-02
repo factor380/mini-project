@@ -116,12 +116,12 @@ namespace BL
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (DateTime.now - chi.DateBirth > nan.MaxAgeMonth)
+            if (DateTime.Now - chi.DateBirth > nan.MaxAgeMonth)//אני לא יודע איך לעשות את זה לדבר אם משיהו
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (nan.ListIdContract.Contains == nan.MaxChildren)
+            if (nan.ListIdContract.Count == nan.MaxChildren)
             {
                 throw new Exception("the nanny take care of max child that she can");
             }
@@ -129,19 +129,19 @@ namespace BL
             foreach (int idc in nan.ListIdContract)
             {
                 Contract con = GetContract(idc);
-                if (con.MotherId == mom.id)
-                    tamp++;
+                if (con.MotherId == mom.Id)
+                    temp++;
             }
             if (c.HorM1 == false)//hour
             {
-                if (nan.YorN_HourlyRate = fulse)
+                if (nan.YorN_HourlyRate == false)
                     throw new Exception("the nanny dont agree to get a hour rate");
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-                c.PayMonth = c.PayHours * 4 * nan.HowMuchHourNanWork1;
+                c.PayMonth = Math.Floor((c.PayHours *4* nan.HowMuchHourNanWork1));
             }
             else//month
             {
-                c.PayMonth = nan.PayMonth - ((nan.PayMonth * temp * 2) / 100);
+                c.PayMonth = Math.Floor(nan.PayMonth - (float)((nan.PayMonth * temp * 2) / 100));
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
             }
             dal.AddContract(c);
