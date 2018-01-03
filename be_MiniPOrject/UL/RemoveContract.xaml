@@ -10,16 +10,16 @@
     <Window.Resources>
         <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
     </Window.Resources>
-    <Grid RenderTransformOrigin="0.494,0.664">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="Remove Contract" FontSize="25"/>
         <Button Content="Remove" FontSize="25" Grid.Row="2"/>
 
-        <Grid x:Name="grid1" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" Margin="0,34,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="293">
+        <Grid x:Name="grid1" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" Margin="0,51.667,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="293">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>

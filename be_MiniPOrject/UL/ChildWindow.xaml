@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.AddChildWindow"
         mc:Ignorable="d"
-        Title="AddChildWindow" Height="600" Width="500" Loaded="Window_Loaded">
+        Title="AddChildWindow" Height="520" Width="500" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="childViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Child}, CreateList=True}"/>
     </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="ADD CHILD" FontSize="40" FontWeight="Bold"/>
         <Button Content="ADD" Grid.Row="2" FontSize="30"/>

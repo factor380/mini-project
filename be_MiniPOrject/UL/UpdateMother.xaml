@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.UpdateMother"
         mc:Ignorable="d"
-        Title="UpdateMother" Height="600" Width="300" Loaded="Window_Loaded">
+        Title="UpdateMother" Height="508" Width="300" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="motherViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Mother}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="UPDATE MOTHER" FontSize="30" FontWeight="Bold"/>
         <Button Content="UPDATE" FontSize="30" FontWeight="Bold" Grid.Row="2"/>
