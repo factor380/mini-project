@@ -25,7 +25,7 @@ namespace BE
         private int payMonth;
         private bool[] dayInWeek = new bool[6];
         private float[,] workHours = new float[2, 6];
-        private bool daysOOf;
+        private bool daysOOf;//if false the holidey Ministry of Education if true in tamat
         private string recommendations;
         private float HowMuchHourNanWork;
         public List<int> ListIdContract;//List that save all the Contract ID that the nanny hava
