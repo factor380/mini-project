@@ -16,7 +16,7 @@ namespace BL
         DAL.IDAL dal;
         #region Nanny func
 
-         public void AddNanny(Nanny n)
+        public void AddNanny(Nanny n)
         {
             if (DateTime.Now.Year - n.DateBirth.Year < 18)
                 throw new Exception("this Nanny is under 18");
@@ -234,7 +234,7 @@ namespace BL
 
         #endregion
 
-        //the func to Distance between points 
+        //the func to get the Distance between points 
         public static int CalculateDistance(string PointA, string PointB)
         {
             var drivingDirectionRequest = new DirectionsRequest
@@ -253,27 +253,27 @@ namespace BL
         {
             List<Nanny> listN = getNannyList();
             List<Nanny> listToSend = new List<Nanny>();
-            bool ToSeeIfAllTheDaysGood=false;
+            bool ToSeeIfAllTheDaysGood = false;
             foreach (Nanny nan in listN)
             {
                 if (nan.DayInWeek == mom.DayInWeek)
                 {
                     ToSeeIfAllTheDaysGood = true;
-                    for(int i=0;i<6;++i)
+                    for (int i = 0; i < 6; ++i)
                     {
-                        if(nan.WorkHours[0,i]>mom.WhenNeededWeek[0,i]||nan.WorkHours[1, i] < mom.WhenNeededWeek[1, i])
+                        if (nan.WorkHours[0, i] > mom.WhenNeededWeek[0, i] || nan.WorkHours[1, i] < mom.WhenNeededWeek[1, i])
                         {
                             ToSeeIfAllTheDaysGood = false;
                         }
                     }
                     if (ToSeeIfAllTheDaysGood == true)
                         listToSend.Add(nan);
- 
+
                 }
-                
+
             }
             if (listToSend == null)
-                throw new Exception("there not fits nannys to the mother request");
+                throw new Exception("there not fits nannys to the mother request");//לא בטוח שצריך
             return listToSend;
 
         }
@@ -282,7 +282,7 @@ namespace BL
         {
             List<Nanny> listN = getNannyList();
             List<Nanny> listToSend = new List<Nanny>();
-           
+
             int count = 0;//to count the days that fit
             for (int m = 0; m < 5; m++)
             {
@@ -311,5 +311,48 @@ namespace BL
 
         }
 
+        List<Nanny> NanniesThatInDistanceWithMother(Mother mom,float distance)
+        {
+            List<Nanny> listN = getNannyList();
+            List<Nanny> listToSend = new List<Nanny>();
+            string address;
+            if (mom.AddressAround == null)
+                address = mom.Address;
+            else
+                address = mom.AddressAround;
+            foreach (Nanny nan in listN)
+            {
+                if (distance >= CalculateDistance(nan.Address, address))//לבדוק איזה מרחק מקבלים
+                    listToSend.Add(nan);
+            }
+            return listToSend;
+        }
+
+        List<Child> GetAllTheChildrenThetDontHaveNannys()
+        {
+            List<Child> listC = getChildList();
+            List<Child> listToSend = new List<Child>();
+
+            foreach(Child chi in listC)
+            {
+                if (chi.ListIdContract == null)
+                    listToSend.Add(chi);
+            }
+            return listToSend;
+        }
+
+        List<Nanny> GetAllTheNannysThatWorkWithDaysOOfTamat()
+        {
+            List<Nanny> listN = getNannyList();
+            List<Nanny> listToSend = new List<Nanny>();
+
+            foreach (Nanny nan in listN)
+            {
+                if (nan.DaysOOf == true)
+                    listToSend.Add(nan);
+            }
+
+            return listToSend;
+        }
     }
 }
