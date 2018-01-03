@@ -22,7 +22,7 @@
                             </Grid.ColumnDefinitions>
                             <Button Content="ADD Child" Height="80" Width="200" Grid.Column="0" Grid.Row="0" Click="Button_Click_AddChild" />
                             <Button Content="REMOVE Child" Height="80" Width="200" Grid.Column="1" Grid.Row="0" Click="Button_Click_RemoveChild" />
-                            <Button Content="UPDATE Child" Height="80" Width="200" Grid.Column="1" Grid.Row="1" />
+                            <Button Content="UPDATE Child" Height="80" Width="200" Grid.Column="1" Grid.Row="1" Click="Button_Click_UpdateChild" />
                             <Button Content="GET Child" Height="80" Width="200" Grid.Column="0" Grid.Row="1"/>
                         </Grid>
                     </TabItem.Content>
@@ -40,7 +40,7 @@
                             </Grid.ColumnDefinitions>
                             <Button Content="ADD Mother" Height="80" Width="200" Grid.Column="0" Grid.Row="0" Click="Button_Click_AddMother" />
                             <Button Content="REMOVE Mother" Height="80" Width="200" Grid.Column="1" Grid.Row="0" Click="Button_Click_RemoveMother" />
-                            <Button Content="UPDATE Mother" Height="80" Width="200" Grid.Column="1" Grid.Row="1" />
+                            <Button Content="UPDATE Mother" Height="80" Width="200" Grid.Column="1" Grid.Row="1" Click="Button_Click_UpdateMother" />
                             <Button Content="GET Mother" Height="80" Width="200" Grid.Column="0" Grid.Row="1"/>
                         </Grid>
                     </TabItem.Content>
@@ -59,7 +59,7 @@
                             </Grid.ColumnDefinitions>
                             <Button Content="ADD Nanny" Height="80" Width="200" Grid.Column="0" Grid.Row="0" Click="Button_Click_AddNunny" Margin="0,29,0,28.333" />
                             <Button Content="REMOVE Nanny" Height="80" Width="200" Grid.Column="1" Grid.Row="0" Click="Button_Click_RemoveNanny" Grid.ColumnSpan="2" Margin="0,29,-0.333,28.333" />
-                            <Button Content="UPDATE Nanny" Height="80" Width="200" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,28.667,-0.333,28" />
+                            <Button Content="UPDATE Nanny" Height="80" Width="200" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,28.667,-0.333,28" Click="Button_Click_UpdateNanny" />
                             <Button Content="GET Nanny" Height="80" Width="200" Grid.Column="0" Grid.Row="1" Margin="0,28.667,0,28"/>
                         </Grid>
                     </TabItem.Content>
@@ -77,7 +77,7 @@
                             </Grid.ColumnDefinitions>
                             <Button Content="ADD Contract" Height="80" Width="200" Grid.Column="0" Grid.Row="0" Click="Button_Click_AddContract" />
                             <Button Content="REMOVE Contract" Height="80" Width="200" Grid.Column="1" Grid.Row="0" Click="Button_Click_RemoveContract" />
-                            <Button Content="UPDATE Contract" Height="80" Width="200" Grid.Column="1" Grid.Row="1" />
+                            <Button Content="UPDATE Contract" Height="80" Width="200" Grid.Column="1" Grid.Row="1" Click="Button_Click_UpdateContract" />
                             <Button Content="GET Contract" Height="80" Width="200" Grid.Column="0" Grid.Row="1"/>
                         </Grid>
                     </TabItem.Content>

@@ -66,6 +66,18 @@
     <Compile Include="RemoveNanny.xaml.cs">
       <DependentUpon>RemoveNanny.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateChild.xaml.cs">
+      <DependentUpon>UpdateChild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateContract.xaml.cs">
+      <DependentUpon>UpdateContract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateMother.xaml.cs">
+      <DependentUpon>UpdateMother.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateNanny.xaml.cs">
+      <DependentUpon>UpdateNanny.xaml</DependentUpon>
+    </Compile>
     <Page Include="ChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,6 +131,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RemoveNanny.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateChild.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateContract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateMother.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateNanny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

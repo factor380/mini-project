@@ -16,7 +16,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="REMOVE Child" FontSize="30"/>
+        <Label Content="REMOVE Child" FontSize="30" FontWeight="Bold"/>
         <Button Content="REMOVE" Grid.Row="2" FontSize="30"/>
         <Grid x:Name="grid1" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="293">
             <Grid.ColumnDefinitions>

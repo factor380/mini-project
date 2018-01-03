@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.AddContractWindow"
         mc:Ignorable="d"
-        Title="AddContractWindow" Height="600" Width="300" Loaded="Window_Loaded">
+        Title="AddContractWindow" Height="550" Width="300" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
     </Window.Resources>
@@ -16,7 +16,7 @@
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="ADD CONTRACT" FontSize="30"/>
+        <Label Content="ADD CONTRACT" FontSize="30" FontWeight="Bold"/>
         <Button Content="ADD" Grid.Row="2" FontSize="30"/>
         <Grid x:Name="grid1" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="377" Width="293">
             <Grid.ColumnDefinitions>
