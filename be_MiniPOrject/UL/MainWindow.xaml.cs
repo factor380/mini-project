@@ -22,7 +22,6 @@ namespace UL
     /// </summary>
     public partial class MainWindow : Window
     {
-        IBL bl;
         public MainWindow()
         {
             InitializeComponent();

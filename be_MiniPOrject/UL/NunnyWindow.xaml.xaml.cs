@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
 namespace UL
 {
@@ -19,17 +21,28 @@ namespace UL
     /// </summary>
     public partial class AddNunnyWindow : Window
     {
+        Nanny nanny;
+        IBL bl;
         public AddNunnyWindow()
         {
             InitializeComponent();
+            nanny = new Nanny();
+            this.NannyDetails.DataContext = nanny;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                bl.AddNanny(nanny);
+                nanny = new Nanny();
+                this.NannyDetails.DataContext = nanny;
+            }
+            catch (Exception)
+            {
 
-            System.Windows.Data.CollectionViewSource nannyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("nannyViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // nannyViewSource.Source = [generic data source]
+                throw;
+            }
         }
     }
 }

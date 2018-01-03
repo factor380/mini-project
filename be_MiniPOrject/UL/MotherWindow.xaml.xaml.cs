@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
 namespace UL
 {
@@ -19,17 +21,28 @@ namespace UL
     /// </summary>
     public partial class AddMotherWindow : Window
     {
+        Mother mother;
+        IBL bl;
         public AddMotherWindow()
         {
             InitializeComponent();
+            mother = new Mother();
+            this.MotherDetails.DataContext = mother;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                bl.AddMother(mother);
+                mother = new Mother();
+                this.MotherDetails.DataContext = mother;
+            }
+            catch (Exception)
+            {
 
-            System.Windows.Data.CollectionViewSource motherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("motherViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // motherViewSource.Source = [generic data source]
+                throw;
+            }
         }
     }
 }

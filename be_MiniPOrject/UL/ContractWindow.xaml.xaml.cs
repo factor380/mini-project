@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
 namespace UL
 {
@@ -19,17 +21,27 @@ namespace UL
     /// </summary>
     public partial class AddContractWindow : Window
     {
+        Contract contract;
+        IBL bl;
         public AddContractWindow()
         {
             InitializeComponent();
+            contract = new Contract();
+            this.ContractDetails.DataContext = contract;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                bl.AddContract(contract);
+                contract = new Contract();
+                this.ContractDetails.DataContext = contract;
+            }
+            catch
+            {
 
-            System.Windows.Data.CollectionViewSource contractViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("contractViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // contractViewSource.Source = [generic data source]
+            }
         }
     }
 }
