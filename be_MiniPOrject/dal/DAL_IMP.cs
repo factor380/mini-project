@@ -72,8 +72,8 @@ namespace DAL
         public void UpdateNanny(Nanny n)
         {
             Nanny nan = GetNanny(n.Id);
-            if (nan != null)
-                throw new Exception("nanny with the same id already exists...");
+            if (nan == null)
+                throw new Exception("there no nanny with this id");
             for (int i = 0; i < DataSource.nannys.Capacity; i++)
             {
                 if (n == nan)

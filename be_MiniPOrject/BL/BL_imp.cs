@@ -248,5 +248,68 @@ namespace BL
             Leg leg = route.Legs.First();
             return leg.Distance.Value;
         }
+
+        List<Nanny> NanniesThatFitMom(Mother mom)
+        {
+            List<Nanny> listN = getNannyList();
+            List<Nanny> listToSend = new List<Nanny>();
+            bool ToSeeIfAllTheDaysGood=false;
+            foreach (Nanny nan in listN)
+            {
+                if (nan.DayInWeek == mom.DayInWeek)
+                {
+                    ToSeeIfAllTheDaysGood = true;
+                    for(int i=0;i<6;++i)
+                    {
+                        if(nan.WorkHours[0,i]>mom.WhenNeededWeek[0,i]||nan.WorkHours[1, i] < mom.WhenNeededWeek[1, i])
+                        {
+                            ToSeeIfAllTheDaysGood = false;
+                        }
+                    }
+                    if (ToSeeIfAllTheDaysGood == true)
+                        listToSend.Add(nan);
+ 
+                }
+                
+            }
+            if (listToSend == null)
+                throw new Exception("there not fits nannys to the mother request");
+            return listToSend;
+
+        }
+        //i decide to do what almost fit in days and our
+        List<Nanny> NanniesThatAlsoFitMom(Mother mom)
+        {
+            List<Nanny> listN = getNannyList();
+            List<Nanny> listToSend = new List<Nanny>();
+           
+            int count = 0;//to count the days that fit
+            for (int m = 0; m < 5; m++)
+            {
+                foreach (Nanny nan in listN)
+                {
+                    for (int i = 0; i < 6; ++i)
+                    {
+                        if (mom.DayInWeek[i] == nan.DayInWeek[i])
+                        {
+                            if (nan.WorkHours[0, i] <= mom.WhenNeededWeek[0, i] || nan.WorkHours[1, i] >= mom.WhenNeededWeek[1, i])
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    if (count == 5 - m)
+                        listToSend.Add(nan);
+
+                    if (listToSend.Count == 5)
+                        break;
+                }
+                if (listToSend.Count == 5)
+                    break;
+            }
+            return listToSend;
+
+        }
+
     }
 }
