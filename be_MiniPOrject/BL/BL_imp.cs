@@ -11,6 +11,9 @@ using GoogleMapsApi;
 
 namespace BL
 {
+    public delegate bool ContrafctCondition(Contract c);
+
+
     class BL_imp : IBL
     {
         DAL.IDAL dal;
@@ -354,5 +357,25 @@ namespace BL
 
             return listToSend;
         }
+
+        List<Contract> GetAllContractThatFulfillingTheCondition(ContrafctCondition con)
+        {
+            List<Contract> listToSend = new List<Contract>();
+            foreach(Contract c in getContractList())
+            {
+                if (con(c))
+                    listToSend.Add(c);
+            }
+            return listToSend;
+        }
+
+        int GetAllNumberContractThatFulfillingTheCondition(ContrafctCondition con)
+        {
+            List<Contract> listContract = GetAllContractThatFulfillingTheCondition(con);
+
+            return listContract.Count;
+        }
+
+
     }
 }
