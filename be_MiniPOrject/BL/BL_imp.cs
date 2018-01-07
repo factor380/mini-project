@@ -60,7 +60,7 @@ namespace BL
         {
             dal.AddChild(c);
         }
-        public void RemoveChild(int id)//אני חושב שיש דברים שצריך לשפר פה א
+        public void RemoveChild(int id)
         {
             Contract c;
             Child chi = GetChild(id);
@@ -70,10 +70,11 @@ namespace BL
                 c = dal.GetContract(IdCo);
                 if (c.EndDate > DateTime.Now)
                     throw new Exception("Child have contract that he dont finish");
+                RemoveContract(IdCo);
             }
-            //the thing to the 2% שכר
-
-        }
+            dal.RemoveChild(id);
+                
+       }
         public void UpdateChild(Child c)
         {
             dal.UpdateChild(c);
@@ -95,7 +96,7 @@ namespace BL
             Mother m = GetMother(id);
             foreach (int Idc in m.ListIdChild)
             {
-                DelChild(Idc);
+                RemoveChild(Idc);
             }
             dal.RemoveMother(id);
         }
@@ -233,9 +234,8 @@ namespace BL
         public List<Contract> getContractList() => dal.getContractList();
         #endregion
 
-        #region getlist 
 
-        #endregion
+        #region all the func gropin and maps and lists
 
         //the func to get the Distance between points 
         public static int CalculateDistance(string PointA, string PointB)
@@ -376,6 +376,65 @@ namespace BL
             return listContract.Count;
         }
 
+        IEnumerable<IGrouping<int, Nanny>>  GetAllNannysAccordingToAgeChild(bool age=false, bool classified=false )
+        {
+            List<Nanny> ListN = getNannyList();
+            if (age == false)
+            {
+                if (classified == false)
+                {
+                    IEnumerable<IGrouping<int, Nanny>> result = from nan in ListN
+                                                                group nan by nan.MinAgeMonth;
+                    return result;
+                }
+                else
+                {
+                    IEnumerable<IGrouping<int, Nanny>> result = from nan in ListN
+                                                                orderby nan.Name
+                                                                group nan by nan.MinAgeMonth;
+                    return result;
+                }
+
+            }
+            else
+            {
+                if (classified == false)
+                {
+                    IEnumerable<IGrouping<int, Nanny>> result = from nan in ListN
+                                                                group nan by nan.MaxAgeMonth;
+                    return result;
+                }
+                else
+                {
+                    IEnumerable<IGrouping<int, Nanny>> result = from nan in ListN
+                                                                orderby nan.Name
+                                                                group nan by nan.MaxAgeMonth;
+                    return result;
+                }
+            }
+            
+
+        }
+        IEnumerable<IGrouping<int, Contract>> GetAllTheContractAccordingTodistance(bool classified = false)
+        {
+            List<Contract> ListC = getContractList();
+            if (classified==false)
+            {
+                IEnumerable<IGrouping<int, Contract>> result = from con in ListC
+                                                               group con by CalculateDistance(GetMother(con.MotherId).AddressAround, GetNanny(con.NannyId).Address) / 1000;//אני לא בטוח מה מחזיר בהנחה שזה רגללים או משהו כזה זה יעשה שזה יהיה בערך
+                return result;
+            }
+            else
+            {
+                IEnumerable<IGrouping<int, Contract>> result = from con in ListC
+                                                               orderby con.Contract_Num1
+                                                               group con by CalculateDistance(GetMother(con.MotherId).AddressAround, GetNanny(con.NannyId).Address) / 1000;//אני לא בטוח מה מחזיר בהנחה שזה רגללים או משהו כזה זה יעשה שזה יהיה בערך
+                return result;
+
+            }
+
+        }
+        #endregion
 
     }
 }
