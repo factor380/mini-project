@@ -6,31 +6,35 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.AddChildWindow"
         mc:Ignorable="d"
-        Title="AddChildWindow" Height="520" Width="1136.775">
+        Title="AddChildWindow" Height="550" Width="900">
     <Window.Resources>
         <CollectionViewSource x:Key="childViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Child}, CreateList=True}"/>
     </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360*"/>
+            <ColumnDefinition Width="533*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="ADD CHILD" FontSize="40" FontWeight="Bold"/>
-        <Button Content="ADD" Grid.Row="2" FontSize="30" Click="Button_Click"/>
-        <Grid x:Name="ChildDetails" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="377" Width="493" Margin="0,0.333,0,0">
+        <Label Content="ADD CHILD" FontSize="40" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Button Content="ADD" Grid.Row="2" FontSize="30" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Grid x:Name="ChildDetails" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="377" Width="360" Margin="0,63,0,0" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Date Birth:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="30"/>
             <DatePicker x:Name="dateBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding DateBirth, Mode=OneWay}" VerticalAlignment="Center"/>

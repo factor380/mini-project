@@ -6,19 +6,24 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.AddMotherWindow"
         mc:Ignorable="d"
-        Title="AddMotherWindow" Height="544.14" Width="890.776" Loaded="Window_Loaded">
+        Title="AddMotherWindow" Height="550" Width="900" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="motherViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Mother}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition Width="285*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="345*"/>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
-        <Label Content="ADD MOTHER" FontSize="30"/>
-        <Button Content="ADD" Grid.Row="2" FontSize="30" Click="Button_Click"/>
-        <Grid x:Name="MotherDetails" DataContext="{StaticResource motherViewSource}" HorizontalAlignment="Left" Margin="0,1,0,0" Grid.Row="1" VerticalAlignment="Top" Width="313" Height="417">
+        <Label Content="ADD MOTHER" FontSize="30" Grid.ColumnSpan="2" FontWeight="Bold"/>
+        <Button Content="ADD" Grid.Row="3" FontSize="30" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Grid x:Name="MotherDetails" DataContext="{StaticResource motherViewSource}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="313" Height="350">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -32,7 +37,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+
             </Grid.RowDefinitions>
             <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
@@ -48,15 +53,15 @@
             <TextBox x:Name="phoneNumTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding PhoneNum, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Remarks:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="remarksTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Remarks, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="DayInWeek" Grid.Column="0" Grid.Row="7" FontSize="20"/>
+            <Label Content="DayInWeek" Grid.Column="0" Grid.Row="7" FontSize="20" Margin="0,0.333,0,42"/>
             <CheckBox Name="checkSun" Content="Sun" Grid.Column="1" Grid.Row="7" Margin="3,7,-2.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox Name="checkMon" Content="Mon" Grid.Column="1" Grid.Row="7" Margin="51,7,-50.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox Name="checkTue" Content="Tue" Grid.Column="1" Grid.Row="7" Margin="101,7,-100.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox Name="checkWed" Content="Wed" Grid.Row="7" Margin="3,24,-2.667,0" Grid.Column="1" IsChecked="{Binding DayInWeek[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <CheckBox Name="checkWed" Content="Wed" Grid.Row="7" Margin="3,24.333,-2.667,32" Grid.Column="1" IsChecked="{Binding DayInWeek[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox Name="checkThu" Content="Thu" Grid.Column="1" Grid.Row="7" Margin="51,24,-50.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox Name="checkFri" Content="Fri" Grid.Column="1" Grid.Row="7" Margin="101,24,-100.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <Label Content="WorkHours" Grid.Column="0" Grid.Row="8" FontSize="20" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center"/>
-           
         </Grid>
+        <Label Content="WhenNeededWeek" Grid.Row="2" FontSize="30"/>
+        
     </Grid>
 </Window>

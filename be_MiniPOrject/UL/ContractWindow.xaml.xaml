@@ -11,14 +11,18 @@
         <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="295*"/>
+            <ColumnDefinition Width="556*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="ADD CONTRACT" FontSize="30" FontWeight="Bold"/>
-        <Button Content="ADD" Grid.Row="2" FontSize="30" Click="Button_Click"/>
-        <Grid x:Name="ContractDetails" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="377" Width="323">
+        <Label Content="ADD CONTRACT" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Button Content="ADD" Grid.Row="2" FontSize="30" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Grid x:Name="ContractDetails" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="377" Width="295" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

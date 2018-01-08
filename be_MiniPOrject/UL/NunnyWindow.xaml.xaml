@@ -6,24 +6,28 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.AddNunnyWindow"
         mc:Ignorable="d"
-        Title="AddNunnyWindow" Height="955.708" Width="1148.097">
+        Title="AddNunnyWindow" Height="855" Width="1000">
     <Window.Resources>
         <CollectionViewSource x:Key="nannyViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Nanny}, CreateList=True}"/>
     </Window.Resources>
-    <Grid>
+    <Grid Margin="0,0,-6.667,-19.667">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="327*"/>
+            <ColumnDefinition Width="566*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="ADD NUNNY" FontSize="30"/>
-        <Grid x:Name="NannyDetails" DataContext="{StaticResource nannyViewSource}" HorizontalAlignment="Left" Margin="0,69,0,0" VerticalAlignment="Top" Width="406" Height="780" Grid.RowSpan="2">
+        <Label Content="ADD NUNNY" FontSize="30" Grid.ColumnSpan="2" FontWeight="Bold"/>
+        <Grid x:Name="NannyDetails" DataContext="{StaticResource nannyViewSource}" HorizontalAlignment="Left" Margin="0,4.667,0,0" VerticalAlignment="Top" Width="366" Height="683" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -78,8 +82,8 @@
             <CheckBox Content="Wen" Grid.Row="15" Margin="2.667,24,-2.333,19.667" Grid.RowSpan="2" Grid.Column="1" IsChecked="{Binding DayInWeek[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox Content="Thu" Grid.Column="1" Grid.Row="15" Margin="50.667,24,-50.333,19.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox Content="Fri" Grid.Column="1" Grid.Row="15" Margin="100.667,24,-100.333,18.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <Label Content="WorkHours" Grid.Column="0" Grid.Row="16" FontSize="20" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center"/>
         </Grid>
-        <Button Content="ADD" Grid.Row="2" FontSize="30" Click="Button_Click"/>
+        <Label Content="WorkHours" FontSize="20" Grid.Row="2"/>
+        <Button Content="ADD" Grid.Row="3" FontSize="30" Click="Button_Click" Grid.ColumnSpan="2" />
     </Grid>
 </Window>
