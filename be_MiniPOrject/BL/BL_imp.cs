@@ -33,8 +33,10 @@ namespace BL
             foreach (int IdCo in n.ListIdContract)
             {
                 c = dal.GetContract(IdCo);
-                if (c.EndDate > DateTime.Now)
+                if (c.EndDate > DateTime.Now&&c.ActiveContract==true)
                     throw new Exception("Nanny have contract that she dont finish");
+                RemoveContract(c.Contract_Num1);
+               
             }
             dal.RemoveNanny(id);
         }
@@ -68,7 +70,7 @@ namespace BL
             foreach (int IdCo in chi.ListIdContract)
             {
                 c = dal.GetContract(IdCo);
-                if (c.EndDate > DateTime.Now)
+                if (c.EndDate > DateTime.Now&&c.ActiveContract==true)
                     throw new Exception("Child have contract that he dont finish");
                 RemoveContract(IdCo);
             }
@@ -160,11 +162,13 @@ namespace BL
         public void RemoveContract(int contract_Num)
         {
             Contract c = GetContract(contract_Num);
-            if (DateTime.Now > c.EndDate)
+            if (DateTime.Now > c.EndDate&&c.ActiveContract==true)
                 throw new Exception("this contract dont finish");
             Nanny nan = GetNanny(c.NannyId);
             nan.ListIdContract.Remove(contract_Num);
             UpdetRateOfContract(c.NannyId, c.MotherId);
+            Child chi = GetChild(c.ChildId);
+            chi.ListIdContract.Remove(c.Contract_Num1);
             dal.RemoveContract(contract_Num);
         }
         public void UpdateContract(Contract c)
