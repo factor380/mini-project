@@ -11,3 +11,11 @@ C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\ChildWindow.g.cs
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\ContractWindow.xaml.g.cs
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\MotherWindow.xaml.g.cs
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\NunnyWindow.xaml.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\RemoveChild.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\RemoveContract.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\RemoveMother.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\RemoveNanny.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\UpdateChild.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\UpdateContract.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\UpdateMother.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\UpdateNanny.g.cs

@@ -7,7 +7,7 @@
         xmlns:q="clr-namespace:Xceed.Wpf.tool."
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="UL.AddMotherWindow"
         mc:Ignorable="d"
-        Title="AddMotherWindow" Height="550" Width="900">
+        Title="AddMotherWindow" Height="550" Width="1000">
     <Window.Resources>
         <CollectionViewSource x:Key="motherViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Mother}, CreateList=True}"/>
         <CollectionViewSource x:Key="timePickerViewSource" d:DesignSource="{d:DesignInstance {x:Type xctk:TimePicker}, CreateList=True}"/>
@@ -15,22 +15,17 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="539*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="345*"/>
-            <RowDefinition Height="73*"/>
-            <RowDefinition Height="47*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="ADD MOTHER" FontSize="30" Grid.ColumnSpan="7" FontWeight="Bold" Margin="0,0,0.626,0"/>
-        <Button Content="ADD" Grid.Row="2" FontSize="30" Click="Button_Click" Margin="0,73.667,-214.333,-0.333" Grid.RowSpan="2" Grid.ColumnSpan="7"/>
-        <Grid x:Name="MotherDetails" DataContext="{StaticResource motherViewSource}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="313" Height="350" Grid.RowSpan="2">
+        <Label Content="ADD MOTHER" FontSize="30" Grid.ColumnSpan="2" FontWeight="Bold"/>
+        <Button Content="ADD" Grid.Row="3" FontSize="30" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Grid x:Name="MotherDetails" DataContext="{StaticResource motherViewSource}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="333" Height="319">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -43,8 +38,6 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-
             </Grid.RowDefinitions>
             <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
@@ -60,20 +53,45 @@
             <TextBox x:Name="phoneNumTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding PhoneNum, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Remarks:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="remarksTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Remarks, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="DayInWeek" Grid.Column="0" Grid.Row="7" FontSize="20" Margin="0,0.333,0,42"/>
-            <CheckBox x:Name="checkSun" Content="Sun" Grid.Column="1" Grid.Row="7" Margin="3,7,-2.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="checkMon" Content="Mon" Grid.Column="1" Grid.Row="7" Margin="51,7,-50.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="checkTue" Content="Tue" Grid.Column="1" Grid.Row="7" Margin="101,7,-100.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="checkWed" Content="Wed" Grid.Row="7" Margin="3,24.333,-2.667,32" Grid.Column="1" IsChecked="{Binding DayInWeek[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="checkThu" Content="Thu" Grid.Column="1" Grid.Row="7" Margin="51,24,-50.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="checkFri" Content="Fri" Grid.Column="1" Grid.Row="7" Margin="101,24,-100.667,43.667" Grid.RowSpan="2" IsChecked="{Binding DayInWeek[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
         </Grid>
-        <Label Content="WhenNeededWeek" Grid.Row="2" FontSize="30"/>
-        <xctk:TimePicker x:Name="Wsunday" Grid.Row="2" Grid.Column="1"/>
-        <xctk:TimePicker x:Name="Wmonday" Grid.Row="2" Grid.Column="2"/>
-        <xctk:TimePicker x:Name="Wtuesday" Grid.Row="2" Grid.Column="3"/>
-        <xctk:TimePicker x:Name="Wwedsnday" Grid.Row="2" Grid.Column="4"/>
-        <xctk:TimePicker x:Name="Wthusday" Grid.Row="2" Grid.Column="5"/>
-        <xctk:TimePicker x:Name="Wfriday" Grid.Row="1" Grid.Column="6" Margin="2,349,-2.333,0.333" Grid.RowSpan="2"/>
+        <Label Content="WhenNeededWeek" FontSize="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <DockPanel Grid.Row="2" Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Start time:" Grid.Row="1" FontSize="20"/>
+                <Label Content="End time:" Grid.Row="2" FontSize="20"/>
+                <CheckBox x:Name="checkSun" Content="Sunday" Grid.Column="1" Grid.Row="0" IsChecked="{Binding DayInWeek[0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="1" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="1" FontSize="20"/>
+                <CheckBox x:Name="checkMon" Content="Monday" Grid.Column="2" Grid.Row="0" IsChecked="{Binding DayInWeek[1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="2" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="2" FontSize="20"/>
+                <CheckBox x:Name="checkTue" Content="Tuesday" Grid.Column="3" Grid.Row="0" IsChecked="{Binding DayInWeek[2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="3" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="3" FontSize="20"/>
+                <CheckBox x:Name="checkWed" Content="Wedsday" Grid.Row="0" Grid.Column="4" IsChecked="{Binding DayInWeek[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="4" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="4" FontSize="20"/>
+                <CheckBox x:Name="checkThu" Content="Thusday" Grid.Column="5" Grid.Row="0" IsChecked="{Binding DayInWeek[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="5" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="5" FontSize="20"/>
+                <CheckBox x:Name="checkFri" Content="Friday" Grid.Column="6" Grid.Row="0" IsChecked="{Binding DayInWeek[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="6" FontSize="20"/>
+                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="6" FontSize="20"/>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>

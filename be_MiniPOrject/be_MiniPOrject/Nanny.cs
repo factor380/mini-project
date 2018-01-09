@@ -61,7 +61,7 @@ namespace BE
             this.recommendations = recommendations;
             HowMuchHourNanWork=0;
             for(int i=0;i>6;++i)
-                HowMuchHourNanWork+=WorkHours[2][i]-WorkHours[1][i];
+                HowMuchHourNanWork+=WorkHours[1,i]-WorkHours[0,i];
         }
 
         public int Id { get => id; }
@@ -182,7 +182,7 @@ namespace BE
         }
         public bool DaysOOf { get => daysOOf; set => daysOOf = value; }
         public string Recommendations { get => recommendations; set => recommendations = value; }
-        public float HowMuchHourNanWork1{ get => HowMuchHourNanWork1; set => HowMuchHourNanWork1 = value; };
+        public float HowMuchHourNanWork1{ get => HowMuchHourNanWork1; set => HowMuchHourNanWork1 = value; }
         public override string ToString()
         {
             return name + ' ' + LastName + " id" + id + " phone number " + PhoneNum + " address " + Address;

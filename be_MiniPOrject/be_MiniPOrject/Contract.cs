@@ -42,7 +42,7 @@ namespace BE
             this.activeContract = activeContract;
             this.payHours = payHours;
             this.payMonth = payMonth;
-            this.horM = horM;
+            this.HorM = HorM;
             this.startDate = startDate;
             this.endDate = endDate;
         }
