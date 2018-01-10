@@ -23,7 +23,7 @@ namespace BE
         public  Contract()
         {
         }
-        public Contract(int contract_Num, int nannyId, int motherId, int childId, bool met, bool activeContract, float payHours, int payMonth, bool horM, DateTime startDate, DateTime endDate)
+        public Contract(int contract_Num, int nannyId, int motherId, int childId, bool met, bool activeContract, float payHours, int payMonth, bool horM, DateTime startDate, DateTime endDate)//לשים לב שצריך לשנות את זה שיכנס לבד ב dal
         {
             Contract_Num = contract_Num;
             if (nannyId >= 100000000 && nannyId <= 999999999)
