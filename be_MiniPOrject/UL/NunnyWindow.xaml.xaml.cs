@@ -26,6 +26,7 @@ namespace UL
         public AddNunnyWindow()
         {
             InitializeComponent();
+            bl = FactoryBL.GetBL();
             nanny = new Nanny();
             this.NannyDetails.DataContext = nanny;
         }

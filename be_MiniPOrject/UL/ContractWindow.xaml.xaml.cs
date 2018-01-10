@@ -26,6 +26,7 @@ namespace UL
         public AddContractWindow()
         {
             InitializeComponent();
+            bl = FactoryBL.GetBL();
             contract = new Contract();
             this.ContractDetails.DataContext = contract;
         }

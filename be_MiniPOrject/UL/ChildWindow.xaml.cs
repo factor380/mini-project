@@ -26,6 +26,7 @@ namespace UL
         public AddChildWindow()
         {
             InitializeComponent();
+            bl = FactoryBL.GetBL();
             child = new Child();
             this.ChildDetails.DataContext = child;
         }

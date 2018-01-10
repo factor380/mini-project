@@ -14,7 +14,7 @@ namespace BL
     public delegate bool ContrafctCondition(Contract c);
 
 
-    class BL_imp : IBL
+    public class BL_imp : IBL
     {
         DAL.IDAL dal;
         #region Nanny func
@@ -33,10 +33,10 @@ namespace BL
             foreach (int IdCo in n.ListIdContract)
             {
                 c = dal.GetContract(IdCo);
-                if (c.EndDate > DateTime.Now&&c.ActiveContract==true)
+                if (c.EndDate > DateTime.Now && c.ActiveContract == true)
                     throw new Exception("Nanny have contract that she dont finish");
                 RemoveContract(c.Contract_Num1);
-               
+
             }
             dal.RemoveNanny(id);
         }
@@ -70,13 +70,13 @@ namespace BL
             foreach (int IdCo in chi.ListIdContract)
             {
                 c = dal.GetContract(IdCo);
-                if (c.EndDate > DateTime.Now&&c.ActiveContract==true)
+                if (c.EndDate > DateTime.Now && c.ActiveContract == true)
                     throw new Exception("Child have contract that he dont finish");
                 RemoveContract(IdCo);
             }
             dal.RemoveChild(id);
-                
-       }
+
+        }
         public void UpdateChild(Child c)
         {
             dal.UpdateChild(c);
@@ -162,7 +162,7 @@ namespace BL
         public void RemoveContract(int contract_Num)
         {
             Contract c = GetContract(contract_Num);
-            if (DateTime.Now > c.EndDate&&c.ActiveContract==true)
+            if (DateTime.Now > c.EndDate && c.ActiveContract == true)
                 throw new Exception("this contract dont finish");
             Nanny nan = GetNanny(c.NannyId);
             nan.ListIdContract.Remove(contract_Num);
@@ -256,7 +256,7 @@ namespace BL
             return leg.Distance.Value;
         }
 
-        List<Nanny> NanniesThatFitMom(Mother mom)
+        public List<Nanny> NanniesThatFitMom(Mother mom)
         {
             List<Nanny> listN = getNannyList();
             List<Nanny> listToSend = new List<Nanny>();
@@ -285,7 +285,7 @@ namespace BL
 
         }
         //i decide to do what almost fit in days and our
-        List<Nanny> NanniesThatAlsoFitMom(Mother mom)
+        public List<Nanny> NanniesThatAlsoFitMom(Mother mom)
         {
             List<Nanny> listN = getNannyList();
             List<Nanny> listToSend = new List<Nanny>();
@@ -318,7 +318,7 @@ namespace BL
 
         }
 
-        List<Nanny> NanniesThatInDistanceWithMother(Mother mom,float distance)
+        public List<Nanny> NanniesThatInDistanceWithMother(Mother mom, float distance)
         {
             List<Nanny> listN = getNannyList();
             List<Nanny> listToSend = new List<Nanny>();
@@ -335,12 +335,12 @@ namespace BL
             return listToSend;
         }
 
-        List<Child> GetAllTheChildrenThetDontHaveNannys()
+        public List<Child> GetAllTheChildrenThetDontHaveNannys()
         {
             List<Child> listC = getChildList();
             List<Child> listToSend = new List<Child>();
 
-            foreach(Child chi in listC)
+            foreach (Child chi in listC)
             {
                 if (chi.ListIdContract == null)
                     listToSend.Add(chi);
@@ -348,7 +348,7 @@ namespace BL
             return listToSend;
         }
 
-        List<Nanny> GetAllTheNannysThatWorkWithDaysOOfTamat()
+        public List<Nanny> GetAllTheNannysThatWorkWithDaysOOfTamat()
         {
             List<Nanny> listN = getNannyList();
             List<Nanny> listToSend = new List<Nanny>();
@@ -362,10 +362,10 @@ namespace BL
             return listToSend;
         }
 
-        List<Contract> GetAllContractThatFulfillingTheCondition(ContrafctCondition con)
+        public List<Contract> GetAllContractThatFulfillingTheCondition(ContrafctCondition con)
         {
             List<Contract> listToSend = new List<Contract>();
-            foreach(Contract c in getContractList())
+            foreach (Contract c in getContractList())
             {
                 if (con(c))
                     listToSend.Add(c);
@@ -373,14 +373,14 @@ namespace BL
             return listToSend;
         }
 
-        int GetAllNumberContractThatFulfillingTheCondition(ContrafctCondition con)
+        public int GetAllNumberContractThatFulfillingTheCondition(ContrafctCondition con)
         {
             List<Contract> listContract = GetAllContractThatFulfillingTheCondition(con);
 
             return listContract.Count;
         }
 
-        IEnumerable<IGrouping<int, Nanny>>  GetAllNannysAccordingToAgeChild(bool age=false, bool classified=false )
+        public IEnumerable<IGrouping<int, Nanny>> GetAllNannysAccordingToAgeChild(bool age = false, bool classified = false)
         {
             List<Nanny> ListN = getNannyList();
             if (age == false)
@@ -416,13 +416,13 @@ namespace BL
                     return result;
                 }
             }
-            
+
 
         }
-        IEnumerable<IGrouping<int, Contract>> GetAllTheContractAccordingTodistance(bool classified = false)
+        public IEnumerable<IGrouping<int, Contract>> GetAllTheContractAccordingTodistance(bool classified = false)
         {
             List<Contract> ListC = getContractList();
-            if (classified==false)
+            if (classified == false)
             {
                 IEnumerable<IGrouping<int, Contract>> result = from con in ListC
                                                                group con by CalculateDistance(GetMother(con.MotherId).AddressAround, GetNanny(con.NannyId).Address) / 1000;//אני לא בטוח מה מחזיר בהנחה שזה רגללים או משהו כזה זה יעשה שזה יהיה בערך
@@ -436,7 +436,10 @@ namespace BL
                 return result;
 
             }
-
+        }
+        public IEnumerable<IGrouping<int, Child>> List_Child_ByMother()
+        {
+            return dal.List_Child_ByMother();
         }
         #endregion
     }

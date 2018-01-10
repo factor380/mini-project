@@ -27,6 +27,7 @@ namespace UL
         public AddMotherWindow()
         {
             InitializeComponent();
+            bl = FactoryBL.GetBL();
             mother = new Mother();
             this.MotherDetails.DataContext = mother;
         }

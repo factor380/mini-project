@@ -104,10 +104,10 @@ namespace DAL
 
         public Mother GetMotherWithChildId(int id)
         {
-            Child chi=GetChild(id);
-            if (chi==null)
+            Child chi = GetChild(id);
+            if (chi == null)
                 throw new Exception("thare no child with that id");
-            
+
             return DataSource.mothers.FirstOrDefault(m => m.ListIdChild.FirstOrDefault() == id);
         }
 
@@ -150,7 +150,7 @@ namespace DAL
             chi.ListIdContract.Add(c.ChildId);
             nan.ListIdContract.Add(c.ChildId);
             Contract.ContractNum1++;
-            
+
         }
 
         public Contract GetContract(int contract_Num)
@@ -183,7 +183,6 @@ namespace DAL
         #region Get List
         public IEnumerable<IGrouping<int, Child>> List_Child_ByMother()
         {
-            
             var ChildByMother = from kid in getChildList()
                                 group kid by kid.MotherId;
             return ChildByMother;

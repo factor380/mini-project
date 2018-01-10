@@ -13,7 +13,7 @@ namespace pl
     class Program
     {
         //instance of bl
-        private static IBL  bli;
+        private static IBL bl;
         /// <summary>
         /// main function for operating the program
         /// runs a loop with choices to manage the different parts of the program
@@ -24,7 +24,7 @@ namespace pl
         {
 
             bool wantsToLeave = false;
-            bli = FactoryBL.getBL();
+            bl = FactoryBL.GetBL();
             do
             {
 
@@ -89,10 +89,10 @@ namespace pl
                     case 2:
                         //removing a mother
                         Console.WriteLine("please input id number to remove\n");
-                        string id = Console.ReadLine();
+                        int id = Int32.Parse(Console.ReadLine());
                         try
                         {
-                            bli.removeMother(id);
+                            bl.RemoveMother(id);
                         }
                         catch (Exception e)
                         {
@@ -108,8 +108,8 @@ namespace pl
                     case 5:
                         //finding all children of a mother
                         Console.WriteLine("enter id of mother that you want to know all her children:\n");
-                        string idOfMother = Console.ReadLine();
-                        Console.Write(bli.getChildrenOfMother(bli.fIndMother(idOfMother)));
+                        int idOfMother = Int32.Parse(Console.ReadLine()); ;
+                        Console.Write(bl.List_Child_ByMother(bl.GetMother(idOfMother)));
                         break;
                     case 6:
                         //finding 5 closest fits to the mother's needs
@@ -143,9 +143,9 @@ namespace pl
         private static void updateMother()
         {
             Console.WriteLine("id of the mother to update:\n");
-            string id = Console.ReadLine();
+            int id = Int32.Parse(Console.ReadLine());
             int choice;
-            BE.Mother mother = bli.GetMother(id);
+            BE.Mother mother = bl.GetMother(id);
             do
             {
                 Console.WriteLine("which field do you want to change:\n" +
@@ -271,7 +271,7 @@ namespace pl
                 }
             } while (choice != 9);
             //adds the updated mother to the data
-            bli.UpdateMother(mother);
+            bl.UpdateMother(mother);
         }
         /// <summary>
         /// function for managing the nannies
@@ -303,7 +303,7 @@ namespace pl
                         int id = Int32.Parse(Console.ReadLine());
                         try
                         {
-                            bli.RemoveNanny(id);
+                            bl.RemoveNanny(id);
                         }
                         catch (Exception e)
                         {
@@ -471,20 +471,20 @@ namespace pl
 
             //we take both monthly and hourly because the nanny can be updated afterwards and change whether she works with hourly or monthly
             //hourly salary for the nanny
-            
-                Console.WriteLine("please enter hourly wage:");
-               
-                    float PayHour = float.Parse(Console.ReadLine());
-                
-            
+
+            Console.WriteLine("please enter hourly wage:");
+
+            float PayHour = float.Parse(Console.ReadLine());
+
+
             //monthly salary for the nanny
-            
-           
-                Console.WriteLine("please enter monthly salary:");
-                
-                    int PayMonth = Int32.Parse(Console.ReadLine());
-                
-            
+
+
+            Console.WriteLine("please enter monthly salary:");
+
+            int PayMonth = Int32.Parse(Console.ReadLine());
+
+
             //the days the nanny works
             bool[] DayInWeek = new bool[6];
             do
@@ -534,15 +534,15 @@ namespace pl
             String Recommendations;
 
             //recomendations of the nanny
-            
-                repeat = false;
-                Console.WriteLine("please enter recomendations:");
-             
-                    Recommendations = Console.ReadLine();
+
+            repeat = false;
+            Console.WriteLine("please enter recomendations:");
+
+            Recommendations = Console.ReadLine();
 
 
             Console.WriteLine("please enter holiday yes to education no tmt:");
-            bool hol=true;
+            bool hol = true;
             switch (Console.ReadLine())
             {
                 case "yes":
@@ -558,7 +558,7 @@ namespace pl
                     break;
             }
 
-            nanny = new Nanny(Convert.ToInt32(id), LastName, Name, birthDate, PhoneNum, Address, elevator, FloorInBulding, Exp, MaxChildren, MinAgeMonth, MaxAgeMonth,YorN_HourlyRate,PayHour,PayMonth,DayInWeek,WorkHours,hol, Recommendations);
+            nanny = new Nanny(Convert.ToInt32(id), LastName, Name, birthDate, PhoneNum, Address, elevator, FloorInBulding, Exp, MaxChildren, MinAgeMonth, MaxAgeMonth, YorN_HourlyRate, PayHour, PayMonth, DayInWeek, WorkHours, hol, Recommendations);
         }
         /// <summary>
         /// function for updating nanny
@@ -572,7 +572,7 @@ namespace pl
             string id = Console.ReadLine();
             int choice;
             //finds the nanny with the id
-            BE.Nanny nanny = bli.GetNanny(Convert.ToInt32(id));
+            BE.Nanny nanny = bl.GetNanny(Convert.ToInt32(id));
             do
             {
                 Console.WriteLine("which field do you want to change:\n" +
@@ -692,11 +692,11 @@ namespace pl
                         for (int i = 0; i < 6; i++)
                         {
                             Console.WriteLine(getDay(i));
-                            nanny.WorkHours[i,0] = float.Parse(Console.ReadLine());
-                            
+                            nanny.WorkHours[i, 0] = float.Parse(Console.ReadLine());
+
                             Console.WriteLine("now finishing hour and minute");
-                            nanny.WorkHours[i,1] = float.Parse(Console.ReadLine());
-                            
+                            nanny.WorkHours[i, 1] = float.Parse(Console.ReadLine());
+
                         }
                         break;
                     case 8:
@@ -819,7 +819,7 @@ namespace pl
                         break;
                 }
             } while (choice != 0);
-            bli.updateNanny(nanny);
+            bl.UpdateNanny(nanny);
         }
 
         private static void manageChildren()
@@ -837,10 +837,10 @@ namespace pl
                         break;
                     case 2:
                         Console.WriteLine("please input id number to remove\n");
-                        string id = Console.ReadLine();
+                        int id = Int32.Parse(Console.ReadLine());
                         try
                         {
-                            bli.removeChild(id);
+                            bl.RemoveChild(id);
                         }
                         catch (Exception e)
                         {
@@ -872,7 +872,7 @@ namespace pl
             Console.WriteLine("id of the child to update:\n");
             string id = Console.ReadLine();
             int choice;
-            BE.Child child = bli.GetChild(Convert.ToInt32(id));
+            BE.Child child = bl.GetChild(Convert.ToInt32(id));
             do
             {
                 Console.WriteLine("which field do you want to change:\n1)first name\n2)special needs\n3)exit and update");
@@ -916,7 +916,7 @@ namespace pl
                         break;
                 }
             } while (choice != 3);
-            bli.updateChild(child);
+            bl.UpdateChild(child);
         }
 
         private static void manageContracts()
@@ -934,10 +934,10 @@ namespace pl
                         break;
                     case 2:
                         Console.WriteLine("please input number of contract to remove\n");
-                        string num = Console.ReadLine();
+                        int num = Int32.Parse(Console.ReadLine());
                         try
                         {
-                            bli.removeContract(num);
+                            bl.RemoveContract(num);
                         }
                         catch (Exception e)
                         {
@@ -974,15 +974,15 @@ namespace pl
             string numberOfContracts = Console.ReadLine();
             int choice;
             string help;
-            BE.Contract contract = bli.GetContract(Convert.ToInt32(numberOfContracts));
+            BE.Contract contract = bl.GetContract(Convert.ToInt32(numberOfContracts));
             do
             {
                 Console.WriteLine("which field do you want to change:\n1)was there an intro meeting\n2)is the pay per hour\n3)date of start\n4)date of end\n5)exit and update");
                 choice = Int32.Parse(Console.ReadLine());
                 switch (choice)
                 {
-                    
-                     
+
+
                     case 1:
                         Console.WriteLine("is the pay per hour?(yes or no)\n");
                         help = Console.ReadLine();
@@ -1028,7 +1028,7 @@ namespace pl
 
                 }
             } while (choice != 5);
-            bli.updateContract(contract);
+            bl.UpdateContract(contract);
         }
 
         private static void addContract()
@@ -1059,7 +1059,7 @@ namespace pl
                 signContract = true;
             else
                 signContract = false;
-            bli.addContract(new BE.Contract(Contract.ContractNum1,Convert.ToInt32(nannyID), Convert.ToInt32(MotherID), Convert.ToInt32(ChildID), introMeeting, signContract, 0, 0, false, start, end));
+            bl.AddContract(new BE.Contract(Contract.ContractNum1, Convert.ToInt32(nannyID), Convert.ToInt32(MotherID), Convert.ToInt32(ChildID), introMeeting, signContract, 0, 0, false, start, end));
 
         }
 
@@ -1067,7 +1067,7 @@ namespace pl
         {
             string id, lastName, firstName, phoneNum, address, lookAddress, comments;
             bool[] workDays = new bool[6];
-            float [,] workHours = new float[6, 0];
+            float[,] workHours = new float[6, 0];
             Console.WriteLine("please enter mother's id\n");
             id = Console.ReadLine();
             Console.WriteLine("please enter mother's last name\n");
@@ -1102,14 +1102,14 @@ namespace pl
             for (int i = 0; i < workDays.Length; i++)
             {
                 Console.WriteLine(getDay(i));
-                workHours[i,0] = float.Parse(Console.ReadLine());
+                workHours[i, 0] = float.Parse(Console.ReadLine());
                 Console.WriteLine("now finishing hour and minute");
-                workHours[i,1] = float.Parse(Console.ReadLine());
-               
+                workHours[i, 1] = float.Parse(Console.ReadLine());
+
             }
             try
             {
-                bli.addMother(new BE.Mother(Convert.ToInt32(id), lastName, firstName, phoneNum, address, lookAddress, workDays, workHours, comments));
+                bl.AddMother(new BE.Mother(Convert.ToInt32(id), lastName, firstName, phoneNum, address, lookAddress, workDays, workHours, comments));
             }
             catch (Exception e)
             {
@@ -1156,7 +1156,7 @@ namespace pl
                 try
                 {
                     birthDate = new DateTime(Int32.Parse(year), Int32.Parse(month), Int32.Parse(day));
-                    ch = new BE.Child(Convert.ToInt32(childId), Convert.ToInt32(motherId), "chack", birthDate,false,"nothing");
+                    ch = new BE.Child(Convert.ToInt32(childId), Convert.ToInt32(motherId), "chack", birthDate, false, "nothing");
                 }
                 catch (Exception e)
                 {
@@ -1205,7 +1205,7 @@ namespace pl
             }
             try
             {
-                bli.addChild(ch);
+                bl.AddChild(ch);
             }
             catch (Exception e)
             {
@@ -1218,7 +1218,7 @@ namespace pl
         private static void printMothers()
         {
             Console.WriteLine("The mothers in the Database currently:\n");
-            foreach (BE.Mother mom in bli.getMothers())
+            foreach (BE.Mother mom in bl.getMotherList())
             {
                 Console.WriteLine(mom);
                 Console.WriteLine("\n");
@@ -1228,7 +1228,7 @@ namespace pl
         private static void printChildren()
         {
             Console.WriteLine("The children in the Database currently:\n");
-            foreach (BE.Child ch in bli.getChildren())
+            foreach (BE.Child ch in bl.getChildList())
             {
                 Console.WriteLine(ch);
                 Console.WriteLine("\n");
@@ -1238,7 +1238,7 @@ namespace pl
         private static void printNannies()
         {
             Console.WriteLine("The nannies in the Database currently:\n");
-            foreach (BE.Nanny nan in bli.getNannies())
+            foreach (BE.Nanny nan in bl.getNannyList())
             {
                 Console.WriteLine(nan);
                 Console.WriteLine("\n");
@@ -1248,7 +1248,7 @@ namespace pl
         private static void printContracts()
         {
             Console.WriteLine("The contracts in the Database currently:\n");
-            foreach (BE.Contract ct in bli.getContractList())
+            foreach (BE.Contract ct in bl.getContractList())
             {
                 Console.WriteLine(ct);
                 Console.WriteLine("\n");
@@ -1259,7 +1259,7 @@ namespace pl
         {
             Console.WriteLine("Enter the ID of the mother: ");
             string id = Console.ReadLine();
-            BE.Mother mom = bli.GetMother(Convert.ToInt32(id));
+            BE.Mother mom = bl.GetMother(Convert.ToInt32(id));
             if (mom == null)
                 Console.WriteLine("Mother not found");
             else
@@ -1272,8 +1272,8 @@ namespace pl
         private static void printChild()
         {
             Console.WriteLine("Enter the ID of the child: ");
-            int id = Console.ReadLine();//how to do it
-            BE.Child ch = bli.GetChild(id);
+            int id = Int32.Parse(Console.ReadLine());
+            BE.Child ch = bl.GetChild(id);
             if (ch == null)
                 Console.WriteLine("Child not found");
             else
@@ -1286,8 +1286,8 @@ namespace pl
         private static void printNanny()
         {
             Console.WriteLine("Enter the ID of the nanny: ");
-            string id = Console.ReadLine();
-            BE.Nanny nan = bli.GetNanny(id);
+            int id = Int32.Parse(Console.ReadLine());
+            BE.Nanny nan = bl.GetNanny(id);
             if (nan == null)
                 Console.WriteLine("Nanny not found");
             else
@@ -1300,8 +1300,8 @@ namespace pl
         private static void printContract()
         {
             Console.WriteLine("Enter the contract number: ");
-            string num = Console.ReadLine();
-            BE.Contract ct = bli.GetContract(num);
+            int num = Int32.Parse(Console.ReadLine());
+            BE.Contract ct = bl.GetContract(num);
             if (ct == null)
                 Console.WriteLine("Contract not found");
             else
@@ -1314,12 +1314,12 @@ namespace pl
         private static void distanceByContract()
         {
             Console.WriteLine("Enter the number of the contract: ");
-            string num = Console.ReadLine();
-            BE.Contract ct = bli.GetContract(num);
+            int num = Int32.Parse(Console.ReadLine());
+            BE.Contract ct = bl.GetContract(num);
             if (ct == null)
                 Console.WriteLine("Contract not found\n");
             else
-                Console.WriteLine("The distance between the nanny and the mother in the contract is %", bli.DistanceByContract(ct));
+                Console.WriteLine("The distance between the nanny and the mother in the contract is %", BL_imp.CalculateDistance(bl.GetNanny(ct.NannyId).Address, bl.GetMother(ct.MotherId).AddressAround));
         }
 
         private static void contractByDistance()
@@ -1332,10 +1332,10 @@ namespace pl
                 switch (s)
                 {
                     case "y":
-                        Console.WriteLine(bli.ContractByDistance(true));
+                        Console.WriteLine(bl.GetAllTheContractAccordingTodistance(true));
                         break;
                     case "n":
-                        Console.WriteLine(bli.ContractByDistance(false));
+                        Console.WriteLine(bl.GetAllTheContractAccordingTodistance(false));
                         break;
                     default:
                         Console.WriteLine("Invalid input. Please try again.\n");
@@ -1347,34 +1347,34 @@ namespace pl
         private static void closestFit()
         {
             Console.WriteLine("Enter the mother's ID: ");
-            string id = Console.ReadLine();
-            BE.Mother mom = bli.GetMother(id);
+            int id = Int32.Parse(Console.ReadLine());
+            BE.Mother mom = bl.GetMother(id);
             if (mom == null)
                 Console.WriteLine("Mother not found");
             else
             {
-                Console.WriteLine(bli.closestFit(mom));
+                Console.WriteLine(bl.NanniesThatAlsoFitMom(mom));
             }
         }
 
         private static void bestFit()
         {
             Console.WriteLine("Enter the mother's ID: ");
-            string id = Console.ReadLine();
-            BE.Mother mom = bli.GetMother(id);
+            int id = Int32.Parse(Console.ReadLine());
+            BE.Mother mom = bl.GetMother(id);
             if (mom == null)
                 Console.WriteLine("Mother not found");
             else
             {
-                Console.WriteLine(bli.BestFit(mom));
+                Console.WriteLine(bl.NanniesThatFitMom(mom));
             }
         }
 
         private static void InRange()
         {
             Console.WriteLine("Enter the mother's ID: ");
-            string id = Console.ReadLine();
-            BE.Mother mom = bli.GetMother(id);
+            int id = Int32.Parse(Console.ReadLine());
+            BE.Mother mom = bl.GetMother(id);
             if (mom == null)
                 Console.WriteLine("Mother not found");
             else
@@ -1387,18 +1387,16 @@ namespace pl
                     if (r < 0)
                         Console.WriteLine("Invalid range.");
                     else
-                        Console.WriteLine(bli.InRange(mom, r));
+                        Console.WriteLine(bl.NanniesThatInDistanceWithMother(mom, r));
                 }
             }
         }
 
         private static void noNanny()
         {
-            foreach (BE.Child ch in bli.NoNanny())
+            foreach (BE.Child ch in bl.GetAllTheChildrenThetDontHaveNannys())
                 Console.WriteLine(ch);
         }
-
-      
 
         private static void NannyByAge()
         {
@@ -1418,10 +1416,10 @@ namespace pl
                             switch (sort)
                             {
                                 case "y":
-                                    bli.NannyByAge(false, true).ToString();
+                                    bl.GetAllNannysAccordingToAgeChild(false, true).ToString();
                                     break;
                                 case "n":
-                                    bli.NannyByAge(false, false).ToString();
+                                    bl.GetAllNannysAccordingToAgeChild(false, false).ToString();
                                     break;
                                 default:
                                     Console.WriteLine("Invalid input. Please try again.\n");
@@ -1437,10 +1435,10 @@ namespace pl
                             switch (sort)
                             {
                                 case "y":
-                                    bli.NannyByAge(true, true).ToString();
+                                    bl.GetAllNannysAccordingToAgeChild(true, true).ToString();
                                     break;
                                 case "n":
-                                    bli.NannyByAge(true, false).ToString();
+                                    bl.GetAllNannysAccordingToAgeChild(true, false).ToString();
                                     break;
                                 default:
                                     Console.WriteLine("Invalid input. Please try again.\n");

@@ -33,9 +33,19 @@ namespace BL
         void RemoveContract(int contract_Num);
         void UpdateContract(Contract c);
         Contract GetContract(int contract_Num);
-        void UpdetRateOfContract(int NanId,int MomId);//Update salary after discount
+        void UpdetRateOfContract(int NanId, int MomId);//Update salary after discount
         List<Contract> getContractList();
 
-        //IEnumerable<IGrouping<int, Child>> List_Child_ByMother();//אני לא בטוח שזה צריך ליהות פה
+        List<Nanny> NanniesThatFitMom(Mother mom);
+        List<Nanny> NanniesThatAlsoFitMom(Mother mom);
+        List<Nanny> NanniesThatInDistanceWithMother(Mother mom, float distance);
+        List<Child> GetAllTheChildrenThetDontHaveNannys();
+        List<Nanny> GetAllTheNannysThatWorkWithDaysOOfTamat();
+        List<Contract> GetAllContractThatFulfillingTheCondition(ContrafctCondition con);
+        int GetAllNumberContractThatFulfillingTheCondition(ContrafctCondition con);
+        IEnumerable<IGrouping<int, Nanny>> GetAllNannysAccordingToAgeChild(bool age, bool classified);
+        IEnumerable<IGrouping<int, Contract>> GetAllTheContractAccordingTodistance(bool classified);
+
+        IEnumerable<IGrouping<int, Child>> List_Child_ByMother();
     }
 }
