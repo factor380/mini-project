@@ -16,7 +16,8 @@ namespace BL
 
     public class BL_imp : IBL
     {
-        DAL.IDAL dal;
+        IDAL dal = FactoryDAL.GetDAL();
+
         #region Nanny func
 
         public void AddNanny(Nanny n)
@@ -440,6 +441,15 @@ namespace BL
         public IEnumerable<IGrouping<int, Child>> List_Child_ByMother()
         {
             return dal.List_Child_ByMother();
+        }
+        public List<Child> List_Child_ByMother(Mother mom)
+        {
+            List<Child> childofMother = new List<Child>();
+            foreach (int id in mom.ListIdChild)
+            {
+                childofMother.Add(GetChild(id));
+            }
+            return childofMother;
         }
         #endregion
     }

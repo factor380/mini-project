@@ -36,6 +36,7 @@ namespace BL
         void UpdetRateOfContract(int NanId, int MomId);//Update salary after discount
         List<Contract> getContractList();
 
+        List<Child> List_Child_ByMother(Mother mom);
         List<Nanny> NanniesThatFitMom(Mother mom);
         List<Nanny> NanniesThatAlsoFitMom(Mother mom);
         List<Nanny> NanniesThatInDistanceWithMother(Mother mom, float distance);

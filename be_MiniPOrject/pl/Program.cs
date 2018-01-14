@@ -33,7 +33,7 @@ namespace pl
                     "2)manage nannies\n" +
                     "3)manage children\n" +
                     "4)manage contracts\n" +
-                    "0)exit program\n");
+                    "0)exit program");
                 int choice = Int32.Parse(Console.ReadLine());
                 switch (choice)
                 {
@@ -1067,7 +1067,7 @@ namespace pl
         {
             string id, lastName, firstName, phoneNum, address, lookAddress, comments;
             bool[] workDays = new bool[6];
-            float[,] workHours = new float[6, 0];
+            float[,] workHours = new float[6, 2];
             Console.WriteLine("please enter mother's id\n");
             id = Console.ReadLine();
             Console.WriteLine("please enter mother's last name\n");
@@ -1090,7 +1090,7 @@ namespace pl
                 help = Console.ReadLine();
                 if (help == "yes")
                     workDays[i] = true;
-                if (help == "no")
+                else if (help == "no")
                     workDays[i] = false;
                 else
                 {
@@ -1101,11 +1101,13 @@ namespace pl
             Console.WriteLine("please enter mother's starting work hour and minute and finishing work hour and minute in each day\n");
             for (int i = 0; i < workDays.Length; i++)
             {
-                Console.WriteLine(getDay(i));
-                workHours[i, 0] = float.Parse(Console.ReadLine());
-                Console.WriteLine("now finishing hour and minute");
-                workHours[i, 1] = float.Parse(Console.ReadLine());
-
+                if (workDays[i])
+                {
+                    Console.WriteLine(getDay(i));
+                    workHours[i, 0] = float.Parse(Console.ReadLine());
+                    Console.WriteLine("now finishing hour and minute");
+                    workHours[i, 1] = float.Parse(Console.ReadLine());
+                }
             }
             try
             {
