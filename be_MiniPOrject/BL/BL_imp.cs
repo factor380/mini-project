@@ -451,6 +451,14 @@ namespace BL
             }
             return childofMother;
         }
+        public IEnumerable<Contract> List_Contract_that_have_only_week_left()
+        {
+            IEnumerable<Contract> ConL = getContractList();
+            IEnumerable<Contract> ListToSend = from Contract item in ConL
+                                    where ((item.EndDate-DateTime.Now).TotalDays<7)
+                                    select item;
+            return ListToSend;
+        }
         #endregion
     }
 }
