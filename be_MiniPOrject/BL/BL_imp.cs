@@ -144,7 +144,7 @@ namespace BL
                     throw new Exception("the nanny can't get the age of the child");
                 }
 
-                if (DateTime.Now.Month + 12 - chi.DateBirth.Month > nan.MaxAgeMonth) 
+                if (DateTime.Now.Month + 12 - chi.DateBirth.Month > nan.MaxAgeMonth)
                 {
                     throw new Exception("the nanny can't get the age of the child");
                 }
@@ -469,8 +469,8 @@ namespace BL
         {
             IEnumerable<Contract> ConL = getContractList();
             IEnumerable<Contract> ListToSend = from Contract item in ConL
-                                    where ((item.EndDate-DateTime.Now).TotalDays<7)
-                                    select item;
+                                               where ((item.EndDate - DateTime.Now).TotalDays < 7)
+                                               select item;
             return ListToSend;
         }
         #endregion
