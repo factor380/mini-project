@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.RemoveChild"
         mc:Ignorable="d"
-        Title="RemoveChild" Height="300" Width="300" Loaded="Window_Loaded">
+        Title="RemoveChild" Height="300" Width="300">
     <Window.Resources>
         <CollectionViewSource x:Key="childViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Child}, CreateList=True}"/>
     </Window.Resources>

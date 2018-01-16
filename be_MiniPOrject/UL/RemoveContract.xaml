@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.RemoveContract"
         mc:Ignorable="d"
-        Title="RemoveContract" Height="300" Width="300" Loaded="Window_Loaded">
+        Title="RemoveContract" Height="300" Width="300">
     <Window.Resources>
         <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
     </Window.Resources>

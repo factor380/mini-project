@@ -23,13 +23,5 @@ namespace UL
         {
             InitializeComponent();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource contractViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("contractViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // contractViewSource.Source = [generic data source]
-        }
     }
 }

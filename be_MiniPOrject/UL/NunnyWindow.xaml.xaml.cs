@@ -41,9 +41,13 @@ namespace UL
             }
             catch (Exception)
             {
-
-                throw;
+               
             }
+        }
+
+        private void TimePicker_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
         }
     }
 }

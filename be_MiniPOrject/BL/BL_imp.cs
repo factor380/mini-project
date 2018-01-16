@@ -148,7 +148,7 @@ namespace BL
             }
             if (c.HorM1 == false)//hour
             {
-                if (nan.YorN_HourlyRate == false)
+                if (nan.PerHour == false)
                     throw new Exception("the nanny dont agree to get a hour rate");
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
                 c.PayMonth = c.PayHours * nan.HowMuchHourNanWork1;
@@ -196,7 +196,7 @@ namespace BL
             }
             if (c.HorM1 == false)//hour
             {
-                if (nan.YorN_HourlyRate == false)
+                if (nan.PerHour == false)
                     throw new Exception("the nanny dont agree to get a hour rate");
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
                 c.PayMonth = c.PayHours * nan.HowMuchHourNanWork1;
@@ -269,7 +269,7 @@ namespace BL
                     ToSeeIfAllTheDaysGood = true;
                     for (int i = 0; i < 6; ++i)
                     {
-                        if (nan.WorkHours[0, i] > mom.WhenNeededWeek[0, i] || nan.WorkHours[1, i] < mom.WhenNeededWeek[1, i])
+                        if (nan.WorkHours[i][0] > mom.WhenNeededWeek[i][0] || nan.WorkHours[i][1] < mom.WhenNeededWeek[i][1])
                         {
                             ToSeeIfAllTheDaysGood = false;
                         }
@@ -300,7 +300,7 @@ namespace BL
                     {
                         if (mom.DayInWeek[i] == nan.DayInWeek[i])
                         {
-                            if (nan.WorkHours[0, i] <= mom.WhenNeededWeek[0, i] || nan.WorkHours[1, i] >= mom.WhenNeededWeek[1, i])
+                            if (nan.WorkHours[i][0] <= mom.WhenNeededWeek[i][0] || nan.WorkHours[i][1] >= mom.WhenNeededWeek[i][1])
                             {
                                 count++;
                             }
