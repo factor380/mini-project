@@ -17,8 +17,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="REMOVE MOTHER" FontSize="30"/>
-        <Button Content="REMOVE" FontSize="30" Grid.Row="2"/>
-        <Grid x:Name="grid1" DataContext="{StaticResource motherViewSource}" HorizontalAlignment="Left" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="293">
+        <Button Content="REMOVE" FontSize="30" Grid.Row="2" Click="Button_Click"/>
+        <Grid x:Name="Remove" DataContext="{StaticResource motherViewSource}" HorizontalAlignment="Left" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="293">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>

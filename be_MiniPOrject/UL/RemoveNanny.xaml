@@ -17,9 +17,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="REMOVE NANNY" FontSize="30"/>
-        <Button Content="REMOVE" FontSize="30" Grid.Row="2"/>
+        <Button Content="REMOVE" FontSize="30" Grid.Row="2" Click="Button_Click"/>
 
-        <Grid x:Name="grid1" DataContext="{StaticResource nannyViewSource}" HorizontalAlignment="Left" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="293">
+        <Grid x:Name="Remove" DataContext="{StaticResource nannyViewSource}" HorizontalAlignment="Left" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="293">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>

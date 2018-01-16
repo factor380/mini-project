@@ -17,8 +17,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="REMOVE Child" FontSize="30" FontWeight="Bold"/>
-        <Button Content="REMOVE" Grid.Row="2" FontSize="30"/>
-        <Grid x:Name="grid1" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="293">
+        <Button Content="REMOVE" Grid.Row="2" FontSize="30" Click="Button_Click"/>
+        <Grid x:Name="Remove" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="293">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -27,7 +27,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3.333,10,-55.333,2.667" Grid.Row="0" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="178" FontSize="20"/>
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Grid.Row="0" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="178" FontSize="20"/>
         </Grid>
     </Grid>
 </Window>

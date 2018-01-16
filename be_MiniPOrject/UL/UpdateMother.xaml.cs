@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
 namespace UL
 {
@@ -19,17 +21,15 @@ namespace UL
     /// </summary>
     public partial class UpdateMother : Window
     {
+        IBL bl;
         public UpdateMother()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource motherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("motherViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // motherViewSource.Source = [generic data source]
+            bl = FactoryBL.GetBL();
+            foreach (Mother m in bl.getMotherList())
+            {
+                idCombobox.Items.Add(m.Id);
+            }
         }
     }
 }

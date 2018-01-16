@@ -47,7 +47,7 @@
             <Label Content="Special Needs:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="30"/>
             <CheckBox x:Name="specialNeedsCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding SpecialNeeds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
             <Label Content="What He Need:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="30"/>
-            <TextBox x:Name="whatHeNeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding WhatHeNeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="whatHeNeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding WhatHeNeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="{Binding ElementName=specialNeedsCheckBox,Path=IsChecked}"/>
         </Grid>
     </Grid>
 </Window>

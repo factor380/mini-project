@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.UpdateContract"
         mc:Ignorable="d"
-        Title="UpdateContract" Height="500" Width="300" Loaded="Window_Loaded">
+        Title="UpdateContract" Height="500" Width="300">
     <Window.Resources>
         <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
     </Window.Resources>
@@ -37,7 +37,7 @@
             <Label Content="Child Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="childIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding ChildId, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Contract Num 1:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="contract_Num1TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <ComboBox x:Name="contract_Num1ComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="End Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"/>
             <DatePicker x:Name="endDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
             <Label Content="Hor M:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20"/>

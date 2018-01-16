@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL;
+using BE;
 
 namespace UL
 {
@@ -19,17 +21,15 @@ namespace UL
     /// </summary>
     public partial class UpdateNanny : Window
     {
+        IBL bl;
         public UpdateNanny()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource nannyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("nannyViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // nannyViewSource.Source = [generic data source]
+            bl = FactoryBL.GetBL();
+            foreach (Nanny n in bl.getNannyList())
+            {
+                idComboBox.Items.Add(n.Id);
+            }
         }
     }
 }

@@ -82,6 +82,12 @@
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
+                <TabItem Header="MORE FUNCS" Grid.Column="0" FontSize="20" FontWeight="Bold">
+                    <TabItem.Content>
+                        <Grid>
+                        </Grid>
+                    </TabItem.Content>
+                </TabItem>
             </TabControl.Items>
         </TabControl>
     </Grid>

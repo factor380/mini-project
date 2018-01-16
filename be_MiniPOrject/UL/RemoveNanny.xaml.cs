@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL;
 
 namespace UL
 {
@@ -19,9 +20,26 @@ namespace UL
     /// </summary>
     public partial class RemoveNanny : Window
     {
+        IBL bl;
+        int removeId;
         public RemoveNanny()
         {
             InitializeComponent();
+            bl = FactoryBL.GetBL();
+            this.Remove.DataContext = removeId;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                bl.RemoveNanny(removeId);
+                Remove.DataContext = null;
+            }
+            catch (FormatException)
+            {
+
+            }
         }
     }
 }

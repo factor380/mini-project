@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.UpdateNanny"
         mc:Ignorable="d"
-        Title="UpdateNanny" Height="570" Width="300" Loaded="Window_Loaded">
+        Title="UpdateNanny" Height="570" Width="300">
     <Window.Resources>
         <CollectionViewSource x:Key="nannyViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Nanny}, CreateList=True}"/>
     </Window.Resources>
@@ -51,7 +51,7 @@
             <Label Content="Floor In Bulding:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
             <TextBox x:Name="floorInBuldingTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding FloorInBulding, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <ComboBox x:Name="idComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
             <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Max Age Month:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>

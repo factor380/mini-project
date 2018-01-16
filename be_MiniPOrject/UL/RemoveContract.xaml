@@ -17,9 +17,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="Remove Contract" FontSize="25"/>
-        <Button Content="Remove" FontSize="25" Grid.Row="2"/>
+        <Button Content="Remove" FontSize="25" Grid.Row="2" Click="Button_Click"/>
 
-        <Grid x:Name="grid1" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" Margin="0,51.667,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="293">
+        <Grid x:Name="Remove" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" Margin="0,51.667,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="293">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -27,7 +27,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Contract Num 1:" Grid.Column="0" HorizontalAlignment="Center" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <Label Content="Contract Num :" Grid.Column="0" HorizontalAlignment="Center" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="contract_Num1TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3,10,0,4" Grid.Row="0" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" FontSize="20"/>
         </Grid>
 
