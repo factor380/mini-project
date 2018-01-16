@@ -44,10 +44,8 @@ namespace BE
             get => name;
             set
             {
-                if (name[0] > 'Z' || name[0] < 'A')
-                    throw new Exception("this input is not make sense");
-                for (int i = 1; i < name.Length; i++)
-                    if (name[i] > 'z' || name[i] < 'a')
+                for (int i = 1; i < value.Length; i++)
+                    if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");
                 name = value;
             }
@@ -58,7 +56,7 @@ namespace BE
 
         public override string ToString()
         {
-            return name + " id " + id + " mother id " + MotherId + " Date of birth " + DateBirth;
+            return name + " id " + id + " mother id " + MotherId + " Date of birth " + DateBirth.Year + '/' + DateBirth.Month + '/' + DateBirth.Day ;
         }
     }
 }

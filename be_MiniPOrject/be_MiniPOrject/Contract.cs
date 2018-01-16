@@ -60,7 +60,7 @@ namespace BE
             get => startDate;
             set
             {
-                if (DateTime.Compare(startDate, DateTime.Now) <= 0)
+                if (DateTime.Compare(value, DateTime.Now) <= 0)
                     throw new Exception("the time is not in the future");
                 startDate = value;
             }
@@ -70,7 +70,7 @@ namespace BE
             get => endDate;
             set
             {
-                if (startDate > endDate)
+                if (startDate >= value)
                     throw new Exception("this time not make sense");
                 endDate = value;
             }
@@ -80,7 +80,7 @@ namespace BE
             get => Contract_Num;
             set
             {
-                if (Contract_Num < 10000000 || Contract_Num > 99999999)
+                if (value < 0 || value > 999999999)
                     throw new Exception("this input not make sense");
                 Contract_Num = value;
             }

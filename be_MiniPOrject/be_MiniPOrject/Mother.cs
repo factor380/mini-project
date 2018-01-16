@@ -43,10 +43,10 @@ namespace BE
             get => lastName;
             set
             {
-                if (lastName[0] > 'Z' || lastName[0] < 'A')
+                if (value[0] > 'Z' || value[0] < 'A')
                     throw new Exception("this input is not make sense");
-                for (int i = 1; i < lastName.Length; i++)
-                    if (lastName[i] > 'z' || lastName[i] < 'a')
+                for (int i = 1; i < value.Length; i++)
+                    if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");
                 lastName = value;
             }
@@ -55,11 +55,9 @@ namespace BE
         {
             get => name;
             set
-            {
-                if (name[0] > 'Z' || name[0] < 'A')
-                    throw new Exception("this input is not make sense");
-                for (int i = 1; i < name.Length; i++)
-                    if (name[i] > 'z' || name[i] < 'a')
+            { 
+                for (int i = 1; i < value.Length; i++)
+                    if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");
                 name = value;
             }
@@ -69,8 +67,8 @@ namespace BE
             get => phoneNum;
             set
             {
-                for (int i = 0; i < phoneNum.Length; i++)
-                    if (phoneNum[i] > '9' || phoneNum[i] < '0')
+                for (int i = 0; i < value.Length; i++)
+                    if (value[i] > '9' || value[i] < '0')
                         throw new Exception("this input is not make sense");
                 phoneNum = value;
             }
@@ -80,8 +78,8 @@ namespace BE
             get => address;
             set
             {
-                for (int i = 0; i < address.Length; i++)
-                    if ((address[i] > 'z' || address[i] < 'a') && address[i] != ',')
+                for (int i = 0; i < value.Length; i++)
+                    if ((value[i] > 'z' || value[i] < 'a') && value[i] != ',' && value[i] != ' ')
                         throw new Exception("this input is not make sense");
                 address = value;
             }
@@ -91,8 +89,8 @@ namespace BE
             get => addressAround;
             set
             {
-                for (int i = 0; i < addressAround.Length; i++)
-                    if ((addressAround[i] > 'z' || addressAround[i] < 'a') && addressAround[i] != ',')
+                for (int i = 0; i < value.Length; i++)
+                    if ((value[i] > 'z' || value[i] < 'a') && value[i] != ',' && value[i] != ' ')
                         throw new Exception("this input is not make sense");
                 addressAround = value;
             }
@@ -103,7 +101,7 @@ namespace BE
             get => whenNeededWeek;
             set
             {
-                if (whenNeededWeek.GetLength(0) != 6)
+                if (value.GetLength(0) != 6)
                     throw new Exception("the number of days not correct");
                 whenNeededWeek = value;
             }
