@@ -22,7 +22,7 @@ namespace pl
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-
+            Init init = new Init();
             bool wantsToLeave = false;
             bl = FactoryBL.GetBL();
             do
@@ -246,10 +246,10 @@ namespace pl
                         for (int i = 0; i < 6; i++)
                         {
                             Console.WriteLine(i);
-                            mother.WhenNeededWeek[i, 0] = float.Parse(Console.ReadLine());
+                            mother.WhenNeededWeek[0][i] = TimeSpan.Parse(Console.ReadLine());
 
                             Console.WriteLine("now finishing hour and minute");
-                            mother.WhenNeededWeek[i, 1] = float.Parse(Console.ReadLine());
+                            mother.WhenNeededWeek[1][i] = TimeSpan.Parse(Console.ReadLine());
 
                         }
                         break;
@@ -453,15 +453,15 @@ namespace pl
             //whether the nanny is paid per hour
 
             Console.WriteLine("is the nanny paid per hour?(yes or no)");
-            bool YorN_HourlyRate = false;
+            bool PerHour = false;
             switch (Console.ReadLine())
             {
                 case "yes":
 
-                    YorN_HourlyRate = true;
+                    PerHour = true;
                     break;
                 case "no":
-                    YorN_HourlyRate = false;
+                    PerHour = false;
                     break;
                 default:
                     repeat = true;
@@ -507,7 +507,11 @@ namespace pl
                 }
             } while (repeat);
             //the times of the day the nanny works
-            float[,] WorkHours = new float[6, 2];
+            TimeSpan[][] WorkHours = new TimeSpan[6][];
+            for (int i = 0; i < 6; i++)
+            {
+                WorkHours[i] = new TimeSpan[2];
+            }
             do
             {
                 repeat = false;
@@ -517,10 +521,10 @@ namespace pl
                     try
                     {
                         Console.WriteLine(i);
-                        WorkHours[i, 0] = float.Parse(Console.ReadLine());
+                        WorkHours[i][0] = TimeSpan.Parse(Console.ReadLine());
 
                         Console.WriteLine("now finishing hour and minute");
-                        WorkHours[i, 1] = float.Parse(Console.ReadLine());
+                        WorkHours[i][1] = TimeSpan.Parse(Console.ReadLine());
 
                     }
                     //if the input wasn't good, the user puts in the day again
@@ -558,7 +562,7 @@ namespace pl
                     break;
             }
 
-            nanny = new Nanny(Convert.ToInt32(id), LastName, Name, birthDate, PhoneNum, Address, elevator, FloorInBulding, Exp, MaxChildren, MinAgeMonth, MaxAgeMonth, YorN_HourlyRate, PayHour, PayMonth, DayInWeek, WorkHours, hol, Recommendations);
+            nanny = new Nanny(Convert.ToInt32(id), LastName, Name, birthDate, PhoneNum, Address, elevator, FloorInBulding, Exp, MaxChildren, MinAgeMonth, MaxAgeMonth, PerHour, PayHour, PayMonth, DayInWeek, WorkHours, hol, Recommendations);
         }
         /// <summary>
         /// function for updating nanny
@@ -692,10 +696,10 @@ namespace pl
                         for (int i = 0; i < 6; i++)
                         {
                             Console.WriteLine(getDay(i));
-                            nanny.WorkHours[i, 0] = float.Parse(Console.ReadLine());
+                            nanny.WorkHours[i][0] = TimeSpan.Parse(Console.ReadLine());
 
                             Console.WriteLine("now finishing hour and minute");
-                            nanny.WorkHours[i, 1] = float.Parse(Console.ReadLine());
+                            nanny.WorkHours[i][1] = TimeSpan.Parse(Console.ReadLine());
 
                         }
                         break;
@@ -776,10 +780,10 @@ namespace pl
                             switch (Console.ReadLine())
                             {
                                 case "yes":
-                                    nanny.YorN_HourlyRate = true;
+                                    nanny.PerHour = true;
                                     break;
                                 case "no":
-                                    nanny.YorN_HourlyRate = false;
+                                    nanny.PerHour = false;
                                     break;
                                 default:
                                     Console.WriteLine("invalid data, please try again");
@@ -1067,7 +1071,11 @@ namespace pl
         {
             string id, lastName, firstName, phoneNum, address, lookAddress, comments;
             bool[] workDays = new bool[6];
-            float[,] workHours = new float[6, 2];
+            TimeSpan[][] workHours = new TimeSpan[6][];
+            for (int i = 0; i < 6; i++)
+            {
+                workHours[i] = new TimeSpan[2];
+            }
             Console.WriteLine("please enter mother's id\n");
             id = Console.ReadLine();
             Console.WriteLine("please enter mother's last name\n");
@@ -1104,9 +1112,9 @@ namespace pl
                 if (workDays[i])
                 {
                     Console.WriteLine(getDay(i));
-                    workHours[i, 0] = float.Parse(Console.ReadLine());
+                    workHours[i][0] = TimeSpan.Parse(Console.ReadLine());
                     Console.WriteLine("now finishing hour and minute");
-                    workHours[i, 1] = float.Parse(Console.ReadLine());
+                    workHours[i][1] = TimeSpan.Parse(Console.ReadLine());
                 }
             }
             try

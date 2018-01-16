@@ -20,19 +20,24 @@ namespace BE
         private int maxChildren;
         private int minAgeMonth;
         private int maxAgeMonth;
-        private bool yorN_HourlyRate;//if he Agrees to hour rate
+        private bool perHour;//if he Agrees to hour rate
         private float payHour;
         private int payMonth;
         private bool[] dayInWeek = new bool[6];
-        private float[,] workHours = new float[2, 6];
+        private TimeSpan[][] workHours = new TimeSpan[6][];
         private bool daysOOf;//if false the holidey Ministry of Education if true in tamat
         private string recommendations;
-        private float HowMuchHourNanWork;
+        private TimeSpan HowMuchHourNanWork;
         public List<int> ListIdContract;//List that save all the Contract ID that the nanny hava
 
         public Nanny()
-        { }
-        public Nanny(int id, string lastName, string name, DateTime dateBirth, string phoneNum, string address, bool elevator, int floorInBulding, int exp, int maxChildren, int minAgeMonth, int maxAgeMonth, bool yorN_HourlyRate, float payHour, int payMonth, bool[] dayInWeek, float[,] workHours, bool daysOOf, string recommendations)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                workHours[i] = new TimeSpan[2];
+            }
+        }
+        public Nanny(int id, string lastName, string name, DateTime dateBirth, string phoneNum, string address, bool elevator, int floorInBulding, int exp, int maxChildren, int minAgeMonth, int maxAgeMonth, bool perHour, float payHour, int payMonth, bool[] dayInWeek, TimeSpan[][] workHours, bool daysOOf, string recommendations)
         {
             if (id >= 100000000 && id <= 999999999)
                 this.id = id;
@@ -52,16 +57,19 @@ namespace BE
             this.maxChildren = maxChildren;
             this.minAgeMonth = minAgeMonth;
             this.maxAgeMonth = maxAgeMonth;
-            this.yorN_HourlyRate = yorN_HourlyRate;
+            this.perHour = perHour;
             this.payHour = payHour;
             this.payMonth = payMonth;
             this.dayInWeek = dayInWeek;
             this.workHours = workHours;
             this.daysOOf = daysOOf;
             this.recommendations = recommendations;
-            HowMuchHourNanWork=0;
-            for(int i=0;i>6;++i)
-                HowMuchHourNanWork+=WorkHours[1,i]-WorkHours[0,i];
+            HowMuchHourNanWork = TimeSpan.Parse("00:00");
+            for (int i = 0; i < 6; ++i)
+            {
+                if (DayInWeek[i])
+                HowMuchHourNanWork += WorkHours[i][1] - WorkHours[i][0];
+            }
         }
 
         public int Id { get => id; }
@@ -157,7 +165,7 @@ namespace BE
                 maxAgeMonth = value;
             }
         }
-        public bool YorN_HourlyRate { get => yorN_HourlyRate; set => yorN_HourlyRate = value; }
+        public bool PerHour { get => perHour; set => perHour = value; }
         public float PayHour { get => payHour; set => payHour = value; }
         public int PayMonth
         {
@@ -170,7 +178,7 @@ namespace BE
             }
         }
         public bool[] DayInWeek { get => dayInWeek; set => dayInWeek = value; }
-        public float[,] WorkHours
+        public TimeSpan[][] WorkHours
         {
             get => workHours;
             set
@@ -185,7 +193,7 @@ namespace BE
         public float HowMuchHourNanWork1{ get => HowMuchHourNanWork1; set => HowMuchHourNanWork1 = value; }
         public override string ToString()
         {
-            return name + ' ' + LastName + " id" + id + " phone number " + PhoneNum + " address " + Address;
+            return name + ' ' + LastName + " id " + id + " phone number " + PhoneNum + " address " + Address;
         }
     }
 }

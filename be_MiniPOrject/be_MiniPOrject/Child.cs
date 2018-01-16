@@ -14,7 +14,7 @@ namespace BE
         private readonly DateTime dateBirth;
         private bool specialNeeds;
         private string whatHeNeed;
-        public List<int> ListIdContract;
+        public List<int> ListIdContract = new List<int>();
 
         public Child()
         { }
@@ -58,7 +58,7 @@ namespace BE
 
         public override string ToString()
         {
-            return name + " id" + id + " mother id " + MotherId + " Date of birth " + DateBirth;
+            return name + " id " + id + " mother id " + MotherId + " Date of birth " + DateBirth;
         }
     }
 }

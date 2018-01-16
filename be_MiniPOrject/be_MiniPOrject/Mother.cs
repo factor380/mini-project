@@ -15,11 +15,11 @@ namespace BE
         private string address;
         private string addressAround;
         private bool[] dayInWeek = new bool[6];
-        private float[,] whenNeededWeek = new float[2, 6];//למה הגדרת את זה כלא שלם זה צריך ליהות ימים על זמן
+        private TimeSpan[][] whenNeededWeek = new TimeSpan[6][];
         private string remarks;
-        public List<int> ListIdChild;
+        public List<int> ListIdChild = new List<int>();
 
-        public Mother(int id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, float[,] whenNeededWeek, string remarks)
+        public Mother(int id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, TimeSpan[][] whenNeededWeek, string remarks)
         {
             if (id >= 100000000 && id <= 999999999)
                 this.id = id;
@@ -98,7 +98,7 @@ namespace BE
             }
         }
         public bool[] DayInWeek { get => dayInWeek; set => dayInWeek = value; }
-        public float[,] WhenNeededWeek
+        public TimeSpan[][] WhenNeededWeek
         {
             get => whenNeededWeek;
             set
@@ -111,7 +111,7 @@ namespace BE
         public string Remarks { get => remarks; set => remarks = value; }
         public override string ToString()
         {
-            return name + ' ' + LastName + " id" + id + " phone number " + PhoneNum + " address " + Address;
+            return name + ' ' + LastName + " id " + id + " phone number " + PhoneNum + " address " + Address;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace BE
 {
     public class Contract
     {
-        static int ContractNum;
+        static int ContractNum = 1;
         private int Contract_Num;
         private readonly int nannyId;
         private readonly int motherId;
