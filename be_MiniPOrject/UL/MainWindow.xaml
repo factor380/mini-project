@@ -66,7 +66,7 @@
                 </TabItem>
                 <TabItem Header="CONTRACT" FontSize="20" FontWeight="Bold">
                     <TabItem.Content>
-                        <Grid>
+                        <Grid >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
@@ -82,9 +82,33 @@
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
-                <TabItem Header="MORE FUNCS" Grid.Column="0" FontSize="20" FontWeight="Bold">
+                <TabItem Header="MORE FUNCS" FontSize="20" FontWeight="Bold">
                     <TabItem.Content>
-                        <Grid>
+                        <Grid ShowGridLines="True">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Nannies that fit mom" FontSize="13"  VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="0,0,0,0" Width="170" Height="68"/>
+                            <Button Content="Button" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Nannies close to mother" FontSize="13" Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Children without nannies" FontSize="13" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Nannys that take Holidays Tamat" FontSize="10" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Button" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Button" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Stretch" Width="170"/>
+                            <Button Content="Button" Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Stretch" Width="170"/>
+
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
