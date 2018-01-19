@@ -31,5 +31,11 @@ namespace UL
                 idComboBox.Items.Add(n.Id);
             }
         }
+
+        private void Find_Click(object sender, RoutedEventArgs e)
+        {
+            Nanny nanny = bl.GetNanny(idComboBox.SelectionBoxItem as string);
+            Update.DataContext = nanny;
+        }
     }
 }

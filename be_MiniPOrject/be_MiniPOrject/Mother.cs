@@ -8,7 +8,7 @@ namespace BE
 {
     public class Mother
     {
-        private readonly int id;
+        private readonly string id;
         private string lastName;
         private string name;
         private string phoneNum;
@@ -17,14 +17,16 @@ namespace BE
         private bool[] dayInWeek = new bool[6];
         private TimeSpan[][] whenNeededWeek = new TimeSpan[6][];
         private string remarks;
-        public List<int> ListIdChild = new List<int>();
+        public List<string> ListIdChild = new List<string>();
 
-        public Mother(int id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, TimeSpan[][] whenNeededWeek, string remarks)
+        public Mother(string id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, TimeSpan[][] whenNeededWeek, string remarks)
         {
-            if (id >= 100000000 && id <= 999999999)
-                this.id = id;
-            else
-                throw new Exception("this input not make sense");
+            for (int i = 0; (i < id.Length && id.Length == 9); i++)
+            {
+                if (id[i] < '0' && id[i] > '9')
+                    throw new Exception("this input not make sense");
+            }
+            this.id = id;
             this.lastName = lastName;
             this.name = name;
             this.phoneNum = phoneNum;
@@ -37,14 +39,12 @@ namespace BE
 
         public Mother() { }
 
-        public int Id { get => id; }
+        public string Id { get => id; }
         public string LastName
         {
             get => lastName;
             set
             {
-                if (value[0] > 'Z' || value[0] < 'A')
-                    throw new Exception("this input is not make sense");
                 for (int i = 1; i < value.Length; i++)
                     if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");
@@ -55,7 +55,7 @@ namespace BE
         {
             get => name;
             set
-            { 
+            {
                 for (int i = 1; i < value.Length; i++)
                     if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");
@@ -79,7 +79,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if ((value[i] > 'z' || value[i] < 'a') && value[i] != ',' && value[i] != ' ')
+                    if (value[i] > 'z' || value[i] < ' ')
                         throw new Exception("this input is not make sense");
                 address = value;
             }
@@ -90,7 +90,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if ((value[i] > 'z' || value[i] < 'a') && value[i] != ',' && value[i] != ' ')
+                    if (value[i] > 'z' || value[i] < ' ')
                         throw new Exception("this input is not make sense");
                 addressAround = value;
             }

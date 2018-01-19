@@ -27,7 +27,7 @@ namespace BL
             dal.AddNanny(n);
         }
 
-        public void RemoveNanny(int id)
+        public void RemoveNanny(string id)
         {
             Contract c;
             Nanny n = GetNanny(id);
@@ -50,7 +50,7 @@ namespace BL
             dal.UpdateNanny(n);
         }
 
-        public Nanny GetNanny(int id)
+        public Nanny GetNanny(string id)
         {
             return dal.GetNanny(id);
         }
@@ -63,7 +63,7 @@ namespace BL
         {
             dal.AddChild(c);
         }
-        public void RemoveChild(int id)
+        public void RemoveChild(string id)
         {
             Contract c;
             Child chi = GetChild(id);
@@ -82,7 +82,7 @@ namespace BL
         {
             dal.UpdateChild(c);
         }
-        public Child GetChild(int id)
+        public Child GetChild(string id)
         {
             return dal.GetChild(id);
         }
@@ -94,10 +94,10 @@ namespace BL
         {
             dal.AddMother(m);
         }
-        public void RemoveMother(int id)
+        public void RemoveMother(string id)
         {
             Mother m = GetMother(id);
-            foreach (int Idc in m.ListIdChild)
+            foreach (string Idc in m.ListIdChild)
             {
                 RemoveChild(Idc);
             }
@@ -107,11 +107,11 @@ namespace BL
         {
             dal.UpdateMother(m);
         }
-        public Mother GetMother(int id)
+        public Mother GetMother(string id)
         {
             return dal.GetMother(id);
         }
-        public Mother GetMotherWithChildId(int id)
+        public Mother GetMotherWithChildId(string id)
         {
             return dal.GetMotherWithChildId(id);
         }
@@ -227,7 +227,7 @@ namespace BL
         {
             return dal.GetContract(contract_Num);
         }
-        public void UpdetRateOfContract(int NanId, int MomId)
+        public void UpdetRateOfContract(string NanId, string MomId)
         {
             Nanny nan = GetNanny(NanId);
             int temp = 0;
@@ -299,7 +299,7 @@ namespace BL
             return listToSend;
 
         }
-        //i decide to do what almost fit in days and our
+        //i decide to do what almost fit in days and hour
         public List<Nanny> NanniesThatAlsoFitMom(Mother mom)
         {
             List<Nanny> listN = getNannyList();
@@ -452,14 +452,14 @@ namespace BL
 
             }
         }
-        public IEnumerable<IGrouping<int, Child>> List_Child_ByMother()
+        public IEnumerable<IGrouping<string, Child>> List_Child_ByMother()
         {
             return dal.List_Child_ByMother();
         }
         public List<Child> List_Child_ByMother(Mother mom)
         {
             List<Child> childofMother = new List<Child>();
-            foreach (int id in mom.ListIdChild)
+            foreach (string id in mom.ListIdChild)
             {
                 childofMother.Add(GetChild(id));
             }

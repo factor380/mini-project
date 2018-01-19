@@ -21,19 +21,18 @@ namespace UL
     public partial class RemoveNanny : Window
     {
         IBL bl;
-        int removeId;
         public RemoveNanny()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            this.Remove.DataContext = removeId;
+            this.Remove.DataContext = idTextBox.Text;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.RemoveNanny(removeId);
+                bl.RemoveNanny(idTextBox.Text);
                 Remove.DataContext = null;
             }
             catch (FormatException)

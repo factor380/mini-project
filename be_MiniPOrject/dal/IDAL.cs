@@ -10,22 +10,22 @@ namespace DAL
     public interface IDAL
     {
         void AddNanny(Nanny n);
-        void RemoveNanny(int id);
+        void RemoveNanny(string id);
         void UpdateNanny(Nanny n);
-        Nanny GetNanny(int id);
+        Nanny GetNanny(string id);
         List<Nanny> getNannyList();
 
         void AddMother(Mother m);
-        void RemoveMother(int id);
+        void RemoveMother(string id);
         void UpdateMother(Mother m);
-        Mother GetMother(int id);
-        Mother GetMotherWithChildId(int id);
+        Mother GetMother(string id);
+        Mother GetMotherWithChildId(string id);
         List<Mother> getMotherList();
 
         void AddChild(Child c);
-        void RemoveChild(int id);
+        void RemoveChild(string id);
         void UpdateChild(Child c);
-        Child GetChild(int id);
+        Child GetChild(string id);
         List<Child> getChildList();
 
         void AddContract(Contract c);
@@ -33,8 +33,8 @@ namespace DAL
         void UpdateContract(Contract c);
         Contract GetContract(int contract_Num);
         List<Contract> getContractList();
-      
-        IEnumerable<IGrouping<int,Child>> List_Child_ByMother();
+
+        IEnumerable<IGrouping<string, Child>> List_Child_ByMother();
         
     }
 }

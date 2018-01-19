@@ -11,29 +11,29 @@ namespace BL
     public interface IBL
     {
         void AddNanny(Nanny n);
-        void RemoveNanny(int id);
+        void RemoveNanny(string id);
         void UpdateNanny(Nanny n);
-        Nanny GetNanny(int id);
+        Nanny GetNanny(string id);
         List<Nanny> getNannyList();
 
         void AddMother(Mother m);
-        void RemoveMother(int id);
+        void RemoveMother(string id);
         void UpdateMother(Mother m);
-        Mother GetMother(int id);
-        Mother GetMotherWithChildId(int id);
+        Mother GetMother(string id);
+        Mother GetMotherWithChildId(string id);
         List<Mother> getMotherList();
 
         void AddChild(Child c);
-        void RemoveChild(int id);
+        void RemoveChild(string id);
         void UpdateChild(Child c);
-        Child GetChild(int id);
+        Child GetChild(string id);
         List<Child> getChildList();
 
         void AddContract(Contract c);
         void RemoveContract(int contract_Num);
         void UpdateContract(Contract c);
         Contract GetContract(int contract_Num);
-        void UpdetRateOfContract(int NanId, int MomId);//Update salary after discount
+        void UpdetRateOfContract(string NanId, string MomId);//Update salary after discount
         List<Contract> getContractList();
 
         List<Child> List_Child_ByMother(Mother mom);
@@ -47,6 +47,6 @@ namespace BL
         IEnumerable<IGrouping<int, Nanny>> GetAllNannysAccordingToAgeChild(bool age, bool classified);
         IEnumerable<IGrouping<int, Contract>> GetAllTheContractAccordingTodistance(bool classified);
 
-        IEnumerable<IGrouping<int, Child>> List_Child_ByMother();
+        IEnumerable<IGrouping<string, Child>> List_Child_ByMother();
     }
 }

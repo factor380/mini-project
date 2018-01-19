@@ -10,9 +10,9 @@ namespace BE
     {
         static int ContractNum = 1;
         private int Contract_Num;
-        private readonly int nannyId;
-        private readonly int motherId;
-        private readonly int childId;
+        private readonly string nannyId;
+        private readonly string motherId;
+        private readonly string childId;
         private readonly bool met;//if the nanny and the children met
         private bool activeContract;
         private float payHours;
@@ -23,21 +23,27 @@ namespace BE
         public  Contract()
         {
         }
-        public Contract(int contract_Num, int nannyId, int motherId, int childId, bool met, bool activeContract, float payHours, int payMonth, bool horM, DateTime startDate, DateTime endDate)//לשים לב שצריך לשנות את זה שיכנס לבד ב dal
+        public Contract(int contract_Num, string nannyId, string motherId, string childId, bool met, bool activeContract, float payHours, int payMonth, bool horM, DateTime startDate, DateTime endDate)//לשים לב שצריך לשנות את זה שיכנס לבד ב dal
         {
             Contract_Num = contract_Num;
-            if (nannyId >= 100000000 && nannyId <= 999999999)
-                this.nannyId = nannyId;
-            else
-                throw new Exception("this input not make sense");
-            if (nannyId >= 100000000 && nannyId <= 999999999)
-                this.childId = childId;
-            else
-                throw new Exception("this input not make sense");
-            if (nannyId >= 100000000 && nannyId <= 999999999)
-                this.motherId = motherId;
-            else
-                throw new Exception("this input not make sense");
+            for (int i = 0; i < nannyId.Length && (nannyId.Length == 9); i++)
+            {
+                if (nannyId[i] < '0' || nannyId[i] > '9')
+                    throw new Exception("this id not make sense");
+            }
+            this.nannyId = nannyId;
+            for (int i = 0; i < childId.Length && (childId.Length == 9); i++)
+            {
+                if (childId[i] < '0' || childId[i] > '9')
+                    throw new Exception("this id not make sense");
+            }
+            this.childId = childId;
+            for (int i = 0; i < motherId.Length && (motherId.Length == 9); i++)
+            {
+                if (motherId[i] < '0' || motherId[i] > '9')
+                    throw new Exception("this id not make sense");
+            }
+            this.motherId = motherId;
             this.met = met;
             this.activeContract = activeContract;
             this.payHours = payHours;
@@ -48,8 +54,8 @@ namespace BE
         }
 
         public static int ContractNum1 { get => ContractNum; set => ContractNum = value; }
-        public int NannyId { get => nannyId; }
-        public int ChildId { get => childId; }
+        public string NannyId { get => nannyId; }
+        public string ChildId { get => childId; }
         public bool Met { get => met; }
         public bool ActiveContract { get => activeContract; set => activeContract = value; }
         public float PayHours { get => payHours; set => payHours = value; }
@@ -85,7 +91,7 @@ namespace BE
                 Contract_Num = value;
             }
         }
-        public int MotherId { get => motherId; }
+        public string MotherId { get => motherId; }
 
         public override string ToString()
         {

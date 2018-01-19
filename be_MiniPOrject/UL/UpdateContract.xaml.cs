@@ -31,5 +31,11 @@ namespace UL
                 contract_Num1ComboBox.Items.Add(c.Contract_Num1);
             }
         }
+
+        private void Find_Click(object sender, RoutedEventArgs e)
+        {
+            //Contract contract = bl.GetContract(int.Parse(contract_Num1ComboBox.SelectedValue));
+            //Update.DataContext = contract;
+        }
     }
 }

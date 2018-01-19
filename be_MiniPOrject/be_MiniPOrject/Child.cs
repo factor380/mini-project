@@ -8,8 +8,8 @@ namespace BE
 {
     public class Child
     {
-        private readonly int id;
-        private readonly int motherId;
+        private readonly string id;
+        private readonly string motherId;
         private string name;
         private readonly DateTime dateBirth;
         private bool specialNeeds;
@@ -18,16 +18,20 @@ namespace BE
 
         public Child()
         { }
-        public Child(int id, int motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
+        public Child(string id, string motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {
-            if (id >= 100000000 && id <= 999999999)
+            for (int i = 0; i < id.Length && (id.Length == 9); i++)
+            {
+                if (id[i] < '0' || id[i] > '9')
+                throw new Exception("this id not make sense");
+            }  
                 this.id = id;
-            else
-                throw new Exception("this input not make sense");
-            if (motherId >= 100000000 && motherId <= 999999999)
-                this.motherId = motherId;
-            else
-                throw new Exception("this input not make sense");
+            for (int i = 0; i < motherId.Length && (motherId.Length == 9); i++)
+            {
+                if (motherId[i] < '0' || motherId[i] > '9')
+                    throw new Exception("this id not make sense");
+            }
+            this.motherId = motherId;
             this.name = name;
             if (dateBirth < DateTime.Now)
                 this.dateBirth = dateBirth;
@@ -37,8 +41,8 @@ namespace BE
             this.whatHeNeed = whatHeNeed;
         }
 
-        public int Id { get => id; }
-        public int MotherId { get => motherId; }
+        public string Id { get => id; }
+        public string MotherId { get => motherId; }
         public string Name
         {
             get => name;

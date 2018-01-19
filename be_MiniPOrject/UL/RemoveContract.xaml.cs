@@ -21,19 +21,18 @@ namespace UL
     public partial class RemoveContract : Window
     {
         IBL bl;
-        int removeId;
         public RemoveContract()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            Remove.DataContext = removeId;
+            Remove.DataContext = int.Parse(contract_NumTextBox.Text);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.RemoveContract(removeId);
+                bl.RemoveContract(int.Parse(contract_NumTextBox.Text));
                 Remove.DataContext = null;
             }
             catch (FormatException)

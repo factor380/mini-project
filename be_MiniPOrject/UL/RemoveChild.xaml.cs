@@ -20,20 +20,19 @@ namespace UL
     /// </summary>
     public partial class RemoveChild : Window
     {
-        int removeId;
         IBL bL;
         public RemoveChild()
         {
             InitializeComponent();
             bL = FactoryBL.GetBL();
-            this.Remove.DataContext = removeId;
+            this.Remove.DataContext = idTextBox.Text;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bL.RemoveChild(removeId);
+                bL.RemoveChild(idTextBox.Text);
                 Remove.DataContext = null;
             }
             catch (FormatException)

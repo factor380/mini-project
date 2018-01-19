@@ -8,7 +8,7 @@ namespace BE
 {
     public class Nanny
     {
-        private readonly int id;
+        private readonly string id;
         private string lastName;
         private string name;
         private readonly DateTime dateBirth;
@@ -37,12 +37,14 @@ namespace BE
                 workHours[i] = new TimeSpan[2];
             }
         }
-        public Nanny(int id, string lastName, string name, DateTime dateBirth, string phoneNum, string address, bool elevator, int floorInBulding, int exp, int maxChildren, int minAgeMonth, int maxAgeMonth, bool perHour, float payHour, int payMonth, bool[] dayInWeek, TimeSpan[][] workHours, bool daysOOf, string recommendations)
+        public Nanny(string id, string lastName, string name, DateTime dateBirth, string phoneNum, string address, bool elevator, int floorInBulding, int exp, int maxChildren, int minAgeMonth, int maxAgeMonth, bool perHour, float payHour, int payMonth, bool[] dayInWeek, TimeSpan[][] workHours, bool daysOOf, string recommendations)
         {
-            if (id >= 100000000 && id <= 999999999)
-                this.id = id;
-            else
-                throw new Exception("this input not make sense");
+            for (int i = 0; i < id.Length && (id.Length == 9); i++)
+            {
+                if (id[i] < '0' || id[i] > '9')
+                    throw new Exception("this id not make sense");
+            }
+            this.id = id;
             this.lastName = lastName;
             this.name = name;
             if (dateBirth < DateTime.Now)
@@ -72,14 +74,12 @@ namespace BE
             }
         }
 
-        public int Id { get => id; }
+        public string Id { get => id; }
         public string LastName
         {
             get => lastName;
             set
             {
-                if (value[0] > 'Z' || value[0] < 'A')
-                    throw new Exception("this input is not make sense");
                 for (int i = 1; i < value.Length; i++)
                     if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");
@@ -90,9 +90,7 @@ namespace BE
         {
             get => name;
             set
-            {
-                if (value[0] > 'Z' || value[0] < 'A')
-                    throw new Exception("this input is not make sense");
+            { 
                 for (int i = 1; i < value.Length; i++)
                     if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");

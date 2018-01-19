@@ -23,12 +23,12 @@ namespace DAL
             DataSource.kids.Add(c);
         }
 
-        public Child GetChild(int id)
+        public Child GetChild(string id)
         {
             return DataSource.kids.FirstOrDefault(c => c.Id == id);
         }
 
-        public void RemoveChild(int id)
+        public void RemoveChild(string id)
         {
             Child chi = GetChild(id);
             if (chi == null)
@@ -61,7 +61,7 @@ namespace DAL
             DataSource.nannys.Add(n);
         }
 
-        public void RemoveNanny(int id)
+        public void RemoveNanny(string id)
         {
             Nanny nan = GetNanny(id);
             if (nan == null)
@@ -80,7 +80,7 @@ namespace DAL
                     DataSource.nannys[i] = n;
             }
         }
-        public Nanny GetNanny(int id)
+        public Nanny GetNanny(string id)
         {
             return DataSource.nannys.FirstOrDefault(n => n.Id == id);
         }
@@ -97,12 +97,12 @@ namespace DAL
             DataSource.mothers.Add(m);
         }
 
-        public Mother GetMother(int id)
+        public Mother GetMother(string id)
         {
             return DataSource.mothers.FirstOrDefault(m => m.Id == id);
         }
 
-        public Mother GetMotherWithChildId(int id)
+        public Mother GetMotherWithChildId(string id)
         {
             Child chi = GetChild(id);
             if (chi == null)
@@ -111,7 +111,7 @@ namespace DAL
             return DataSource.mothers.FirstOrDefault(m => m.ListIdChild.FirstOrDefault() == id);
         }
 
-        public void RemoveMother(int id)
+        public void RemoveMother(string id)
         {
             Mother mom = GetMother(id);
             if (mom == null)
@@ -147,8 +147,8 @@ namespace DAL
             if (mom == null)
                 throw new Exception("there is no mother with this id");
             DataSource.contracts.Add(c);
-            chi.ListIdContract.Add(c.ChildId);
-            nan.ListIdContract.Add(c.ChildId);
+            chi.ListIdContract.Add(c.Contract_Num1);
+            nan.ListIdContract.Add(c.Contract_Num1);
             Contract.ContractNum1++;
 
         }
@@ -181,7 +181,7 @@ namespace DAL
         #endregion
 
         #region Get List
-        public IEnumerable<IGrouping<int, Child>> List_Child_ByMother()
+        public IEnumerable<IGrouping<string, Child>> List_Child_ByMother()
         {
             var ChildByMother = from kid in getChildList()
                                 group kid by kid.MotherId;

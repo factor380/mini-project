@@ -31,5 +31,11 @@ namespace UL
                 idCombobox.Items.Add(m.Id);
             }
         }
+
+        private void Find_Click(object sender, RoutedEventArgs e)
+        {
+            Mother mother = bl.GetMother(idCombobox.SelectionBoxItem as string);
+            Update.DataContext = mother;
+        }
     }
 }
