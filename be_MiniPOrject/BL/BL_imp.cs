@@ -299,7 +299,7 @@ namespace BL
             return listToSend;
 
         }
-        //i decide to do what almost fit in days and hour
+        //i decide to do what almost fit in days and our
         public List<Nanny> NanniesThatAlsoFitMom(Mother mom)
         {
             List<Nanny> listN = getNannyList();
