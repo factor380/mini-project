@@ -29,6 +29,7 @@ namespace UL
             bl = FactoryBL.GetBL();
             contract = new Contract();
             this.ContractDetails.DataContext = contract;
+            this.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

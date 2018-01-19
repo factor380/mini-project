@@ -7,7 +7,7 @@
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.UpdateNanny"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="UpdateNanny" Height="701.493" Width="498.624">
+        Title="UpdateNanny" Height="689.809" Width="498.624">
     <Window.Resources>
         <CollectionViewSource x:Key="nannyViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Nanny}, CreateList=True}"/>
     </Window.Resources>
@@ -79,7 +79,7 @@
             <TextBox x:Name="recommendationsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" Text="{Binding Recommendations, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
         <DockPanel Grid.Row="2" Grid.Column="1">
-            <Grid>
+            <Grid x:Name="time">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -96,24 +96,24 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Start time:" Grid.Row="1" FontSize="12"/>
                 <Label Content="End time:" Grid.Row="2" FontSize="12"/>
-                <CheckBox x:Name="checkSun" Content="Sunday" Grid.Column="1" Grid.Row="0" IsChecked="{Binding DayInWeek[0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="14"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="1" FontSize="20" Text="{Binding whenNeededWeek[0][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkSun, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="1" FontSize="20" Text="{Binding whenNeededWeek[0][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkSun, Path=IsChecked}"/>
-                <CheckBox x:Name="checkMon" Content="Monday" Grid.Column="2" Grid.Row="0" IsChecked="{Binding DayInWeek[1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="14"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="2" FontSize="20" Text="{Binding whenNeededWeek[1][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkMon, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="2" FontSize="20" Text="{Binding whenNeededWeek[1][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkMon, Path=IsChecked}"/>
-                <CheckBox x:Name="checkTue" Content="Tuesday" Grid.Column="3" Grid.Row="0" IsChecked="{Binding DayInWeek[2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="14"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="3" FontSize="20" Text="{Binding whenNeededWeek[2][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkTue, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="3" FontSize="20" Text="{Binding whenNeededWeek[2][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkTue, Path=IsChecked}"/>
-                <CheckBox x:Name="checkWed" Content="Wedsday" Grid.Row="0" Grid.Column="4" IsChecked="{Binding DayInWeek[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="14"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="4" FontSize="20" Text="{Binding whenNeededWeek[3][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkWed, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="4" FontSize="20" Text="{Binding whenNeededWeek[3][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkWed, Path=IsChecked}"/>
-                <CheckBox x:Name="checkThu" Content="Thusday" Grid.Column="5" Grid.Row="0" IsChecked="{Binding DayInWeek[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="14"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="5" FontSize="20" Text="{Binding whenNeededWeek[4][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkThu, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="5" FontSize="20" Text="{Binding whenNeededWeek[4][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkThu, Path=IsChecked}"/>
-                <CheckBox x:Name="checkFri" Content="Friday" Grid.Column="6" Grid.Row="0" IsChecked="{Binding DayInWeek[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="14"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="6" FontSize="20" Text="{Binding whenNeededWeek[5][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="6" FontSize="20" Text="{Binding whenNeededWeek[5][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}"/>
+                <CheckBox x:Name="checkSun" Content="Sunday" Grid.Column="1" Grid.Row="0" IsChecked="{Binding DayInWeek[0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
+                <xctk:TimePicker x:Name="startSun" FormatString="hh:mm" Grid.Row="1" Grid.Column="1" FontSize="12" Text="{Binding whenNeededWeek[0][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkSun, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endSun" FormatString="hh:mm" Grid.Row="2" Grid.Column="1" FontSize="12" Text="{Binding whenNeededWeek[0][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkSun, Path=IsChecked}"/>
+                <CheckBox x:Name="checkMon" Content="Monday" Grid.Column="2" Grid.Row="0" IsChecked="{Binding DayInWeek[1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
+                <xctk:TimePicker x:Name="startMon" FormatString="hh:mm" Grid.Row="1" Grid.Column="2" FontSize="12" Text="{Binding whenNeededWeek[1][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkMon, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endMon" FormatString="hh:mm" Grid.Row="2" Grid.Column="2" FontSize="12" Text="{Binding whenNeededWeek[1][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkMon, Path=IsChecked}"/>
+                <CheckBox x:Name="checkTue" Content="Tuesday" Grid.Column="3" Grid.Row="0" IsChecked="{Binding DayInWeek[2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
+                <xctk:TimePicker x:Name="startTue" FormatString="hh:mm" Grid.Row="1" Grid.Column="3" FontSize="12" Text="{Binding whenNeededWeek[2][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkTue, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endTue" FormatString="hh:mm" Grid.Row="2" Grid.Column="3" FontSize="12" Text="{Binding whenNeededWeek[2][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkTue, Path=IsChecked}"/>
+                <CheckBox x:Name="checkWed" Content="Wedsday" Grid.Row="0" Grid.Column="4" IsChecked="{Binding DayInWeek[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
+                <xctk:TimePicker x:Name="startWed" FormatString="hh:mm" Grid.Row="1" Grid.Column="4" FontSize="12" Text="{Binding whenNeededWeek[3][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkWed, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endWed" FormatString="hh:mm" Grid.Row="2" Grid.Column="4" FontSize="12" Text="{Binding whenNeededWeek[3][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkWed, Path=IsChecked}"/>
+                <CheckBox x:Name="checkThu" Content="Thusday" Grid.Column="5" Grid.Row="0" IsChecked="{Binding DayInWeek[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
+                <xctk:TimePicker x:Name="startThu" FormatString="hh:mm" Grid.Row="1" Grid.Column="5" FontSize="12" Text="{Binding whenNeededWeek[4][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkThu, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endThu" FormatString="hh:mm" Grid.Row="2" Grid.Column="5" FontSize="12" Text="{Binding whenNeededWeek[4][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkThu, Path=IsChecked}"/>
+                <CheckBox x:Name="checkFri" Content="Friday" Grid.Column="6" Grid.Row="0" IsChecked="{Binding DayInWeek[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
+                <xctk:TimePicker x:Name="startFri" FormatString="hh:mm" Grid.Row="1" Grid.Column="6" FontSize="12" Text="{Binding whenNeededWeek[5][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endFri" FormatString="hh:mm" Grid.Row="2" Grid.Column="6" FontSize="12" Text="{Binding whenNeededWeek[5][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}"/>
             </Grid>
         </DockPanel>
     </Grid>

@@ -7,7 +7,7 @@
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.AddNunnyWindow"
         mc:Ignorable="d"
-        Title="AddNunnyWindow" Height="680" Width="825">
+        Title="AddNunnyWindow" Height="713.333" Width="825">
     <Window.Resources>
         <CollectionViewSource x:Key="nannyViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Nanny}, CreateList=True}"/>
     </Window.Resources>
@@ -22,8 +22,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="ADD NUNNY" FontSize="20" Grid.ColumnSpan="2" FontWeight="Bold"/>
-        <Grid x:Name="NannyDetails" DataContext="{StaticResource nannyViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="366" Height="500" Grid.Row="1">
+        <Label Content="ADD NUNNY" FontSize="18" Grid.ColumnSpan="2" FontWeight="Bold" Margin="0,0,-0.333,0"/>
+        <Grid x:Name="NannyDetails" DataContext="{StaticResource nannyViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="366" Height="540" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -44,9 +44,21 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="12"/>
-            <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=addressTextBox, Path=Text}" Value="">
+                                <Setter Property="TextBox.BorderBrush" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
             <Label Content="Date Birth:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="12"/>
             <DatePicker x:Name="dateBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding DateBirth, Mode=OneWay}" VerticalAlignment="Center"/>
             <Label Content="Days OOf:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="12"/>
@@ -58,9 +70,29 @@
             <Label Content="Floor In Bulding:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="12"/>
             <TextBox x:Name="floorInBuldingTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding FloorInBulding, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" FontSize="12"/>
-            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="120">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=idTextBox, Path=Text}" Value="">
+                                <Setter Property="TextBox.BorderBrush" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
             <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center" FontSize="12"/>
-            <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=lastNameTextBox, Path=Text}" Value="">
+                                <Setter Property="TextBox.BorderBrush" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
             <Label Content="Max Age Month:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center" FontSize="12"/>
             <TextBox x:Name="maxAgeMonthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding MaxAgeMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Max Children:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center" FontSize="12"/>
@@ -68,16 +100,40 @@
             <Label Content="Min Age Month:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center" FontSize="12"/>
             <TextBox x:Name="minAgeMonthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding MinAgeMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center" FontSize="12"/>
-            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=nameTextBox, Path=Text}" Value="">
+                                <Setter Property="TextBox.BorderBrush" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
             <Label Content="Phone Num:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center" FontSize="12"/>
-            <TextBox x:Name="phoneNumTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding PhoneNum, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="phoneNumTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding PhoneNum, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=phoneNumTextBox, Path=Text}" Value="">
+                                <Setter Property="TextBox.BorderBrush" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
             <Label Content="Recommendations:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center" FontSize="12"/>
             <TextBox x:Name="recommendationsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding Recommendations, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="PerHour:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center" FontSize="12"/>
-            <CheckBox x:Name="yorN_HourlyRateCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding PerHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+            <Label Content="Per Hour:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center" FontSize="12"/>
+            <CheckBox x:Name="PerHourCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding PerHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+            <Label Content="Pay Hour:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center" FontSize="12"/>
+            <TextBox x:Name="payHourTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" Text="{Binding PayHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Pay Month:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center" FontSize="12"/>
+            <TextBox x:Name="payMonthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding PayMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,501,-0.333,0.333" Grid.RowSpan="2">
-            <Grid>
+        <DockPanel Grid.Row="2" Grid.Column="0">
+            <Grid x:Name="time">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -95,25 +151,47 @@
                 <Label Content="Start time:" Grid.Row="1" FontSize="12"/>
                 <Label Content="End time:" Grid.Row="2" FontSize="12"/>
                 <CheckBox x:Name="checkSun" Content="Sunday" Grid.Column="1" Grid.Row="0" IsChecked="{Binding DayInWeek[0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" FontSize="20" Text="{Binding whenNeededWeek[0][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkSun, Path=IsChecked}" Grid.Column="1" SizeChanged="TimePicker_SizeChanged"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="1" FontSize="20" Text="{Binding whenNeededWeek[0][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkSun, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="startSun" FormatString="hh:mm" Grid.Row="1" Grid.Column="1" FontSize="12" Text="{Binding whenNeededWeek[0][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkSun, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endSun" FormatString="hh:mm" Grid.Row="2" Grid.Column="1" FontSize="12" Text="{Binding whenNeededWeek[0][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkSun, Path=IsChecked}"/>
                 <CheckBox x:Name="checkMon" Content="Monday" Grid.Column="2" Grid.Row="0" IsChecked="{Binding DayInWeek[1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="2" FontSize="20" Text="{Binding whenNeededWeek[1][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkMon, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="2" FontSize="20" Text="{Binding whenNeededWeek[1][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkMon, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="startMon" FormatString="hh:mm" Grid.Row="1" Grid.Column="2" FontSize="12" Text="{Binding whenNeededWeek[1][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkMon, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endMon" FormatString="hh:mm" Grid.Row="2" Grid.Column="2" FontSize="12" Text="{Binding whenNeededWeek[1][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkMon, Path=IsChecked}"/>
                 <CheckBox x:Name="checkTue" Content="Tuesday" Grid.Column="3" Grid.Row="0" IsChecked="{Binding DayInWeek[2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="3" FontSize="20" Text="{Binding whenNeededWeek[2][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkTue, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="3" FontSize="20" Text="{Binding whenNeededWeek[2][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkTue, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="startTue" FormatString="hh:mm" Grid.Row="1" Grid.Column="3" FontSize="12" Text="{Binding whenNeededWeek[2][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkTue, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endTue" FormatString="hh:mm" Grid.Row="2" Grid.Column="3" FontSize="12" Text="{Binding whenNeededWeek[2][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkTue, Path=IsChecked}"/>
                 <CheckBox x:Name="checkWed" Content="Wedsday" Grid.Row="0" Grid.Column="4" IsChecked="{Binding DayInWeek[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="4" FontSize="20" Text="{Binding whenNeededWeek[3][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkWed, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="4" FontSize="20" Text="{Binding whenNeededWeek[3][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkWed, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="startWed" FormatString="hh:mm" Grid.Row="1" Grid.Column="4" FontSize="12" Text="{Binding whenNeededWeek[3][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkWed, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endWed" FormatString="hh:mm" Grid.Row="2" Grid.Column="4" FontSize="12" Text="{Binding whenNeededWeek[3][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkWed, Path=IsChecked}"/>
                 <CheckBox x:Name="checkThu" Content="Thusday" Grid.Column="5" Grid.Row="0" IsChecked="{Binding DayInWeek[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="5" FontSize="20" Text="{Binding whenNeededWeek[4][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkThu, Path=IsChecked}"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="5" FontSize="20" Text="{Binding whenNeededWeek[4][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkThu, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="startThu" FormatString="hh:mm" Grid.Row="1" Grid.Column="5" FontSize="12" Text="{Binding whenNeededWeek[4][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkThu, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endThu" FormatString="hh:mm" Grid.Row="2" Grid.Column="5" FontSize="12" Text="{Binding whenNeededWeek[4][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkThu, Path=IsChecked}"/>
                 <CheckBox x:Name="checkFri" Content="Friday" Grid.Column="6" Grid.Row="0" IsChecked="{Binding DayInWeek[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" FontSize="12"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="1" Grid.Column="6" FontSize="20" Text="{Binding whenNeededWeek[5][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}" Margin="0,0.333,-0.333,30.333" Grid.RowSpan="2"/>
-                <xctk:TimePicker FormatString="hh:mm" Grid.Row="2" Grid.Column="6" FontSize="20" Text="{Binding whenNeededWeek[5][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="startFri" FormatString="hh:mm" Grid.Row="1" Grid.Column="6" FontSize="12" Text="{Binding whenNeededWeek[5][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}"/>
+                <xctk:TimePicker x:Name="endFri" FormatString="hh:mm" Grid.Row="2" Grid.Column="6" FontSize="12" Text="{Binding whenNeededWeek[5][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}"/>
             </Grid>
         </DockPanel>
-        <Button Content="ADD" Grid.Row="3" FontSize="20" Click="Button_Click" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+        <Button Content="ADD" Grid.Row="2" FontSize="20" Click="Button_Click" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="0,77.667,-0.333,-24.667" Grid.RowSpan="2">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=nameTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=idTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=lastNameTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=addressTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=phoneNumTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>

@@ -36,6 +36,25 @@ namespace UL
         {
             Mother mother = bl.GetMother(idCombobox.SelectionBoxItem as string);
             Update.DataContext = mother;
+            checkSun.IsChecked = mother.DayInWeek[0];
+            checkMon.IsChecked = mother.DayInWeek[1];
+            checkTue.IsChecked = mother.DayInWeek[2];
+            checkWed.IsChecked = mother.DayInWeek[3];
+            checkThu.IsChecked = mother.DayInWeek[4];
+            checkFri.IsChecked = mother.DayInWeek[5];
+            if(mother.DayInWeek[0])
+            //mother.WhenNeededWeek[0][0] = this.startSun.Value.Value.TimeOfDay;
+            //endSun.Value.Value.TimeOfDay = mother.WhenNeededWeek[0][1];
+            startMon.TimeInterval = mother.WhenNeededWeek[1][0];
+            endMon.TimeInterval = mother.WhenNeededWeek[1][1];
+            startTue.TimeInterval = mother.WhenNeededWeek[2][0];
+            endTue.TimeInterval = mother.WhenNeededWeek[2][1];
+            startWed.TimeInterval = mother.WhenNeededWeek[3][0];
+            endWed.TimeInterval = mother.WhenNeededWeek[3][1];
+            startThu.TimeInterval = mother.WhenNeededWeek[4][0];
+            startThu.TimeInterval = mother.WhenNeededWeek[4][1];
+            startFri.TimeInterval = mother.WhenNeededWeek[5][0];
+            startFri.TimeInterval = mother.WhenNeededWeek[5][1];
         }
     }
 }

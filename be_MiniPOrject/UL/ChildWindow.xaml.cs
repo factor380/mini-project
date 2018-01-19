@@ -38,6 +38,7 @@ namespace UL
                 bl.AddChild(child);
                 child = new Child();
                 this.ChildDetails.DataContext = child;
+                this.Close();
             }
             catch(FormatException)
             {

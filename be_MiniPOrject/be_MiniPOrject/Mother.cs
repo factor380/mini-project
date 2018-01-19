@@ -37,7 +37,13 @@ namespace BE
             this.remarks = remarks;
         }
 
-        public Mother() { }
+        public Mother()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                whenNeededWeek[i] = new TimeSpan[2];
+            }
+        }
 
         public string Id { get => id; }
         public string LastName

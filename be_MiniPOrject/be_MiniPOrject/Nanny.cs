@@ -115,7 +115,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] > 'z' || value[i] < 'a' && value[i] != ',' && value[i] != ' ') 
+                    if (value[i] > 'z' || value[i] < ' ') 
                         throw new Exception("this input is not make sense");
                 address = value;
             }
