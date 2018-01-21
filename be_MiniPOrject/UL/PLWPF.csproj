@@ -81,11 +81,26 @@
     <Compile Include="Contract\ContractWindow.xaml.cs">
       <DependentUpon>ContractWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Func\contract_acoording_to_the_age_of_the_children.xaml.cs">
+      <DependentUpon>contract_acoording_to_the_age_of_the_children.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Func\contract_under_certian_conditions.xaml.cs">
+      <DependentUpon>contract_under_certian_conditions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Func\Get_All_The_Contract_According_To_distance.xaml.cs">
+      <DependentUpon>Get_All_The_Contract_According_To_distance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mother\RemoveMother.xaml.cs">
       <DependentUpon>RemoveMother.xaml</DependentUpon>
     </Compile>
     <Compile Include="Mother\MotherWindow.xaml.cs">
       <DependentUpon>MotherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Func\nannies_close_to_mother.xaml.cs">
+      <DependentUpon>nannies_close_to_mother.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Func\Nannies_that_fit_mom.xaml.cs">
+      <DependentUpon>Nannies_that_fit_mom.xaml</DependentUpon>
     </Compile>
     <Compile Include="Nanny\NannyWindow.xaml.cs">
       <DependentUpon>NannyWindow.xaml</DependentUpon>
@@ -117,7 +132,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Func\contract_acoording_to_the_age_of_the_children.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\contract_under_certian_conditions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\Get_All_The_Contract_According_To_distance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Mother\MotherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\nannies_close_to_mother.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\Nannies_that_fit_mom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,8 +203,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Func\number_of_under_certian_conditions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Func\number_of_under_certian_conditions.xaml.cs">
+      <DependentUpon>number_of_under_certian_conditions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
