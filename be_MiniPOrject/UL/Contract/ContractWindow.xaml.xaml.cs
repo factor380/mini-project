@@ -39,6 +39,7 @@ namespace UL
                 bl.AddContract(contract);
                 contract = new Contract();
                 this.ContractDetails.DataContext = contract;
+                this.Close();
             }
             catch
             {

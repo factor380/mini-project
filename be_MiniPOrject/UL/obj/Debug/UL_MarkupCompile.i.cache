@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\factor\Desktop\M\be_MiniPOrject\UL\obj\Debug\
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\
 UL
 none
 false
 DEBUG;TRACE
-C:\Users\factor\Desktop\M\be_MiniPOrject\UL\App.xaml
-13-1545419113
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\App.xaml
+131225869787
 
-212011764455
-21215355284
-ChildWindow.xaml;ContractWindow.xaml.xaml;MotherWindow.xaml.xaml;NunnyWindow.xaml.xaml;MainWindow.xaml;RemoveChild.xaml;RemoveContract.xaml;RemoveMother.xaml;RemoveNanny.xaml;UpdateChild.xaml;UpdateContract.xaml;UpdateMother.xaml;UpdateNanny.xaml;
+21-282853425
+21-1338417801
+Child\ChildWindow.xaml;Contract\ContractWindow.xaml.xaml;Mother\MotherWindow.xaml.xaml;Nanny\NunnyWindow.xaml.xaml;MainWindow.xaml;Child\RemoveChild.xaml;Contract\RemoveContract.xaml;Mother\RemoveMother.xaml;Nanny\RemoveNanny.xaml;Child\UpdateChild.xaml;Contract\UpdateContract.xaml;Mother\UpdateMother.xaml;Nanny\UpdateNanny.xaml;
 
 True
 

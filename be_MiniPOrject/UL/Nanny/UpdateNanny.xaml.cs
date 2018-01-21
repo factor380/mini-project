@@ -31,10 +31,9 @@ namespace UL
                 idComboBox.Items.Add(n.Id);
             }
         }
-
-        private void Find_Click(object sender, RoutedEventArgs e)
+        private void idComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Nanny nanny = bl.GetNanny(idComboBox.SelectionBoxItem as string);
+            Nanny nanny = bl.GetNanny(idComboBox.SelectedItem as string);
             Update.DataContext = nanny;
             checkSun.IsChecked = nanny.DayInWeek[0];
             checkMon.IsChecked = nanny.DayInWeek[1];

@@ -31,10 +31,9 @@ namespace UL
                 idCombobox.Items.Add(m.Id);
             }
         }
-
-        private void Find_Click(object sender, RoutedEventArgs e)
+        private void idCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Mother mother = bl.GetMother(idCombobox.SelectionBoxItem as string);
+            Mother mother = bl.GetMother(idCombobox.SelectedItem as string);
             Update.DataContext = mother;
             checkSun.IsChecked = mother.DayInWeek[0];
             checkMon.IsChecked = mother.DayInWeek[1];
@@ -42,10 +41,10 @@ namespace UL
             checkWed.IsChecked = mother.DayInWeek[3];
             checkThu.IsChecked = mother.DayInWeek[4];
             checkFri.IsChecked = mother.DayInWeek[5];
-            if(mother.DayInWeek[0])
-            //mother.WhenNeededWeek[0][0] = this.startSun.Value.Value.TimeOfDay;
-            //endSun.Value.Value.TimeOfDay = mother.WhenNeededWeek[0][1];
-            startMon.TimeInterval = mother.WhenNeededWeek[1][0];
+            if (mother.DayInWeek[0])
+                //mother.WhenNeededWeek[0][0] = this.startSun.Value.Value.TimeOfDay;
+                //endSun.Value.Value.TimeOfDay = mother.WhenNeededWeek[0][1];
+                startMon.TimeInterval = mother.WhenNeededWeek[1][0];
             endMon.TimeInterval = mother.WhenNeededWeek[1][1];
             startTue.TimeInterval = mother.WhenNeededWeek[2][0];
             endTue.TimeInterval = mother.WhenNeededWeek[2][1];
