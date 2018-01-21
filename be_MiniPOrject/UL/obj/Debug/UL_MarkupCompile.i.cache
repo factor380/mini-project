@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\App.xaml
-131225869787
+13-1741093342
 
-21-282853425
+201162311676
 21-1338417801
-Child\ChildWindow.xaml;Contract\ContractWindow.xaml.xaml;Mother\MotherWindow.xaml.xaml;Nanny\NunnyWindow.xaml.xaml;MainWindow.xaml;Child\RemoveChild.xaml;Contract\RemoveContract.xaml;Mother\RemoveMother.xaml;Nanny\RemoveNanny.xaml;Child\UpdateChild.xaml;Contract\UpdateContract.xaml;Mother\UpdateMother.xaml;Nanny\UpdateNanny.xaml;
+Child\ChildWindow.xaml;Contract\ContractWindow.xaml;Mother\MotherWindow.xaml;Nanny\NannyWindow.xaml;MainWindow.xaml;Child\RemoveChild.xaml;Contract\RemoveContract.xaml;Mother\RemoveMother.xaml;Nanny\RemoveNanny.xaml;Child\UpdateChild.xaml;Contract\UpdateContract.xaml;Mother\UpdateMother.xaml;Nanny\UpdateNanny.xaml;
 
 True
 

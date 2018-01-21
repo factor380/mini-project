@@ -95,7 +95,7 @@ namespace BE
 
         public override string ToString()
         {
-            return "contract number " + ContractNum + " Nanny id " + NannyId + " Child Id " + ChildId;
+            return "contract number " + Contract_Num + " Nanny id " + NannyId + " Child Id " + ChildId;
         }
     }
 }

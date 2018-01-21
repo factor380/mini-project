@@ -31,71 +31,71 @@ namespace UL
         private void Button_Click_AddChild(object sender, RoutedEventArgs e)
         {
             Window addChildWindow = new AddChildWindow();
-            addChildWindow.Show();
+            addChildWindow.ShowDialog();
         }
 
         private void Button_Click_AddMother(object sender, RoutedEventArgs e)
         {
             Window addMotherWindow = new AddMotherWindow();
-            addMotherWindow.Show();
+            addMotherWindow.ShowDialog();
         }
 
         private void Button_Click_AddNunny(object sender, RoutedEventArgs e)
         {
             Window addNunnyWindow = new AddNunnyWindow();
-            addNunnyWindow.Show();
+            addNunnyWindow.ShowDialog();
         }
 
         private void Button_Click_AddContract(object sender, RoutedEventArgs e)
         {
             Window addContractWindow = new AddContractWindow();
-            addContractWindow.Show();
+            addContractWindow.ShowDialog();
         }
 
         private void Button_Click_RemoveChild(object sender, RoutedEventArgs e)
         {
             Window removeChildWindow = new RemoveChild();
-            removeChildWindow.Show();
+            removeChildWindow.ShowDialog();
         }
 
         private void Button_Click_RemoveMother(object sender, RoutedEventArgs e)
         {
             Window removeMotherWindow = new RemoveMother();
-            removeMotherWindow.Show();
+            removeMotherWindow.ShowDialog();
         }
         private void Button_Click_RemoveNanny(object sender, RoutedEventArgs e)
         {
             Window removeNannyWindow = new RemoveNanny();
-            removeNannyWindow.Show();
+            removeNannyWindow.ShowDialog();
         }
         private void Button_Click_RemoveContract(object sender, RoutedEventArgs e)
         {
             Window removeContractWindow = new RemoveContract();
-            removeContractWindow.Show();
+            removeContractWindow.ShowDialog();
         }
 
         private void Button_Click_UpdateChild(object sender, RoutedEventArgs e)
         {
             Window UpdateChildWindow = new UpdateChild();
-            UpdateChildWindow.Show();
+            UpdateChildWindow.ShowDialog();
         }
 
         private void Button_Click_UpdateMother(object sender, RoutedEventArgs e)
         {
             Window UpdateMotherWindow = new UpdateMother();
-            UpdateMotherWindow.Show();
+            UpdateMotherWindow.ShowDialog();
         }
 
         private void Button_Click_UpdateNanny(object sender, RoutedEventArgs e)
         {
             Window UpdateNannyWindow = new UpdateNanny();
-            UpdateNannyWindow.Show();
+            UpdateNannyWindow.ShowDialog();
         }
 
         private void Button_Click_UpdateContract(object sender, RoutedEventArgs e)
         {
             Window UpdateContractWindow = new UpdateContract();
-            UpdateContractWindow.Show();
+            UpdateContractWindow.ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

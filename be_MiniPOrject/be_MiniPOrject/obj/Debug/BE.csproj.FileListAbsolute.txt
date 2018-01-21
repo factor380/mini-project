@@ -1,6 +1,5 @@
 C:\Users\User\Desktop\mini project\be_MiniPOrject\be_MiniPOrject\bin\Debug\be_MiniPOrject.dll
 C:\Users\User\Desktop\mini project\be_MiniPOrject\be_MiniPOrject\bin\Debug\be_MiniPOrject.pdb
-C:\Users\User\Desktop\mini project\be_MiniPOrject\be_MiniPOrject\obj\Debug\BE.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\mini project\be_MiniPOrject\be_MiniPOrject\obj\Debug\BE.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\mini project\be_MiniPOrject\be_MiniPOrject\obj\Debug\be_MiniPOrject.dll
 C:\Users\User\Desktop\mini project\be_MiniPOrject\be_MiniPOrject\obj\Debug\be_MiniPOrject.pdb
