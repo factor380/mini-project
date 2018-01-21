@@ -377,7 +377,7 @@ namespace BL
             return listToSend;
         }
 
-        public List<Contract> GetAllContractThatFulfillingTheCondition(ContrafctCondition con)
+        public List<Contract> GetAllContractThatFulfillingTheCondition(ContrafctCondition con)//the func that return all the contract that fit Certain conditions
         {
             List<Contract> listToSend = new List<Contract>();
             foreach (Contract c in getContractList())
@@ -388,7 +388,7 @@ namespace BL
             return listToSend;
         }
 
-        public int GetAllNumberContractThatFulfillingTheCondition(ContrafctCondition con)
+        public int GetAllNumberContractThatFulfillingTheCondition(ContrafctCondition con)//the func that return number of all the contract that fit Certain conditions
         {
             List<Contract> listContract = GetAllContractThatFulfillingTheCondition(con);
 
