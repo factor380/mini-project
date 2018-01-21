@@ -72,11 +72,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="contract acoording to the age of the children.xaml.cs">
+      <DependentUpon>contract acoording to the age of the children.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="contract under certian conditions window .xaml.cs">
+      <DependentUpon>contract under certian conditions window .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Get All The Contract According To distance window.xaml.cs">
+      <DependentUpon>Get All The Contract According To distance window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="nannies close to mother.xaml.cs">
       <DependentUpon>nannies close to mother.xaml</DependentUpon>
     </Compile>
     <Compile Include="Nannies that fit mom window.xaml.cs">
       <DependentUpon>Nannies that fit mom window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="number of under certian conditions window.xaml.cs">
+      <DependentUpon>number of under certian conditions window.xaml</DependentUpon>
     </Compile>
     <Compile Include="RemoveChild.xaml.cs">
       <DependentUpon>RemoveChild.xaml</DependentUpon>
@@ -106,7 +118,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="contract acoording to the age of the children.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="contract under certian conditions window .xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ContractWindow.xaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Get All The Contract According To distance window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Nannies that fit mom window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="number of under certian conditions window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

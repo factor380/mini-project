@@ -1,0 +1,28 @@
+﻿<Window x:Class="UL.number_of_under_certian_conditions_window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UL"
+        mc:Ignorable="d"
+        Title="number_of_under_certian_conditions_window" Height="300" Width="300">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="227*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Select a condition" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="108"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,6.148,0,0" VerticalAlignment="Top" Width="123" Grid.Row="1">
+            <ComboBoxItem Content="met" />
+            <ComboBoxItem Content="active contact" />
+            <ComboBoxItem Content="hour or minute" />
+            <ComboBoxItem Content="pay in hour" />
+            <ComboBoxItem Content="pay in month" />
+
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="13,43,0,0" Grid.Row="1" TextWrapping="Wrap" Text="please enter number" VerticalAlignment="Top" Width="120" Visibility="Hidden" />
+        <!--אם זה נבחר משהו של משכורת-->
+        <!--ועוד הצגה-->
+    </Grid>
+</Window>
