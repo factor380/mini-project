@@ -72,7 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Child\RemoveChild.xaml.cs">
+    <Compile Include="RemoveChild.xaml.cs">
       <DependentUpon>RemoveChild.xaml</DependentUpon>
     </Compile>
     <Compile Include="Contract\RemoveContract.xaml.cs">
@@ -100,15 +100,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Contract\ContractWindow.xaml.xaml">
+    <Page Include="ContractWindow.xaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Mother\MotherWindow.xaml.xaml">
+    <Page Include="MotherWindow.xaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Nanny\NunnyWindow.xaml.xaml">
+    <Page Include="NunnyWindow.xaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
