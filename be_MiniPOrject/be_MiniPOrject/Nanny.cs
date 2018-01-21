@@ -8,10 +8,10 @@ namespace BE
 {
     public class Nanny
     {
-        private readonly string id;
+        private string id;
         private string lastName;
         private string name;
-        private readonly DateTime dateBirth;
+        private DateTime dateBirth;
         private string phoneNum;
         private string address;
         private bool elevator;
@@ -39,18 +39,10 @@ namespace BE
         }
         public Nanny(string id, string lastName, string name, DateTime dateBirth, string phoneNum, string address, bool elevator, int floorInBulding, int exp, int maxChildren, int minAgeMonth, int maxAgeMonth, bool perHour, float payHour, int payMonth, bool[] dayInWeek, TimeSpan[][] workHours, bool daysOOf, string recommendations)
         {
-            for (int i = 0; i < id.Length && (id.Length == 9); i++)
-            {
-                if (id[i] < '0' || id[i] > '9')
-                    throw new Exception("this id not make sense");
-            }
             this.id = id;
             this.lastName = lastName;
             this.name = name;
-            if (dateBirth < DateTime.Now)
-                this.dateBirth = dateBirth;
-            else
-                throw new Exception("this time is not in the past");
+            this.dateBirth = dateBirth;
             this.phoneNum = phoneNum;
             this.address = address;
             this.elevator = elevator;
@@ -70,11 +62,23 @@ namespace BE
             for (int i = 0; i < 6; ++i)
             {
                 if (DayInWeek[i])
-                HowMuchHourNanWork += WorkHours[i][1] - WorkHours[i][0];
+                    HowMuchHourNanWork += WorkHours[i][1] - WorkHours[i][0];
             }
         }
 
-        public string Id { get => id; }
+        public string Id
+        {
+            get => id;
+            set
+            {
+                for (int i = 0; i < value.Length && (value.Length == 9); i++)
+                {
+                    if (value[i] < '0' || value[i] > '9')
+                        throw new Exception("this id not make sense");
+                }
+                id = value;
+            }
+        }
         public string LastName
         {
             get => lastName;
@@ -90,14 +94,24 @@ namespace BE
         {
             get => name;
             set
-            { 
+            {
                 for (int i = 1; i < value.Length; i++)
                     if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");
                 name = value;
             }
         }
-        public DateTime DateBirth { get => dateBirth; }
+        public DateTime DateBirth
+        {
+            get => dateBirth;
+            set
+            {
+                if (value < DateTime.Now)
+                    dateBirth = value;
+                else
+                    throw new Exception("this time is not in the past");
+            }
+        }
         public string PhoneNum
         {
             get => phoneNum;
@@ -115,7 +129,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] > 'z' || value[i] < ' ') 
+                    if (value[i] > 'z' || value[i] < ' ')
                         throw new Exception("this input is not make sense");
                 address = value;
             }
@@ -127,7 +141,7 @@ namespace BE
             get => exp;
             set
             {
-                if (value > (DateTime.Now.Year - dateBirth.Year - 18))
+                if (value <= 0)
                     throw new Exception("this input is not make sense");
                 exp = value;
             }
@@ -188,7 +202,7 @@ namespace BE
         }
         public bool DaysOOf { get => daysOOf; set => daysOOf = value; }
         public string Recommendations { get => recommendations; set => recommendations = value; }
-        public TimeSpan HowMuchHourNanWork1{ get => HowMuchHourNanWork; set => HowMuchHourNanWork = value; }
+        public TimeSpan HowMuchHourNanWork1 { get => HowMuchHourNanWork; set => HowMuchHourNanWork = value; }
         public override string ToString()
         {
             return name + ' ' + LastName + " id " + id + " phone number " + PhoneNum + " address " + Address;

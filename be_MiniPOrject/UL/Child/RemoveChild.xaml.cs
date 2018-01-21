@@ -15,10 +15,10 @@ using BL;
 
 namespace UL
 {
-    /// <summary>
+    ///<summary>
     /// Interaction logic for RemoveChild.xaml
-    /// </summary>
-    public partial class RemoveChild : Window
+    ///</summary>
+public partial class RemoveChild : Window
     {
         IBL bL;
         public RemoveChild()

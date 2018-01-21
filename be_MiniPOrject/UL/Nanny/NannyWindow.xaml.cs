@@ -35,35 +35,41 @@ namespace UL
         {
             try
             {
+                nanny.DayInWeek[0] = checkSun.IsChecked.Value;
+                nanny.DayInWeek[1] = checkMon.IsChecked.Value;
+                nanny.DayInWeek[2] = checkTue.IsChecked.Value;
+                nanny.DayInWeek[3] = checkWed.IsChecked.Value;
+                nanny.DayInWeek[4] = checkThu.IsChecked.Value;
+                nanny.DayInWeek[5] = checkFri.IsChecked.Value;
                 if (nanny.DayInWeek[0])
                 {
-                    nanny.WorkHours[0][0] = this.startSun.Value.Value.TimeOfDay;
-                    nanny.WorkHours[0][1] = this.endSun.Value.Value.TimeOfDay;
+                    nanny.WorkHours[0][0] = TimeSpan.Parse(startSun.Text);
+                    nanny.WorkHours[0][1] = TimeSpan.Parse(endSun.Text);
                 }
                 if (nanny.DayInWeek[1])
                 {
-                    nanny.WorkHours[1][0] = this.startMon.Value.Value.TimeOfDay;
-                    nanny.WorkHours[1][1] = this.endMon.Value.Value.TimeOfDay;
+                    nanny.WorkHours[1][0] = TimeSpan.Parse(startMon.Text);
+                    nanny.WorkHours[1][1] = TimeSpan.Parse(endMon.Text);
                 }
                 if (nanny.DayInWeek[2])
                 {
-                    nanny.WorkHours[2][0] = this.startTue.Value.Value.TimeOfDay;
-                    nanny.WorkHours[2][1] = this.endTue.Value.Value.TimeOfDay;
+                    nanny.WorkHours[2][0] = TimeSpan.Parse(startTue.Text);
+                    nanny.WorkHours[2][1] = TimeSpan.Parse(endTue.Text);
                 }
                 if (nanny.DayInWeek[3])
                 {
-                    nanny.WorkHours[3][0] = this.startWed.Value.Value.TimeOfDay;
-                    nanny.WorkHours[3][1] = this.endWed.Value.Value.TimeOfDay;
+                    nanny.WorkHours[3][0] = TimeSpan.Parse(startWed.Text);
+                    nanny.WorkHours[3][1] = TimeSpan.Parse(endWed.Text);
                 }
                 if (nanny.DayInWeek[4])
                 {
-                    nanny.WorkHours[4][0] = this.startThu.Value.Value.TimeOfDay;
-                    nanny.WorkHours[4][1] = this.endThu.Value.Value.TimeOfDay;
+                    nanny.WorkHours[4][0] = TimeSpan.Parse(startThu.Text);
+                    nanny.WorkHours[4][1] = TimeSpan.Parse(endThu.Text);
                 }
                 if (nanny.DayInWeek[5])
                 {
-                    nanny.WorkHours[5][0] = this.startFri.Value.Value.TimeOfDay;
-                    nanny.WorkHours[5][1] = this.endFri.Value.Value.TimeOfDay;
+                    nanny.WorkHours[5][0] = TimeSpan.Parse(startFri.Text);
+                    nanny.WorkHours[5][1] = TimeSpan.Parse(endFri.Text);
                 }
                 bl.AddNanny(nanny);
                 nanny = new Nanny();

@@ -41,19 +41,36 @@ namespace UL
             checkWed.IsChecked = mother.DayInWeek[3];
             checkThu.IsChecked = mother.DayInWeek[4];
             checkFri.IsChecked = mother.DayInWeek[5];
-            if (mother.DayInWeek[0])
-                //mother.WhenNeededWeek[0][0] = this.startSun.Value.Value.TimeOfDay;
-                //endSun.Value.Value.TimeOfDay = mother.WhenNeededWeek[0][1];
-                startMon.TimeInterval = mother.WhenNeededWeek[1][0];
-            endMon.TimeInterval = mother.WhenNeededWeek[1][1];
-            startTue.TimeInterval = mother.WhenNeededWeek[2][0];
-            endTue.TimeInterval = mother.WhenNeededWeek[2][1];
-            startWed.TimeInterval = mother.WhenNeededWeek[3][0];
-            endWed.TimeInterval = mother.WhenNeededWeek[3][1];
-            startThu.TimeInterval = mother.WhenNeededWeek[4][0];
-            startThu.TimeInterval = mother.WhenNeededWeek[4][1];
-            startFri.TimeInterval = mother.WhenNeededWeek[5][0];
-            startFri.TimeInterval = mother.WhenNeededWeek[5][1];
+            /*if (mother.DayInWeek[0])
+            {
+                mother.WhenNeededWeek[0][0] = TimeSpan.Parse(startSun.Text);
+                mother.WhenNeededWeek[0][1] = TimeSpan.Parse(endSun.Text);
+            }
+            if (mother.DayInWeek[1])
+            {
+                mother.WhenNeededWeek[1][0] = TimeSpan.Parse(startMon.Text);
+                mother.WhenNeededWeek[1][1] = TimeSpan.Parse(endMon.Text);
+            }
+            if (mother.DayInWeek[2])
+            {
+                mother.WhenNeededWeek[2][0] = TimeSpan.Parse(startTue.Text);
+                mother.WhenNeededWeek[2][1] = TimeSpan.Parse(endTue.Text);
+            }
+            if (mother.DayInWeek[3])
+            {
+                mother.WhenNeededWeek[3][0] = TimeSpan.Parse(startWed.Text);
+                mother.WhenNeededWeek[3][1] = TimeSpan.Parse(endWed.Text);
+            }
+            if (mother.DayInWeek[4])
+            {
+                mother.WhenNeededWeek[4][0] = TimeSpan.Parse(startThu.Text);
+                mother.WhenNeededWeek[4][1] = TimeSpan.Parse(endThu.Text);
+            }
+            if (mother.DayInWeek[5])
+            {
+                mother.WhenNeededWeek[5][0] = TimeSpan.Parse(startFri.Text);
+                mother.WhenNeededWeek[5][1] = TimeSpan.Parse(endFri.Text);
+            }*/
         }
     }
 }

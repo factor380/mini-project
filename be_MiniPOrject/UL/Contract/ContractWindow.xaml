@@ -58,7 +58,7 @@
             <Label Content="Active Contract:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="18"/>
             <CheckBox x:Name="activeContractCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding ActiveContract, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label Content="Child Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="childIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding ChildId, Mode=OneWay}" VerticalAlignment="Center" Width="120">
+            <TextBox x:Name="childIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding ChildId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
                 <TextBox.Style>
                     <Style>
                         <Style.Triggers>
@@ -72,9 +72,9 @@
             <Label Content="H or M:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"/>
             <CheckBox x:Name="horMCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding HorM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
             <Label Content="Met:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
-            <CheckBox x:Name="metCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Met, Mode=OneWay}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <CheckBox x:Name="metCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Met, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
             <Label Content="Mother Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="motherIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding MotherId, Mode=OneWay}" VerticalAlignment="Center" Width="120">
+            <TextBox x:Name="motherIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding MotherId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
                 <TextBox.Style>
                     <Style>
                         <Style.Triggers>
@@ -86,7 +86,7 @@
                 </TextBox.Style>
             </TextBox>
             <Label Content="Nanny Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="nannyIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding NannyId, Mode=OneWay}" VerticalAlignment="Center" Width="120">
+            <TextBox x:Name="nannyIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding NannyId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
                 <TextBox.Style>
                     <Style>
                         <Style.Triggers>

@@ -33,8 +33,8 @@ namespace UL
         }
         private void contract_Num1ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedItem));
-            //Update.DataContext = contract;
+            Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedItem));
+            Update.DataContext = contract;
         }
     }
 }

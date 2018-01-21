@@ -8,7 +8,7 @@ namespace BE
 {
     public class Mother
     {
-        private readonly string id;
+        private string id;
         private string lastName;
         private string name;
         private string phoneNum;
@@ -21,11 +21,6 @@ namespace BE
 
         public Mother(string id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, TimeSpan[][] whenNeededWeek, string remarks)
         {
-            for (int i = 0; (i < id.Length && id.Length == 9); i++)
-            {
-                if (id[i] < '0' && id[i] > '9')
-                    throw new Exception("this input not make sense");
-            }
             this.id = id;
             this.lastName = lastName;
             this.name = name;
@@ -45,7 +40,19 @@ namespace BE
             }
         }
 
-        public string Id { get => id; }
+        public string Id
+        {
+            get => id;
+            set
+            {
+                for (int i = 0; (i < value.Length && value.Length == 9); i++)
+                {
+                    if (value[i] < '0' && value[i] > '9')
+                        throw new Exception("this input not make sense");
+                }
+                id = value;
+            }
+        }
         public string LastName
         {
             get => lastName;
