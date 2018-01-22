@@ -36,5 +36,25 @@ namespace UL
             Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedItem));
             Update.DataContext = contract;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedItem));
+                bl.UpdateContract(contract);
+                contract = new Contract();
+                this.Update.DataContext = contract;
+                this.Close();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("check your input and try again");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

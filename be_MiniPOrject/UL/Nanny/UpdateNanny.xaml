@@ -19,7 +19,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="UPDATE NANNY" FontSize="22" FontWeight="Bold"/>
-        <Button Content="UPDATE" FontSize="30" Grid.Row="3"/>
+        <Button Content="UPDATE" FontSize="30" Grid.Row="3" Click="Button_Click"/>
         <Grid x:Name="Update" DataContext="{StaticResource nannyViewSource}" VerticalAlignment="Top" Margin="0,32,244,0" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

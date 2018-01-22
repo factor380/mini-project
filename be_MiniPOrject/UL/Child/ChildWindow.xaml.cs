@@ -40,9 +40,13 @@ namespace UL
                 this.ChildDetails.DataContext = child;
                 this.Close();
             }
-            catch(FormatException)
+            catch (FormatException)
             {
-
+                MessageBox.Show("check your input and try again");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

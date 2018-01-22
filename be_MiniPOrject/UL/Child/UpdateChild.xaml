@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="UPDATE CHILD" FontSize="40" FontWeight="Bold"/>
-        <Button Content="UPDATE" FontSize="40" Grid.Row="2"/>
+        <Button Content="UPDATE" FontSize="40" Grid.Row="2" Click="Button_Click"/>
         <Grid x:Name="UPDATE" DataContext="{StaticResource childViewSource}" HorizontalAlignment="Left" Margin="0,0.333,0,0" Grid.Row="1" VerticalAlignment="Top" Height="278" Width="279">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

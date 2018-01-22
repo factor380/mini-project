@@ -19,7 +19,7 @@ namespace DAL
                 throw new Exception("child with the same id already exists...");
             Mother mom = GetMother(c.MotherId);
             if (mom == null)
-                throw new Exception("not faound mother to this child");
+                throw new Exception("not exist mother to this child");
             DataSource.kids.Add(c);
         }
 

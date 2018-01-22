@@ -76,9 +76,13 @@ namespace UL
                 this.NannyDetails.DataContext = nanny;
                 this.Close();
             }
-            catch (Exception)
+            catch (FormatException)
             {
-
+                MessageBox.Show("check your input and try again");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

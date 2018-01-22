@@ -68,3 +68,9 @@ C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\Get_All_The_
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\nannies_close_to_mother.g.cs
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\Nannies_that_fit_mom.g.cs
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\number_of_under_certian_conditions.g.cs
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\contract_acoording_to_the_age_of_the_children.baml
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\contract_under_certian_conditions.baml
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\Get_All_The_Contract_According_To_distance.baml
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\nannies_close_to_mother.baml
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\Nannies_that_fit_mom.baml
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\number_of_under_certian_conditions.baml

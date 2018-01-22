@@ -17,7 +17,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="UPDATE CONTRACT" FontSize="30" FontWeight="Bold"/>
-        <Button Content="UPDATE" FontSize="30" Grid.Row="2"/>
+        <Button Content="UPDATE" FontSize="30" Grid.Row="2" Click="Button_Click"/>
         <Grid x:Name="Update" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="290" Height="471" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

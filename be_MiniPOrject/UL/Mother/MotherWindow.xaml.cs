@@ -77,9 +77,13 @@ namespace UL
                 this.MotherDetails.DataContext = mother;
                 this.Close();
             }
-            catch (Exception)
+            catch (FormatException)
             {
-                throw;
+                Xceed.Wpf.Toolkit.MessageBox.Show("check your input and try again");
+            }
+            catch (Exception ex)
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show(ex.Message);
             }
         }
     }

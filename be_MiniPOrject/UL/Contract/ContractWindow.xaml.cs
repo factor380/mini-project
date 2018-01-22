@@ -40,9 +40,13 @@ namespace UL
                 this.ContractDetails.DataContext = contract;
                 this.Close();
             }
-            catch
+            catch (FormatException)
             {
-
+                MessageBox.Show("check your input and try again");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

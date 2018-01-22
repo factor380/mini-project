@@ -37,7 +37,11 @@ public partial class RemoveChild : Window
             }
             catch (FormatException)
             {
-
+                MessageBox.Show("check your input and try again");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -36,5 +36,25 @@ namespace UL
             Child child = bl.GetChild(idComboBox.SelectedItem as string);
             UPDATE.DataContext = child;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Child child = bl.GetChild(idComboBox.SelectedItem as string);
+                bl.UpdateChild(child);
+                child = new Child();
+                this.UPDATE.DataContext = child;
+                this.Close();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("check your input and try again");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

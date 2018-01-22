@@ -41,36 +41,56 @@ namespace UL
             checkWed.IsChecked = mother.DayInWeek[3];
             checkThu.IsChecked = mother.DayInWeek[4];
             checkFri.IsChecked = mother.DayInWeek[5];
-            /*if (mother.DayInWeek[0])
+            if (mother.DayInWeek[0])
             {
-                mother.WhenNeededWeek[0][0] = TimeSpan.Parse(startSun.Text);
-                mother.WhenNeededWeek[0][1] = TimeSpan.Parse(endSun.Text);
+                startSun.Value = new DateTime(mother.WhenNeededWeek[0][0].Ticks);
+                endSun.Value = new DateTime(mother.WhenNeededWeek[0][1].Ticks);
             }
             if (mother.DayInWeek[1])
             {
-                mother.WhenNeededWeek[1][0] = TimeSpan.Parse(startMon.Text);
-                mother.WhenNeededWeek[1][1] = TimeSpan.Parse(endMon.Text);
+                startMon.Value = new DateTime(mother.WhenNeededWeek[1][0].Ticks);
+                endMon.Value = new DateTime(mother.WhenNeededWeek[1][1].Ticks);
             }
             if (mother.DayInWeek[2])
             {
-                mother.WhenNeededWeek[2][0] = TimeSpan.Parse(startTue.Text);
-                mother.WhenNeededWeek[2][1] = TimeSpan.Parse(endTue.Text);
+                startTue.Value = new DateTime(mother.WhenNeededWeek[2][0].Ticks);
+                endTue.Value = new DateTime(mother.WhenNeededWeek[2][1].Ticks);
             }
             if (mother.DayInWeek[3])
             {
-                mother.WhenNeededWeek[3][0] = TimeSpan.Parse(startWed.Text);
-                mother.WhenNeededWeek[3][1] = TimeSpan.Parse(endWed.Text);
+                startWed.Value = new DateTime(mother.WhenNeededWeek[3][0].Ticks);
+                endWed.Value = new DateTime(mother.WhenNeededWeek[3][1].Ticks);
             }
             if (mother.DayInWeek[4])
             {
-                mother.WhenNeededWeek[4][0] = TimeSpan.Parse(startThu.Text);
-                mother.WhenNeededWeek[4][1] = TimeSpan.Parse(endThu.Text);
+                startThu.Value = new DateTime(mother.WhenNeededWeek[4][0].Ticks);
+                endThu.Value = new DateTime(mother.WhenNeededWeek[4][1].Ticks);
             }
             if (mother.DayInWeek[5])
             {
-                mother.WhenNeededWeek[5][0] = TimeSpan.Parse(startFri.Text);
-                mother.WhenNeededWeek[5][1] = TimeSpan.Parse(endFri.Text);
-            }*/
+                startFri.Value = new DateTime(mother.WhenNeededWeek[5][0].Ticks);
+                endFri.Value = new DateTime(mother.WhenNeededWeek[5][1].Ticks);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Mother mother = bl.GetMother(idCombobox.SelectedItem as string);
+                bl.UpdateMother(mother);
+                mother = new Mother();
+                this.Update.DataContext = mother;
+                this.Close();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("check your input and try again");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
