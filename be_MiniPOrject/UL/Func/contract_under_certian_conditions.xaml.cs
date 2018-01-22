@@ -26,15 +26,14 @@ namespace UL
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           /* switch (selectionCondition.SelectedItem)
+            switch (selectionCondition.SelectedItem)
             {
                 case "pay in hour":
-                    numHiden.Visibility = Visible;//להבין מה העניין
-
+                    numHiden.Visibility = Visibility.Visible;
                     break;
 
                 case "pay in month":
-                    numHiden.Visibility = Visible;//להבין מה העניין
+                    numHiden.Visibility = Visibility.Visible;
                     break;
 
                 default:
@@ -45,7 +44,7 @@ namespace UL
 
 
 
-            }*/
+            }
         }
     }
 }

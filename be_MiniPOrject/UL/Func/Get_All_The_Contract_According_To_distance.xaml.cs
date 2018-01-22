@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
 namespace UL
 {
@@ -22,6 +24,25 @@ namespace UL
         public Get_All_The_Contract_According_To_distance()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            IBL bl;
+            IEnumerable<IGrouping<int, Contract>> printg;
+            bl = BL.FactoryBL.GetBL();
+
+            if ((string)arranged.SelectedItem == "yes")
+                printg = bl.GetAllTheContractAccordingTodistance(true);
+            else
+                printg = bl.GetAllTheContractAccordingTodistance(false);
+
+            foreach (var v in printg)
+            {
+                text.Text += "kay" + v.Key.ToString() + '\n';
+                foreach (var va in v)
+                    text.Text += va.ToString() + '\n';
+            }
         }
     }
 }

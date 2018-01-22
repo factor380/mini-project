@@ -40,5 +40,17 @@ namespace UL
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            IBL bl;
+            bl = BL.FactoryBL.GetBL();
+            List<Nanny> ListN = bl.NanniesThatAlsoFitMom(bl.GetMother((string)idMother.SelectedItem));
+
+            foreach(Nanny v in ListN)
+            {
+                text.Text += v.ToString() + '\n';
+            }
+        }
     }
 }

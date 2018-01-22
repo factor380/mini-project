@@ -9,10 +9,11 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="42*"/>
-            <RowDefinition Height="227*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="152*"/>
         </Grid.RowDefinitions>
         <Label Content="Select a condition" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="108"/>
-        <ComboBox x:Name="selectionCondition" HorizontalAlignment="Left" Margin="10,6.148,0,0" VerticalAlignment="Top" Width="123" Grid.Row="1" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="selectionCondition" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="123" Grid.Row="1" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="met" />
             <ComboBoxItem Content="active contact" />
             <ComboBoxItem Content="hour or minute" />
@@ -22,6 +23,7 @@
         </ComboBox>
         <TextBox x:Name="numHiden" HorizontalAlignment="Left" Height="23" Margin="13,43,0,0" Grid.Row="1" TextWrapping="Wrap" Text="please enter number" VerticalAlignment="Top" Width="120" Visibility="Hidden" />
         <Button Content="find" HorizontalAlignment="Left" Margin="179,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="13,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="132" Width="269"/>
         <!--אם זה נבחר משהו של משכורת-->
         <!--ועוד הצגה-->
     </Grid>

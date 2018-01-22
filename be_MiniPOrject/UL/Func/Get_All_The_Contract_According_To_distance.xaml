@@ -7,11 +7,16 @@
         mc:Ignorable="d"
         Title="Get_All_The_Contract_According_To_distance" Height="300" Width="300">
     <Grid>
-        <Label Content="arranged" HorizontalAlignment="Left" Margin="10,2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76"/>
-        <ComboBox HorizontalAlignment="Left" Margin="98,5.926,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="218*"/>
+        </Grid.RowDefinitions>
+        <Label Content="arranged" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Width="76"/>
+        <ComboBox x:Name="arranged" HorizontalAlignment="Left" Margin="98,6,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="yes"/>
             <ComboBoxItem Content="no"/>
         </ComboBox>
-        <Button Content="Get" HorizontalAlignment="Left" Margin="230,8,0,0" VerticalAlignment="Top" Width="52"/>
+        <Button Content="Get" HorizontalAlignment="Left" Margin="230,8,0,0" VerticalAlignment="Top" Width="52" Click="Button_Click"/>
+        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,12.926,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="195" Width="265" Grid.Row="1"/>
     </Grid>
 </Window>
