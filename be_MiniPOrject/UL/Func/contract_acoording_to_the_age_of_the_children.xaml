@@ -22,6 +22,7 @@
             <ComboBoxItem Content="yes"/>
             <ComboBoxItem Content="no"/>
         </ComboBox>
+        <Button Content="GET" HorizontalAlignment="Left" Margin="54,40,0,0" Grid.Row="1" VerticalAlignment="Top" Width="185"/>
 
     </Grid>
 </Window>

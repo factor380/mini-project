@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
 namespace UL
 {
@@ -22,6 +24,21 @@ namespace UL
         public Nannies_that_fit_mom()
         {
             InitializeComponent();
+            IBL bl;
+
+            bl = FactoryBL.GetBL();
+
+            foreach (Mother m in bl.getMotherList())
+            {
+                ComboBoxItem newItem = new ComboBoxItem();
+                newItem.Content = m.Id;
+                idMother.Items.Add(newItem);
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
