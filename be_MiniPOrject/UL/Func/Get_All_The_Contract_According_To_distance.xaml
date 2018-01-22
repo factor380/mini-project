@@ -12,5 +12,6 @@
             <ComboBoxItem Content="yes"/>
             <ComboBoxItem Content="no"/>
         </ComboBox>
+        <Button Content="Get" HorizontalAlignment="Left" Margin="230,8,0,0" VerticalAlignment="Top" Width="52"/>
     </Grid>
 </Window>
