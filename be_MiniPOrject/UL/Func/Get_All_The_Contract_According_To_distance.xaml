@@ -16,7 +16,17 @@
             <ComboBoxItem Content="yes"/>
             <ComboBoxItem Content="no"/>
         </ComboBox>
-        <Button Content="Get" HorizontalAlignment="Left" Margin="230,8,0,0" VerticalAlignment="Top" Width="52" Click="Button_Click"/>
+        <Button Content="Get" HorizontalAlignment="Left" Margin="230,8,0,0" VerticalAlignment="Top" Width="52" Click="Button_Click">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=arranged, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
         <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,12.926,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="195" Width="265" Grid.Row="1"/>
     </Grid>
 </Window>

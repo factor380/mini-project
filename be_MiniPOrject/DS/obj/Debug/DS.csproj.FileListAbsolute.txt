@@ -6,3 +6,10 @@ C:\Users\User\Desktop\mini project\be_MiniPOrject\DS\obj\Debug\DS.csprojResolveA
 C:\Users\User\Desktop\mini project\be_MiniPOrject\DS\obj\Debug\DS.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\mini project\be_MiniPOrject\DS\obj\Debug\DS.dll
 C:\Users\User\Desktop\mini project\be_MiniPOrject\DS\obj\Debug\DS.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\DS\bin\Debug\DS.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\DS\bin\Debug\DS.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\DS\bin\Debug\be_MiniPOrject.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\DS\bin\Debug\be_MiniPOrject.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+C:\Users\factor\Desktop\m\be_MiniPOrject\DS\obj\Debug\DS.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\DS\obj\Debug\DS.pdb
