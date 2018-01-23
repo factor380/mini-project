@@ -29,6 +29,7 @@ namespace UL
             bl = FactoryBL.GetBL();
             child = new Child();
             this.ChildDetails.DataContext = child;
+            dateBirthDatePicker.SelectedDate = DateTime.Today;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using BE;
 
 namespace UL
 {
@@ -25,15 +26,19 @@ public partial class RemoveChild : Window
         {
             InitializeComponent();
             bL = FactoryBL.GetBL();
-            this.Remove.DataContext = idTextBox.Text;
+            foreach (Child c in bL.getChildList())
+            {
+                idComboBox.Items.Add(c.Id);
+            }
+            idComboBox.DataContext = idComboBox.SelectedItem as string;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bL.RemoveChild(idTextBox.Text);
-                Remove.DataContext = null;
+                bL.RemoveChild(idComboBox.SelectedItem as string);
+                this.Close();
             }
             catch (FormatException)
             {

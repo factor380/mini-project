@@ -25,13 +25,19 @@
             <Button.Style>
                 <Style>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=childIdTextBox, Path=Text}" Value="">
+                        <DataTrigger Binding="{Binding ElementName=childIdComboBox, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding ElementName=nannyIdTextBox, Path=Text}" Value="">
+                        <DataTrigger Binding="{Binding ElementName=nannyIdComboBox, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding ElementName=motherIdTextBox, Path=Text}" Value="">
+                        <DataTrigger Binding="{Binding ElementName=motherIdComboBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=startDateDatePicker, Path=Text}" Value="1/1/0001">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=endDateDatePicker, Path=Text}" Value="1/1/0001">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -56,55 +62,25 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Active Contract:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="18"/>
-            <CheckBox x:Name="activeContractCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding ActiveContract, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <CheckBox x:Name="activeContractCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding ActiveContract, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label Content="Child Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="childIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding ChildId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
-                <TextBox.Style>
-                    <Style>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=childIdTextBox, Path=Text}" Value="">
-                                <Setter Property="TextBox.BorderBrush" Value="Red" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
+            <ComboBox x:Name="childIdComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
             <Label Content="H or M:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"/>
-            <CheckBox x:Name="horMCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding HorM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <CheckBox x:Name="horMCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding HorM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
             <Label Content="Met:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
-            <CheckBox x:Name="metCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Met, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <CheckBox x:Name="metCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Met, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
             <Label Content="Mother Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="motherIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding MotherId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
-                <TextBox.Style>
-                    <Style>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=motherIdTextBox, Path=Text}" Value="">
-                                <Setter Property="TextBox.BorderBrush" Value="Red" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
+            <ComboBox x:Name="motherIdComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Nanny Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="nannyIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding NannyId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
-                <TextBox.Style>
-                    <Style>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=nannyIdTextBox, Path=Text}" Value="">
-                                <Setter Property="TextBox.BorderBrush" Value="Red" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
+            <ComboBox x:Name="nannyIdComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Start Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" FontSize="20"/>
-            <DatePicker x:Name="startDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="6" SelectedDate="{Binding StartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+            <DatePicker x:Name="startDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="6" SelectedDate="{Binding StartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center"/>
             <Label Content="End Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center" FontSize="20"/>
-            <DatePicker x:Name="endDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="7" SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+            <DatePicker x:Name="endDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="7" SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center"/>
             <Label Content="Pay Hours:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="payHoursTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding PayHours, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="payHoursTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding PayHours, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Pay Month:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="payMonthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding PayMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="{Binding ElementName=horMCheckBox,Path=IsChecked}"/>
+            <TextBox x:Name="payMonthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding PayMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" IsEnabled="{Binding ElementName=horMCheckBox,Path=IsChecked}"/>
         </Grid>
     </Grid>
 </Window>

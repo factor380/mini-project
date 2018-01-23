@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using BE;
 
 namespace UL
 {
@@ -25,15 +26,19 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            Remove.DataContext = int.Parse(contract_NumTextBox.Text);
+            foreach (Contract c in bl.getContractList())
+            {
+                contract_Num1ComboBox.Items.Add(c.Contract_Num1);
+            }
+            Remove.DataContext = (int)(contract_Num1ComboBox.SelectionBoxItem);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.RemoveContract(int.Parse(contract_NumTextBox.Text));
-                Remove.DataContext = null;
+                bl.RemoveContract((int)(contract_Num1ComboBox.SelectionBoxItem));
+                this.Close();
             }
             catch (FormatException)
             {

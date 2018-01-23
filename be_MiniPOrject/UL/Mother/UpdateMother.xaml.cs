@@ -78,9 +78,43 @@ namespace UL
             try
             {
                 Mother mother = bl.GetMother(idCombobox.SelectedItem as string);
+                mother.DayInWeek[0] = checkSun.IsChecked.Value;
+                mother.DayInWeek[1] = checkMon.IsChecked.Value;
+                mother.DayInWeek[2] = checkTue.IsChecked.Value;
+                mother.DayInWeek[3] = checkWed.IsChecked.Value;
+                mother.DayInWeek[4] = checkThu.IsChecked.Value;
+                mother.DayInWeek[5] = checkFri.IsChecked.Value;
+                if (mother.DayInWeek[0])
+                {
+                    mother.WhenNeededWeek[0][0] = TimeSpan.Parse(startSun.Text);
+                    mother.WhenNeededWeek[0][1] = TimeSpan.Parse(endSun.Text);
+                }
+                if (mother.DayInWeek[1])
+                {
+                    mother.WhenNeededWeek[1][0] = TimeSpan.Parse(startMon.Text);
+                    mother.WhenNeededWeek[1][1] = TimeSpan.Parse(endMon.Text);
+                }
+                if (mother.DayInWeek[2])
+                {
+                    mother.WhenNeededWeek[2][0] = TimeSpan.Parse(startTue.Text);
+                    mother.WhenNeededWeek[2][1] = TimeSpan.Parse(endTue.Text);
+                }
+                if (mother.DayInWeek[3])
+                {
+                    mother.WhenNeededWeek[3][0] = TimeSpan.Parse(startWed.Text);
+                    mother.WhenNeededWeek[3][1] = TimeSpan.Parse(endWed.Text);
+                }
+                if (mother.DayInWeek[4])
+                {
+                    mother.WhenNeededWeek[4][0] = TimeSpan.Parse(startThu.Text);
+                    mother.WhenNeededWeek[4][1] = TimeSpan.Parse(endThu.Text);
+                }
+                if (mother.DayInWeek[5])
+                {
+                    mother.WhenNeededWeek[5][0] = TimeSpan.Parse(startFri.Text);
+                    mother.WhenNeededWeek[5][1] = TimeSpan.Parse(endFri.Text);
+                }
                 bl.UpdateMother(mother);
-                mother = new Mother();
-                this.Update.DataContext = mother;
                 this.Close();
             }
             catch (FormatException)

@@ -29,6 +29,8 @@ namespace UL
             bl = FactoryBL.GetBL();
             contract = new Contract();
             this.ContractDetails.DataContext = contract;
+            endDateDatePicker.SelectedDate = DateTime.Today;
+            startDateDatePicker.SelectedDate = DateTime.Today;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

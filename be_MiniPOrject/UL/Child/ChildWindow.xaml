@@ -56,9 +56,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Date Birth:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="30"/>
-            <DatePicker x:Name="dateBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="2.667,0,0,16.333" Grid.Row="0" SelectedDate="{Binding DateBirth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Bottom"/>
+            <DatePicker x:Name="dateBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="2.667,0,0,16.333" Grid.Row="0" SelectedDate="{Binding DateBirth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Bottom"/>
             <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="30"/>
-            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120">
                 <TextBox.Style>
                     <Style>
                         <Style.Triggers>
@@ -70,7 +70,7 @@
                 </TextBox.Style>
             </TextBox>
             <Label Content="Mother Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="30"/>
-            <TextBox x:Name="motherIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding MotherId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
+            <TextBox x:Name="motherIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding MotherId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120">
                 <TextBox.Style>
                     <Style>
                         <Style.Triggers>
@@ -82,7 +82,7 @@
                 </TextBox.Style>
             </TextBox>
             <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="30"/>
-            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120">
+            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120">
                 <TextBox.Style>
                     <Style>
                         <Style.Triggers>
@@ -94,9 +94,9 @@
                 </TextBox.Style>
             </TextBox>
             <Label Content="Special Needs:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="30"/>
-            <CheckBox x:Name="specialNeedsCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding SpecialNeeds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <CheckBox x:Name="specialNeedsCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding SpecialNeeds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
             <Label Content="What He Need:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="30"/>
-            <TextBox x:Name="whatHeNeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding WhatHeNeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="{Binding ElementName=specialNeedsCheckBox,Path=IsChecked}"/>
+            <TextBox x:Name="whatHeNeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding WhatHeNeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" IsEnabled="{Binding ElementName=specialNeedsCheckBox,Path=IsChecked}"/>
         </Grid>
     </Grid>
 </Window>

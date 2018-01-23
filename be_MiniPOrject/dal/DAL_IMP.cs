@@ -41,9 +41,9 @@ namespace DAL
             Child chi = GetChild(c.Id);
             if (chi == null)
                 throw new Exception("child with the same id not found...");
-            for (int i = 0; i < DataSource.kids.Capacity; i++)
+            for (int i = 0; i < DataSource.kids.Count; i++)
             {
-                if (c == chi)
+                if (DataSource.kids[i].Id == chi.Id)
                     DataSource.kids[i] = c;
             }
 
@@ -74,9 +74,9 @@ namespace DAL
             Nanny nan = GetNanny(n.Id);
             if (nan == null)
                 throw new Exception("there no nanny with this id");
-            for (int i = 0; i < DataSource.nannys.Capacity; i++)
+            for (int i = 0; i < DataSource.nannys.Count; i++)
             {
-                if (n == nan)
+                if (DataSource.nannys[i].Id == nan.Id)
                     DataSource.nannys[i] = n;
             }
         }
@@ -124,9 +124,9 @@ namespace DAL
             Mother mom = GetMother(m.Id);
             if (mom == null)
                 throw new Exception("Mother with the same id not found...");
-            for (int i = 0; i < DataSource.mothers.Capacity; i++)
+            for (int i = 0; i < DataSource.mothers.Count; i++)
             {
-                if (mom == m)
+                if (DataSource.mothers[i].Id == m.Id)
                     DataSource.mothers[i] = m;
             }
         }
@@ -173,7 +173,7 @@ namespace DAL
                 throw new Exception("Contract with the same id not found...");
             for (int i = 0; i < DataSource.contracts.Capacity; i++)
             {
-                if (con == c)
+                if (DataSource.contracts[i].Contract_Num1 == c.Contract_Num1)
                     DataSource.contracts[i] = c;
             }
         }

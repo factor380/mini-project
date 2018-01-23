@@ -29,6 +29,7 @@ namespace UL
             bl = FactoryBL.GetBL();
             nanny = new Nanny();
             this.NannyDetails.DataContext = nanny;
+            dateBirthDatePicker.SelectedDate = DateTime.Today;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -26,10 +26,15 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
+            GetCopy();
             foreach (Nanny n in bl.getNannyList())
             {
                 idComboBox.Items.Add(n.Id);
             }
+        }
+        public Nanny GetCopy()
+        {
+            return (Nanny)this.MemberwiseClone();
         }
         private void idComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
