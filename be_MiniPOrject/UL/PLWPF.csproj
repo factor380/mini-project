@@ -81,8 +81,8 @@
     <Compile Include="Contract\ContractWindow.xaml.cs">
       <DependentUpon>ContractWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Func\contract_acoording_to_the_age_of_the_children.xaml.cs">
-      <DependentUpon>contract_acoording_to_the_age_of_the_children.xaml</DependentUpon>
+    <Compile Include="Func\Nannys_acoording_to_the_age_of_the_children.xaml.cs">
+      <DependentUpon>Nannys_acoording_to_the_age_of_the_children.xaml</DependentUpon>
     </Compile>
     <Compile Include="Func\contract_under_certian_conditions.xaml.cs">
       <DependentUpon>contract_under_certian_conditions.xaml</DependentUpon>
@@ -132,7 +132,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Func\contract_acoording_to_the_age_of_the_children.xaml">
+    <Page Include="Func\Nannys_acoording_to_the_age_of_the_children.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

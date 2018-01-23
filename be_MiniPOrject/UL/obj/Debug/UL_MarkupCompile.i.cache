@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\App.xaml
-191038993623
+191133283469
 
-27-1885596638
+272031282047
 21418921660
-Child\ChildWindow.xaml;Child\RemoveChild.xaml;Contract\ContractWindow.xaml;Func\contract_acoording_to_the_age_of_the_children.xaml;Func\contract_under_certian_conditions.xaml;Func\Get_All_The_Contract_According_To_distance.xaml;Mother\MotherWindow.xaml;Func\nannies_close_to_mother.xaml;Func\Nannies_that_fit_mom.xaml;Nanny\NannyWindow.xaml;MainWindow.xaml;Contract\RemoveContract.xaml;Mother\RemoveMother.xaml;Nanny\RemoveNanny.xaml;Child\UpdateChild.xaml;Contract\UpdateContract.xaml;Mother\UpdateMother.xaml;Nanny\UpdateNanny.xaml;Func\number_of_under_certian_conditions.xaml;
+Child\ChildWindow.xaml;Child\RemoveChild.xaml;Contract\ContractWindow.xaml;Func\Nannys_acoording_to_the_age_of_the_children.xaml;Func\contract_under_certian_conditions.xaml;Func\Get_All_The_Contract_According_To_distance.xaml;Mother\MotherWindow.xaml;Func\nannies_close_to_mother.xaml;Func\Nannies_that_fit_mom.xaml;Nanny\NannyWindow.xaml;MainWindow.xaml;Contract\RemoveContract.xaml;Mother\RemoveMother.xaml;Nanny\RemoveNanny.xaml;Child\UpdateChild.xaml;Contract\UpdateContract.xaml;Mother\UpdateMother.xaml;Nanny\UpdateNanny.xaml;Func\number_of_under_certian_conditions.xaml;
 
 True
 

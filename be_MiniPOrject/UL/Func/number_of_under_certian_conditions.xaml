@@ -22,7 +22,7 @@
 
         </ComboBox>
         <TextBox x:Name="numHiden" HorizontalAlignment="Left" Height="23" Margin="13,43,0,0" Grid.Row="1" TextWrapping="Wrap" Text="please enter number" VerticalAlignment="Top" Width="120" Visibility="Hidden" />
-        <Button Content="find" HorizontalAlignment="Left" Margin="179,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75">
+        <Button Content="find" HorizontalAlignment="Left" Margin="179,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click">
             <Button.Style>
                 <Style>
                     <Style.Triggers>
@@ -37,8 +37,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="13,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="132" Width="269"/>
-        <!--אם זה נבחר משהו של משכורת-->
-        <!--ועוד הצגה-->
+        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="13,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="132" Width="269"/>
+       
     </Grid>
 </Window>

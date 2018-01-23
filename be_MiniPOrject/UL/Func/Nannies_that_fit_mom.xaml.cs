@@ -51,6 +51,8 @@ namespace UL
             {
                 text.Text += v.ToString() + '\n';
             }
+            if(text.Text=="")
+                text.Text="thare no nannies that fit to the mother"
         }
     }
 }

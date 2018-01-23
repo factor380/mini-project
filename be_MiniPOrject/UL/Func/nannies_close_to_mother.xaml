@@ -21,7 +21,7 @@
         <TextBox x:Name="distance" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,17,0,0" TextWrapping="Wrap" Text="number" VerticalAlignment="Top" Width="120"/>
         <Label Content="Id:" HorizontalAlignment="Center" VerticalAlignment="center" Grid.Column="0" Margin="10,0,16,3" Width="43" Height="26" RenderTransformOrigin="0.504,0.333" Grid.Row="1"/>
         <ComboBox x:Name="idMother" HorizontalAlignment="Left" Margin="0,6,0,3" VerticalAlignment="Center" Width="120" Grid.Column="1" Height="20" Grid.Row="1" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Button Content="find  " Grid.Column="2"  HorizontalAlignment="Center" Margin="10,0,41,3" Grid.Row="1" VerticalAlignment="Bottom" Width="50" Height="20">
+        <Button Content="find  " Grid.Column="2"  HorizontalAlignment="Center" Margin="10,0,41,3" Grid.Row="1" VerticalAlignment="Bottom" Width="50" Height="20" Click="Button_Click">
             <Button.Style>
                 <Style>
                     <Style.Triggers>
@@ -36,7 +36,6 @@
                 </Style>
             </Button.Style>
         </Button>
-
-        <!--לעשות לזה של המספר דתא בנדינג-->
+        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="163" Width="272"/>
     </Grid>
 </Window>

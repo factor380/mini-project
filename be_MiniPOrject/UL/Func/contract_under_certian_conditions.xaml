@@ -22,12 +22,12 @@
             <ComboBoxItem Content="pay in month" />
 
         </ComboBox>
-        <TextBox x:Name="numHiden" HorizontalAlignment="Left" Height="23" Margin="13,13,0,0" Grid.Row="2" TextWrapping="Wrap" Text="please enter number" VerticalAlignment="Top" Width="120" Visibility="Hidden" />
-        <Button x:Name="Get" Content="Get" HorizontalAlignment="Left" Margin="182,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75">
+        <TextBox x:Name="numHiden" HorizontalAlignment="Left" Height="23" Margin="13,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="please enter number" VerticalAlignment="Top" Width="120" Visibility="Hidden" />
+        <Button x:Name="Get" Content="Get" HorizontalAlignment="Left" Margin="182,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Get_Click">
             <Button.Style>
                 <Style>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=selectionCondition, Path=SelectedItem}" Value="">
+                        <DataTrigger Binding="{Binding ElementName=selectionCondition, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
 
@@ -39,8 +39,7 @@
             </Button.Style>
         </Button>
         <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,4.139,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Height="146" Width="272"/>
-        <!--אם זה נבחר משהו של משכורת-->
-        <!--ועוד הצגה-->
+       
 
     </Grid>
 </Window>
