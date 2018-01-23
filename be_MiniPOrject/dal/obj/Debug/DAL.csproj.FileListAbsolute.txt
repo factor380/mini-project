@@ -8,3 +8,12 @@ C:\Users\User\Desktop\mini project\be_MiniPOrject\dal\obj\Debug\DAL.csprojResolv
 C:\Users\User\Desktop\mini project\be_MiniPOrject\dal\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\mini project\be_MiniPOrject\dal\obj\Debug\dal.dll
 C:\Users\User\Desktop\mini project\be_MiniPOrject\dal\obj\Debug\dal.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\bin\Debug\dal.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\bin\Debug\dal.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\bin\Debug\be_MiniPOrject.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\bin\Debug\DS.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\bin\Debug\be_MiniPOrject.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\bin\Debug\DS.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\obj\Debug\dal.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\dal\obj\Debug\dal.pdb

@@ -11,3 +11,15 @@ C:\Users\User\Desktop\mini project\be_MiniPOrject\BL\bin\Debug\dal.pdb
 C:\Users\User\Desktop\mini project\be_MiniPOrject\BL\bin\Debug\DS.pdb
 C:\Users\User\Desktop\mini project\be_MiniPOrject\BL\obj\Debug\BL.dll
 C:\Users\User\Desktop\mini project\be_MiniPOrject\BL\obj\Debug\BL.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\BL.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\BL.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\be_MiniPOrject.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\dal.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\GoogleMapsApi.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\DS.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\be_MiniPOrject.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\dal.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\bin\Debug\DS.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\obj\Debug\BL.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\BL\obj\Debug\BL.pdb

@@ -19,7 +19,17 @@
         </Grid.RowDefinitions>
         <Label Content="Id:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" Grid.Column="0"  Height="24" Grid.Row="1"/>
         <ComboBox x:Name="idMother" HorizontalAlignment="Left" Margin="2,4,1,2" Grid.Row="1" VerticalAlignment="Center" Width="120" Grid.Column="1" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Button Content="find  " Grid.Column="2"  HorizontalAlignment="Center" Margin="10,0,41,0" Grid.Row="1" VerticalAlignment="Bottom" Width="50" Height="20" Click="Button_Click"/>
+        <Button Content="find  " Grid.Column="2"  HorizontalAlignment="Center" Margin="10,0,41,0" Grid.Row="1" VerticalAlignment="Bottom" Width="50" Height="20" Click="Button_Click">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=idMother, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
         <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="191" Width="272"/>
 
     </Grid>

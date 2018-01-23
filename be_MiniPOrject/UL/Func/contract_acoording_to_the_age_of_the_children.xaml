@@ -24,7 +24,22 @@
             <ComboBoxItem Content="yes"/>
             <ComboBoxItem Content="no"/>
         </ComboBox>
-        <Button Content="GET" HorizontalAlignment="Left" Margin="53,33,0,0" Grid.Row="1" VerticalAlignment="Top" Width="185" Click="Button_Click"/>
+        <Button Content="GET" HorizontalAlignment="Left" Margin="53,33,0,0" Grid.Row="1" VerticalAlignment="Top" Width="185" Click="Button_Click">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=arranged, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        
+                        <DataTrigger Binding="{Binding ElementName=age, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
         <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,3.828,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="272" RenderTransformOrigin="0.495,0.479"/>
 
     </Grid>
