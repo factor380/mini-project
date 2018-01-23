@@ -36,21 +36,20 @@ namespace UL
             }
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             IBL bl;
             bl = BL.FactoryBL.GetBL();
-            List<Nanny> ListN = bl.NanniesThatAlsoFitMom(bl.GetMother((string)idMother.SelectedItem));
+            List<Nanny> ListN = bl.NanniesThatFitMom(bl.GetMother((string)idMother.SelectedItem));
 
             foreach(Nanny v in ListN)
             {
                 text.Text += v.ToString() + '\n';
             }
+            if(text.Text=="")
+                text.Text="thare no nannies that fit to the mother"
         }
     }
 }

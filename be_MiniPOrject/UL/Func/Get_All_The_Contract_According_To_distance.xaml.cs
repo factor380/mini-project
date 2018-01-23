@@ -43,6 +43,10 @@ namespace UL
                 foreach (var va in v)
                     text.Text += va.ToString() + '\n';
             }
+            if(text.Text=="")
+            {
+                text.Text+="thare no contract"
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BL;
 using BE;
+using UL.Func;
 
 namespace UL
 {
@@ -98,29 +99,78 @@ namespace UL
             UpdateContractWindow.ShowDialog();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        
 
+        private void Button_Click_number_of_under_certian_conditions(object sender, RoutedEventArgs e)
+        {
+            number_of_under_certian_conditions secondWindow = new number_of_under_certian_conditions();
+            secondWindow.ShowDialog();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_Nannies_that_fit_mom(object sender, RoutedEventArgs e)
         {
-
+            Nannies_that_fit_mom secondWindow = new Nannies_that_fit_mom();
+            secondWindow.ShowDialog();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_contract_under_certian_conditions(object sender, RoutedEventArgs e)
         {
-
+            contract_under_certian_conditions secondWindow = new contract_under_certian_conditions();
+            secondWindow.ShowDialog();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Button_Click_Nannys_acoording_to_the_age_of_the_children(object sender, RoutedEventArgs e)
         {
-
+            Nannys_acoording_to_the_age_of_the_children secondWindow = new Nannys_acoording_to_the_age_of_the_children();
+            secondWindow.ShowDialog();
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void Button_Click_nannies_close_to_mother(object sender, RoutedEventArgs e)
         {
+            nannies_close_to_mother secondWindow = new nannies_close_to_mother();
+            secondWindow.ShowDialog(); 
+        }
 
+        private void Button_Click_Get_All_The_Contract_According_To_distance(object sender, RoutedEventArgs e)
+        {
+            Get_All_The_Contract_According_To_distance secondWindow = new Get_All_The_Contract_According_To_distance();
+            secondWindow.ShowDialog();
+        }
+
+        private void Button_Click_Children_without_nannies(object sender, RoutedEventArgs e)
+        {
+            Children_without_nannies secondWindow = new Children_without_nannies();
+            secondWindow.ShowDialog();
+        }
+
+        private void Button_Click_Nannys_that_take_Holidays_Tamat(object sender, RoutedEventArgs e)
+        {
+            Nannys_that_take_Holidays_Tamat secondWindow = new Nannys_that_take_Holidays_Tamat();
+            secondWindow.ShowDialog();
+        }
+
+        private void Button_Click_child_by_mothers(object sender, RoutedEventArgs e)
+        {
+            child_by_mothers secondWindow = new child_by_mothers();
+            secondWindow.ShowDialog();
+        }
+
+        private void Button_Click_Children_according_to_Mother(object sender, RoutedEventArgs e)
+        {
+            Children_according_to_Mother secondWindow = new Children_according_to_Mother();
+            secondWindow.ShowDialog();
+        }
+
+        private void Button_Click_contracts_that_almost_done(object sender, RoutedEventArgs e)
+        {
+            contracts_that_almost_done secondWindow = new contracts_that_almost_done();
+            secondWindow.ShowDialog();
+        }
+
+        private void Button_Click_Nannies_that_almost_fit_mom(object sender, RoutedEventArgs e)
+        {
+            Nannies_that_almost_fit_mom secondWindow = new Nannies_that_almost_fit_mom();
+            secondWindow.ShowDialog();
         }
     }
 }

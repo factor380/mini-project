@@ -35,9 +35,21 @@ namespace UL
             }
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<Nanny> listN = new List<Nanny>();
+            int dis=0;
+            if(int.TryParse(distance.Text,out dis))
+            {
+                listN = bl.NanniesThatInDistanceWithMother(bl.GetMother((string)idMother.SelectedItem), dis);
+                foreach(Nanny n in listN)
+                {
+                    text.Text += n.ToString() + '\n';
+                }
+            }
+            else
+                MessageBox.Show("check your input and try again");
         }
     }
 }

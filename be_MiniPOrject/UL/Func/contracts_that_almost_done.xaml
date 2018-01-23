@@ -1,0 +1,14 @@
+﻿<Window x:Class="UL.contracts_that_almost_done"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UL"
+        mc:Ignorable="d"
+        Title="contracts_that_almost_done" Height="300" Width="300">
+    <Grid>
+        <Label Content="contract that have only week or less" HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" Width="219"/>
+        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="196" Width="263"/>
+
+    </Grid>
+</Window>

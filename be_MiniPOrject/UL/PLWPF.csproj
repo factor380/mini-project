@@ -72,6 +72,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Func\Nannies_that_almost_fit_mom.xaml.cs">
+      <DependentUpon>Nannies_that_almost_fit_mom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Func\Children_according_to_Mother.xaml.cs">
+      <DependentUpon>Children_according_to_Mother.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Func\contracts_that_almost_done.xaml.cs">
+      <DependentUpon>contracts_that_almost_done.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Func\Children_without_nannies.xaml.cs">
+      <DependentUpon>Children_without_nannies.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Child\RemoveChild.xaml.cs">
       <DependentUpon>RemoveChild.xaml</DependentUpon>
     </Compile>
@@ -81,8 +93,11 @@
     <Compile Include="Contract\ContractWindow.xaml.cs">
       <DependentUpon>ContractWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Func\contract_acoording_to_the_age_of_the_children.xaml.cs">
-      <DependentUpon>contract_acoording_to_the_age_of_the_children.xaml</DependentUpon>
+    <Compile Include="Func\child_by_mothers.xaml.cs">
+      <DependentUpon>child_by_mothers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Func\Nannys_acoording_to_the_age_of_the_children.xaml.cs">
+      <DependentUpon>Nannys_acoording_to_the_age_of_the_children.xaml</DependentUpon>
     </Compile>
     <Compile Include="Func\contract_under_certian_conditions.xaml.cs">
       <DependentUpon>contract_under_certian_conditions.xaml</DependentUpon>
@@ -102,6 +117,9 @@
     <Compile Include="Func\Nannies_that_fit_mom.xaml.cs">
       <DependentUpon>Nannies_that_fit_mom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Func\Nannys_that_take_Holidays_Tamat.xaml.cs">
+      <DependentUpon>Nannys_that_take_Holidays_Tamat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Nanny\NannyWindow.xaml.cs">
       <DependentUpon>NannyWindow.xaml</DependentUpon>
     </Compile>
@@ -120,6 +138,22 @@
     <Compile Include="Nanny\UpdateNanny.xaml.cs">
       <DependentUpon>UpdateNanny.xaml</DependentUpon>
     </Compile>
+    <Page Include="Func\Nannies_that_almost_fit_mom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\Children_according_to_Mother.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\contracts_that_almost_done.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\Children_without_nannies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Child\ChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,7 +166,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Func\contract_acoording_to_the_age_of_the_children.xaml">
+    <Page Include="Func\child_by_mothers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\Nannys_acoording_to_the_age_of_the_children.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Func\Nannies_that_fit_mom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Func\Nannys_that_take_Holidays_Tamat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

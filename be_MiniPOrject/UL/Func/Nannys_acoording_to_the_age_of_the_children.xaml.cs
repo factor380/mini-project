@@ -19,9 +19,9 @@ namespace UL
     /// <summary>
     /// Interaction logic for contract_acoording_to_the_age_of_the_children.xaml
     /// </summary>
-    public partial class contract_acoording_to_the_age_of_the_children : Window
+    public partial class Nannys_acoording_to_the_age_of_the_children : Window
     {
-        public contract_acoording_to_the_age_of_the_children()
+        public Nannys_acoording_to_the_age_of_the_children()
         {
             InitializeComponent();
         }
@@ -54,6 +54,8 @@ namespace UL
 
                 text.Text += '\n';
             }
+            if(text.Text=="")
+                text.Text="thare no nannys";
         }
     }
 }
