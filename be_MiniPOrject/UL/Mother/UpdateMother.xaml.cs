@@ -28,12 +28,15 @@ namespace UL
             bl = FactoryBL.GetBL();
             foreach (Mother m in bl.getMotherList())
             {
-                idCombobox.Items.Add(m.Id);
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = "id: " + m.Id + " name: " + m.Name+" last name: "+m.LastName;
+                idCombobox.Items.Add(item);
             }
         }
         private void idCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Mother mother = bl.GetMother(idCombobox.SelectedItem as string);
+            string id = (string)((ComboBoxItem)idCombobox.SelectedItem).Content;
+            Mother mother= bl.GetMother(id.Substring(4, 9));
             Update.DataContext = mother;
             checkSun.IsChecked = mother.DayInWeek[0];
             checkMon.IsChecked = mother.DayInWeek[1];

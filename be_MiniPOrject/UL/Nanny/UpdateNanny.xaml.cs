@@ -21,24 +21,23 @@ namespace UL
     /// </summary>
     public partial class UpdateNanny : Window
     {
+        Nanny nanny;
         IBL bl;
         public UpdateNanny()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            GetCopy();
             foreach (Nanny n in bl.getNannyList())
             {
-                idComboBox.Items.Add(n.Id);
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = "id: " + n.Id + " name: " + n.Name + " last name: " + n.LastName;
+                idComboBox.Items.Add(item);
             }
-        }
-        public Nanny GetCopy()
-        {
-            return (Nanny)this.MemberwiseClone();
         }
         private void idComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Nanny nanny = bl.GetNanny(idComboBox.SelectedItem as string);
+            string id = (string)((ComboBoxItem)idComboBox.SelectedItem).Content;
+            nanny = bl.GetNanny(id.Substring(4, 9));
             Update.DataContext = nanny;
             checkSun.IsChecked = nanny.DayInWeek[0];
             checkMon.IsChecked = nanny.DayInWeek[1];
@@ -46,7 +45,7 @@ namespace UL
             checkWed.IsChecked = nanny.DayInWeek[3];
             checkThu.IsChecked = nanny.DayInWeek[4];
             checkFri.IsChecked = nanny.DayInWeek[5];
-            if (nanny.DayInWeek[0])
+           if (nanny.DayInWeek[0])
             {
                 startSun.Value = new DateTime(nanny.WorkHours[0][0].Ticks);
                 endSun.Value = new DateTime(nanny.WorkHours[0][1].Ticks);

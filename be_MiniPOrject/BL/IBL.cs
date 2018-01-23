@@ -48,5 +48,6 @@ namespace BL
         IEnumerable<IGrouping<int, Contract>> GetAllTheContractAccordingTodistance(bool classified);
 
         IEnumerable<IGrouping<string, Child>> List_Child_ByMother();
+ 
     }
 }

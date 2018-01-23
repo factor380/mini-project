@@ -21,6 +21,7 @@ namespace UL
     /// </summary>
     public partial class UpdateChild : Window
     {
+        Child child;
         IBL bl;
         public UpdateChild()
         {
@@ -28,20 +29,23 @@ namespace UL
             bl = FactoryBL.GetBL();
             foreach (Child c in bl.getChildList())
             {
-                idComboBox.Items.Add(c.Id);
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = "id: " + c.Id + " name: " + c.Name;
+                idComboBox.Items.Add(item);
             }
+
         }
         private void idComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Child child = bl.GetChild(idComboBox.SelectedItem as string);
+            string id = (string)((ComboBoxItem)idComboBox.SelectedItem).Content;
+            child = bl.GetChild(id.Substring(4,9));
             UPDATE.DataContext = child;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Child child = bl.GetChild(idComboBox.SelectedItem as string);
+                child = bl.GetChild(idComboBox.SelectedItem as string);
                 bl.UpdateChild(child);
                 child = new Child();
                 this.UPDATE.DataContext = child;

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,12 +56,13 @@ namespace BE
                 motherId = value;
             }
         }
+
         public string Name
         {
             get => name;
             set
             {
-                for (int i = 1; i < value.Length; i++)
+                for (int i = 0; i < value.Length; i++)
                     if (value[i] > 'z' || value[i] < 'a')
                         throw new Exception("this input is not make sense");
                 name = value;

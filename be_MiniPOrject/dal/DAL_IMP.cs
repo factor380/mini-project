@@ -25,7 +25,9 @@ namespace DAL
 
         public Child GetChild(string id)
         {
-            return DataSource.kids.FirstOrDefault(c => c.Id == id);
+            Child child = null;
+            child = DataSource.kids.FirstOrDefault(c => c.Id == id);
+            return child;
         }
 
         public void RemoveChild(string id)
@@ -171,7 +173,7 @@ namespace DAL
             Contract con = GetContract(c.Contract_Num1);
             if (con == null)
                 throw new Exception("Contract with the same id not found...");
-            for (int i = 0; i < DataSource.contracts.Capacity; i++)
+            for (int i = 0; i < DataSource.contracts.Count(); i++)
             {
                 if (DataSource.contracts[i].Contract_Num1 == c.Contract_Num1)
                     DataSource.contracts[i] = c;

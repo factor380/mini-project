@@ -26,10 +26,7 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            foreach (Contract c in bl.getContractList())
-            {
-                contract_Num1ComboBox.Items.Add(c.Contract_Num1);
-            }
+            contract_Num1ComboBox.ItemsSource = bl.getContractList().Select(x => x.Contract_Num1);
         }
         private void contract_Num1ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -44,7 +41,6 @@ namespace UL
                 Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedItem));
                 bl.UpdateContract(contract);
                 contract = new Contract();
-                this.Update.DataContext = contract;
                 this.Close();
             }
             catch (FormatException)

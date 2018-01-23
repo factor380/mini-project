@@ -158,14 +158,14 @@ namespace BL
             {
                 Contract con = GetContract(idc);
                 if (con.MotherId == mom.Id)
-                    temp++;
+                    temp++;//צריך לתקן
             }
             if (c.HorM1 == false)//hour
             {
                 if (nan.PerHour == false)
                     throw new Exception("the nanny dont agree to get a hour rate");
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.Days);
+                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalHours)*4;
             }
             else//month
             {
@@ -191,13 +191,13 @@ namespace BL
             Child chi = GetChild(c.ChildId);
             Nanny nan = GetNanny(c.NannyId);
             Mother mom = GetMother(c.MotherId);
-            int temp = 0;//if the nanny have more children from the mother they are  rebate
-            if (DateTime.Today.Month - chi.DateBirth.Month < nan.MinAgeMonth)//תוקן
+            int temp = 0;//if the nanny have more children from the mother they are rebate
+            if ((DateTime.Today.Year - chi.DateBirth.Year) * 12 + (DateTime.Today.Month - chi.DateBirth.Month) < nan.MinAgeMonth)
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
 
-            if (DateTime.Now.Month - chi.DateBirth.Month > nan.MaxAgeMonth)
+            if ((DateTime.Today.Year - chi.DateBirth.Year) * 12 + (DateTime.Today.Month - chi.DateBirth.Month) > nan.MaxAgeMonth)
             {
                 throw new Exception("the nanny can't get the age of the child");
             }
@@ -213,7 +213,7 @@ namespace BL
                 if (nan.PerHour == false)
                     throw new Exception("the nanny dont agree to get a hour rate");
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.Days);
+                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalDays);
             }
             else//month
             {

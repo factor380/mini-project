@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\
 UL
 none
 false
 DEBUG;TRACE
-C:\Users\factor\Desktop\m\be_MiniPOrject\UL\App.xaml
+C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\App.xaml
 191038993623
 
 231740620105
-21418921660
+21-1338417801
 Child\ChildWindow.xaml;Child\RemoveChild.xaml;Contract\ContractWindow.xaml;Func\contract_acoording_to_the_age_of_the_children.xaml;Func\contract_under_certian_conditions.xaml;Func\Get_All_The_Contract_According_To_distance.xaml;Mother\MotherWindow.xaml;Func\nannies_close_to_mother.xaml;Func\Nannies_that_fit_mom.xaml;Nanny\NannyWindow.xaml;MainWindow.xaml;Contract\RemoveContract.xaml;Mother\RemoveMother.xaml;Nanny\RemoveNanny.xaml;Child\UpdateChild.xaml;Contract\UpdateContract.xaml;Mother\UpdateMother.xaml;Nanny\UpdateNanny.xaml;Func\number_of_under_certian_conditions.xaml;
 
 False
