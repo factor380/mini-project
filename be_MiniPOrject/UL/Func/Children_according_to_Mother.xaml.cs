@@ -17,15 +17,14 @@ using BL;
 namespace UL
 {
     /// <summary>
-    /// Interaction logic for Nannies_that_fit_mom.xaml
+    /// Interaction logic for Children_according_to_Mother.xaml
     /// </summary>
-    public partial class Nannies_that_fit_mom : Window
+    public partial class Children_according_to_Mother : Window
     {
-        public Nannies_that_fit_mom()
+        IBL bl;
+        public Children_according_to_Mother()
         {
             InitializeComponent();
-            IBL bl;
-
             bl = FactoryBL.GetBL();
 
             foreach (Mother m in bl.getMotherList())
@@ -36,20 +35,17 @@ namespace UL
             }
         }
 
-       
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            IBL bl;
-            bl = BL.FactoryBL.GetBL();
-            List<Nanny> ListN = bl.NanniesThatFitMom(bl.GetMother((string)idMother.SelectedItem));
-
-            foreach(Nanny v in ListN)
+            bl = FactoryBL.GetBL();
+            List<Child> listC=bl.List_Child_ByMother(bl.GetMother((string)idMother.SelectedItem));
+            text.Text += bl.GetMother((string)idMother.SelectedItem).ToString() + '\n';
+            foreach (Child c in listC)
             {
-                text.Text += v.ToString() + '\n';
+                text.Text += c.ToString() + '\n';
             }
-            if(text.Text=="")
-                text.Text="thare no nannies that fit to the mother"
+            if (text.Text == "")
+                text.Text += "the mother dont have children";
         }
     }
 }

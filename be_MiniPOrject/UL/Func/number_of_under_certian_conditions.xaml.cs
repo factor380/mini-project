@@ -41,6 +41,7 @@ namespace UL
                     break;
 
                 default:
+                    numHiden.Visibility = Visibility.Hidden;
                     break;
 
             }

@@ -27,6 +27,7 @@ namespace BL
         void RemoveChild(string id);
         void UpdateChild(Child c);
         Child GetChild(string id);
+        IEnumerable<Contract> List_Contract_that_have_only_week_left();
         List<Child> getChildList();
 
         void AddContract(Contract c);

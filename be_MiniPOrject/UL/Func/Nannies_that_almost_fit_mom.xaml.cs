@@ -13,19 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BE;
 using BL;
-
 namespace UL
 {
     /// <summary>
-    /// Interaction logic for Nannies_that_fit_mom.xaml
+    /// Interaction logic for Button_Click_Nannies_that_fit_mom.xaml
     /// </summary>
-    public partial class Nannies_that_fit_mom : Window
+    public partial class Button_Click_Nannies_that_fit_mom : Window
     {
-        public Nannies_that_fit_mom()
+        IBL bl;
+        public Button_Click_Nannies_that_fit_mom()
         {
             InitializeComponent();
-            IBL bl;
-
             bl = FactoryBL.GetBL();
 
             foreach (Mother m in bl.getMotherList())
@@ -36,20 +34,19 @@ namespace UL
             }
         }
 
-       
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             IBL bl;
             bl = BL.FactoryBL.GetBL();
-            List<Nanny> ListN = bl.NanniesThatFitMom(bl.GetMother((string)idMother.SelectedItem));
+            List<Nanny> ListN = bl.NanniesThatAlsoFitMom(bl.GetMother((string)idMother.SelectedItem));
 
-            foreach(Nanny v in ListN)
+            foreach (Nanny v in ListN)
             {
                 text.Text += v.ToString() + '\n';
             }
-            if(text.Text=="")
-                text.Text="thare no nannies that fit to the mother"
+            if (text.Text == "")
+                text.Text = "thare no nannies that almost fit to the mother";
         }
+    }
     }
 }
