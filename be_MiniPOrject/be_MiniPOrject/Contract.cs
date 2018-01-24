@@ -44,11 +44,6 @@ namespace BE
             get => nannyId;
             set
             {
-                for (int i = 0; i < value.Length && (value.Length == 9); i++)
-                {
-                    if (value[i] < '0' || value[i] > '9')
-                        throw new Exception("this id not make sense");
-                }
                 nannyId = value;
             }
         }
@@ -57,11 +52,6 @@ namespace BE
             get => childId;
             set
             {
-                for (int i = 0; i < value.Length && (value.Length == 9); i++)
-                {
-                    if (value[i] < '0' || value[i] > '9')
-                        throw new Exception("this id not make sense");
-                }
                 childId = value;
             }
         }
@@ -75,8 +65,8 @@ namespace BE
             get => startDate;
             set
             {
-                if (DateTime.Compare(value, DateTime.Now) <= 0)
-                    throw new Exception("the time is not in the future");
+                if (DateTime.Compare(value, DateTime.Today) < 0)
+                    throw new Exception("the start time couldnt be in past");
                 startDate = value;
             }
         }
@@ -86,7 +76,7 @@ namespace BE
             set
             {
                 if (startDate >= value)
-                    throw new Exception("this time not make sense");
+                    throw new Exception("the end date must be large then start date");
                 endDate = value;
             }
         }
@@ -95,8 +85,8 @@ namespace BE
             get => Contract_Num;
             set
             {
-                if (value < 0 || value > 999999999)
-                    throw new Exception("this input not make sense");
+                if (value < 0)
+                    throw new Exception("the number could be only numbers positive");
                 Contract_Num = value;
             }
         }
@@ -108,7 +98,7 @@ namespace BE
                 for (int i = 0; i < value.Length && (value.Length == 9); i++)
                 {
                     if (value[i] < '0' || value[i] > '9')
-                        throw new Exception("this id not make sense");
+                        throw new Exception("this id not exist and not logic");
                 }
                 motherId = value;
             }

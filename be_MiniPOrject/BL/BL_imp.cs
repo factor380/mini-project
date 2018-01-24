@@ -213,7 +213,7 @@ namespace BL
                 if (nan.PerHour == false)
                     throw new Exception("the nanny dont agree to get a hour rate");
                 c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalDays);
+                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalHours)*4;
             }
             else//month
             {

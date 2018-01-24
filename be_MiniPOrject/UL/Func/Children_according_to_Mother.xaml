@@ -8,7 +8,7 @@
         Title="Children_according_to_Mother" Height="300" Width="300">
     <Grid>
         <Label Content="Id:" HorizontalAlignment="Center" VerticalAlignment="center" Grid.Column="0" Margin="10,25,239,218" Width="43" Height="26" RenderTransformOrigin="0.504,0.333"/>
-        <ComboBox x:Name="idMother" HorizontalAlignment="Left" Margin="67,31,0,218" VerticalAlignment="Center" Width="120" Height="20" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox x:Name="idMother" HorizontalAlignment="Left" Margin="67,31,0,218" VerticalAlignment="Center" Width="120" Height="20"/>
         <Button Content="Get"  HorizontalAlignment="Center" Margin="210,0,32,218" VerticalAlignment="Bottom" Width="50" Height="20" Click="Button_Click">
             <Button.Style>
                 <Style>

@@ -31,6 +31,18 @@ namespace UL
             this.ContractDetails.DataContext = contract;
             endDateDatePicker.SelectedDate = DateTime.Today;
             startDateDatePicker.SelectedDate = DateTime.Today;
+            foreach (Nanny n in bl.getNannyList())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = "id: " + n.Id + " name: " + n.Name;
+                nannyIdComboBox.Items.Add(item);
+            }
+            foreach (Child c in bl.getChildList())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = "id: " + c.Id + " name: " + c.Name;
+                childIdComboBox.Items.Add(item);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -50,6 +62,13 @@ namespace UL
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void childIdComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string id = (string)((ComboBoxItem)childIdComboBox.SelectedItem).Content;
+            Child child = bl.GetChild(id.Substring(4, 9));
+            idTextBox.Text = child.MotherId;
         }
     }
 }

@@ -21,7 +21,10 @@ namespace BE
 
         public Mother(string id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, TimeSpan[][] whenNeededWeek, string remarks)
         {
-            this.id = id;
+            if (IDCheck(id))
+                this.id = id;
+            else
+                throw new Exception("this id not exist");
             this.lastName = lastName;
             this.name = name;
             this.phoneNum = phoneNum;
@@ -45,11 +48,6 @@ namespace BE
             get => id;
             set
             {
-                for (int i = 0; (i < value.Length && value.Length == 9); i++)
-                {
-                    if (value[i] < '0' && value[i] > '9')
-                        throw new Exception("this input not make sense");
-                }
                 id = value;
             }
         }
@@ -58,9 +56,9 @@ namespace BE
             get => lastName;
             set
             {
-                for (int i = 1; i < value.Length; i++)
-                    if (value[i] > 'z' || value[i] < 'a')
-                        throw new Exception("this input is not make sense");
+                for (int i = 0; i < value.Length; i++)
+                    if (value[i] < '9' || value[i] > '0')
+                        throw new Exception("the last name coldnt contain numbers");
                 lastName = value;
             }
         }
@@ -69,9 +67,9 @@ namespace BE
             get => name;
             set
             {
-                for (int i = 1; i < value.Length; i++)
-                    if (value[i] > 'z' || value[i] < 'a')
-                        throw new Exception("this input is not make sense");
+                for (int i = 0; i < value.Length; i++)
+                    if (value[i] < '9' || value[i] > '0')
+                        throw new Exception("the name coldnt contain numbers");
                 name = value;
             }
         }
@@ -82,7 +80,7 @@ namespace BE
             {
                 for (int i = 0; i < value.Length; i++)
                     if (value[i] > '9' || value[i] < '0')
-                        throw new Exception("this input is not make sense");
+                        throw new Exception("the phone number must contain only numbers");
                 phoneNum = value;
             }
         }
@@ -91,9 +89,6 @@ namespace BE
             get => address;
             set
             {
-                for (int i = 0; i < value.Length; i++)
-                    if (value[i] > 'z' || value[i] < ' ')
-                        throw new Exception("this input is not make sense");
                 address = value;
             }
         }
@@ -102,9 +97,6 @@ namespace BE
             get => addressAround;
             set
             {
-                for (int i = 0; i < value.Length; i++)
-                    if (value[i] > 'z' || value[i] < ' ')
-                        throw new Exception("this input is not make sense");
                 addressAround = value;
             }
         }
@@ -124,5 +116,22 @@ namespace BE
         {
             return name + ' ' + LastName + " id " + id + " phone number " + PhoneNum + " address " + Address;
         }
+        static bool IDCheck(String strID)
+        {
+            int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+            int count = 0;
+            if (strID == null)
+                return false;
+            strID = strID.PadLeft(9, '0');
+            for (int i = 0; i < 9; i++)
+            {
+                int num = Int32.Parse(strID.Substring(i, 1)) * id_12_digits[i];
+                if (num > 9)
+                    num = (num / 10) + (num % 10);
+                count += num;
+            }
+            return (count % 10 == 0);
+        }
+
     }
 }

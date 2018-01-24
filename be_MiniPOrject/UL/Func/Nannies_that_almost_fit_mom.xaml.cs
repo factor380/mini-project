@@ -20,7 +20,7 @@ namespace UL
     /// </summary>
     public partial class Button_Click_Nannies_that_fit_mom : Window
     {
-        IBL bl;
+        /*IBL bl;
         public Button_Click_Nannies_that_fit_mom()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace UL
             {
                 ComboBoxItem newItem = new ComboBoxItem();
                 newItem.Content = m.Id;
-                idMother.Items.Add(newItem);
+                //idMother.Items.Add(newItem);
             }
         }
 
@@ -46,7 +46,7 @@ namespace UL
             }
             if (text.Text == "")
                 text.Text = "thare no nannies that almost fit to the mother";
-        }
-    }
+        }*/
     }
 }
+

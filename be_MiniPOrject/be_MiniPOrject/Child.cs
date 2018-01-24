@@ -22,8 +22,14 @@ namespace BE
         { }
         public Child(string id, string motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {
+            if(IDCheck(id))
             this.id = id;
-            this.motherId = motherId;
+            else
+                throw new Exception("this id not exist");
+            if (IDCheck(motherId))
+                this.motherId = motherId;
+            else
+                throw new Exception("this id not exist");
             this.name = name;
             this.dateBirth = dateBirth;
             this.specialNeeds = specialNeeds;
@@ -35,11 +41,6 @@ namespace BE
             get => id;
             set
             {
-                for (int i = 0; i < value.Length && (value.Length == 9); i++)
-                {
-                    if (value[i] < '0' || value[i] > '9')
-                        throw new Exception("this id not make sense");
-                }
                 id = value;
             }
         }
@@ -48,11 +49,6 @@ namespace BE
             get => motherId;
             set
             {
-                for (int i = 0; i < value.Length && (value.Length == 9); i++)
-                {
-                    if (value[i] < '0' || value[i] > '9')
-                        throw new Exception("this id not make sense");
-                }
                 motherId = value;
             }
         }
@@ -63,8 +59,8 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] > 'z' || value[i] < 'a')
-                        throw new Exception("this input is not make sense");
+                    if (value[i] < '9' || value[i] > '0')
+                        throw new Exception("the name couldnt contain numbers");
                 name = value;
             }
         }
@@ -76,7 +72,7 @@ namespace BE
                 if (value < DateTime.Now)
                     dateBirth = value;
                 else
-                    throw new Exception("this time is not on past");
+                    throw new Exception("this date birth must be on the past");
             }
         }
         public bool SpecialNeeds { get => specialNeeds; set => specialNeeds = value; }
@@ -85,6 +81,22 @@ namespace BE
         public override string ToString()
         {
             return name + " id " + id + " mother id " + MotherId + " Date of birth " + DateBirth.Year + '/' + DateBirth.Month + '/' + DateBirth.Day;
+        }
+        static bool IDCheck(String strID)
+        {
+            int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+            int count = 0;
+            if (strID == null)
+                return false;
+            strID = strID.PadLeft(9, '0');
+            for (int i = 0; i < 9; i++)
+            {
+                int num = Int32.Parse(strID.Substring(i, 1)) * id_12_digits[i];
+                if (num > 9)
+                    num = (num / 10) + (num % 10);
+                count += num;
+            }
+            return (count % 10 == 0);
         }
     }
 }

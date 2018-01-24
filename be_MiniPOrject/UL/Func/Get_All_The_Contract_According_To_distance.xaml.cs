@@ -45,7 +45,7 @@ namespace UL
             }
             if(text.Text=="")
             {
-                text.Text+="thare no contract"
+                text.Text += "thare no contract";
             }
         }
     }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UL"
         xmlns:BE="clr-namespace:BE;assembly=be_MiniPOrject" x:Class="UL.AddContractWindow"
         mc:Ignorable="d"
-        Title="AddContractWindow" Height="552.667" Width="857.078">
+        Title="AddContractWindow" Height="565.614" Width="700.098">
     <Window.Resources>
         <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
     </Window.Resources>
@@ -25,7 +25,7 @@
             <Button.Style>
                 <Style>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=childIdComboBox, Path=Text}" Value="">
+                        <DataTrigger Binding="{Binding ElementName=childIdComboBox, Path=selctedItem}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=nannyIdComboBox, Path=Text}" Value="">
@@ -64,13 +64,23 @@
             <Label Content="Active Contract:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="18"/>
             <CheckBox x:Name="activeContractCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding ActiveContract, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label Content="Child Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
-            <ComboBox x:Name="childIdComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
+            <ComboBox x:Name="childIdComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" SelectionChanged="childIdComboBox_SelectionChanged"/>
             <Label Content="H or M:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"/>
             <CheckBox x:Name="horMCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding HorM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
             <Label Content="Met:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
             <CheckBox x:Name="metCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Met, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
             <Label Content="Mother Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20"/>
-            <ComboBox x:Name="motherIdComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=idTextBox, Path=Text}" Value="">
+                                <Setter Property="TextBox.BorderBrush" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
             <Label Content="Nanny Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="20"/>
             <ComboBox x:Name="nannyIdComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Contract_Num1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Start Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" FontSize="20"/>
@@ -82,5 +92,6 @@
             <Label Content="Pay Month:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="payMonthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding PayMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" IsEnabled="{Binding ElementName=horMCheckBox,Path=IsChecked}"/>
         </Grid>
+        <Image Grid.ColumnSpan="2" Height="462" Margin="317,27,10.333,-41" Grid.RowSpan="3" VerticalAlignment="Top" Source="contract.jpg"/>
     </Grid>
 </Window>
