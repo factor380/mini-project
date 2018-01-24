@@ -42,7 +42,7 @@ namespace UL
         {
             IBL bl;
             bl = BL.FactoryBL.GetBL();
-            List<Nanny> ListN = bl.NanniesThatFitMom(bl.GetMother((string)idMother.SelectedItem));
+            List<Nanny> ListN = bl.NanniesThatFitMom(bl.GetMother((string)((ComboBoxItem)(idMother.SelectedItem)).Content));
 
             foreach(Nanny v in ListN)
             {

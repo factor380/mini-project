@@ -38,8 +38,8 @@ namespace UL
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             bl = FactoryBL.GetBL();
-            List<Child> listC = bl.List_Child_ByMother(bl.GetMother((string)idMother.SelectedItem));
-            text.Text += bl.GetMother((string)idMother.SelectedItem).ToString() + '\n';
+            List<Child> listC = bl.List_Child_ByMother(bl.GetMother((string)((ComboBoxItem)idMother.SelectedItem).Content));
+            text.Text += bl.GetMother((string)((ComboBoxItem)idMother.SelectedItem).Content).ToString() + '\n';
             foreach (Child c in listC)
             {
                 text.Text += c.ToString() + '\n';

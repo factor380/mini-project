@@ -18,10 +18,10 @@ namespace UL
     /// <summary>
     /// Interaction logic for Button_Click_Nannies_that_fit_mom.xaml
     /// </summary>
-    public partial class Button_Click_Nannies_that_fit_mom : Window
+    public partial class Nannies_that_almost_fit_mom : Window
     {
-        /*IBL bl;
-        public Button_Click_Nannies_that_fit_mom()
+        IBL bl;
+        public Nannies_that_almost_fit_mom()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
@@ -30,7 +30,7 @@ namespace UL
             {
                 ComboBoxItem newItem = new ComboBoxItem();
                 newItem.Content = m.Id;
-                //idMother.Items.Add(newItem);
+                idMother.Items.Add(newItem);
             }
         }
 
@@ -38,7 +38,7 @@ namespace UL
         {
             IBL bl;
             bl = BL.FactoryBL.GetBL();
-            List<Nanny> ListN = bl.NanniesThatAlsoFitMom(bl.GetMother((string)idMother.SelectedItem));
+            List<Nanny> ListN = bl.NanniesThatAlsoFitMom(bl.GetMother((string)((ComboBoxItem)(idMother.SelectedItem)).Content));
 
             foreach (Nanny v in ListN)
             {
@@ -46,7 +46,7 @@ namespace UL
             }
             if (text.Text == "")
                 text.Text = "thare no nannies that almost fit to the mother";
-        }*/
+        }
     }
 }
 
