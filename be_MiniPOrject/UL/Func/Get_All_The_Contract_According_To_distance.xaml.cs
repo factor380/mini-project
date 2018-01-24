@@ -32,7 +32,7 @@ namespace UL
             IEnumerable<IGrouping<int, Contract>> printg;
             bl = BL.FactoryBL.GetBL();
 
-            if ((string)arranged.SelectedItem == "yes")
+            if ((string)((ComboBoxItem)(arranged.SelectedItem)).Content == "yes")//משהו אם תהליכונים
                 printg = bl.GetAllTheContractAccordingTodistance(true);
             else
                 printg = bl.GetAllTheContractAccordingTodistance(false);

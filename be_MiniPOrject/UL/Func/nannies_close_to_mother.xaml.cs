@@ -42,7 +42,7 @@ namespace UL
             int dis=0;
             if(int.TryParse(distance.Text,out dis))
             {
-                listN = bl.NanniesThatInDistanceWithMother(bl.GetMother((string)idMother.SelectedItem), dis);
+                listN = bl.NanniesThatInDistanceWithMother(bl.GetMother((string)((ComboBoxItem)(idMother.SelectedItem)).Content), dis);//צריך להיות פה איפה שהוא תהליכון
                 foreach(Nanny n in listN)
                 {
                     text.Text += n.ToString() + '\n';

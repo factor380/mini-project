@@ -30,7 +30,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="191" Width="272"/>
+        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="191" Width="272" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
 
     </Grid>
 </Window>

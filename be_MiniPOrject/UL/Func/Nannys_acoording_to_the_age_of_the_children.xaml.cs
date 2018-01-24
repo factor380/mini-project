@@ -31,16 +31,16 @@ namespace UL
             IBL bl;
             bl = FactoryBL.GetBL();
             IEnumerable<IGrouping<int, Nanny>> printg;
-            if ((string)age.SelectedItem == "MAX")
+            if ((string)((ComboBoxItem)(age.SelectedItem)).Content == "MAX")
             {
-                if ((string)arranged.SelectedItem == "yes")
+                if ((string)((ComboBoxItem)(age.SelectedItem)).Content == "yes")
                     printg = bl.GetAllNannysAccordingToAgeChild(true, true);
                 else
                     printg = bl.GetAllNannysAccordingToAgeChild(true, false);
             }
             else
             {
-                if ((string)arranged.SelectedItem == "yes")
+                if ((string)((ComboBoxItem)(age.SelectedItem)).Content == "yes")
                     printg = bl.GetAllNannysAccordingToAgeChild(false, true);
                 else
                     printg = bl.GetAllNannysAccordingToAgeChild(false, false);
@@ -48,7 +48,7 @@ namespace UL
 
             foreach(var v in printg)
             {
-                text.Text+="Key"+v.Key.ToString() +'\n';
+                text.Text+="age "+v.Key.ToString() +'\n';
                 foreach (var va in v)
                     text.Text += va.ToString() + '\n';
 

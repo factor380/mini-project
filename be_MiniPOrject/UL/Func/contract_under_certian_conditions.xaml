@@ -30,10 +30,6 @@
                         <DataTrigger Binding="{Binding ElementName=selectionCondition, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
-
-                        <DataTrigger Binding="{Binding ElementName=numHiden, Path=Text}" Value="please enter number">
-                            <Setter Property="Button.IsEnabled" Value="false"/>
-                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Button.Style>

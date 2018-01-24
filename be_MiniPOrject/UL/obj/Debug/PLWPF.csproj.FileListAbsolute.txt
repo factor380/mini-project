@@ -104,7 +104,6 @@ C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\PLWPF.csprojResolveAssembl
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Child\ChildWindow.g.cs
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Child\RemoveChild.g.cs
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Contract\ContractWindow.g.cs
-C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\contract_acoording_to_the_age_of_the_children.g.cs
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\contract_under_certian_conditions.g.cs
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Get_All_The_Contract_According_To_distance.g.cs
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Mother\MotherWindow.g.cs
@@ -126,7 +125,6 @@ C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\UL_MarkupCompile.lref
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Child\ChildWindow.baml
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Child\RemoveChild.baml
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Contract\ContractWindow.baml
-C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\contract_acoording_to_the_age_of_the_children.baml
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\contract_under_certian_conditions.baml
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Get_All_The_Contract_According_To_distance.baml
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Mother\MotherWindow.baml
@@ -161,3 +159,17 @@ C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\Children_wit
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\child_by_mothers.baml
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\Nannys_acoording_to_the_age_of_the_children.baml
 C:\Users\User\Desktop\mini project\be_MiniPOrject\UL\obj\Debug\Func\Nannys_that_take_Holidays_Tamat.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Nannies_that_almost_fit_mom.g.cs
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Children_according_to_Mother.g.cs
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\contracts_that_almost_done.g.cs
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Children_without_nannies.g.cs
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\child_by_mothers.g.cs
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Nannys_acoording_to_the_age_of_the_children.g.cs
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Nannys_that_take_Holidays_Tamat.g.cs
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Nannies_that_almost_fit_mom.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Children_according_to_Mother.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\contracts_that_almost_done.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Children_without_nannies.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\child_by_mothers.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Nannys_acoording_to_the_age_of_the_children.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Func\Nannys_that_take_Holidays_Tamat.baml

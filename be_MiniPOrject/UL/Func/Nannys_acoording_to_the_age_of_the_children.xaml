@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:UL"
         mc:Ignorable="d"
         Title="Nannys_acoording_to_the_age_of_the_children" Height="300" Width="300">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="51*"/>
@@ -16,7 +17,7 @@
         <ComboBox x:Name="age"  HorizontalAlignment="Left" Margin="98,17,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="MAX" />
             <ComboBoxItem Content="MIN"/>
-            
+
         </ComboBox>
 
         <Label Content="arranged" HorizontalAlignment="Left" Margin="10,2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76"/>
@@ -31,7 +32,7 @@
                         <DataTrigger Binding="{Binding ElementName=arranged, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
-                        
+
                         <DataTrigger Binding="{Binding ElementName=age, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false"/>
                         </DataTrigger>
@@ -39,8 +40,7 @@
                 </Style>
             </Button.Style>
         </Button>
-
-        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,3.828,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="272" RenderTransformOrigin="0.495,0.479"/>
+        <TextBlock x:Name="text" HorizontalAlignment="Stretch" Margin="18,4,5,5" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Height="155" Width="269" RenderTransformOrigin="0.495,0.479"/>
 
     </Grid>
 </Window>

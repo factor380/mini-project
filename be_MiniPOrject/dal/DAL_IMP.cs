@@ -20,6 +20,7 @@ namespace DAL
             Mother mom = GetMother(c.MotherId);
             if (mom == null)
                 throw new Exception("not exist mother to this child");
+            mom.ListIdChild.Add(c.Id);
             DataSource.kids.Add(c);
         }
 
@@ -35,6 +36,7 @@ namespace DAL
             Child chi = GetChild(id);
             if (chi == null)
                 throw new Exception("child with the same id not found...");
+            GetMotherWithChildId(id).ListIdChild.Remove(id);
             DataSource.kids.Remove(chi);
         }
 

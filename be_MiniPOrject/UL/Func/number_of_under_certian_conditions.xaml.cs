@@ -29,7 +29,7 @@ namespace UL
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (selectionCondition.SelectedItem)
+            switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)
             {
                 case "pay in hour":
                     numHiden.Visibility = Visibility.Visible;
@@ -56,7 +56,7 @@ namespace UL
                 int print=0;
                 if (int.TryParse(numHiden.Text, out num) || numHiden.Visibility == Visibility.Hidden)
                 {
-                    switch (selectionCondition.SelectedItem)
+                    switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)
                     {
                         case "met":
                             print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.Met == true);
@@ -78,11 +78,7 @@ namespace UL
                             print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.PayMonth == num);
                             break;
                     }
-                    foreach (Contract con in listC)
-                    {
                         text.Text += print.ToString();
-
-                    }
                 }
                 else
                     MessageBox.Show("check your input and try again");

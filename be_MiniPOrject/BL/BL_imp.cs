@@ -158,7 +158,7 @@ namespace BL
             {
                 Contract con = GetContract(idc);
                 if (con.MotherId == mom.Id)
-                    temp++;//צריך לתקן
+                    temp++;
             }
             if (c.HorM1 == false)//hour
             {

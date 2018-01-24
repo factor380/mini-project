@@ -8,6 +8,6 @@
         Title="child_by_mothers" Height="300" Width="300">
     <Grid>
         <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="223" Width="265"/>
-        <Label Content="children by her mother" FontSize="8" HorizontalAlignment="Left" Margin="62,5,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="Children by mothers" FontSize="10" HorizontalAlignment="Left" Margin="62,5,0,0" VerticalAlignment="Top" Width="127"/>
     </Grid>
 </Window>

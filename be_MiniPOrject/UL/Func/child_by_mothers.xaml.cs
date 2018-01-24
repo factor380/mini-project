@@ -29,10 +29,10 @@ namespace UL.Func
             IEnumerable<IGrouping<string, Child>> printg = bl.List_Child_ByMother();
                 foreach (var  str in printg)
                 {
-                    text.Text += "Mother "+ str.ToString() + '\n';
+                    text.Text += "Mother "+ str.Key + '\n';
                      foreach (var c in str)
                     text.Text += c.ToString() + '\n';
-
+                text.Text += '\n';
             }
                 if (text.Text == "")
                     text.Text += "thare no children in the program";
