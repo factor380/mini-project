@@ -172,5 +172,7 @@ namespace UL
             Nannies_that_almost_fit_mom secondWindow = new Nannies_that_almost_fit_mom();
             secondWindow.ShowDialog();
         }
+
+        private void MainWindow_Closed(object sender, EventArgs e) { Environment.Exit(Environment.ExitCode); }
     }
 }
