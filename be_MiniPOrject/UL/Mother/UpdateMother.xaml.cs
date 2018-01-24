@@ -26,18 +26,18 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            foreach (Mother m in bl.getMotherList())
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = "id: " + m.Id + " name: " + m.Name+" last name: "+m.LastName;
-                idCombobox.Items.Add(item);
-            }
+
+            idComboBox.ItemsSource = bl.getMotherList();
+            idComboBox.SelectedValuePath = "Id";
+            idComboBox.DisplayMemberPath = "Data";
         }
         private void idCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string id = (string)((ComboBoxItem)idCombobox.SelectedItem).Content;
-            Mother mother= bl.GetMother(id.Substring(4, 9));
+            string id = (idComboBox.SelectedValue as string);
+            Mother mother= bl.GetMother(id);
             Update.DataContext = mother;
+            address.Text = mother.Address;
+            addressAround.Text = mother.AddressAround;
             checkSun.IsChecked = mother.DayInWeek[0];
             checkMon.IsChecked = mother.DayInWeek[1];
             checkTue.IsChecked = mother.DayInWeek[2];
@@ -80,7 +80,7 @@ namespace UL
         {
             try
             {
-                Mother mother = bl.GetMother(idCombobox.SelectedItem as string);
+                Mother mother = bl.GetMother(idComboBox.SelectedValue as string);
                 mother.DayInWeek[0] = checkSun.IsChecked.Value;
                 mother.DayInWeek[1] = checkMon.IsChecked.Value;
                 mother.DayInWeek[2] = checkTue.IsChecked.Value;

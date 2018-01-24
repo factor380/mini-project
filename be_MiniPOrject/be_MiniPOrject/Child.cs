@@ -22,8 +22,8 @@ namespace BE
         { }
         public Child(string id, string motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {
-            if(IDCheck(id))
-            this.id = id;
+            if (IDCheck(id))
+                this.id = id;
             else
                 throw new Exception("this id not exist");
             if (IDCheck(motherId))
@@ -35,13 +35,16 @@ namespace BE
             this.specialNeeds = specialNeeds;
             this.whatHeNeed = whatHeNeed;
         }
-
+        public string Data { get => name + " id: " + id; }
         public string Id
         {
             get => id;
             set
             {
-                id = value;
+                if (IDCheck(value))
+                    id = value;
+                else
+                    throw new Exception("this id not exist");
             }
         }
         public string MotherId
@@ -49,7 +52,10 @@ namespace BE
             get => motherId;
             set
             {
-                motherId = value;
+                if (IDCheck(value))
+                    motherId = value;
+                else
+                    throw new Exception("this id not exist");
             }
         }
 
@@ -59,7 +65,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' || value[i] > '0')
+                    if (value[i] < '9' && value[i] > '0')
                         throw new Exception("the name couldnt contain numbers");
                 name = value;
             }
@@ -80,7 +86,7 @@ namespace BE
 
         public override string ToString()
         {
-            return name + " id " + id + " mother id " + MotherId + " Date of birth " + DateBirth.Year + '/' + DateBirth.Month + '/' + DateBirth.Day;
+            return name + " id: " + id + " mother id: " + MotherId + " Date of birth " + DateBirth.Year + '/' + DateBirth.Month + '/' + DateBirth.Day;
         }
         static bool IDCheck(String strID)
         {

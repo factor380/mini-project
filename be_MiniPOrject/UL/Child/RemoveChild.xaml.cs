@@ -21,23 +21,22 @@ namespace UL
     ///</summary>
 public partial class RemoveChild : Window
     {
-        IBL bL;
+        IBL bl;
         public RemoveChild()
         {
             InitializeComponent();
-            bL = FactoryBL.GetBL();
-            foreach (Child c in bL.getChildList())
-            {
-                idComboBox.Items.Add(c.Id);
-            }
-            idComboBox.DataContext = idComboBox.SelectedItem as string;
+            bl = FactoryBL.GetBL();
+
+            idComboBox.ItemsSource = bl.getChildList();
+            idComboBox.SelectedValuePath = "Id";
+            idComboBox.DisplayMemberPath = "Data";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bL.RemoveChild(idComboBox.SelectedItem as string);
+                bl.RemoveChild(idComboBox.SelectedValue as string);
                 this.Close();
             }
             catch (FormatException)

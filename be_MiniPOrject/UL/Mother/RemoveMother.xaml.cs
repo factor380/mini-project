@@ -26,18 +26,16 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            foreach (Mother m in bl.getMotherList())
-            {
-                idCombobox.Items.Add(m.Id);
-            }
-            this.Remove.DataContext = idCombobox.SelectedItem as string;
+            idComboBox.ItemsSource = bl.getMotherList();
+            idComboBox.SelectedValuePath = "Id";
+            idComboBox.DisplayMemberPath = "Data";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.RemoveMother(idCombobox.SelectedItem as string);
+                bl.RemoveMother(idComboBox.SelectedValue as string);
                 this.Close();
             }
             catch (FormatException)

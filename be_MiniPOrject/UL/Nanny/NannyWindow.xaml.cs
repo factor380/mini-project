@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,10 @@ using BL;
 
 namespace UL
 {
-    /// <summary>
-    /// Interaction logic for AddNunnyWindow.xaml
-    /// </summary>
-    public partial class AddNunnyWindow : Window
+/// <summary>
+/// Interaction logic for AddNannyWindow.xaml
+/// </summary>
+public partial class AddNunnyWindow : Window 
     {
         Nanny nanny;
         IBL bl;
@@ -36,6 +37,7 @@ namespace UL
         {
             try
             {
+                nanny.Address = address.Text;
                 nanny.DayInWeek[0] = checkSun.IsChecked.Value;
                 nanny.DayInWeek[1] = checkMon.IsChecked.Value;
                 nanny.DayInWeek[2] = checkTue.IsChecked.Value;

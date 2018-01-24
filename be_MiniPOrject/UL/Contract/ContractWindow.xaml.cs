@@ -31,18 +31,14 @@ namespace UL
             this.ContractDetails.DataContext = contract;
             endDateDatePicker.SelectedDate = DateTime.Today;
             startDateDatePicker.SelectedDate = DateTime.Today;
-            foreach (Nanny n in bl.getNannyList())
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = "id: " + n.Id + " name: " + n.Name;
-                nannyIdComboBox.Items.Add(item);
-            }
-            foreach (Child c in bl.getChildList())
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = "id: " + c.Id + " name: " + c.Name;
-                childIdComboBox.Items.Add(item);
-            }
+
+            nannyIdComboBox.ItemsSource = bl.getNannyList();
+            nannyIdComboBox.SelectedValuePath = "Id";
+            nannyIdComboBox.DisplayMemberPath = "Data";
+
+            childIdComboBox.ItemsSource = bl.getChildList();
+            childIdComboBox.SelectedValuePath = "Id";
+            childIdComboBox.DisplayMemberPath = "Data";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -66,9 +62,10 @@ namespace UL
 
         private void childIdComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string id = (string)((ComboBoxItem)childIdComboBox.SelectedItem).Content;
-            Child child = bl.GetChild(id.Substring(4, 9));
+            string id = (string)(childIdComboBox.SelectedValue);
+            Child child = bl.GetChild(id);
             idTextBox.Text = child.MotherId;
+            contract.MotherId = child.MotherId;
         }
     }
 }

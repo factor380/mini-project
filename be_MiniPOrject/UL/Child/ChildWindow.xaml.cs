@@ -30,12 +30,10 @@ namespace UL
             child = new Child();
             this.ChildDetails.DataContext = child;
             dateBirthDatePicker.SelectedDate = DateTime.Today;
-            foreach (Mother m in bl.getMotherList())
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = "id: " + m.Id + " name: " + m.Name;
-                motherIdComboBox.Items.Add(item);
-            }
+
+            motherIdComboBox.ItemsSource = bl.getMotherList();
+            motherIdComboBox.SelectedValuePath = "Id";
+            motherIdComboBox.DisplayMemberPath = "Data";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

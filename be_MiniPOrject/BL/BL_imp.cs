@@ -125,29 +125,14 @@ namespace BL
             Nanny nan = GetNanny(c.NannyId);
             Mother mom = GetMother(c.MotherId);
             int temp = 0;//if the nanny have more children from the mother they are rebate 
-            if (DateTime.Today.Year == chi.DateBirth.Year)
+            if ((DateTime.Today.Year - chi.DateBirth.Year) * 12 + (DateTime.Today.Month - chi.DateBirth.Month) < nan.MinAgeMonth)
             {
-                if (DateTime.Today.Month - chi.DateBirth.Month < nan.MinAgeMonth)
-                {
-                    throw new Exception("the nanny can't get the age of the child");
-                }
-
-                if (DateTime.Now.Month - chi.DateBirth.Month > nan.MaxAgeMonth)
-                {
-                    throw new Exception("the nanny can't get the age of the child");
-                }
+                throw new Exception("the nanny can't get the age of the child");
             }
-            else
-            {
-                if (DateTime.Today.Month + 12 - chi.DateBirth.Month < nan.MinAgeMonth)
-                {
-                    throw new Exception("the nanny can't get the age of the child");
-                }
 
-                if (DateTime.Now.Month + 12 - chi.DateBirth.Month > nan.MaxAgeMonth)
-                {
-                    throw new Exception("the nanny can't get the age of the child");
-                }
+            if ((DateTime.Today.Year - chi.DateBirth.Year) * 12 + (DateTime.Today.Month - chi.DateBirth.Month) > nan.MaxAgeMonth)
+            {
+                throw new Exception("the nanny can't get the age of the child");
             }
             if (nan.ListIdContract.Count == nan.MaxChildren)
             {
@@ -158,14 +143,14 @@ namespace BL
             {
                 Contract con = GetContract(idc);
                 if (con.MotherId == mom.Id)
-                    temp++;//צריך לתקן
+                    temp++;
             }
             if (c.HorM1 == false)//hour
             {
                 if (nan.PerHour == false)
                     throw new Exception("the nanny dont agree to get a hour rate");
-                c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalHours)*4;
+                c.PayHours = c.PayHours - ((nan.PayHour * temp * 2) / 100);
+                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalHours) * 4;
             }
             else//month
             {
@@ -212,13 +197,13 @@ namespace BL
             {
                 if (nan.PerHour == false)
                     throw new Exception("the nanny dont agree to get a hour rate");
-                c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
-                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalHours)*4;
+                c.PayHours = c.PayHours - ((c.PayHours * temp * 2) / 100);
+                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalHours) * 4;
             }
             else//month
             {
-                c.PayMonth = nan.PayMonth - ((nan.PayMonth * temp * 2) / 100);
-                c.PayHours = nan.PayHour - ((nan.PayHour * temp * 2) / 100);
+                c.PayMonth = c.PayMonth - ((c.PayMonth * temp * 2) / 100);
+                c.PayHours = c.PayHours - ((c.PayHours * temp * 2) / 100);
             }
             dal.UpdateContract(c);
         }

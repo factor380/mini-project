@@ -26,18 +26,16 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            foreach (Contract c in bl.getContractList())
-            {
-                contract_Num1ComboBox.Items.Add(c.Contract_Num1);
-            }
-            Remove.DataContext = (int)(contract_Num1ComboBox.SelectionBoxItem);
+            contract_Num1ComboBox.ItemsSource = bl.getContractList();
+            contract_Num1ComboBox.SelectedValuePath = "Contract_Num1";
+            contract_Num1ComboBox.DisplayMemberPath = "Data";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.RemoveContract((int)(contract_Num1ComboBox.SelectionBoxItem));
+                bl.RemoveContract((int)(contract_Num1ComboBox.SelectedValue));
                 this.Close();
             }
             catch (FormatException)

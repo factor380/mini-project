@@ -26,11 +26,13 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            contract_Num1ComboBox.ItemsSource = bl.getContractList().Select(x => x.Contract_Num1);
+            contract_Num1ComboBox.ItemsSource = bl.getContractList();
+            contract_Num1ComboBox.SelectedValuePath = "Contract_Num1";
+            contract_Num1ComboBox.DisplayMemberPath = "Data";
         }
         private void contract_Num1ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedItem));
+            Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedValue));
             Update.DataContext = contract;
         }
 
@@ -38,7 +40,7 @@ namespace UL
         {
             try
             {
-                Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedItem));
+                Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedValue));
                 bl.UpdateContract(contract);
                 contract = new Contract();
                 this.Close();

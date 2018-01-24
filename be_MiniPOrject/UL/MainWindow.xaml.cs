@@ -172,5 +172,29 @@ namespace UL
             Nannies_that_almost_fit_mom secondWindow = new Nannies_that_almost_fit_mom();
             secondWindow.ShowDialog();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window printChildWindow = new print_all_child();
+            printChildWindow.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Window printMotherWindow = new print_all_mother();
+            printMotherWindow.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Window printNannyWindow = new print_all_nanny();
+            printNannyWindow.ShowDialog();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Window printContractWindow = new print_all_contract();
+            printContractWindow.ShowDialog();
+        }
     }
 }

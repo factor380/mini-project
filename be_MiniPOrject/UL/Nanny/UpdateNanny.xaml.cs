@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Globalization;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -16,6 +17,7 @@ using BE;
 
 namespace UL
 {
+
     /// <summary>
     /// Interaction logic for UpdateNanny.xaml
     /// </summary>
@@ -27,18 +29,16 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            foreach (Nanny n in bl.getNannyList())
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = "id: " + n.Id + " name: " + n.Name + " last name: " + n.LastName;
-                idComboBox.Items.Add(item);
-            }
+            idComboBox.ItemsSource = bl.getNannyList();
+            idComboBox.SelectedValuePath = "Id";
+            idComboBox.DisplayMemberPath = "Data";
         }
         private void idComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string id = (string)((ComboBoxItem)idComboBox.SelectedItem).Content;
-            nanny = bl.GetNanny(id.Substring(4, 9));
+            string id = (string)(idComboBox.SelectedValue);
+            nanny = bl.GetNanny(id);
             Update.DataContext = nanny;
+            address.Text = nanny.Address;
             checkSun.IsChecked = nanny.DayInWeek[0];
             checkMon.IsChecked = nanny.DayInWeek[1];
             checkTue.IsChecked = nanny.DayInWeek[2];
@@ -81,7 +81,7 @@ namespace UL
         {
             try
             {
-                Nanny nanny = bl.GetNanny(idComboBox.SelectedItem as string);
+                Nanny nanny = bl.GetNanny(idComboBox.SelectedValue as string);
                 bl.UpdateNanny(nanny);
                 nanny = new Nanny();
                 this.Update.DataContext = nanny;

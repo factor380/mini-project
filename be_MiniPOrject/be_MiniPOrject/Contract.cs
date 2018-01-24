@@ -37,14 +37,15 @@ namespace BE
             this.startDate = startDate;
             this.endDate = endDate;
         }
-
+        public string Data { get => "contract number: " + Contract_Num; }
         public static int ContractNum1 { get => ContractNum; set => ContractNum = value; }
         public string NannyId
         {
             get => nannyId;
             set
             {
-                nannyId = value;
+                if (IDCheck(value))
+                    nannyId = value;
             }
         }
         public string ChildId
@@ -52,7 +53,8 @@ namespace BE
             get => childId;
             set
             {
-                childId = value;
+                if (IDCheck(value))
+                    childId = value;
             }
         }
         public bool Met { get => met; set => met = value; }
@@ -107,6 +109,22 @@ namespace BE
         public override string ToString()
         {
             return "contract number " + Contract_Num + " Nanny id " + NannyId + " Child Id " + ChildId;
+        }
+        static bool IDCheck(String strID)
+        {
+            int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+            int count = 0;
+            if (strID == null)
+                return false;
+            strID = strID.PadLeft(9, '0');
+            for (int i = 0; i < 9; i++)
+            {
+                int num = Int32.Parse(strID.Substring(i, 1)) * id_12_digits[i];
+                if (num > 9)
+                    num = (num / 10) + (num % 10);
+                count += num;
+            }
+            return (count % 10 == 0);
         }
     }
 }

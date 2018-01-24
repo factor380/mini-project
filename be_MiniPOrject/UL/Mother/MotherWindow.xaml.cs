@@ -36,6 +36,8 @@ namespace UL
         {
             try
             {
+                mother.Address = address.Text;
+                mother.AddressAround = addressAround.Text;
                 mother.DayInWeek[0] = checkSun.IsChecked.Value;
                 mother.DayInWeek[1] = checkMon.IsChecked.Value;
                 mother.DayInWeek[2] = checkTue.IsChecked.Value;
@@ -86,5 +88,7 @@ namespace UL
                 Xceed.Wpf.Toolkit.MessageBox.Show(ex.Message);
             }
         }
+
+        
     }
 }

@@ -42,7 +42,20 @@ namespace BE
                 whenNeededWeek[i] = new TimeSpan[2];
             }
         }
-
+        public string Data { get => name + ' ' + lastName + " id: " + id; }
+        public string TimeAndDays
+        {
+            get
+            {
+                string days = "";
+                DateTime now = DateTime.Today;
+                now = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 21);
+                for (int i = 0; i < 6; i++, now = now.AddDays(1))
+                    if (DayInWeek[i])
+                        days += now.ToString("dddd") + " : " + " work hours: " + WhenNeededWeek[i][0].ToString() + " - " + WhenNeededWeek[i][1].ToString() + " | ";
+                return days;
+            }
+        }
         public string Id
         {
             get => id;
@@ -57,7 +70,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' || value[i] > '0')
+                    if (value[i] < '9' && value[i] > '0')
                         throw new Exception("the last name coldnt contain numbers");
                 lastName = value;
             }
@@ -68,7 +81,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' || value[i] > '0')
+                    if (value[i] < '9' && value[i] > '0')
                         throw new Exception("the name coldnt contain numbers");
                 name = value;
             }
@@ -79,7 +92,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] > '9' || value[i] < '0')
+                    if (value[i] > '9' && value[i] < '0')
                         throw new Exception("the phone number must contain only numbers");
                 phoneNum = value;
             }

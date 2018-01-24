@@ -34,6 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GoogleMapsApi, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMapsApi.0.69.0\lib\net40\GoogleMapsApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -72,6 +79,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="algo\GoogleApiFunc.cs" />
     <Compile Include="Func\Nannies_that_almost_fit_mom.xaml.cs">
       <DependentUpon>Nannies_that_almost_fit_mom.xaml</DependentUpon>
     </Compile>
@@ -120,6 +128,7 @@
     <Compile Include="Func\Nannys_that_take_Holidays_Tamat.xaml.cs">
       <DependentUpon>Nannys_that_take_Holidays_Tamat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter.cs" />
     <Compile Include="Nanny\NannyWindow.xaml.cs">
       <DependentUpon>NannyWindow.xaml</DependentUpon>
     </Compile>
@@ -137,6 +146,9 @@
     </Compile>
     <Compile Include="Nanny\UpdateNanny.xaml.cs">
       <DependentUpon>UpdateNanny.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PlaceAutoCompleteUC.xaml.cs">
+      <DependentUpon>PlaceAutoCompleteUC.xaml</DependentUpon>
     </Compile>
     <Page Include="Func\Nannies_that_almost_fit_mom.xaml">
       <SubType>Designer</SubType>
@@ -249,10 +261,42 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Child\print_all_child.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Contract\print_all_contract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mother\print_all_mother.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Nanny\print_all_nanny.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\PlaceAutoCompleteUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Func\number_of_under_certian_conditions.xaml.cs">
       <DependentUpon>number_of_under_certian_conditions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Child\print_all_child.xaml.cs">
+      <DependentUpon>print_all_child.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\print_all_contract.xaml.cs">
+      <DependentUpon>print_all_contract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mother\print_all_mother.xaml.cs">
+      <DependentUpon>print_all_mother.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Nanny\print_all_nanny.xaml.cs">
+      <DependentUpon>print_all_nanny.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -68,12 +68,26 @@ namespace BE
                     HowMuchHourNanWork += WorkHours[i][1] - WorkHours[i][0];
             }
         }
-
+        public string Data { get => name + ' ' + lastName + " id: " + id; }
+        public string TimeAndDays
+        {
+            get
+            {
+                string days = "";
+                DateTime now = DateTime.Today;
+                now = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 21);
+                for (int i = 0; i < 6; i++, now = now.AddDays(1))
+                    if (DayInWeek[i])
+                        days += now.ToString("dddd")+ " : " + " work hours: " + WorkHours[i][0].ToString() + " - " + WorkHours[i][1].ToString() + " | ";
+                return days;
+            }
+        }
         public string Id
         {
             get => id;
             set
             {
+                if(IDCheck(value))
                 id = value;
             }
         }
@@ -200,7 +214,7 @@ namespace BE
         public TimeSpan HowMuchHourNanWork1 { get => HowMuchHourNanWork; set => HowMuchHourNanWork = value; }
         public override string ToString()
         {
-            return name + ' ' + LastName + " id " + id + " phone number " + PhoneNum + " address " + Address;
+            return name + ' ' + LastName + " id: " + id + " phone number: " + PhoneNum + " address: " + Address;
         }
         static bool IDCheck(String strID)
         {
