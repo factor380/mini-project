@@ -27,16 +27,15 @@ namespace UL
             InitializeComponent();
             bl = FactoryBL.GetBL();
 
-            foreach (Mother m in bl.getMotherList())
-            {
-                ComboBoxItem newItem = new ComboBoxItem();
-                newItem.Content = m.Id;
-                idMother.Items.Add(newItem);
-            }
+            idMother.ItemsSource = bl.getMotherList();
+            idMother.SelectedValuePath = "Id";
+            idMother.DisplayMemberPath = "Data";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (text.Text != "")
+                text.Text = "";
             bl = FactoryBL.GetBL();
             List<Child> listC = bl.List_Child_ByMother(bl.GetMother((string)((ComboBoxItem)idMother.SelectedItem).Content));
             text.Text += bl.GetMother((string)((ComboBoxItem)idMother.SelectedItem).Content).ToString() + '\n';

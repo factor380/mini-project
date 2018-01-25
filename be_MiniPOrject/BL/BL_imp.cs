@@ -250,7 +250,7 @@ namespace BL
                 Origin = PointA,
                 Destination = PointB,
             };
-            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);// לפעמים הפונקציה לא מצליחה לעבוד לא יודע למה ואז שמים ברייק פוינט וזה מסתדר לא יודע למה  
             Route route = drivingDirections.Routes.First();
             Leg leg = route.Legs.First();
             return leg.Distance.Value;
@@ -268,10 +268,11 @@ namespace BL
                     ToSeeIfAllTheDaysGood = true;
                     for (int i = 0; i < 6; ++i)
                     {
-                        if (nan.WorkHours[i][0] > mom.WhenNeededWeek[i][0] || nan.WorkHours[i][1] < mom.WhenNeededWeek[i][1])
+                        if (nan.WorkHours[i][0] > mom.WhenNeededWeek[i][0] && nan.WorkHours[i][1] < mom.WhenNeededWeek[i][1])
                         {
                             ToSeeIfAllTheDaysGood = false;
                         }
+
                     }
                     if (ToSeeIfAllTheDaysGood == true)
                         listToSend.Add(nan);
@@ -279,8 +280,7 @@ namespace BL
                 }
 
             }
-            if (listToSend == null)
-                throw new Exception("there not fits nannys to the mother request");//לא בטוח שצריך
+           
             return listToSend;
 
         }
@@ -299,7 +299,7 @@ namespace BL
                     {
                         if (mom.DayInWeek[i] == nan.DayInWeek[i])
                         {
-                            if (nan.WorkHours[i][0] <= mom.WhenNeededWeek[i][0] || nan.WorkHours[i][1] >= mom.WhenNeededWeek[i][1])
+                            if (nan.WorkHours[i][0] <= mom.WhenNeededWeek[i][0] && nan.WorkHours[i][1] >= mom.WhenNeededWeek[i][1])
                             {
                                 count++;
                             }
@@ -310,6 +310,7 @@ namespace BL
 
                     if (listToSend.Count == 5)
                         break;
+                    count = 0;
                 }
                 if (listToSend.Count == 5)
                     break;
@@ -329,7 +330,7 @@ namespace BL
                 address = mom.AddressAround;
             foreach (Nanny nan in listN)
             {
-                if (distance >= CalculateDistance(nan.Address, address))//לבדוק איזה מרחק מקבלים
+                if (distance >= CalculateDistance(nan.Address, address))
                     listToSend.Add(nan);
             }
             return listToSend;
@@ -425,14 +426,14 @@ namespace BL
             if (classified == false)
             {
                 IEnumerable<IGrouping<int, Contract>> result = from con in ListC
-                                                               group con by CalculateDistance(GetMother(con.MotherId).AddressAround, GetNanny(con.NannyId).Address) / 1000;//אני לא בטוח מה מחזיר בהנחה שזה רגללים או משהו כזה זה יעשה שזה יהיה בערך
+                                                               group con by CalculateDistance(GetMother(con.MotherId).AddressAround, GetNanny(con.NannyId).Address) / 1000;
                 return result;
             }
             else
             {
                 IEnumerable<IGrouping<int, Contract>> result = from con in ListC
                                                                orderby con.Contract_Num1
-                                                               group con by CalculateDistance(GetMother(con.MotherId).AddressAround, GetNanny(con.NannyId).Address) / 1000;//אני לא בטוח מה מחזיר בהנחה שזה רגללים או משהו כזה זה יעשה שזה יהיה בערך
+                                                               group con by CalculateDistance(GetMother(con.MotherId).AddressAround, GetNanny(con.NannyId).Address) / 1000;
                 return result;
 
             }

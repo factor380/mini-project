@@ -28,18 +28,17 @@ namespace UL
 
             bl = FactoryBL.GetBL();
 
-            foreach (Mother m in bl.getMotherList())
-            {
-                ComboBoxItem newItem = new ComboBoxItem();
-                newItem.Content = m.Id;
-                idMother.Items.Add(newItem);
-            }
+            idMother.ItemsSource = bl.getMotherList();
+            idMother.SelectedValuePath = "Id";
+            idMother.DisplayMemberPath = "Data";
         }
 
        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (text.Text != "")
+                text.Text = "";
             IBL bl;
             bl = BL.FactoryBL.GetBL();
             List<Nanny> ListN = bl.NanniesThatFitMom(bl.GetMother((string)((ComboBoxItem)(idMother.SelectedItem)).Content));

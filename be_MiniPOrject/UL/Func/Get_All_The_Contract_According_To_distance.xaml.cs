@@ -31,40 +31,48 @@ namespace UL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (text.Text != "")
+                text.Text = "";
             Thread thread =new Thread( Print);
-            thread.Start();
+            thread.Start(((string)((ComboBoxItem)(arranged.SelectedItem)).Content == "yes"));
             
         }
-        public void  Print()
+        public void  Print(object flag)
         {
             IBL bl;
             IEnumerable<IGrouping<int, Contract>> printg;
             bl = BL.FactoryBL.GetBL();
-            bool flag= ((string)((ComboBoxItem)(arranged.SelectedItem)).Content == "yes");
-            if (flag)
+            
+            if ((bool)flag)
                 printg = bl.GetAllTheContractAccordingTodistance(true);
             else
                 printg = bl.GetAllTheContractAccordingTodistance(false);
-            Action< IEnumerable < IGrouping<int, Contract> >> action   = print1;
-            Dispatcher.BeginInvoke(action,printg);
-            Thread.Sleep(500);
+            Action<string> action1 = print1;
+            Action action2 = print2;
+            foreach (var v in printg)
+            {
+                Dispatcher.BeginInvoke(action1, "distance " + v.Key.ToString() + '\n');
+                
+                foreach (var va in v)
+                    Dispatcher.BeginInvoke(action1, va.ToString() + '\n');
+            }
+            Dispatcher.BeginInvoke(action2);
+      
             
 
 
         }
-        public void print1(IEnumerable<IGrouping<int, Contract>> printg)
+        public void print1(string printToText)
         {
-            foreach (var v in printg)
-            {
-                text.Text += "kay" + v.Key.ToString() + '\n';
-                foreach (var va in v)
-                    text.Text += va.ToString() + '\n';
-            }
+                text.Text +=printToText;
+        }
+
+        public void print2()
+        {
             if (text.Text == "")
             {
                 text.Text += "thare no contract";
-            };
-            
+            }
         }
     }
 }
