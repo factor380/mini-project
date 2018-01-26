@@ -82,6 +82,72 @@ namespace BE
                 return days;
             }
         }
+        public string WhenNeededWeekxml
+        {
+            get
+            {
+                if (WorkHours == null)
+                    return null;
+                string result = "";
+                if (WorkHours != null)
+                {
+                    int sizeA = WorkHours.GetLength(0);
+                    int sizeB = WorkHours.GetLength(1);
+                    result += "" + sizeA + "," + sizeB;
+                    for (int i = 0; i < sizeA; i++)
+                        for (int j = 0; j < sizeB; j++)
+                            result += "," + WorkHours[i][j];
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    int sizeA = int.Parse(values[0]);
+                    int sizeB = int.Parse(values[1]);
+                    WorkHours = new TimeSpan[sizeA][];
+                    for (int i = 0; i < 6; i++)
+                    {
+                        WorkHours[i] = new TimeSpan[sizeB];
+                    }
+                    int index = 2;
+                    for (int i = 0; i < sizeA; i++)
+                        for (int j = 0; j < sizeB; j++)
+                            WorkHours[i][j] = TimeSpan.Parse(values[index++]);
+                }
+            }
+        }
+        public string DayInWeekxml
+        {
+            get
+            {
+                if (DayInWeek == null)
+                    return null;
+                string result = "";
+                if (DayInWeek != null)
+                {
+                    int sizeA = DayInWeek.GetLength(0);
+                    result += "" + sizeA;
+                    for (int i = 0; i < sizeA; i++)
+                        result += "," + DayInWeek[i].ToString();
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    int sizeA = int.Parse(values[0]);
+                    DayInWeek = new bool[sizeA];
+                    int index = 1;
+                    for (int i = 0; i < sizeA; i++)
+                        DayInWeek[i] = bool.Parse(values[index++]);
+                }
+            }
+        }
         public string Id
         {
             get => id;
@@ -97,7 +163,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' || value[i] > '0')
+                    if (value[i] < '9' && value[i] > '0')
                         throw new Exception("the last neme coldnt contain number");
                 lastName = value;
             }
@@ -108,7 +174,7 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' || value[i] > '0')
+                    if (value[i] < '9' && value[i] > '0')
                         throw new Exception("the neme coldnt contain number");
                 name = value;
             }

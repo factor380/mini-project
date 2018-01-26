@@ -22,20 +22,23 @@ namespace UL
     public partial class UpdateMother : Window
     {
         IBL bl;
+        Mother mother;
         public UpdateMother()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-
+            mother = new Mother();
             idComboBox.ItemsSource = bl.getMotherList();
             idComboBox.SelectedValuePath = "Id";
             idComboBox.DisplayMemberPath = "Data";
         }
         private void idCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string id = (idComboBox.SelectedValue as string);
-            Mother mother= bl.GetMother(id);
-            Update.DataContext = mother;
+            if (this.idComboBox.SelectedItem is Mother)
+            {
+                this.mother = ((Mother)this.idComboBox.SelectedItem).GetCopy();
+                Update.DataContext = mother;
+            }
             address.Text = mother.Address;
             addressAround.Text = mother.AddressAround;
             checkSun.IsChecked = mother.DayInWeek[0];
@@ -80,7 +83,8 @@ namespace UL
         {
             try
             {
-                Mother mother = bl.GetMother(idComboBox.SelectedValue as string);
+                mother.Address = address.Text;
+                mother.AddressAround = addressAround.Text;
                 mother.DayInWeek[0] = checkSun.IsChecked.Value;
                 mother.DayInWeek[1] = checkMon.IsChecked.Value;
                 mother.DayInWeek[2] = checkTue.IsChecked.Value;
@@ -118,6 +122,7 @@ namespace UL
                     mother.WhenNeededWeek[5][1] = TimeSpan.Parse(endFri.Text);
                 }
                 bl.UpdateMother(mother);
+                this.idComboBox.ItemsSource = bl.getMotherList();
                 this.Close();
             }
             catch (FormatException)

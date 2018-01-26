@@ -29,15 +29,18 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
+            nanny = new Nanny();
             idComboBox.ItemsSource = bl.getNannyList();
             idComboBox.SelectedValuePath = "Id";
             idComboBox.DisplayMemberPath = "Data";
         }
         private void idComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string id = (string)(idComboBox.SelectedValue);
-            nanny = bl.GetNanny(id);
-            Update.DataContext = nanny;
+            if (this.idComboBox.SelectedItem is Nanny)
+            {
+                this.nanny = ((Nanny)this.idComboBox.SelectedItem).GetCopy();
+                Update.DataContext = nanny;
+            }
             address.Text = nanny.Address;
             checkSun.IsChecked = nanny.DayInWeek[0];
             checkMon.IsChecked = nanny.DayInWeek[1];
@@ -81,10 +84,45 @@ namespace UL
         {
             try
             {
-                Nanny nanny = bl.GetNanny(idComboBox.SelectedValue as string);
+                 nanny.Address=address.Text ;
+                nanny.DayInWeek[0] = checkSun.IsChecked.Value;
+                nanny.DayInWeek[1] = checkMon.IsChecked.Value;
+                nanny.DayInWeek[2] = checkTue.IsChecked.Value;
+                nanny.DayInWeek[3] = checkWed.IsChecked.Value;
+                nanny.DayInWeek[4] = checkThu.IsChecked.Value;
+                nanny.DayInWeek[5] = checkFri.IsChecked.Value;
+                if (nanny.DayInWeek[0])
+                {
+                    nanny.WorkHours[0][0] = TimeSpan.Parse(startSun.Text);
+                    nanny.WorkHours[0][1] = TimeSpan.Parse(endSun.Text);
+                }
+                if (nanny.DayInWeek[1])
+                {
+                    nanny.WorkHours[1][0] = TimeSpan.Parse(startMon.Text);
+                    nanny.WorkHours[1][1] = TimeSpan.Parse(endMon.Text);
+                }
+                if (nanny.DayInWeek[2])
+                {
+                    nanny.WorkHours[2][0] = TimeSpan.Parse(startTue.Text);
+                    nanny.WorkHours[2][1] = TimeSpan.Parse(endTue.Text);
+                }
+                if (nanny.DayInWeek[3])
+                {
+                    nanny.WorkHours[3][0] = TimeSpan.Parse(startWed.Text);
+                    nanny.WorkHours[3][1] = TimeSpan.Parse(endWed.Text);
+                }
+                if (nanny.DayInWeek[4])
+                {
+                    nanny.WorkHours[4][0] = TimeSpan.Parse(startThu.Text);
+                    nanny.WorkHours[4][1] = TimeSpan.Parse(endThu.Text);
+                }
+                if (nanny.DayInWeek[5])
+                {
+                    nanny.WorkHours[5][0] = TimeSpan.Parse(startFri.Text);
+                    nanny.WorkHours[5][1] = TimeSpan.Parse(endFri.Text);
+                }
                 bl.UpdateNanny(nanny);
-                nanny = new Nanny();
-                this.Update.DataContext = nanny;
+                this.idComboBox.ItemsSource = bl.getNannyList();
                 this.Close();
             }
             catch (FormatException)

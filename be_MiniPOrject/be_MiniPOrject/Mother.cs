@@ -46,7 +46,7 @@ namespace BE
         public string TimeAndDays
         {
             get
-            {
+            { 
                 string days = "";
                 DateTime now = DateTime.Today;
                 now = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 21);
@@ -54,6 +54,72 @@ namespace BE
                     if (DayInWeek[i])
                         days += now.ToString("dddd") + " : " + " work hours: " + WhenNeededWeek[i][0].ToString() + " - " + WhenNeededWeek[i][1].ToString() + " | ";
                 return days;
+            }
+        }
+        public string WhenNeededWeekxml
+        {
+            get
+            {
+                if (WhenNeededWeek == null)
+                    return null;
+                string result = "";
+                if (WhenNeededWeek != null)
+                {
+                    int sizeA = WhenNeededWeek.GetLength(0);
+                    int sizeB = WhenNeededWeek.GetLength(1);
+                    result += "" + sizeA + "," + sizeB;
+                    for (int i = 0; i < sizeA; i++)
+                        for (int j = 0; j < sizeB; j++)
+                            result += "," + WhenNeededWeek[i][j];
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    int sizeA = int.Parse(values[0]);
+                    int sizeB = int.Parse(values[1]);
+                    WhenNeededWeek = new TimeSpan[sizeA][];
+                    for (int i = 0; i < 6; i++)
+                    {
+                        whenNeededWeek[i] = new TimeSpan[sizeB];
+                    }
+                    int index = 2;
+                    for (int i = 0; i < sizeA; i++)
+                        for (int j = 0; j < sizeB; j++)
+                            WhenNeededWeek[i][j] = TimeSpan.Parse(values[index++]);
+                }
+            }
+        }
+        public string DayInWeekxml
+        {
+            get
+            {
+                if (DayInWeek == null)
+                    return null;
+                string result = "";
+                if (DayInWeek != null)
+                {
+                    int sizeA = DayInWeek.GetLength(0);
+                    result += "" + sizeA;
+                    for (int i = 0; i < sizeA; i++)
+                            result += "," + DayInWeek[i].ToString();
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    int sizeA = int.Parse(values[0]);
+                    DayInWeek = new bool[sizeA];
+                    int index = 1;
+                    for (int i = 0; i < sizeA; i++)
+                        DayInWeek[i] = bool.Parse(values[index++]);
+                }
             }
         }
         public string Id

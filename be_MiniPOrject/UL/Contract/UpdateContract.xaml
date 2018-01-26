@@ -50,7 +50,7 @@
             <Label Content="End Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center" FontSize="20"/>
             <DatePicker x:Name="endDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="7" SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
             <Label Content="H or M:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20"/>
-            <CheckBox x:Name="horMCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding HorM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <CheckBox x:Name="horMCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding HorM1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
             <Label Content="Met:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="20"/>
             <CheckBox x:Name="metCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Met, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
             <Label Content="Start Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" FontSize="20"/>

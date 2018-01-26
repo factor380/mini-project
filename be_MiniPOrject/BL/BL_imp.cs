@@ -34,7 +34,7 @@ namespace BL
             foreach (int IdCo in n.ListIdContract)
             {
                 c = dal.GetContract(IdCo);
-                if (c.EndDate > DateTime.Now && c.ActiveContract == true)
+                if (c.EndDate > DateTime.Now || c.ActiveContract == true)
                     throw new Exception("Nanny have contract that she dont finish");
                 RemoveContract(c.Contract_Num1);
 
@@ -71,7 +71,7 @@ namespace BL
             foreach (int IdCo in chi.ListIdContract)
             {
                 c = dal.GetContract(IdCo);
-                if (c.EndDate > DateTime.Now && c.ActiveContract == true)
+                if (c.EndDate > DateTime.Now || c.ActiveContract == true)
                     throw new Exception("Child have contract that he dont finish");
                 RemoveContract(IdCo);
             }
@@ -162,7 +162,7 @@ namespace BL
         public void RemoveContract(int contract_Num)
         {
             Contract c = GetContract(contract_Num);
-            if (DateTime.Now > c.EndDate && c.ActiveContract == true)
+            if (DateTime.Now > c.EndDate || c.ActiveContract == true)
                 throw new Exception("this contract dont finish");
             Nanny nan = GetNanny(c.NannyId);
             nan.ListIdContract.Remove(contract_Num);
@@ -176,7 +176,6 @@ namespace BL
             Child chi = GetChild(c.ChildId);
             Nanny nan = GetNanny(c.NannyId);
             Mother mom = GetMother(c.MotherId);
-            int temp = 0;//if the nanny have more children from the mother they are rebate
             if ((DateTime.Today.Year - chi.DateBirth.Year) * 12 + (DateTime.Today.Month - chi.DateBirth.Month) < nan.MinAgeMonth)
             {
                 throw new Exception("the nanny can't get the age of the child");
@@ -185,25 +184,6 @@ namespace BL
             if ((DateTime.Today.Year - chi.DateBirth.Year) * 12 + (DateTime.Today.Month - chi.DateBirth.Month) > nan.MaxAgeMonth)
             {
                 throw new Exception("the nanny can't get the age of the child");
-            }
-
-            foreach (int idc in nan.ListIdContract)
-            {
-                Contract con = GetContract(idc);
-                if (con.MotherId == mom.Id)
-                    temp++;
-            }
-            if (c.HorM1 == false)//hour
-            {
-                if (nan.PerHour == false)
-                    throw new Exception("the nanny dont agree to get a hour rate");
-                c.PayHours = c.PayHours - ((c.PayHours * temp * 2) / 100);
-                c.PayMonth = c.PayHours * (float)(nan.HowMuchHourNanWork1.TotalHours) * 4;
-            }
-            else//month
-            {
-                c.PayMonth = c.PayMonth - ((c.PayMonth * temp * 2) / 100);
-                c.PayHours = c.PayHours - ((c.PayHours * temp * 2) / 100);
             }
             dal.UpdateContract(c);
         }

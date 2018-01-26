@@ -34,18 +34,19 @@ namespace UL
         }
         private void idComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string id = (string)(idComboBox.SelectedValue);
-            child = bl.GetChild(id);
-            UPDATE.DataContext = child;
+            if (this.idComboBox.SelectedItem is Child)
+            {
+                this.child = ((Child)this.idComboBox.SelectedItem).GetCopy();
+                UPDATE.DataContext = child;
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                child = bl.GetChild(idComboBox.SelectedValue as string);
                 bl.UpdateChild(child);
-                child = new Child();
-                this.UPDATE.DataContext = child;
+                this.UPDATE.DataContext = child = null;
+                this.idComboBox.ItemsSource = bl.getChildList();
                 this.Close();
             }
             catch (FormatException)

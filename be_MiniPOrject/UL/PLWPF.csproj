@@ -80,6 +80,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="algo\GoogleApiFunc.cs" />
+    <Compile Include="Copy.cs" />
     <Compile Include="Func\Nannies_that_almost_fit_mom.xaml.cs">
       <DependentUpon>Nannies_that_almost_fit_mom.xaml</DependentUpon>
     </Compile>

@@ -22,27 +22,32 @@ namespace UL
     public partial class UpdateContract : Window
     {
         IBL bl;
+        Contract contract;
         public UpdateContract()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
+            contract = new Contract();
             contract_Num1ComboBox.ItemsSource = bl.getContractList();
             contract_Num1ComboBox.SelectedValuePath = "Contract_Num1";
             contract_Num1ComboBox.DisplayMemberPath = "Data";
         }
         private void contract_Num1ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedValue));
-            Update.DataContext = contract;
+            if (this.contract_Num1ComboBox.SelectedItem is Contract)
+            {
+                this.contract = ((Contract)this.contract_Num1ComboBox.SelectedItem).GetCopy();
+                Update.DataContext = contract;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Contract contract = bl.GetContract((int)(contract_Num1ComboBox.SelectedValue));
                 bl.UpdateContract(contract);
-                contract = new Contract();
+                this.Update.DataContext = contract = null;
+                this.contract_Num1ComboBox.ItemsSource = bl.getChildList();
                 this.Close();
             }
             catch (FormatException)
