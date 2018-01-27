@@ -28,6 +28,8 @@ namespace UL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (text.Text != "")
+                text.Text = "";
             IBL bl;
             bl = FactoryBL.GetBL();
             IEnumerable<IGrouping<int, Nanny>> printg;

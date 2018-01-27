@@ -48,6 +48,8 @@ namespace UL
 
         private void Get_Click(object sender, RoutedEventArgs e)
         {
+            if (text.Text != "")
+                text.Text = "";
             bl = BL.FactoryBL.GetBL();
             List<Contract> listC=new List<Contract>();
             int num;

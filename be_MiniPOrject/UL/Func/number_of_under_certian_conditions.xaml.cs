@@ -49,42 +49,43 @@ namespace UL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (text.Text != "")
+                text.Text = "";
+            bl = BL.FactoryBL.GetBL();
+            List<Contract> listC = new List<Contract>();
+            int num;
+            int print = 0;
+            if (int.TryParse(numHiden.Text, out num) || numHiden.Visibility == Visibility.Hidden)
             {
-                bl = BL.FactoryBL.GetBL();
-                List<Contract> listC = new List<Contract>();
-                int num;
-                int print=0;
-                if (int.TryParse(numHiden.Text, out num) || numHiden.Visibility == Visibility.Hidden)
+                switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)
                 {
-                    switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)
-                    {
-                        case "met":
-                            print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.Met == true);
-                            break;
+                    case "met":
+                        print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.Met == true);
+                        break;
 
-                        case "active contact":
-                            print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.ActiveContract == true);
-                            break;
+                    case "active contact":
+                        print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.ActiveContract == true);
+                        break;
 
-                        case "hour or minute":
-                            print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.HorM1 == true);
-                            break;
+                    case "hour or minute":
+                        print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.HorM1 == true);
+                        break;
 
-                        case "pay in hour":
-                            print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.PayHours == num);
-                            break;
+                    case "pay in hour":
+                        print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.PayHours == num);
+                        break;
 
-                        case "pay in month":
-                            print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.PayMonth == num);
-                            break;
-                    }
-                        text.Text += print.ToString();
+                    case "pay in month":
+                        print = bl.GetAllNumberContractThatFulfillingTheCondition(item => item.PayMonth == num);
+                        break;
                 }
-                else
-                    MessageBox.Show("check your input and try again");
-
-
+                text.Text += print.ToString();
             }
+            else
+                MessageBox.Show("check your input and try again");
+
+
+
         }
     }
 }

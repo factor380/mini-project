@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BE;
 using BL;
+using System.Threading;
 
 namespace UL
 {
@@ -22,40 +23,55 @@ namespace UL
     public partial class nannies_close_to_mother : Window
     {
         IBL bl;
+        int dis = 0;
         public nannies_close_to_mother()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-            
-            foreach (Mother m in bl.getMotherList())
-            {
-                ComboBoxItem newItem = new ComboBoxItem();
-                newItem.Content = m.Id;
-                idMother.Items.Add(newItem);
-            }
+
+            idMother.ItemsSource = bl.getMotherList();//enter the id
+            idMother.SelectedValuePath = "Id";
+            idMother.DisplayMemberPath = "Data";
         }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Action action = print;
-            Dispatcher.BeginInvoke(action);
-        }
-        public void print()
-        {
-            List<Nanny> listN = new List<Nanny>();
-            int dis = 0;
+            if (text.Text != "")
+                text.Text = "";
+            Thread thread =new Thread( print);
             if (int.TryParse(distance.Text, out dis))
-            {
-                listN = bl.NanniesThatInDistanceWithMother(bl.GetMother((string)((ComboBoxItem)(idMother.SelectedItem)).Content), dis);//צריך להיות פה איפה שהוא תהליכון
-                foreach (Nanny n in listN)
-                {
-                    text.Text += n.ToString() + '\n';
-                }
-            }
+                thread.Start((string)((ComboBoxItem)(idMother.SelectedItem)).Content);
             else
                 MessageBox.Show("check your input and try again");
+        }
+        public void print(object str)
+        {
+            Action<string> action= print1;
+            Action action1 = print2;
+            List<Nanny> listN = new List<Nanny>();
+            listN = bl.NanniesThatInDistanceWithMother(bl.GetMother((string)str), dis);
+            foreach (Nanny n in listN)
+            {
+                Dispatcher.BeginInvoke(action, n.ToString() + '\n') ;
+            }
 
+            Dispatcher.BeginInvoke(action1);
+
+
+
+        }
+        public void print1(string str)
+        {
+            text.Text += str;   
+        }
+
+        public void print2()
+        {
+            if (text.Text == "")
+            {
+                text.Text += "thare not nanny that close to mother";
+            }
         }
     }
 }
