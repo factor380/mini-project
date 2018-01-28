@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<ArrayOfNanny xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Nanny>
+    <ListIdContract />
+    <Id>211739859</Id>
+    <LastName>schneider</LastName>
+    <Name>Moria</Name>
+    <DateBirth>1980-05-19T00:00:00</DateBirth>
+    <PhoneNum>0523433333</PhoneNum>
+    <Address>Shakhal St 15, Jerusalem</Address>
+    <Elevator>true</Elevator>
+    <FloorInBulding>2</FloorInBulding>
+    <Exp>3</Exp>
+    <MaxChildren>14</MaxChildren>
+    <MinAgeMonth>3</MinAgeMonth>
+    <MaxAgeMonth>8</MaxAgeMonth>
+    <PerHour>true</PerHour>
+    <PayHour>10</PayHour>
+    <PayMonth>800</PayMonth>
+    <DayInWeek>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>true</boolean>
+      <boolean>true</boolean>
+      <boolean>false</boolean>
+      <boolean>true</boolean>
+    </DayInWeek>
+    <WorkHours>
+      <ArrayOfTimeSpan>
+        <TimeSpan />
+        <TimeSpan />
+      </ArrayOfTimeSpan>
+      <ArrayOfTimeSpan>
+        <TimeSpan />
+        <TimeSpan />
+      </ArrayOfTimeSpan>
+      <ArrayOfTimeSpan>
+        <TimeSpan />
+        <TimeSpan />
+      </ArrayOfTimeSpan>
+      <ArrayOfTimeSpan>
+        <TimeSpan />
+        <TimeSpan />
+      </ArrayOfTimeSpan>
+      <ArrayOfTimeSpan>
+        <TimeSpan />
+        <TimeSpan />
+      </ArrayOfTimeSpan>
+      <ArrayOfTimeSpan>
+        <TimeSpan />
+        <TimeSpan />
+      </ArrayOfTimeSpan>
+    </WorkHours>
+    <DaysOOf>false</DaysOOf>
+    <Recommendations />
+    <HowMuchHourNanWork1 />
+  </Nanny>
+</ArrayOfNanny>

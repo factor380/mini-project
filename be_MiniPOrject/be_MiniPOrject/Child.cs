@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -16,10 +17,18 @@ namespace BE
         private DateTime dateBirth;
         private bool specialNeeds;
         private string whatHeNeed;
+        [XmlIgnore]
         public List<int> ListIdContract = new List<int>();
 
         public Child()
-        { }
+        {
+            this.id = " ";
+            this.motherId = " ";
+            this.name = " ";
+            this.dateBirth = DateTime.Today;
+            this.specialNeeds = false;
+            this.whatHeNeed = " ";
+        }
         public Child(string id, string motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {
             if (IDCheck(id))
@@ -35,6 +44,7 @@ namespace BE
             this.specialNeeds = specialNeeds;
             this.whatHeNeed = whatHeNeed;
         }
+        [XmlIgnore]
         public string Data { get => name + " id: " + id; }
         public string Id
         {
@@ -65,18 +75,20 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' && value[i] > '0')
+                {
+                    if (value[i] > 0 && value[i] < 9)
                         throw new Exception("the name couldnt contain numbers");
+                }
                 name = value;
             }
         }
         public DateTime DateBirth
         {
-            get => dateBirth;
+            get => dateBirth.Date;
             set
             {
                 if (value < DateTime.Now)
-                    dateBirth = value;
+                    dateBirth = value.Date;
                 else
                     throw new Exception("this date birth must be on the past");
             }

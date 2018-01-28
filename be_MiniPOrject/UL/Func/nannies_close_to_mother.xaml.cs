@@ -41,16 +41,16 @@ namespace UL
                 text.Text = "";
             Thread thread =new Thread( print);
             if (int.TryParse(distance.Text, out dis))
-                thread.Start((string)((ComboBoxItem)(idMother.SelectedItem)).Content);
+                thread.Start(((Mother)(this.idMother.SelectedItem)));
             else
                 MessageBox.Show("check your input and try again");
         }
-        public void print(object str)
+        public void print(object mom)
         {
             Action<string> action= print1;
             Action action1 = print2;
             List<Nanny> listN = new List<Nanny>();
-            listN = bl.NanniesThatInDistanceWithMother(bl.GetMother((string)str), dis);
+            listN = bl.NanniesThatInDistanceWithMother(mom as Mother, dis);
             foreach (Nanny n in listN)
             {
                 Dispatcher.BeginInvoke(action, n.ToString() + '\n') ;

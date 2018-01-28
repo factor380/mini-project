@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -17,6 +18,7 @@ namespace BE
         private bool[] dayInWeek = new bool[6];
         private TimeSpan[][] whenNeededWeek = new TimeSpan[6][];
         private string remarks;
+        [XmlIgnore]
         public List<string> ListIdChild = new List<string>();
 
         public Mother(string id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, TimeSpan[][] whenNeededWeek, string remarks)
@@ -42,7 +44,9 @@ namespace BE
                 whenNeededWeek[i] = new TimeSpan[2];
             }
         }
+        [XmlIgnore]
         public string Data { get => name + ' ' + lastName + " id: " + id; }
+        [XmlIgnore]
         public string TimeAndDays
         {
             get
@@ -66,7 +70,7 @@ namespace BE
                 if (WhenNeededWeek != null)
                 {
                     int sizeA = WhenNeededWeek.GetLength(0);
-                    int sizeB = WhenNeededWeek.GetLength(1);
+                    int sizeB = 2;
                     result += "" + sizeA + "," + sizeB;
                     for (int i = 0; i < sizeA; i++)
                         for (int j = 0; j < sizeB; j++)
@@ -136,8 +140,10 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' && value[i] > '0')
-                        throw new Exception("the last name coldnt contain numbers");
+                {
+                    if (value[i] > 0 && value[i] < 9)
+                        throw new Exception("the last name couldnt contain numbers");
+                }
                 lastName = value;
             }
         }
@@ -147,8 +153,10 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' && value[i] > '0')
-                        throw new Exception("the name coldnt contain numbers");
+                {
+                    if (value[i] > 0 && value[i] < 9)
+                        throw new Exception("the name couldnt contain numbers");
+                }
                 name = value;
             }
         }
@@ -179,7 +187,9 @@ namespace BE
                 addressAround = value;
             }
         }
+        [XmlIgnore]
         public bool[] DayInWeek { get => dayInWeek; set => dayInWeek = value; }
+        [XmlIgnore]
         public TimeSpan[][] WhenNeededWeek
         {
             get => whenNeededWeek;

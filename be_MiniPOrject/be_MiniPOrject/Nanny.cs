@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -27,7 +28,9 @@ namespace BE
         private TimeSpan[][] workHours = new TimeSpan[6][];
         private bool daysOOf;//if false the holidey Ministry of Education if true in tamat
         private string recommendations;
+        [XmlIgnore]
         private TimeSpan HowMuchHourNanWork;
+        [XmlIgnore]
         public List<int> ListIdContract = new List<int>();//List that save all the Contract ID that the nanny hava
 
         public Nanny()
@@ -68,7 +71,9 @@ namespace BE
                     HowMuchHourNanWork += WorkHours[i][1] - WorkHours[i][0];
             }
         }
+        [XmlIgnore]
         public string Data { get => name + ' ' + lastName + " id: " + id; }
+        [XmlIgnore]
         public string TimeAndDays
         {
             get
@@ -92,10 +97,9 @@ namespace BE
                 if (WorkHours != null)
                 {
                     int sizeA = WorkHours.GetLength(0);
-                    int sizeB = WorkHours.GetLength(1);
-                    result += "" + sizeA + "," + sizeB;
+                    result += "" + sizeA + "," + 2;
                     for (int i = 0; i < sizeA; i++)
-                        for (int j = 0; j < sizeB; j++)
+                        for (int j = 0; j < 2; j++)
                             result += "," + WorkHours[i][j];
                 }
                 return result;
@@ -163,8 +167,10 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' && value[i] > '0')
-                        throw new Exception("the last neme coldnt contain number");
+                {
+                    if (value[i] > 0 && value[i] < 9)
+                        throw new Exception("the last name couldnt contain numbers");
+                }
                 lastName = value;
             }
         }
@@ -174,18 +180,20 @@ namespace BE
             set
             {
                 for (int i = 0; i < value.Length; i++)
-                    if (value[i] < '9' && value[i] > '0')
-                        throw new Exception("the neme coldnt contain number");
+                {
+                    if (value[i] > 0 && value[i] < 9)
+                        throw new Exception("the name couldnt contain numbers");
+                }
                 name = value;
             }
         }
         public DateTime DateBirth
         {
-            get => dateBirth;
+            get => dateBirth.Date;
             set
             {
                 if (value < DateTime.Now)
-                    dateBirth = value;
+                    dateBirth = value.Date;
                 else
                     throw new Exception("this time is not in the past");
             }
@@ -264,7 +272,9 @@ namespace BE
                 payMonth = value;
             }
         }
+        [XmlIgnore]
         public bool[] DayInWeek { get => dayInWeek; set => dayInWeek = value; }
+        [XmlIgnore]
         public TimeSpan[][] WorkHours
         {
             get => workHours;
@@ -277,6 +287,7 @@ namespace BE
         }
         public bool DaysOOf { get => daysOOf; set => daysOOf = value; }
         public string Recommendations { get => recommendations; set => recommendations = value; }
+        [XmlIgnore]
         public TimeSpan HowMuchHourNanWork1 { get => HowMuchHourNanWork; set => HowMuchHourNanWork = value; }
         public override string ToString()
         {

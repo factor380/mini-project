@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
 using BE;
 using System.Xml.Linq;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace dal
+namespace DAL
 {
     public class Dal_XML_imp : IDAL
     {
         int contractnumber = 0;
         XElement childRoot;
         XElement contractIdRoot;
-        const string childPath = @"ChildXml.xml";
-        const string motherPath = @"MotherXml.xml";
-        const string nannyPath = @"NannyXml.xml";
-        const string contractPath = @"ContractXml.xml";
-        const string contractIdPath = @"ContractIdXml.xml";
+        const string childPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/Child.xml";
+        const string motherPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/Mother.xml";
+        const string nannyPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/Nanny.xml";
+        const string contractPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/Contract.xml";
+        const string contractIdPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/ContractId.xml";
         public Dal_XML_imp()
         {
             if (!File.Exists(nannyPath))
@@ -39,48 +38,31 @@ namespace dal
                 LoadData();
         }
 
-        private void CreateFiles(string FileName = childPath)
+        private void CreateFiles()
         {
-            if (FileName.Equals(childPath))
+            if (!File.Exists(childPath))
             {
                 childRoot = new XElement("children");
                 childRoot.Save(childPath);
             }
-            if (FileName.Equals(contractIdPath))
+            if (!File.Exists(contractIdPath))
             {
                 contractIdRoot = new XElement("ContractsID", 1);
-                contractIdRoot.Save(contractPath);
+                contractIdRoot.Save(contractIdPath);
             }
         }
         private void LoadData(string fileName = childPath)
         {
             try
             {
-                if (fileName.Equals(childPath))
+                if (File.Exists(childPath))
                     childRoot = XElement.Load(childPath);
-                if (fileName.Equals(contractIdPath))
+                if (File.Exists(contractIdPath))
                     contractIdRoot = XElement.Load(contractIdPath);
             }
             catch
             {
                 throw new Exception("Files upload problem");
-            }
-        }
-        string ToXMLstring<T>(T toSerialize)
-        {
-            using (StringWriter textWriter = new StringWriter())
-            {
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-                xmlSerializer.Serialize(textWriter, toSerialize);
-                return textWriter.ToString();
-            }
-        }
-        T ToObject<T>(string toDeserialize)
-        {
-            using (StringReader textReader = new StringReader(toDeserialize))
-            {
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-                return (T)xmlSerializer.Deserialize(textReader);
             }
         }
         #region XML load and save
@@ -110,11 +92,11 @@ namespace dal
                       select new Child()
                       {
                           Id = c.Element("id").Value,
-                          MotherId = c.Element("mother id").Value,
+                          MotherId = c.Element("motherId").Value,
                           Name = c.Element("name").Value,
                           DateBirth = DateTime.Parse(c.Element("birthday").Value),
-                          SpecialNeeds = Boolean.Parse(c.Element("special Needs").Value),
-                          WhatHeNeed = c.Element("what He Need").Value
+                          SpecialNeeds = Boolean.Parse(c.Element("specialNeeds").Value),
+                          WhatHeNeed = c.Element("whatHeNeed").Value
                       }).ToList();
             return childs;
         }
@@ -122,17 +104,24 @@ namespace dal
         {
             LoadData();
             Child child;
-            child = (from c in childRoot.Elements()
-                     where (c.Element("id").Value) == id
-                     select new Child()
-                     {
-                         Id = c.Element("id").Value,
-                         MotherId = c.Element("mother id").Value,
-                         Name = c.Element("name").Value,
-                         DateBirth = DateTime.Parse(c.Element("birthday").Value),
-                         SpecialNeeds = Boolean.Parse(c.Element("special Needs").Value),
-                         WhatHeNeed = c.Element("what He Need").Value
-                     }).FirstOrDefault();
+            try
+            {
+                child = (from c in childRoot.Elements()
+                         where (c.Element("id").Value) == id
+                         select new Child
+                         {
+                             Id = c.Element("id").Value,
+                             MotherId = c.Element("motherId").Value,
+                             Name = c.Element("name").Value,
+                             DateBirth = DateTime.Parse(c.Element("birthday").Value),
+                             SpecialNeeds = Boolean.Parse(c.Element("specialNeeds").Value),
+                             WhatHeNeed = c.Element("whatHeNeed").Value
+                         }).FirstOrDefault();
+            }
+            catch
+            {
+                child = null;
+            }
             return child;
         }
         public void AddChild(Child child)
@@ -143,11 +132,11 @@ namespace dal
             if (GetMother(child.MotherId) == null)
                 throw new Exception("not exist mother to this child");
             XElement id = new XElement("id", child.Id);
-            XElement motherId = new XElement("mother id", child.MotherId);
+            XElement motherId = new XElement("motherId", child.MotherId);
             XElement name = new XElement("name", child.Name);
             XElement dateBirth = new XElement("birthday", child.DateBirth);
-            XElement specialNeeds = new XElement("special Needs", child.SpecialNeeds);
-            XElement whatHeNeed = new XElement("what He Need", child.WhatHeNeed);
+            XElement specialNeeds = new XElement("specialNeeds", child.SpecialNeeds);
+            XElement whatHeNeed = new XElement("whatHeNeed", child.WhatHeNeed);
             childRoot.Add(new XElement("child", id, motherId, name, dateBirth, specialNeeds, whatHeNeed));
             childRoot.Save(childPath);
         }

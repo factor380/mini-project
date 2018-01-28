@@ -37,8 +37,8 @@ namespace UL
             if (text.Text != "")
                 text.Text = "";
             bl = FactoryBL.GetBL();
-            List<Child> listC = bl.List_Child_ByMother(bl.GetMother((string)((ComboBoxItem)idMother.SelectedItem).Content));
-            text.Text += bl.GetMother((string)((ComboBoxItem)idMother.SelectedItem).Content).ToString() + '\n';
+            List<Child> listC = bl.List_Child_ByMother(bl.GetMother(((Mother)(this.idMother.SelectedItem)).Id));
+            text.Text += bl.GetMother(((Mother)(this.idMother.SelectedItem)).Id).ToString() + '\n';
             foreach (Child c in listC)
             {
                 text.Text += c.ToString() + '\n';

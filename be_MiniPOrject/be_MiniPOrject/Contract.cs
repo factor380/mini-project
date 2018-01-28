@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
     public class Contract
     {
+        [XmlIgnore]
         static int ContractNum = 1;
         private int Contract_Num;
         private string nannyId;
@@ -23,7 +25,7 @@ namespace BE
         public  Contract()
         {
         }
-        public Contract(int contract_Num, string nannyId, string motherId, string childId, bool met, bool activeContract, float payHours, int payMonth, bool horM, DateTime startDate, DateTime endDate)//לשים לב שצריך לשנות את זה שיכנס לבד ב dal
+        public Contract(int contract_Num, string nannyId, string motherId, string childId, bool met, bool activeContract, float payHours, int payMonth, bool horM, DateTime startDate, DateTime endDate)
         {
             Contract_Num = contract_Num;
             this.nannyId = nannyId;
@@ -37,7 +39,9 @@ namespace BE
             this.startDate = startDate;
             this.endDate = endDate;
         }
+        [XmlIgnore]
         public string Data { get => "contract number: " + Contract_Num; }
+        [XmlIgnore]
         public static int ContractNum1 { get => ContractNum; set => ContractNum = value; }
         public string NannyId
         {
