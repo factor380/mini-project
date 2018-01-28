@@ -323,7 +323,7 @@ namespace BL
 
             foreach (Child chi in listC)
             {
-                if (chi.ListIdContract == null)
+                if (chi.ListIdContract.Count == 0)
                     listToSend.Add(chi);
             }
             return listToSend;

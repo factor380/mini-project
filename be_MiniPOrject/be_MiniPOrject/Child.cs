@@ -17,17 +17,11 @@ namespace BE
         private DateTime dateBirth;
         private bool specialNeeds;
         private string whatHeNeed;
-        [XmlIgnore]
-        public List<int> ListIdContract = new List<int>();
+        public List<int> ListIdContract;
 
         public Child()
         {
-            this.id = " ";
-            this.motherId = " ";
-            this.name = " ";
-            this.dateBirth = DateTime.Today;
-            this.specialNeeds = false;
-            this.whatHeNeed = " ";
+            ListIdContract = new List<int>();
         }
         public Child(string id, string motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {

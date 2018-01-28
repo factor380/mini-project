@@ -26,7 +26,7 @@ namespace UL
         {
             InitializeComponent();
             bl = BL.FactoryBL.GetBL();
-            List < Child > listC= bl.GetAllTheChildrenThetDontHaveNannys();
+            List < Child > listC = bl.GetAllTheChildrenThetDontHaveNannys();
             foreach(Child c in listC)
             {
                 text.Text += c.ToString() + '\n';
