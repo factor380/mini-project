@@ -15,11 +15,11 @@ namespace DAL
         int contractnumber = 0;
         XElement childRoot;
         XElement contractIdRoot;
-        const string childPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/Child.xml";
-        const string motherPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/Mother.xml";
-        const string nannyPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/Nanny.xml";
-        const string contractPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/Contract.xml";
-        const string contractIdPath = "C:/Users/User/Desktop/mini project/be_MiniPOrject/DAL/XmlFiles/ContractId.xml";
+        const string childPath = @"Child.xml";
+        const string motherPath = @"Mother.xml";
+        const string nannyPath = @"Nanny.xml";
+        const string contractPath = @"Contract.xml";
+        const string contractIdPath = @"ContractId.xml";
         public Dal_XML_imp()
         {
             if (!File.Exists(nannyPath))
