@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ArrayOfContract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Contract>
+    <NannyId>211358510</NannyId>
+    <ChildId>215790254</ChildId>
+    <Met>true</Met>
+    <ActiveContract>true</ActiveContract>
+    <PayHours>10</PayHours>
+    <PayMonth>0</PayMonth>
+    <HorM1>false</HorM1>
+    <StartDate>2018-01-29T00:00:00+02:00</StartDate>
+    <EndDate>2018-05-19T00:00:00</EndDate>
+    <Contract_Num1>1</Contract_Num1>
+    <MotherId>213840176</MotherId>
+  </Contract>
+</ArrayOfContract>

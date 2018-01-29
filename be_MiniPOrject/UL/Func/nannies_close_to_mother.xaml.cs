@@ -39,6 +39,7 @@ namespace UL
         {
             if (text.Text != "")
                 text.Text = "";
+            find.IsEnabled = false;
             Thread thread =new Thread( print);
             if (int.TryParse(distance.Text, out dis))
                 thread.Start(((Mother)(this.idMother.SelectedItem)));
