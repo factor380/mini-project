@@ -71,8 +71,6 @@ namespace BE
             get => startDate;
             set
             {
-                if (DateTime.Compare(value, DateTime.Today) < 0)
-                    throw new Exception("the start time couldnt be in past");
                 startDate = value;
             }
         }
