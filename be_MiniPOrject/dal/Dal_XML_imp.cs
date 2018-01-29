@@ -15,11 +15,11 @@ namespace DAL
         int contractnumber = 0;
         XElement childRoot;
         XElement contractIdRoot;
-        const string childPath = @"Child.xml";
-        const string motherPath = @"Mother.xml";
-        const string nannyPath = @"Nanny.xml";
-        const string contractPath = @"Contract.xml";
-        const string contractIdPath = @"ContractId.xml";
+        const string childPath = @"XmlFiles/Child.xml";
+        const string motherPath = @"XmlFiles/Mother.xml";
+        const string nannyPath = @"XmlFiles/Nanny.xml";
+        const string contractPath = @"XmlFiles/Contract.xml";
+        const string contractIdPath = @"XmlFiles/ContractId.xml";
         public Dal_XML_imp()
         {
             if (!File.Exists(nannyPath))
@@ -96,7 +96,8 @@ namespace DAL
                           Name = c.Element("name").Value,
                           DateBirth = DateTime.Parse(c.Element("birthday").Value),
                           SpecialNeeds = Boolean.Parse(c.Element("specialNeeds").Value),
-                          WhatHeNeed = c.Element("whatHeNeed").Value
+                          WhatHeNeed = c.Element("whatHeNeed").Value,
+                          ListIdContractxml = c.Element("idContract").Value
                       }).ToList();
             return childs;
         }
@@ -115,7 +116,8 @@ namespace DAL
                              Name = c.Element("name").Value,
                              DateBirth = DateTime.Parse(c.Element("birthday").Value),
                              SpecialNeeds = Boolean.Parse(c.Element("specialNeeds").Value),
-                             WhatHeNeed = c.Element("whatHeNeed").Value
+                             WhatHeNeed = c.Element("whatHeNeed").Value,
+                             ListIdContractxml = c.Element("idContract").Value
                          }).FirstOrDefault();
             }
             catch
@@ -137,7 +139,8 @@ namespace DAL
             XElement dateBirth = new XElement("birthday", child.DateBirth);
             XElement specialNeeds = new XElement("specialNeeds", child.SpecialNeeds);
             XElement whatHeNeed = new XElement("whatHeNeed", child.WhatHeNeed);
-            childRoot.Add(new XElement("child", id, motherId, name, dateBirth, specialNeeds, whatHeNeed));
+            XElement idcontract = new XElement("idContract", child.ListIdContractxml);
+            childRoot.Add(new XElement("child", id, motherId, name, dateBirth, specialNeeds, whatHeNeed, idcontract));
             childRoot.Save(childPath);
         }
         public void RemoveChild(string id)
@@ -165,9 +168,9 @@ namespace DAL
                                      select c).FirstOrDefault();
 
             childElement.Element("name").Value = child.Name;
-            childElement.Element("special Needs").Value = (child.SpecialNeeds).ToString();
-            childElement.Element("what He Need").Value = child.WhatHeNeed;
-
+            childElement.Element("specialNeeds").Value = (child.SpecialNeeds).ToString();
+            childElement.Element("whatHeNeed").Value = child.WhatHeNeed;
+            childElement.Element("idContract").Value = child.ListIdContractxml;
             childRoot.Save(childPath);
         }
         #endregion
@@ -329,7 +332,8 @@ namespace DAL
             contractnumber = contract.Contract_Num1;
             Child chi = GetChild(contract.ChildId);
             Nanny nan = GetNanny(contract.NannyId);
-            chi.ListIdContract.Add(contract.Contract_Num1);
+            chi.listIdContract.Add(contract.Contract_Num1);
+            UpdateChild(chi);
             nan.ListIdContract.Add(contract.Contract_Num1);
             contractnumber++;
             Contract.ContractNum1 = contractnumber;

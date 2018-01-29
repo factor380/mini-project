@@ -68,7 +68,7 @@ namespace BL
             Contract c;
             Child chi = GetChild(id);
             Mother m = GetMotherWithChildId(id);
-            foreach (int IdCo in chi.ListIdContract)
+            foreach (int IdCo in chi.listIdContract)
             {
                 c = dal.GetContract(IdCo);
                 if (c.EndDate > DateTime.Now || c.ActiveContract == true)
@@ -168,7 +168,7 @@ namespace BL
             nan.ListIdContract.Remove(contract_Num);
             UpdetRateOfContract(c.NannyId, c.MotherId);
             Child chi = GetChild(c.ChildId);
-            chi.ListIdContract.Remove(c.Contract_Num1);
+            chi.listIdContract.Remove(c.Contract_Num1);
             dal.RemoveContract(contract_Num);
         }
         public void UpdateContract(Contract c)
@@ -323,7 +323,7 @@ namespace BL
 
             foreach (Child chi in listC)
             {
-                if (chi.ListIdContract.Count == 0)
+                if (chi.listIdContract.Count == 0)
                     listToSend.Add(chi);
             }
             return listToSend;

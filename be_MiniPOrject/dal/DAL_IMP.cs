@@ -215,12 +215,12 @@ namespace DAL
                 throw new Exception("there is no mother with this id");
             DataSource.contracts.Add(c);
             c.Contract_Num1 = Contract.ContractNum1;
-            chi.ListIdContract.Add(c.Contract_Num1);
+            chi.listIdContract.Add(c.Contract_Num1);
             nan.ListIdContract.Add(c.Contract_Num1);
             Contract.ContractNum1++;
         }
         /// <summary>
-        /// get thee contract acording to is number
+        /// get three contract acording to is number
         /// </summary>
         /// <param name="contract_Num"></param>
         /// <returns></returns>

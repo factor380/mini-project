@@ -17,11 +17,11 @@ namespace BE
         private DateTime dateBirth;
         private bool specialNeeds;
         private string whatHeNeed;
-        public List<int> ListIdContract;
+        public List<int> listIdContract;
 
         public Child()
         {
-            ListIdContract = new List<int>();
+            listIdContract = new List<int>();
         }
         public Child(string id, string motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {
@@ -89,6 +89,35 @@ namespace BE
         }
         public bool SpecialNeeds { get => specialNeeds; set => specialNeeds = value; }
         public string WhatHeNeed { get => whatHeNeed; set => whatHeNeed = value; }
+        public string ListIdContractxml
+        {
+            get
+            {
+                if (listIdContract == null)
+                    return null;
+                string result = "";
+                if (listIdContract != null)
+                {
+                    int sizeA = listIdContract.Count();
+                    result += "" + sizeA;
+                    for (int i = 0; i < sizeA; i++)
+                        result += "," + listIdContract[i].ToString();
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    int sizeA = int.Parse(values[0]);
+                    listIdContract = new List<int>(sizeA);
+                    int index = 1;
+                    for (int i = 0; i < sizeA; i++)
+                        listIdContract.Add(int.Parse(values[index++]));
+                }
+            }
+        }
 
         public override string ToString()
         {
