@@ -18,12 +18,12 @@
     <ChildId>215718255</ChildId>
     <Met>true</Met>
     <ActiveContract>true</ActiveContract>
-    <PayHours>20</PayHours>
+    <PayHours>10</PayHours>
     <PayMonth>0</PayMonth>
     <HorM1>false</HorM1>
     <StartDate>2018-01-30T00:00:00+02:00</StartDate>
-    <EndDate>2018-02-10T00:00:00</EndDate>
-    <Contract_Num1>1</Contract_Num1>
+    <EndDate>2018-02-21T00:00:00</EndDate>
+    <Contract_Num1>2</Contract_Num1>
     <MotherId>211318175</MotherId>
   </Contract>
 </ArrayOfContract>

@@ -16,7 +16,7 @@
     <birthday>2017-09-08T00:00:00</birthday>
     <specialNeeds>False</specialNeeds>
     <whatHeNeed>nothing</whatHeNeed>
-    <idContract>1,1</idContract>
+    <idContract>1,2</idContract>
   </child>
   <child>
     <id>212378251</id>
@@ -32,8 +32,8 @@
     <motherId>211318175</motherId>
     <name>eti</name>
     <birthday>2017-05-29T00:00:00</birthday>
-    <specialNeeds>False</specialNeeds>
+    <specialNeeds>false</specialNeeds>
     <whatHeNeed>nothing</whatHeNeed>
-    <idContract>1,1</idContract>
+    <idContract />
   </child>
 </children>

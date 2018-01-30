@@ -92,7 +92,7 @@
                 </TabItem>
                 <TabItem Header="MORE FUNCS" FontSize="20" FontWeight="Bold">
                     <TabItem.Content>
-                        <Grid ShowGridLines="True">
+                        <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />

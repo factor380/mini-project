@@ -12,7 +12,6 @@ namespace DAL
 {
     public class Dal_XML_imp : IDAL
     {
-        int contractnumber = 0;
         XElement childRoot;
         XElement contractIdRoot;
         const string childPath = @"XmlFiles/Child.xml";
@@ -51,7 +50,7 @@ namespace DAL
                 contractIdRoot.Save(contractIdPath);
             }
         }
-        private void LoadData(string fileName = childPath)
+        private void LoadData()
         {
             try
             {
@@ -331,18 +330,17 @@ namespace DAL
             }
             if (flag)
                 throw new Exception("there is no nanny with rhis id");
-            contract.Contract_Num1 = Contract.ContractNum1;
-            contractnumber = contract.Contract_Num1;
+            contract.Contract_Num1 = int.Parse(LoadNumnber());
+            Contract.ContractNum1++;
             Child chi = GetChild(contract.ChildId);
             Nanny nan = GetNanny(contract.NannyId);
             chi.listIdContract.Add(contract.Contract_Num1);
             UpdateChild(chi);
             nan.ListIdContract.Add(contract.Contract_Num1);
             UpdateNanny(nan);
-            contractnumber++;
-            Contract.ContractNum1 = contractnumber;
             listContract.Add(contract);
             SaveToXML(listContract, contractPath);
+            ChangeNumnber();
         }
         public List<Contract> getContractList()
         {
@@ -385,6 +383,17 @@ namespace DAL
                 throw new Exception("Contrcat not found");
             RemoveContract(contrcat.Contract_Num1);
             AddContract(contrcat);
+        }
+        public string LoadNumnber()
+        {
+            LoadData();
+            return contractIdRoot.Value;
+        }
+        public void ChangeNumnber()
+        {
+            LoadData();
+            contractIdRoot.Value = Contract.ContractNum1.ToString();
+            contractIdRoot.Save(contractIdPath);
         }
         #endregion
         #region list
