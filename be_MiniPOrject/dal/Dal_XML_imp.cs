@@ -19,6 +19,9 @@ namespace DAL
         const string nannyPath = @"XmlFiles/Nanny.xml";
         const string contractPath = @"XmlFiles/Contract.xml";
         const string contractIdPath = @"XmlFiles/ContractId.xml";
+        /// <summary>
+        /// constractor
+        /// </summary>
         public Dal_XML_imp()
         {
             if (!File.Exists(nannyPath))
@@ -36,7 +39,9 @@ namespace DAL
             else
                 LoadData();
         }
-
+        /// <summary>
+        /// create the file
+        /// </summary>
         private void CreateFiles()
         {
             if (!File.Exists(childPath))
@@ -50,6 +55,9 @@ namespace DAL
                 contractIdRoot.Save(contractIdPath);
             }
         }
+        /// <summary>
+        /// load the file
+        /// </summary>
         private void LoadData()
         {
             try
@@ -65,6 +73,12 @@ namespace DAL
             }
         }
         #region XML load and save
+        /// <summary>
+        /// save
+        /// </summary>
+        /// <typeparam name="T">to all the clases</typeparam>
+        /// <param name="source">what save on the file</param>
+        /// <param name="path">to the corect file</param>
         public static void SaveToXML<T>(T source, string path)
         {
             FileStream file = new FileStream(path, FileMode.Create);
@@ -72,6 +86,12 @@ namespace DAL
             xmlSerializer.Serialize(file, source);
             file.Close();
         }
+        /// <summary>
+        /// load
+        /// </summary>
+        /// <typeparam name="T">to all the clases</typeparam>
+        /// <param name="path">to the corect file</param>
+        /// <returns>return the details from the file</returns>
         public T LoadFromXML<T>(string path)
         {
             FileStream file = new FileStream(path, FileMode.Open);
@@ -83,6 +103,10 @@ namespace DAL
         #endregion
 
         #region func Child
+        /// <summary>
+        /// retrun the all childs
+        /// </summary>
+        /// <returns>kist of childs</returns>
         public List<Child> getChildList()
         {
             LoadData();
@@ -100,6 +124,11 @@ namespace DAL
                       }).ToList();
             return childs;
         }
+        /// <summary>
+        /// return specific child
+        /// </summary>
+        /// <param name="id">id of the child to return</param>
+        /// <returns>thr correct child or null if not found</returns>
         public Child GetChild(string id)
         {
             LoadData();
@@ -125,6 +154,10 @@ namespace DAL
             }
             return child;
         }
+        /// <summary>
+        /// add child to the file
+        /// </summary>
+        /// <param name="child">the child to add</param>
         public void AddChild(Child child)
         {
             LoadData();
@@ -145,6 +178,10 @@ namespace DAL
             UpdateMother(mom);
             childRoot.Save(childPath);
         }
+        /// <summary>
+        /// remove child from the file
+        /// </summary>
+        /// <param name="id">the id of the child to delete</param>
         public void RemoveChild(string id)
         {
             LoadData();
@@ -162,6 +199,10 @@ namespace DAL
                 throw new Exception("child with the same id not found...");
             }
         }
+        /// <summary>
+        /// update specific child on the file
+        /// </summary>
+        /// <param name="child">the child to update</param>
         public void UpdateChild(Child child)
         {
             LoadData();
@@ -177,6 +218,10 @@ namespace DAL
         }
         #endregion
         #region func Mother
+        /// <summary>
+        /// add mother to the file
+        /// </summary>
+        /// <param name="mother">the mother to add</param>
         public void AddMother(Mother mother)
         {
             List<Mother> list = LoadFromXML<List<Mother>>(motherPath);
@@ -191,15 +236,28 @@ namespace DAL
             list.Add(mother);
             SaveToXML(list, motherPath);
         }
+        /// <summary>
+        /// get all the mother
+        /// </summary>
+        /// <returns>list of the all mothers</returns>
         public List<Mother> getMotherList()
         {
             return LoadFromXML<List<Mother>>(motherPath);
         }
+        /// <summary>
+        /// return specific mother
+        /// </summary>
+        /// <param name="id">the id of mother to return</param>
+        /// <returns>the mother</returns>
         public Mother GetMother(string id)
         {
             List<Mother> list = LoadFromXML<List<Mother>>(motherPath);
             return list.FirstOrDefault(m => m.Id == id);
         }
+        /// <summary>
+        /// remove mother from the file
+        /// </summary>
+        /// <param name="id">the id of the mother to delete</param>
         public void RemoveMother(string id)
         {
             List<Mother> list = LoadFromXML<List<Mother>>(motherPath);
@@ -219,6 +277,10 @@ namespace DAL
                 list.Remove(deletmother);
             SaveToXML<List<Mother>>(list, motherPath);
         }
+        /// <summary>
+        /// update specific mother on the file
+        /// </summary>
+        /// <param name="mother">the mother to update</param>
         public void UpdateMother(Mother mother)
         {
             List<Mother> list = LoadFromXML<List<Mother>>(motherPath);
@@ -233,6 +295,11 @@ namespace DAL
             RemoveMother(mother.Id);
             AddMother(mother);
         }
+        /// <summary>
+        /// return mother with the child id
+        /// </summary>
+        /// <param name="id">the child id</param>
+        /// <returns>the mom of the child that you get</returns>
         public Mother GetMotherWithChildId(string id)
         {
             Child chi = GetChild(id);
@@ -243,6 +310,10 @@ namespace DAL
         }
         #endregion
         #region func Nanny
+        /// <summary>
+        /// add nanny to the file
+        /// </summary>
+        /// <param name="nanny">the nanny to add</param>
         public void AddNanny(Nanny nanny)
         {
             List<Nanny> list = LoadFromXML<List<Nanny>>(nannyPath);
@@ -257,15 +328,28 @@ namespace DAL
             list.Add(nanny);
             SaveToXML(list, nannyPath);
         }
+        /// <summary>
+        /// get the all nanny 
+        /// </summary>
+        /// <returns>list of the all nannies</returns>
         public List<Nanny> getNannyList()
         {
             return LoadFromXML<List<Nanny>>(nannyPath);
         }
+        /// <summary>
+        /// get specific nanny
+        /// </summary>
+        /// <param name="id">the id of nanny to return</param>
+        /// <returns>return the nanny</returns>
         public Nanny GetNanny(string id)
         {
             List<Nanny> list = LoadFromXML<List<Nanny>>(nannyPath);
             return list.FirstOrDefault(n => n.Id == id);
         }
+        /// <summary>
+        /// remove nanny from the file
+        /// </summary>
+        /// <param name="id">the id of nanny to delete</param>
         public void RemoveNanny(string id)
         {
             List<Nanny> list = LoadFromXML<List<Nanny>>(nannyPath);
@@ -285,6 +369,10 @@ namespace DAL
                 list.Remove(deletnanny);
             SaveToXML<List<Nanny>>(list, nannyPath);
         }
+        /// <summary>
+        /// update nanny on the file
+        /// </summary>
+        /// <param name="nanny">the nanny to update</param>
         public void UpdateNanny(Nanny nanny)
         {
             List<Nanny> list = LoadFromXML<List<Nanny>>(nannyPath);
@@ -301,6 +389,10 @@ namespace DAL
         }
         #endregion
         #region func Contract
+        /// <summary>
+        /// add contract to the file
+        /// </summary>
+        /// <param name="contract">the contract to add</param>
         public void AddContract(Contract contract)
         {
             List<Nanny> listNanny = LoadFromXML<List<Nanny>>(nannyPath);
@@ -329,9 +421,9 @@ namespace DAL
                     flag = false;
             }
             if (flag)
-                throw new Exception("there is no nanny with rhis id");
-            contract.Contract_Num1 = int.Parse(LoadNumnber());
-            Contract.ContractNum1++;
+                throw new Exception("there is no nanny with this id");
+            contract.Contract_Num1 = int.Parse(LoadNumnber());//get the number from the file
+            Contract.ContractNum1++;//up the run number by one
             Child chi = GetChild(contract.ChildId);
             Nanny nan = GetNanny(contract.NannyId);
             chi.listIdContract.Add(contract.Contract_Num1);
@@ -340,17 +432,30 @@ namespace DAL
             UpdateNanny(nan);
             listContract.Add(contract);
             SaveToXML(listContract, contractPath);
-            ChangeNumnber();
+            ChangeNumnber();//change the file and add to the run number one
         }
+        /// <summary>
+        /// get the all contracts
+        /// </summary>
+        /// <returns>return list of the all contracts</returns>
         public List<Contract> getContractList()
         {
             return LoadFromXML<List<Contract>>(contractPath);
         }
+        /// <summary>
+        /// retrun specific contarct
+        /// </summary>
+        /// <param name="Contract_number">the contarct number of the contract</param>
+        /// <returns>return the contract</returns>
         public Contract GetContract(int Contract_number)
         {
             List<Contract> list = LoadFromXML<List<Contract>>(contractPath);
             return list.FirstOrDefault(c => c.Contract_Num1 == Contract_number);
         }
+        /// <summary>
+        /// remove contract from the file
+        /// </summary>
+        /// <param name="Contract_number">the contract number to delete</param>
         public void RemoveContract(int Contract_number)
         {
             List<Contract> list = LoadFromXML<List<Contract>>(contractPath);
@@ -370,6 +475,10 @@ namespace DAL
                 list.Remove(deletcontract);
             SaveToXML<List<Contract>>(list, contractPath);
         }
+        /// <summary>
+        /// update the contract on the file
+        /// </summary>
+        /// <param name="contrcat">the contract to update</param>
         public void UpdateContract(Contract contrcat)
         {
             List<Contract> list = LoadFromXML<List<Contract>>(contractPath);
@@ -384,11 +493,18 @@ namespace DAL
             RemoveContract(contrcat.Contract_Num1);
             AddContract(contrcat);
         }
+        /// <summary>
+        /// load the run number from the file
+        /// </summary>
+        /// <returns>the number on the file</returns>
         public string LoadNumnber()
         {
             LoadData();
             return contractIdRoot.Value;
         }
+        /// <summary>
+        /// change the ran number on file 
+        /// </summary>
         public void ChangeNumnber()
         {
             LoadData();
