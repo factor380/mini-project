@@ -9,6 +9,7 @@ namespace BE
 {
     public class Mother
     {
+        #region Fields
         private string id;
         private string lastName;
         private string name;
@@ -18,9 +19,21 @@ namespace BE
         private bool[] dayInWeek = new bool[6];
         private TimeSpan[][] whenNeededWeek = new TimeSpan[6][];
         private string remarks;
-        [XmlIgnore]
         public List<string> ListIdChild = new List<string>();
-
+        #endregion
+        #region constractros
+        /// <summary>
+        /// regular constractor
+        /// </summary>
+        /// <param name="id">id that you get</param>
+        /// <param name="lastName">lastName that you get</param>
+        /// <param name="name">name that you get</param>
+        /// <param name="phoneNum">phoneNum that you get</param>
+        /// <param name="address">address that you get</param>
+        /// <param name="addressAround">addressAround that you get</param>
+        /// <param name="dayInWeek">dayInWeek that you get</param>
+        /// <param name="whenNeededWeek">whenNeededWeek that you get</param>
+        /// <param name="remarks">remarks that you get</param>
         public Mother(string id, string lastName, string name, string phoneNum, string address, string addressAround, bool[] dayInWeek, TimeSpan[][] whenNeededWeek, string remarks)
         {
             if (IDCheck(id))
@@ -36,7 +49,9 @@ namespace BE
             this.whenNeededWeek = whenNeededWeek;
             this.remarks = remarks;
         }
-
+        /// <summary>
+        /// defult constractor
+        /// </summary>
         public Mother()
         {
             for (int i = 0; i < 6; i++)
@@ -44,13 +59,21 @@ namespace BE
                 whenNeededWeek[i] = new TimeSpan[2];
             }
         }
+        #endregion
+        #region properties
+        /// <summary>
+        /// property to the check box to how is seen on the check box
+        /// </summary>
         [XmlIgnore]
         public string Data { get => name + ' ' + lastName + " id: " + id; }
+        /// <summary>
+        /// property to the print on the WPF to print the hour work on the day
+        /// </summary>
         [XmlIgnore]
         public string TimeAndDays
         {
             get
-            { 
+            {
                 string days = "";
                 DateTime now = DateTime.Today;
                 now = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 21);
@@ -60,6 +83,9 @@ namespace BE
                 return days;
             }
         }
+        /// <summary>
+        /// property to prevent the work on day on the xml file
+        /// </summary>
         public string WhenNeededWeekxml
         {
             get
@@ -97,6 +123,9 @@ namespace BE
                 }
             }
         }
+        /// <summary>
+        /// property to prevent if she work on specific day on week, on the xml file
+        /// </summary>
         public string DayInWeekxml
         {
             get
@@ -109,7 +138,7 @@ namespace BE
                     int sizeA = DayInWeek.GetLength(0);
                     result += "" + sizeA;
                     for (int i = 0; i < sizeA; i++)
-                            result += "," + DayInWeek[i].ToString();
+                        result += "," + DayInWeek[i].ToString();
                 }
                 return result;
             }
@@ -126,6 +155,9 @@ namespace BE
                 }
             }
         }
+        /// <summary>
+        /// property to the id
+        /// </summary>
         public string Id
         {
             get => id;
@@ -134,6 +166,9 @@ namespace BE
                 id = value;
             }
         }
+        /// <summary>
+        /// property to the lastName
+        /// </summary>
         public string LastName
         {
             get => lastName;
@@ -147,6 +182,9 @@ namespace BE
                 lastName = value;
             }
         }
+        /// <summary>
+        /// property to the name
+        /// </summary>
         public string Name
         {
             get => name;
@@ -160,6 +198,9 @@ namespace BE
                 name = value;
             }
         }
+        /// <summary>
+        /// property to the phoneNum
+        /// </summary>
         public string PhoneNum
         {
             get => phoneNum;
@@ -171,6 +212,9 @@ namespace BE
                 phoneNum = value;
             }
         }
+        /// <summary>
+        /// property to the address
+        /// </summary>
         public string Address
         {
             get => address;
@@ -179,6 +223,9 @@ namespace BE
                 address = value;
             }
         }
+        /// <summary>
+        /// property to the addressAround
+        /// </summary>
         public string AddressAround
         {
             get => addressAround;
@@ -187,8 +234,14 @@ namespace BE
                 addressAround = value;
             }
         }
+        /// <summary>
+        /// property to the dayInWeek
+        /// </summary>
         [XmlIgnore]
         public bool[] DayInWeek { get => dayInWeek; set => dayInWeek = value; }
+        /// <summary>
+        /// property to the whenNeededWeek
+        /// </summary>
         [XmlIgnore]
         public TimeSpan[][] WhenNeededWeek
         {
@@ -200,11 +253,25 @@ namespace BE
                 whenNeededWeek = value;
             }
         }
+        /// <summary>
+        /// property to the remarks
+        /// </summary>
         public string Remarks { get => remarks; set => remarks = value; }
+        #endregion
+        #region to string and static func
+        /// <summary>
+        /// to string to the mother
+        /// </summary>
+        /// <returns>returns the string that prevent the mother</returns>
         public override string ToString()
         {
             return name + ' ' + LastName + " id " + id + " phone number " + PhoneNum + " address " + Address;
         }
+        /// <summary>
+        /// check if the id is good According to the Interior Ministry
+        /// </summary>
+        /// <param name="strID">the id to check</param>
+        /// <returns>returns if the id good or not</returns>
         static bool IDCheck(String strID)
         {
             int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };
@@ -221,6 +288,6 @@ namespace BE
             }
             return (count % 10 == 0);
         }
-
+        #endregion
     }
 }

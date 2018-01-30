@@ -45,7 +45,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Grid x:Name="ContractDetails" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="426" Width="295" Grid.ColumnSpan="2" Margin="0,51,0,-45.667" Grid.RowSpan="3">
+        <Grid x:Name="ContractDetails" DataContext="{StaticResource contractViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="426" Width="312" Grid.ColumnSpan="2" Margin="0,51,0,-21" Grid.RowSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -62,13 +62,13 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Active Contract:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="18"/>
+            <Label Content="the contract active?:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="18"/>
             <CheckBox x:Name="activeContractCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding ActiveContract, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <Label Content="Child Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
             <ComboBox x:Name="childIdComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" SelectedValue="{Binding ChildId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" SelectionChanged="childIdComboBox_SelectionChanged"/>
-            <Label Content="H or M:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"/>
+            <Label Content="per Month?:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"/>
             <CheckBox x:Name="horMCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding HorM1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <Label Content="Met:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
+            <Label Content="they met?:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
             <CheckBox x:Name="metCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Met, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
             <Label Content="Mother Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding MotherId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" IsEnabled="False">

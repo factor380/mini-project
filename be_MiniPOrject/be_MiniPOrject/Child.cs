@@ -11,6 +11,7 @@ namespace BE
 {
     public class Child
     {
+        #region Fields
         private string id;
         private string motherId;
         private string name;
@@ -18,11 +19,24 @@ namespace BE
         private bool specialNeeds;
         private string whatHeNeed;
         public List<int> listIdContract;
-
+        #endregion
+        #region conntractors
+        /// <summary>
+        /// defult constractor
+        /// </summary>
         public Child()
         {
             listIdContract = new List<int>();
         }
+        /// <summary>
+        /// regular constractor
+        /// </summary>
+        /// <param name="id">id that you get</param>
+        /// <param name="motherId">motherId that you get</param>
+        /// <param name="name">name that you get</param>
+        /// <param name="dateBirth">dateBirth that you get</param>
+        /// <param name="specialNeeds">specialNeeds that you get</param>
+        /// <param name="whatHeNeed">whatHeNeed that you get</param>
         public Child(string id, string motherId, string name, DateTime dateBirth, bool specialNeeds, string whatHeNeed)
         {
             if (IDCheck(id))
@@ -38,8 +52,16 @@ namespace BE
             this.specialNeeds = specialNeeds;
             this.whatHeNeed = whatHeNeed;
         }
+        #endregion
+        #region properties
+        /// <summary>
+        /// property to the check box to how is seen on the check box
+        /// </summary>
         [XmlIgnore]
         public string Data { get => name + " id: " + id; }
+        /// <summary>
+        /// property to the id
+        /// </summary>
         public string Id
         {
             get => id;
@@ -51,6 +73,9 @@ namespace BE
                     throw new Exception("this id not exist");
             }
         }
+        /// <summary>
+        /// property to the motherId
+        /// </summary>
         public string MotherId
         {
             get => motherId;
@@ -62,7 +87,9 @@ namespace BE
                     throw new Exception("this id not exist");
             }
         }
-
+        /// <summary>
+        /// property to the name
+        /// </summary>
         public string Name
         {
             get => name;
@@ -76,6 +103,9 @@ namespace BE
                 name = value;
             }
         }
+        /// <summary>
+        /// property to the dateBirth
+        /// </summary>
         public DateTime DateBirth
         {
             get => dateBirth.Date;
@@ -87,8 +117,17 @@ namespace BE
                     throw new Exception("this date birth must be on the past");
             }
         }
+        /// <summary>
+        /// property to the specialNeeds
+        /// </summary>
         public bool SpecialNeeds { get => specialNeeds; set => specialNeeds = value; }
+        /// <summary>
+        /// property to the whatHeNeed
+        /// </summary>
         public string WhatHeNeed { get => whatHeNeed; set => whatHeNeed = value; }
+        /// <summary>
+        /// property to prevent the listIdContract on the xml file
+        /// </summary>
         public string ListIdContractxml
         {
             get
@@ -118,11 +157,21 @@ namespace BE
                 }
             }
         }
-
+        #endregion
+        #region to string and static func
+        /// <summary>
+        /// to string to prevent child
+        /// </summary>
+        /// <returns>return string that prevent child</returns>
         public override string ToString()
         {
             return name + " id: " + id + " mother id: " + MotherId + " Date of birth " + DateBirth.Year + '/' + DateBirth.Month + '/' + DateBirth.Day;
         }
+        /// <summary>
+        /// check if the id is good According to the Interior Ministry
+        /// </summary>
+        /// <param name="strID">the id to check</param>
+        /// <returns>returns if the id good or not</returns>
         static bool IDCheck(String strID)
         {
             int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };
@@ -139,5 +188,6 @@ namespace BE
             }
             return (count % 10 == 0);
         }
+        #endregion
     }
 }

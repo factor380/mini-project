@@ -26,7 +26,7 @@ namespace UL
         public MainWindow()
         {
             InitializeComponent();
-            Init init = new Init();
+            //Init init = new Init();
         }
 
         private void Button_Click_AddChild(object sender, RoutedEventArgs e)

@@ -1,17 +1,10 @@
 <?xml version="1.0"?>
 <ArrayOfMother xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Mother>
-    <WhenNeededWeekxml>6,2,08:30:00,14:00:00,08:30:00,15:00:00,08:30:00,17:00:00,08:30:00,13:00:00,08:30:00,14:00:00,08:00:00,12:00:00</WhenNeededWeekxml>
-    <DayInWeekxml>6,True,False,False,True,False,True</DayInWeekxml>
-    <Id>211318175</Id>
-    <LastName>Polak</LastName>
-    <Name>Bracha</Name>
-    <PhoneNum>0526874352</PhoneNum>
-    <Address>HaRav Herzog St 12, Jerusalem</Address>
-    <AddressAround>Shakhal St 23,Jerusalem</AddressAround>
-    <Remarks />
-  </Mother>
-  <Mother>
+    <ListIdChild>
+      <string>215790254</string>
+      <string>212378251</string>
+    </ListIdChild>
     <WhenNeededWeekxml>6,2,09:30:00,13:00:00,09:30:00,16:00:00,09:30:00,16:00:00,09:30:00,16:00:00,09:30:00,15:00:00,09:00:00,12:00:00</WhenNeededWeekxml>
     <DayInWeekxml>6,True,False,False,True,True,False</DayInWeekxml>
     <Id>213840176</Id>
@@ -19,6 +12,21 @@
     <Name>Oshrat</Name>
     <PhoneNum>0526943451</PhoneNum>
     <Address>Ha-'va'ad haleumi St 21,Jerusalem</Address>
+    <AddressAround>Shakhal St 23,Jerusalem</AddressAround>
+    <Remarks />
+  </Mother>
+  <Mother>
+    <ListIdChild>
+      <string>215718255</string>
+      <string>211378252</string>
+    </ListIdChild>
+    <WhenNeededWeekxml>6,2,08:30:00,14:00:00,08:30:00,15:00:00,08:30:00,17:00:00,08:30:00,13:00:00,08:30:00,14:00:00,08:00:00,12:00:00</WhenNeededWeekxml>
+    <DayInWeekxml>6,True,False,False,True,False,True</DayInWeekxml>
+    <Id>211318175</Id>
+    <LastName>Polak</LastName>
+    <Name>Bracha</Name>
+    <PhoneNum>0526874352</PhoneNum>
+    <Address>HaRav Herzog St 12, Jerusalem</Address>
     <AddressAround>Shakhal St 23,Jerusalem</AddressAround>
     <Remarks />
   </Mother>

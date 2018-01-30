@@ -157,7 +157,7 @@
                     <xctk:TimePicker x:Name="endFri" FormatString="hh:mm" Grid.Row="2" Grid.Column="6" FontSize="20" Text="{Binding whenNeededWeek[5][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="{Binding ElementName=checkFri, Path=IsChecked}"/>
                 </Grid>
             </DockPanel>
-            <Image HorizontalAlignment="Left" Height="304" Margin="333,5,-3.667,0" Grid.Row="1" VerticalAlignment="Top" Width="322" Grid.ColumnSpan="2" Source="C:\Users\factor\Desktop\m\be_MiniPOrject\UL\Mother\mom.jpg"/>
+            <Image HorizontalAlignment="Left" Height="304" Margin="333,5,-3.667,0" Grid.Row="1" VerticalAlignment="Top" Width="322" Grid.ColumnSpan="2" Source="mom.jpg"/>
         </Grid>
     </ScrollViewer>
 </Window>

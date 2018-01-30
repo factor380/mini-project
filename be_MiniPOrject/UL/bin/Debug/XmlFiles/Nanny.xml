@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <ArrayOfNanny xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Nanny>
-    <WhenNeededWeekxml>6,2,09:00:00,16:00:00,08:30:00,17:00:00,09:00:00,18:00:00,09:30:00,18:00:00,09:00:00,18:00:00,08:00:00,12:00:00</WhenNeededWeekxml>
+    <ListIdContract />
+    <WorkHoursxml>6,2,09:00:00,16:00:00,08:30:00,17:00:00,09:00:00,18:00:00,09:30:00,18:00:00,09:00:00,18:00:00,08:00:00,12:00:00</WorkHoursxml>
     <DayInWeekxml>6,False,False,True,True,False,True</DayInWeekxml>
     <Id>211739859</Id>
     <LastName>schneider</LastName>
@@ -22,7 +23,10 @@
     <Recommendations />
   </Nanny>
   <Nanny>
-    <WhenNeededWeekxml>6,2,09:00:00,16:00:00,08:30:00,17:00:00,09:00:00,18:00:00,09:30:00,18:00:00,09:00:00,18:00:00,08:00:00,12:00:00</WhenNeededWeekxml>
+    <ListIdContract>
+      <int>1</int>
+    </ListIdContract>
+    <WorkHoursxml>6,2,09:00:00,16:00:00,08:30:00,17:00:00,09:00:00,18:00:00,09:30:00,18:00:00,09:00:00,18:00:00,08:00:00,12:00:00</WorkHoursxml>
     <DayInWeekxml>6,True,False,False,True,False,True</DayInWeekxml>
     <Id>211358510</Id>
     <LastName>zehavi</LastName>

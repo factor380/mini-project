@@ -141,6 +141,9 @@ namespace DAL
             XElement whatHeNeed = new XElement("whatHeNeed", child.WhatHeNeed);
             XElement idcontract = new XElement("idContract", child.ListIdContractxml);
             childRoot.Add(new XElement("child", id, motherId, name, dateBirth, specialNeeds, whatHeNeed, idcontract));
+            Mother mom = GetMother(child.MotherId);
+            mom.ListIdChild.Add(child.Id);
+            UpdateMother(mom);
             childRoot.Save(childPath);
         }
         public void RemoveChild(string id)
@@ -335,6 +338,7 @@ namespace DAL
             chi.listIdContract.Add(contract.Contract_Num1);
             UpdateChild(chi);
             nan.ListIdContract.Add(contract.Contract_Num1);
+            UpdateNanny(nan);
             contractnumber++;
             Contract.ContractNum1 = contractnumber;
             listContract.Add(contract);
