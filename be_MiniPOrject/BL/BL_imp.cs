@@ -574,6 +574,62 @@ namespace BL
                                                select item;
             return ListToSend;
         }
+        /// <summary>
+        /// get all the contract that nanny have
+        /// </summary>
+        /// <param name="nan"></param>
+        /// <returns></returns>
+        public List<Contract> GetContractOfNanny(Nanny nan)
+        {
+
+            return (from item in nan.ListIdContract
+                    let contract = GetContract(item)
+                    select (contract)).ToList();
+        }
+        /// <summary>
+        /// get the most expert nannys
+        /// </summary>
+        /// <returns></returns>
+        public Nanny GetTheMostExpNannies()
+        {
+            Nanny toSend = getNannyList().First();
+            foreach (Nanny item in getNannyList())
+            {
+                if (item.Exp > toSend.Exp)
+                    toSend = item;
+            }
+            return toSend;
+        }
+        /// <summary>
+        /// get the most cheap nannyies according to hour
+        /// </summary>
+        /// <returns></returns>
+        public Nanny GetTheMostCheepH()
+        {
+            Nanny toSend = getNannyList().First();
+            foreach (Nanny item in getNannyList())
+            {
+                if (item.PayHour < toSend.PayHour)
+                    toSend = item;
+            }
+            return toSend;
+        }
+        /// <summary>
+        /// get the most cheap nannyies according to Month
+        /// </summary>
+        /// <returns></returns>
+        public Nanny GetTheMostCheepM()
+        {
+            Nanny toSend = getNannyList().First();
+            foreach (Nanny item in getNannyList())
+            {
+                if (item.PayMonth < toSend.PayMonth)
+                    toSend = item;
+            }
+            return toSend;
+        }
+
+
         #endregion
     }
 }
