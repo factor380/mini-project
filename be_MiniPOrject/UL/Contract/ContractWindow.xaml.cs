@@ -32,10 +32,7 @@ namespace UL
             this.ContractDetails.DataContext = contract;
             endDateDatePicker.SelectedDate = DateTime.Today;
             startDateDatePicker.SelectedDate = DateTime.Today;
-            //enter all the nannies id to comboBox
-            nannyIdComboBox.ItemsSource = bl.getNannyList();
-            nannyIdComboBox.SelectedValuePath = "Id";
-            nannyIdComboBox.DisplayMemberPath = "Data";
+         
             //enter all the child id to comboBox
             childIdComboBox.ItemsSource = bl.getChildList();
             childIdComboBox.SelectedValuePath = "Id";
@@ -67,6 +64,16 @@ namespace UL
             Child child = bl.GetChild(id);
             idTextBox.Text = child.MotherId;
             contract.MotherId = child.MotherId;
+            //enter all the nannies id to comboBox according to if they fit to mother
+            nannyIdComboBox.ItemsSource = bl.NanniesThatFitMom(bl.GetMother(child.MotherId));
+            if (bl.NanniesThatFitMom(bl.GetMother(child.MotherId)).Count == 0)
+            {
+                nannyIdComboBox.ItemsSource = bl.NanniesThatAlsoFitMom(bl.GetMother(child.MotherId));
+                if (bl.NanniesThatAlsoFitMom(bl.GetMother(child.MotherId)).Count == 0)
+                    nannyIdComboBox.ItemsSource = bl.getNannyList();
+            }
+            nannyIdComboBox.SelectedValuePath = "Id";
+            nannyIdComboBox.DisplayMemberPath = "Data";
         }
     }
 }

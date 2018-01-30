@@ -37,11 +37,11 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
-                <local1:PlaceAutoCompleteUC x:Name="address" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120"/>
+                <local1:PlaceAutoCompleteUC x:Name="address" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3,10,0,4" Grid.Row="0" VerticalAlignment="Center" Width="120"/>
                 <Label Content="Address Around:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
-                <local1:PlaceAutoCompleteUC x:Name="addressAround" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120"/>
+                <local1:PlaceAutoCompleteUC x:Name="addressAround" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3,11,0,3" Grid.Row="1" VerticalAlignment="Center" Width="120"/>
                 <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
-                <ComboBox x:Name="idComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" SelectedValue="{Binding Id, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" SelectionChanged="idCombobox_SelectionChanged"/>
+                <ComboBox x:Name="idComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="3,10,0,0" Grid.Row="2" SelectedValue="{Binding Id, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" SelectionChanged="idCombobox_SelectionChanged"/>
                 <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"/>
                 <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
                 <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20"/>

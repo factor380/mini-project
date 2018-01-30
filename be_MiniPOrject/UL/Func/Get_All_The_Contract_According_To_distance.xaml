@@ -12,7 +12,7 @@
             <RowDefinition Height="218*"/>
         </Grid.RowDefinitions>
         <Label Content="arranged" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Width="76"/>
-        <ComboBox x:Name="arranged" HorizontalAlignment="Left" Margin="98,6,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="arranged" HorizontalAlignment="Left" Margin="98,6,0,0" VerticalAlignment="Top" Width="120" Height="35">
             <ComboBoxItem Content="yes"/>
             <ComboBoxItem Content="no"/>
         </ComboBox>

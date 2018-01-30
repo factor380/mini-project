@@ -37,7 +37,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Id of mother to remove:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,-0.333" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Height="40"/>
-            <ComboBox x:Name="idComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" SelectedValue="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
+            <ComboBox x:Name="idComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="3,10,0,0" SelectedValue="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120"/>
         </Grid>
     </Grid>
 </Window>
