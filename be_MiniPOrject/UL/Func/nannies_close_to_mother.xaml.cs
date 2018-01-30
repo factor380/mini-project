@@ -23,13 +23,13 @@ namespace UL
     public partial class nannies_close_to_mother : Window
     {
         IBL bl;
-        int dis = 0;
+        int dis = 0;//i need that to the caculecting
         public nannies_close_to_mother()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-
-            idMother.ItemsSource = bl.getMotherList();//enter the id
+            //enter mother to combobox
+            idMother.ItemsSource = bl.getMotherList();
             idMother.SelectedValuePath = "Id";
             idMother.DisplayMemberPath = "Data";
         }
@@ -62,11 +62,12 @@ namespace UL
 
 
         }
+        //print thing in action
         public void print1(string str)
         {
             text.Text += str;   
         }
-
+        //print if thare no nanies
         public void print2()
         {
             if (text.Text == "")

@@ -62,11 +62,12 @@ namespace UL
 
 
         }
+        //print sonething with action
         public void print1(string printToText)
         {
                 text.Text +=printToText;
         }
-
+        //print that we dont have contract
         public void print2()
         {
             if (text.Text == "")

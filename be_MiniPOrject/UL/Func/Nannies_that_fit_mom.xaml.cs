@@ -27,7 +27,7 @@ namespace UL
             IBL bl;
 
             bl = FactoryBL.GetBL();
-
+            //enter mother do the combo box
             idMother.ItemsSource = bl.getMotherList();
             idMother.SelectedValuePath = "Id";
             idMother.DisplayMemberPath = "Data";

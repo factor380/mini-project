@@ -29,7 +29,7 @@ namespace UL
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)
+            switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)//if you need to enter number
             {
                 case "pay in hour":
                     numHiden.Visibility = Visibility.Visible;
@@ -55,7 +55,7 @@ namespace UL
             List<Contract> listC = new List<Contract>();
             int num;
             int print = 0;
-            if (int.TryParse(numHiden.Text, out num) || numHiden.Visibility == Visibility.Hidden)
+            if (int.TryParse(numHiden.Text, out num) || numHiden.Visibility == Visibility.Hidden)//check what to print 
             {
                 switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)
                 {

@@ -30,7 +30,7 @@ namespace UL
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)
+            switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)//if we need to enter number 
             {
                 case "pay in hour":
                     numHiden.Visibility = Visibility.Visible;
@@ -55,7 +55,7 @@ namespace UL
             int num;
             if (int.TryParse(numHiden.Text, out num)|| numHiden.Visibility == Visibility.Hidden)
             {
-                switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)
+                switch ((string)((ComboBoxItem)(selectionCondition.SelectedItem)).Content)//check with parameter
                 {
                     case "met":
                         listC = bl.GetAllContractThatFulfillingTheCondition(item => item.Met == true);

@@ -33,7 +33,7 @@ namespace UL
             IBL bl;
             bl = FactoryBL.GetBL();
             IEnumerable<IGrouping<int, Nanny>> printg;
-            if ((string)((ComboBoxItem)(age.SelectedItem)).Content == "MAX")
+            if ((string)((ComboBoxItem)(age.SelectedItem)).Content == "MAX")//check what the parameter
             {
                 if ((string)((ComboBoxItem)(age.SelectedItem)).Content == "yes")
                     printg = bl.GetAllNannysAccordingToAgeChild(true, true);
