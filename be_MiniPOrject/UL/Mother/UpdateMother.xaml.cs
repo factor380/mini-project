@@ -28,6 +28,7 @@ namespace UL
             InitializeComponent();
             bl = FactoryBL.GetBL();
             mother = new Mother();
+            //enter all the mother id to comboBox
             idComboBox.ItemsSource = bl.getMotherList();
             idComboBox.SelectedValuePath = "Id";
             idComboBox.DisplayMemberPath = "Data";
@@ -41,6 +42,7 @@ namespace UL
             }
             address.Text = mother.Address;
             addressAround.Text = mother.AddressAround;
+            //the arrey of when she work in week
             checkSun.IsChecked = mother.DayInWeek[0];
             checkMon.IsChecked = mother.DayInWeek[1];
             checkTue.IsChecked = mother.DayInWeek[2];
@@ -85,6 +87,7 @@ namespace UL
             {
                 mother.Address = address.Text;
                 mother.AddressAround = addressAround.Text;
+                //the arrey of than she work
                 mother.DayInWeek[0] = checkSun.IsChecked.Value;
                 mother.DayInWeek[1] = checkMon.IsChecked.Value;
                 mother.DayInWeek[2] = checkTue.IsChecked.Value;

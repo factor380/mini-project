@@ -26,6 +26,7 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
+            //enter all the nannies id to comboBox
             idComboBox.ItemsSource = bl.getNannyList();
             idComboBox.SelectedValuePath = "Id";
             idComboBox.DisplayMemberPath = "Data";

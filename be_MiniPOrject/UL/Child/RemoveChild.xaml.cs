@@ -26,7 +26,7 @@ public partial class RemoveChild : Window
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
-
+            //enter all the children id to the comboBox
             idComboBox.ItemsSource = bl.getChildList();
             idComboBox.SelectedValuePath = "Id";
             idComboBox.DisplayMemberPath = "Data";

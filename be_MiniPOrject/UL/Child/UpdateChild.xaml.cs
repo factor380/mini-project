@@ -27,6 +27,7 @@ namespace UL
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
+            //enter all children id to comboBox
             idComboBox.ItemsSource = bl.getChildList();
             idComboBox.SelectedValuePath = "Id";
             idComboBox.DisplayMemberPath = "Data";

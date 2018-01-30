@@ -28,14 +28,15 @@ namespace UL
             InitializeComponent();
             bl = FactoryBL.GetBL();
             contract = new Contract();
+            //enter all the contract number to comboBox
             this.ContractDetails.DataContext = contract;
             endDateDatePicker.SelectedDate = DateTime.Today;
             startDateDatePicker.SelectedDate = DateTime.Today;
-
+            //enter all the nannies id to comboBox
             nannyIdComboBox.ItemsSource = bl.getNannyList();
             nannyIdComboBox.SelectedValuePath = "Id";
             nannyIdComboBox.DisplayMemberPath = "Data";
-
+            //enter all the child id to comboBox
             childIdComboBox.ItemsSource = bl.getChildList();
             childIdComboBox.SelectedValuePath = "Id";
             childIdComboBox.DisplayMemberPath = "Data";

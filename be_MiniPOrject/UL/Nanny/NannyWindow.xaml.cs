@@ -38,6 +38,7 @@ public partial class AddNunnyWindow : Window
             try
             {
                 nanny.Address = address.Text;
+                //the arrey when she work
                 nanny.DayInWeek[0] = checkSun.IsChecked.Value;
                 nanny.DayInWeek[1] = checkMon.IsChecked.Value;
                 nanny.DayInWeek[2] = checkTue.IsChecked.Value;

@@ -1,30 +1,8 @@
 <?xml version="1.0"?>
 <ArrayOfNanny xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Nanny>
-    <ListIdContract />
-    <WorkHoursxml>6,2,09:00:00,16:00:00,08:30:00,17:00:00,09:00:00,18:00:00,09:30:00,18:00:00,09:00:00,18:00:00,08:00:00,12:00:00</WorkHoursxml>
-    <DayInWeekxml>6,False,False,True,True,False,True</DayInWeekxml>
-    <Id>211739859</Id>
-    <LastName>schneider</LastName>
-    <Name>Moria</Name>
-    <DateBirth>1980-05-19T00:00:00</DateBirth>
-    <PhoneNum>0523433333</PhoneNum>
-    <Address>Shakhal St 15, Jerusalem</Address>
-    <Elevator>true</Elevator>
-    <FloorInBulding>2</FloorInBulding>
-    <Exp>3</Exp>
-    <MaxChildren>14</MaxChildren>
-    <MinAgeMonth>3</MinAgeMonth>
-    <MaxAgeMonth>8</MaxAgeMonth>
-    <PerHour>true</PerHour>
-    <PayHour>10</PayHour>
-    <PayMonth>800</PayMonth>
-    <DaysOOf>false</DaysOOf>
-    <Recommendations />
-    <ListIdContractxml>0</ListIdContractxml>
-  </Nanny>
-  <Nanny>
     <ListIdContract>
+      <int>1</int>
       <int>1</int>
     </ListIdContract>
     <WorkHoursxml>6,2,09:00:00,16:00:00,08:30:00,17:00:00,09:00:00,18:00:00,09:30:00,18:00:00,09:00:00,18:00:00,08:00:00,12:00:00</WorkHoursxml>
@@ -41,6 +19,31 @@
     <MaxChildren>8</MaxChildren>
     <MinAgeMonth>3</MinAgeMonth>
     <MaxAgeMonth>14</MaxAgeMonth>
+    <PerHour>true</PerHour>
+    <PayHour>10</PayHour>
+    <PayMonth>800</PayMonth>
+    <DaysOOf>false</DaysOOf>
+    <Recommendations />
+    <ListIdContractxml>2,1,1</ListIdContractxml>
+  </Nanny>
+  <Nanny>
+    <ListIdContract>
+      <int>1</int>
+    </ListIdContract>
+    <WorkHoursxml>6,2,09:00:00,16:00:00,08:30:00,17:00:00,09:00:00,18:00:00,09:30:00,18:00:00,09:00:00,18:00:00,08:00:00,12:00:00</WorkHoursxml>
+    <DayInWeekxml>6,False,False,True,True,False,True</DayInWeekxml>
+    <Id>211739859</Id>
+    <LastName>schneider</LastName>
+    <Name>Moria</Name>
+    <DateBirth>1980-05-19T00:00:00</DateBirth>
+    <PhoneNum>0523433333</PhoneNum>
+    <Address>Shakhal St 15, Jerusalem</Address>
+    <Elevator>true</Elevator>
+    <FloorInBulding>2</FloorInBulding>
+    <Exp>3</Exp>
+    <MaxChildren>14</MaxChildren>
+    <MinAgeMonth>3</MinAgeMonth>
+    <MaxAgeMonth>8</MaxAgeMonth>
     <PerHour>true</PerHour>
     <PayHour>10</PayHour>
     <PayMonth>800</PayMonth>
