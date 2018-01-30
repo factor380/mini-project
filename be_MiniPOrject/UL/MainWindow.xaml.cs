@@ -25,7 +25,7 @@ namespace UL
     {
         public MainWindow()
         {
-            InitializeComponent();
+             InitializeComponent();
             //Init init = new Init();
         }
 
