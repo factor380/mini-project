@@ -197,3 +197,8 @@ C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Contract\print_all_contrac
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Mother\print_all_mother.baml
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\Nanny\print_all_nanny.baml
 C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\UserControl\PlaceAutoCompleteUC.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\obj\Debug\App.baml
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\bin\Debug\MaterialDesignColors.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\factor\Desktop\m\be_MiniPOrject\UL\bin\Debug\MaterialDesignThemes.Wpf.xml

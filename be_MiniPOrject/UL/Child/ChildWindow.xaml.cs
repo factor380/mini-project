@@ -30,7 +30,7 @@ namespace UL
             child = new Child();
             this.ChildDetails.DataContext = child;
             dateBirthDatePicker.SelectedDate = DateTime.Today;
-
+            //enter mother id to comboBox
             motherIdComboBox.ItemsSource = bl.getMotherList();
             motherIdComboBox.SelectedValuePath = "Id";
             motherIdComboBox.DisplayMemberPath = "Data";

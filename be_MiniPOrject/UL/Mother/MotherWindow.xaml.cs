@@ -38,6 +38,7 @@ namespace UL
             {
                 mother.Address = address.Text;
                 mother.AddressAround = addressAround.Text;
+                //the arrey when she work
                 mother.DayInWeek[0] = checkSun.IsChecked.Value;
                 mother.DayInWeek[1] = checkMon.IsChecked.Value;
                 mother.DayInWeek[2] = checkTue.IsChecked.Value;

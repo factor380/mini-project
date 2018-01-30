@@ -30,6 +30,7 @@ namespace UL
             InitializeComponent();
             bl = FactoryBL.GetBL();
             nanny = new Nanny();
+            //enter all the nannies id to comboBox
             idComboBox.ItemsSource = bl.getNannyList();
             idComboBox.SelectedValuePath = "Id";
             idComboBox.DisplayMemberPath = "Data";
@@ -42,6 +43,7 @@ namespace UL
                 Update.DataContext = nanny;
             }
             address.Text = nanny.Address;
+            //the arrey when she work
             checkSun.IsChecked = nanny.DayInWeek[0];
             checkMon.IsChecked = nanny.DayInWeek[1];
             checkTue.IsChecked = nanny.DayInWeek[2];
@@ -85,6 +87,7 @@ namespace UL
             try
             {
                  nanny.Address=address.Text ;
+                //the check when she work
                 nanny.DayInWeek[0] = checkSun.IsChecked.Value;
                 nanny.DayInWeek[1] = checkMon.IsChecked.Value;
                 nanny.DayInWeek[2] = checkTue.IsChecked.Value;

@@ -28,6 +28,7 @@ namespace UL
             InitializeComponent();
             bl = FactoryBL.GetBL();
             contract = new Contract();
+            //enter number of contracts to comboBox
             contract_Num1ComboBox.ItemsSource = bl.getContractList();
             contract_Num1ComboBox.SelectedValuePath = "Contract_Num1";
             contract_Num1ComboBox.DisplayMemberPath = "Data";
