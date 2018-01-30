@@ -257,6 +257,38 @@ namespace BE
         /// property to the remarks
         /// </summary>
         public string Remarks { get => remarks; set => remarks = value; }
+        /// <summary>
+        /// property to prevent the listIdContract on the xml file
+        /// </summary>
+        public string ListIdContractxml
+        {
+            get
+            {
+                if (ListIdChild == null)
+                    return null;
+                string result = "";
+                if (ListIdChild != null)
+                {
+                    int sizeA = ListIdChild.Count();
+                    result += "" + sizeA;
+                    for (int i = 0; i < sizeA; i++)
+                        result += "," + ListIdChild[i];
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    int sizeA = int.Parse(values[0]);
+                    ListIdChild = new List<string>(sizeA);
+                    int index = 1;
+                    for (int i = 0; i < sizeA; i++)
+                        ListIdChild.Add((values[index++]));
+                }
+            }
+        }
         #endregion
         #region to string and static func
         /// <summary>

@@ -21,6 +21,7 @@
     <PayMonth>800</PayMonth>
     <DaysOOf>false</DaysOOf>
     <Recommendations />
+    <ListIdContractxml>0</ListIdContractxml>
   </Nanny>
   <Nanny>
     <ListIdContract>
@@ -45,5 +46,6 @@
     <PayMonth>800</PayMonth>
     <DaysOOf>false</DaysOOf>
     <Recommendations />
+    <ListIdContractxml>1,1</ListIdContractxml>
   </Nanny>
 </ArrayOfNanny>

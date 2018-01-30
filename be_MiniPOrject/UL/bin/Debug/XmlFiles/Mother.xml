@@ -14,6 +14,7 @@
     <Address>Ha-'va'ad haleumi St 21,Jerusalem</Address>
     <AddressAround>Shakhal St 23,Jerusalem</AddressAround>
     <Remarks />
+    <ListIdContractxml>2,215790254,212378251</ListIdContractxml>
   </Mother>
   <Mother>
     <ListIdChild>
@@ -29,5 +30,6 @@
     <Address>HaRav Herzog St 12, Jerusalem</Address>
     <AddressAround>Shakhal St 23,Jerusalem</AddressAround>
     <Remarks />
+    <ListIdContractxml>2,215718255,211378252</ListIdContractxml>
   </Mother>
 </ArrayOfMother>

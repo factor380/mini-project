@@ -389,6 +389,38 @@ namespace BE
         /// </summary>
         [XmlIgnore]
         public TimeSpan HowMuchHourNanWork1 { get => HowMuchHourNanWork; set => HowMuchHourNanWork = value; }
+        /// <summary>
+        /// property to prevent the listIdContract on the xml file
+        /// </summary>
+        public string ListIdContractxml
+        {
+            get
+            {
+                if (ListIdContract == null)
+                    return null;
+                string result = "";
+                if (ListIdContract != null)
+                {
+                    int sizeA = ListIdContract.Count();
+                    result += "" + sizeA;
+                    for (int i = 0; i < sizeA; i++)
+                        result += "," + ListIdContract[i].ToString();
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    int sizeA = int.Parse(values[0]);
+                    ListIdContract = new List<int>(sizeA);
+                    int index = 1;
+                    for (int i = 0; i < sizeA; i++)
+                        ListIdContract.Add(int.Parse(values[index++]));
+                }
+            }
+        }
         #endregion
         #region tostring and sastic func
         /// <summary>
