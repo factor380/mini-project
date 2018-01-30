@@ -18,7 +18,7 @@
             <RowDefinition Height="227*"/>
         </Grid.RowDefinitions>
         <Label Content="Id:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" Grid.Column="0"  Height="24" Grid.Row="1"/>
-        <ComboBox x:Name="idMother" HorizontalAlignment="Left" Margin="2,4,0,0" Grid.Row="1" VerticalAlignment="Center" Width="120" Grid.Column="1" Height="20"/>
+        <ComboBox x:Name="idMother" HorizontalAlignment="Left" Margin="2,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="120" Grid.Column="1" Height="24"/>
         <Button Content="find  " Grid.Column="2"  HorizontalAlignment="Center" Margin="10,0,41,0" Grid.Row="1" VerticalAlignment="Bottom" Width="50" Height="20" Click="Button_Click">
             <Button.Style>
                 <Style>

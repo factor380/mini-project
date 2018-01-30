@@ -47,7 +47,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontSize="12"/>
-                <local1:PlaceAutoCompleteUC x:Name="address" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120"/>
+                <local1:PlaceAutoCompleteUC x:Name="address" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="3,4,0,0" Grid.Row="5" VerticalAlignment="Center" Width="120"/>
                 <Label Content="you on the Tamat?:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="12"/>
                 <CheckBox x:Name="daysOOfCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding DaysOOf, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
                 <Label Content="you have Elevator?:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="12"/>
@@ -57,7 +57,7 @@
                 <Label Content="Floor In Bulding:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="12"/>
                 <TextBox x:Name="floorInBuldingTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding FloorInBulding, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
                 <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="12"/>
-                <ComboBox x:Name="idComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" SelectedValue="{Binding Id, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" SelectionChanged="idComboBox_SelectionChanged"/>
+                <ComboBox x:Name="idComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3,4,0,3" Grid.Row="0" SelectedValue="{Binding Id, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="120" SelectionChanged="idComboBox_SelectionChanged"/>
                 <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" FontSize="12"/>
                 <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
                 <Label Content="Max Age Month:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center" FontSize="12"/>
